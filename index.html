@@ -19,8 +19,23 @@
     body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
     
     header { display: flex; justify-content: space-between; align-items: center; padding: 24px 8%; border-bottom: 1px solid var(--surface-border); }
+    
+    /* Ivolga Flight Animation */
+    @keyframes hoverFlight {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .ivolga-bird {
+      animation: hoverFlight 3.5s ease-in-out infinite;
+      margin-right: 12px;
+      filter: drop-shadow(0px 3px 5px rgba(255, 179, 0, 0.3)); /* Subtle gold glow */
+    }
+
+    .brand-container { display: flex; align-items: center; }
     .brand { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--text-main); }
     .brand span { color: var(--primary); }
+    
     .nav-btn { background: var(--primary); color: #000; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; transition: background 0.2s; }
     .nav-btn:hover { background: var(--primary-hover); }
 
@@ -44,13 +59,13 @@
 </head>
 <body>
 
- <header>
-    <div class="brand" style="display: flex; align-items: center;">
-      <!-- Geometric Ivolga Bird Logo -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="var(--primary)" style="margin-right: 12px;">
-        <path d="M21 3L3 10.53L9.56 12.5L12 19L15 13.5L21 3Z" />
+  <header>
+    <div class="brand-container">
+      <!-- Animated Geometric Ivolga Vector -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="38" height="38" class="ivolga-bird" fill="var(--primary)">
+        <path d="M21.92,6.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,6.5L16.29,11.2a2.46,2.46,0,0,0-1.07-.36L10.35,9.45a3.52,3.52,0,0,0-1.78-.4,3.56,3.56,0,0,0-2.31.86L2.68,13.49A1,1,0,0,0,3.32,15.2l4.87-1.39a1.5,1.5,0,0,1,1.15.17l3.78,2.27a4.5,4.5,0,0,0,2.3.63,4.56,4.56,0,0,0,2.3-.63l4.52-2.71A1,1,0,0,0,21.92,6.62Z"/>
       </svg>
-      <div>IVOLGA <span>CO.</span></div>
+      <div class="brand">IVOLGA <span>CO.</span></div>
     </div>
     <a href="https://app.ivolgaco.com" class="nav-btn">Launch App</a>
   </header>
