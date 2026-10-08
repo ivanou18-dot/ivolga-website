@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Preconnect to ToolPath Studio to speed up app transition -->
+  <link rel="preconnect" href="https://app.ivolgaco.com">
+  <link rel="dns-prefetch" href="https://app.ivolgaco.com">
   <!-- SEO Title optimized for Machine-Ready Image to Vector, 3D STL & DXF CAD -->
   <title>Ivolga Co. | Machine-Ready Image to Vector, 3D STL &amp; DXF CAD Generator</title>
   <!-- SEO Meta Description emphasizing ready-to-use files with no CAD editing required -->
@@ -219,5 +222,11 @@
     <p>&copy; 2026 Ivolga Co. All rights reserved. | Folsom, California</p>
   </footer>
 
+  <!-- Silent background wake-up ping so ToolPath Studio starts booting while user reads homepage -->
+  <script>
+    window.addEventListener('load', function() {
+      fetch('https://app.ivolgaco.com/', { mode: 'no-cors' }).catch(function() {});
+    });
+  </script>
 </body>
 </html>
