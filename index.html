@@ -38,7 +38,12 @@
     .brand { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--text-main); }
     .brand span { color: var(--primary); }
     
-    .nav-btn { background: var(--primary); color: #000; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; transition: background 0.2s; }
+    /* Header Navigation Button (Distinct dark style) */
+    .nav-btn-header { background: var(--surface); color: var(--text-main); border: 1px solid var(--surface-border); text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
+    .nav-btn-header:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Primary Action Button (Gold) */
+    .nav-btn { background: var(--primary); color: #000; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; transition: background 0.2s; display: inline-block; text-align: center; }
     .nav-btn:hover { background: var(--primary-hover); }
 
     .hero { text-align: center; padding: 70px 8% 50px; max-width: 1000px; margin: 0 auto; }
@@ -69,7 +74,7 @@
       margin-right: 5px;
     }
 
-    .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
     .btn-secondary { background: var(--surface); color: var(--text-main); border: 1px solid var(--surface-border); text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
     .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
 
@@ -117,12 +122,12 @@
       </svg>
       <div class="brand">IVOLGA <span>CO.</span></div>
     </div>
-    <a href="https://app.ivolgaco.com" class="nav-btn">Access ToolPath Studio</a>
+    <!-- Renamed header button with distinct secondary style -->
+    <a href="https://app.ivolgaco.com" class="nav-btn-header">ToolPath Studio</a>
   </header>
 
   <section class="hero">
     <div class="badge">Ready-to-Use 3D STL, DXF &amp; Vector Studio</div>
-    <!-- H1 Header with exact Image to Vector phrasing for Craftsmen -->
     <h1>Engineered Image to Vector &amp; Text CAD. <span>For Craftsmen &amp; Custom Workshops.</span></h1>
     <p><strong>Skip the CAD software and manual cleanup.</strong> Unlike standard file converters that leave you with raw traces to fix in Illustrator or Fusion 360, ToolPath Studio generates <strong>100% machine-ready files</strong>—scaled to exact millimeters, mirrored for stamps, noise-filtered, and extruded into solid 3D STL meshes, layered AutoCAD DXFs, and single-line SVGs ready to send straight to your 3D slicer, CNC, die maker, or plotter.</p>
     
@@ -136,8 +141,13 @@
       <div class="trade-pill"><span>●</span>Microfluidics, Stencils &amp; Vinyl Plotters (.DXF / .SVG)</div>
     </div>
 
+    <!-- Duplicate Gold CTA Button at the bottom of the introduction -->
+    <div style="margin-bottom: 25px;">
+      <a href="https://app.ivolgaco.com" class="nav-btn">Launch ToolPath Studio App 🚀</a>
+    </div>
+
     <div class="hero-actions">
-      <a href="#software" class="nav-btn">Get ToolPath Access</a>
+      <a href="#software" class="btn-secondary">View Pricing &amp; Passes</a>
       <a href="#physical-goods" class="btn-secondary">Explore Luthier &amp; Leather Craft</a>
     </div>
   </section>
@@ -154,7 +164,6 @@
         <li>3D printing presets for SLA/FDM stamps &amp; ceramic touchmarks</li>
         <li>2D CAD vectors for clicker dies, brass CNC, laser rubber &amp; plotters</li>
       </ul>
-      <!-- Verified Clipboard Stripe Payment Link for $8 Craftsman Pass -->
       <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" class="btn-secondary" style="display: block; text-align: center;">Buy Craftsman Pass</a>
     </div>
 
@@ -168,7 +177,6 @@
         <li>Layered AutoCAD DXFs for steel rule clicker dies &amp; brass CNC</li>
         <li>Noise-filtered plotter SVGs + stable monthly access key</li>
       </ul>
-      <!-- Live Stripe Payment Link for $25/Month Studio Monthly -->
       <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" class="nav-btn" style="display: block; text-align: center;">Subscribe Now</a>
     </div>
   </section>
