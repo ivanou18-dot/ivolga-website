@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- SEO Title optimized for specific search intent -->
-  <title>Ivolga Co. | Precision ToolPath Studio & Custom Luthier Accessories</title>
-  <!-- SEO Meta Description loaded with niche keywords -->
-  <meta name="description" content="Generate production-ready SVGs for vinyl plotters and clicker dies. Artisan manufacturer of Yamaha FG series pickguards, brown rubber guitar strap locks, and guitar nitrocellulose lacquer safe leather naturally tanned accessories.">
+  <!-- SEO Title optimized for craftsmen, 3D printing, CAD, and luthier craft -->
+  <title>Ivolga Co. | Engineered Vectors & 3D CAD for Craftsmen & Luthiers</title>
+  <!-- SEO Meta Description with 3D printing first and plotters last -->
+  <meta name="description" content="Generate production-ready 3D printable STLs, AutoCAD DXFs, and SVGs from any image or text for SLA/FDM 3D printing, leather clicker dies, ceramic touchmarks, culinary brass CNC, laser rubber stamps, microfluidics, and vinyl plotters. Artisan manufacturer of finish-matched Yamaha FG series and Martin D series pickguards, strap locks, and leather guitar accessories.">
   <style>
     :root {
       --primary: #FFB300;
@@ -41,15 +41,51 @@
     .nav-btn { background: var(--primary); color: #000; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; transition: background 0.2s; }
     .nav-btn:hover { background: var(--primary-hover); }
 
-    .hero { text-align: center; padding: 80px 8% 60px; max-width: 950px; margin: 0 auto; }
-    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+    .hero { text-align: center; padding: 70px 8% 50px; max-width: 1000px; margin: 0 auto; }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
     .hero h1 span { color: var(--primary); }
-    .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 35px; }
-    .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-    .btn-secondary { background: var(--surface); color: var(--text-main); border: 1px solid var(--surface-border); text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; }
-    .btn-secondary:hover { border-color: var(--primary); }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 28px; }
+    
+    /* Trade Pills Container */
+    .trade-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+    .trade-pill {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .trade-pill span {
+      color: var(--primary);
+      margin-right: 5px;
+    }
 
-    .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; }
+    .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .btn-secondary { background: var(--surface); color: var(--text-main); border: 1px solid var(--surface-border); text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
+    .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+    .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; font-weight: 800; }
+    .coming-soon-sub {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(255, 179, 0, 0.12);
+      border: 1px solid rgba(255, 179, 0, 0.35);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
     
     /* Pricing Table for Software */
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0 8% 60px; max-width: 900px; margin: 0 auto; }
@@ -84,13 +120,24 @@
   </header>
 
   <section class="hero">
-    <div class="badge">Manufacturing & Studio Craft</div>
-    <!-- SEO Optimized H1 Header -->
-    <h1>Engineered Vectors for Plotters. <span>Artisan Fabrication.</span></h1>
-    <p>Bridging the gap between digital design and heavy mechanical manufacturing. Generate production-ready SVGs for Silhouette Cameo vinyl plotters, CAD files for steel rule clicker dies, and custom physical accessories.</p>
+    <div class="badge">Manufacturing &amp; Studio Craft</div>
+    <!-- Updated H1 Header for Craftsmen -->
+    <h1>Engineered Vectors from Image &amp; Text. <span>For Craftsmen &amp; Custom Workshops.</span></h1>
+    <p>Bridging the gap between digital design and physical fabrication. Instantly convert logos, photos, and custom typography into production-ready 3D STL meshes, 2D AutoCAD DXF toolpaths, and precision SVG cut files.</p>
+    
+    <!-- All Studio Trades Ordered: 3D Printing First -> Plotters Last -->
+    <div class="trade-pills">
+      <div class="trade-pill"><span>●</span>High-Res SLA &amp; FDM 3D Printing (.STL)</div>
+      <div class="trade-pill"><span>●</span>Leather Stamps &amp; Heavy Clicker Dies</div>
+      <div class="trade-pill"><span>●</span>Clay &amp; Ceramic Touchmarks</div>
+      <div class="trade-pill"><span>●</span>Ice &amp; Culinary Brass CNC Dies</div>
+      <div class="trade-pill"><span>●</span>Laser Rubber Stamps</div>
+      <div class="trade-pill"><span>●</span>Microfluidics, Stencils &amp; Vinyl Plotters (.DXF / .SVG)</div>
+    </div>
+
     <div class="hero-actions">
       <a href="#software" class="nav-btn">Get ToolPath Access</a>
-      <a href="#physical-goods" class="btn-secondary">Shop Luthier & Leather Goods</a>
+      <a href="#physical-goods" class="btn-secondary">Explore Luthier &amp; Leather Craft</a>
     </div>
   </section>
 
@@ -98,16 +145,16 @@
   <div id="software" class="section-title">ToolPath Studio Access</div>
   <section class="pricing-grid">
     <div class="price-card">
-      <h3>The Hobbyist Pass</h3>
+      <h3>The Craftsman Pass</h3>
       <div class="price">$8 <span>/ 24 Hours</span></div>
       <ul class="features">
-        <li>Unlimited 24-hour file generation</li>
-        <li>Clean SVGs for Silhouette/Vinyl plotters</li>
-        <li>One-piece outer lines & 50mm scale boxes</li>
-        <li>Ideal for one-off prototyping</li>
+        <li>Unlimited 24-hour 3D STL, DXF &amp; SVG generation</li>
+        <li>3D printing presets for SLA/FDM stamps &amp; ceramic touchmarks</li>
+        <li>2D CAD vectors for leather clicker dies, brass CNC &amp; laser rubber</li>
+        <li>Clean flat-cut SVGs for microfluidics, stencils &amp; vinyl plotters</li>
       </ul>
-      <!-- Live Stripe Payment Link for $8 Day Pass -->
-      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" class="btn-secondary" style="display: block; text-align: center;">Buy Day Pass</a>
+      <!-- Verified Clipboard Stripe Payment Link for $8 Craftsman Pass -->
+      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" class="btn-secondary" style="display: block; text-align: center;">Buy Craftsman Pass</a>
     </div>
 
     <div class="price-card" style="background: var(--surface);">
@@ -115,47 +162,47 @@
       <h3>Studio Monthly</h3>
       <div class="price">$25 <span>/ Month</span></div>
       <ul class="features">
-        <li>Uninterrupted 24/7 API access</li>
-        <li>AutoCAD DXF generation for steel rule dies</li>
-        <li>3D STL rendering for brass embossing stamps</li>
-        <li>Stable password (rotates monthly)</li>
+        <li>Uninterrupted 24/7 studio access for daily shop production</li>
+        <li>3D STL rendering for SLA/FDM printing, clay &amp; culinary brass CNC</li>
+        <li>AutoCAD DXF generation for heavy steel rule clicker dies</li>
+        <li>Precision plotter SVGs + stable monthly access key</li>
       </ul>
-      <!-- Replace with Stripe Payment Link when created -->
-      <a href="YOUR_STRIPE_LINK_HERE" class="nav-btn" style="display: block; text-align: center;">Subscribe Now</a>
+      <!-- Live Stripe Payment Link for $25/Month Studio Monthly -->
+      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" class="nav-btn" style="display: block; text-align: center;">Subscribe Now</a>
     </div>
   </section>
 
   <!-- Physical Goods Division -->
-  <div id="physical-goods" class="section-title">Physical Manufacturing</div>
+  <div id="physical-goods" class="section-title">
+    Artisan Luthier &amp; Studio Craft<br>
+    <span class="coming-soon-sub">✦ Coming Soon ✦</span>
+  </div>
   <section class="grid">
     <div class="card">
       <div>
-        <div class="badge">Luthier Components</div>
-        <h3>Heavy Rubber Strap Locks</h3>
-        <p>Industrial-grade acoustic and electric guitar security components. Die-cut on a mechanical clicker press, we manufacture custom dark brown rubber guitar strap locks and tortoise rubber guitar strap locks using 80A Shore polyurethane for non-slip, maximum load-bearing security.</p>
+        <div class="badge">Finish-Matched Hardware</div>
+        <h3>Guitar Finish-Matching Strap Locks</h3>
+        <p>Industrial-grade acoustic and electric guitar security components. We manufacture custom dark brown, sunburst, and tortoise guitar strap locks using 80A Shore polyurethane for non-slip, maximum load-bearing security and guitar finish safety.</p>
       </div>
-      <!-- Replace with Stripe Payment Link for physical items -->
-      <a href="YOUR_STRIPE_LINK_HERE" class="btn-secondary" style="text-align: center;">Purchase Strap Locks</a>
+      <a href="mailto:ivanou18@gmail.com?subject=Reserve%20Guitar%20Finish-Matching%20Strap%20Locks" class="btn-secondary" style="text-align: center;">Coming Soon — Reserve Yours</a>
     </div>
 
     <div class="card">
       <div>
         <div class="badge">Artisan Guitars</div>
         <h3>Custom Acoustic Pickguards</h3>
-        <p>Premium 0.46mm celluloid scratchplates engineered for the perfect Yamaha FG series pickguard upgrade and standard dreadnought replacements. Finished with multi-layer UV resin, gold leaf accents, and backed with heavy-duty 3M 467MP transfer adhesive.</p>
+        <p>Premium 0.6mm celluloid scratchplates engineered for Yamaha FG series and Martin D series pickguard upgrades and standard dreadnought replacements. Designed for seamless guitar finish and hardware matching, each guard is crafted with gold leaf accents, protected by a 5H anti-scratch top film, and backed with heavy-duty 3M 467MP transfer adhesive.</p>
       </div>
-      <!-- Replace with Stripe Payment Link for physical items -->
-      <a href="YOUR_STRIPE_LINK_HERE" class="btn-secondary" style="text-align: center;">Shop Pickguards</a>
+      <a href="mailto:ivanou18@gmail.com?subject=Reserve%20Custom%20Acoustic%20Pickguards" class="btn-secondary" style="text-align: center;">Coming Soon — Reserve Yours</a>
     </div>
 
     <div class="card">
       <div>
         <div class="badge">Workshop Accessories</div>
-        <h3>Leathercraft & Connections</h3>
+        <h3>Leathercraft &amp; Connections</h3>
         <p>Heavy-duty water buffalo leather goods and the essential brown leather guitar neck strap connector. We use guitar nitrocellulose lacquer safe leather naturally tanned to protect delicate vintage finishes. Each piece is die-cut and mechanically embossed using custom CNC-machined solid brass stamps.</p>
       </div>
-      <!-- Replace with Stripe Payment Link for physical items -->
-      <a href="YOUR_STRIPE_LINK_HERE" class="btn-secondary" style="text-align: center;">Shop Leather Goods</a>
+      <a href="mailto:ivanou18@gmail.com?subject=Reserve%20Custom%20Leathercraft%20Accessories" class="btn-secondary" style="text-align: center;">Coming Soon — Reserve Yours</a>
     </div>
   </section>
 
