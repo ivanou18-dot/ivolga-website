@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Preconnect to ToolPath Studio to speed up app transition -->
-  <link rel="preconnect" href="https://app.ivolgaco.com">
+  <!-- Preconnect & Browser Prerender Rules for Instant Studio Launch -->
+  <link rel="preconnect" href="https://app.ivolgaco.com" crossorigin>
   <link rel="dns-prefetch" href="https://app.ivolgaco.com">
+  <script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "source": "list",
+        "urls": ["https://app.ivolgaco.com/"]
+      }
+    ]
+  }
+  </script>
   <!-- SEO Title optimized for Machine-Ready Image to Vector, 3D STL & DXF CAD -->
   <title>Ivolga Co. | Machine-Ready Image to Vector, 3D STL &amp; DXF CAD Generator</title>
   <!-- SEO Meta Description emphasizing ready-to-use files with no CAD editing required -->
@@ -126,7 +136,7 @@
       <div class="brand">IVOLGA <span>CO.</span></div>
     </div>
     <!-- Renamed header button with distinct secondary style -->
-    <a href="https://app.ivolgaco.com" class="nav-btn-header">ToolPath Studio</a>
+    <a href="https://app.ivolgaco.com" class="nav-btn-header studio-launch-btn">ToolPath Studio</a>
   </header>
 
   <section class="hero">
@@ -146,7 +156,7 @@
 
     <!-- Duplicate Gold CTA Button at the bottom of the introduction -->
     <div style="margin-bottom: 25px;">
-      <a href="https://app.ivolgaco.com" class="nav-btn">Launch ToolPath Studio App 🚀</a>
+      <a href="https://app.ivolgaco.com" class="nav-btn studio-launch-btn">Launch ToolPath Studio App 🚀</a>
     </div>
 
     <div class="hero-actions">
@@ -222,10 +232,19 @@
     <p>&copy; 2026 Ivolga Co. All rights reserved. | Folsom, California</p>
   </footer>
 
-  <!-- Silent background wake-up ping so ToolPath Studio starts booting while user reads homepage -->
+  <!-- Immediate Wake-Up Ping & Instant Button Click Feedback -->
   <script>
-    window.addEventListener('load', function() {
-      fetch('https://app.ivolgaco.com/', { mode: 'no-cors' }).catch(function() {});
+    // Ping lightweight Streamlit health endpoint immediately as HTML parses
+    fetch('https://app.ivolgaco.com/_stcore/health', { mode: 'no-cors' }).catch(function() {});
+    fetch('https://app.ivolgaco.com/', { mode: 'no-cors' }).catch(function() {});
+
+    // Show immediate visual feedback when tapping ToolPath Studio buttons
+    document.querySelectorAll('.studio-launch-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btn.innerHTML = '⏳ Opening Studio...';
+        btn.style.background = '#FFB300';
+        btn.style.color = '#000000';
+      });
     });
   </script>
 </body>
