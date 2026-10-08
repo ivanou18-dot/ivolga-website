@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ivolga Co. | Precision Craft & ToolPath Studio</title>
-  <meta name="description" content="Handcrafted leather goods, artisan guitar accessories, and manufacturing toolpath generation software.">
+  <!-- SEO Title optimized for specific search intent -->
+  <title>Ivolga Co. | Precision ToolPath Studio & Custom Luthier Accessories</title>
+  <!-- SEO Meta Description loaded with niche keywords -->
+  <meta name="description" content="Generate production-ready SVGs for vinyl plotters and clicker dies. Artisan manufacturer of Yamaha FG series pickguards, brown rubber guitar strap locks, and guitar nitrocellulose lacquer safe leather naturally tanned accessories.">
   <style>
     :root {
       --primary: #FFB300;
@@ -29,7 +31,7 @@
     .ivolga-bird {
       animation: hoverFlight 3.5s ease-in-out infinite;
       margin-right: 12px;
-      filter: drop-shadow(0px 3px 5px rgba(255, 179, 0, 0.3)); /* Subtle gold glow */
+      filter: drop-shadow(0px 3px 5px rgba(255, 179, 0, 0.3));
     }
 
     .brand-container { display: flex; align-items: center; }
@@ -39,7 +41,7 @@
     .nav-btn { background: var(--primary); color: #000; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; transition: background 0.2s; }
     .nav-btn:hover { background: var(--primary-hover); }
 
-    .hero { text-align: center; padding: 80px 8% 60px; max-width: 900px; margin: 0 auto; }
+    .hero { text-align: center; padding: 80px 8% 60px; max-width: 950px; margin: 0 auto; }
     .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
     .hero h1 span { color: var(--primary); }
     .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 35px; }
@@ -48,9 +50,21 @@
     .btn-secondary:hover { border-color: var(--primary); }
 
     .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; }
+    
+    /* Pricing Table for Software */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0 8% 60px; max-width: 900px; margin: 0 auto; }
+    .price-card { background: var(--bg-dark); border: 1px solid var(--primary); border-radius: 10px; padding: 40px 30px; text-align: center; position: relative; }
+    .price-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+    .price { font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px; }
+    .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    .features { list-style: none; margin-bottom: 30px; color: var(--text-muted); text-align: left; }
+    .features li { margin-bottom: 10px; padding-left: 24px; position: relative; }
+    .features li::before { content: "✓"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
+    
+    /* Product Grid for Physical Goods */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; padding: 0 8% 80px; max-width: 1200px; margin: 0 auto; }
     .card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 10px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
-    .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary); }
+    .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); }
     .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
     .badge { display: inline-block; font-size: 0.75rem; text-transform: uppercase; background: #2A2A2A; color: var(--primary); padding: 4px 8px; border-radius: 4px; margin-bottom: 15px; font-weight: 700; width: fit-content; }
 
@@ -61,52 +75,87 @@
 
   <header>
     <div class="brand-container">
-      <!-- Animated Geometric Ivolga Vector -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="38" height="38" class="ivolga-bird" fill="var(--primary)">
         <path d="M21.92,6.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,6.5L16.29,11.2a2.46,2.46,0,0,0-1.07-.36L10.35,9.45a3.52,3.52,0,0,0-1.78-.4,3.56,3.56,0,0,0-2.31.86L2.68,13.49A1,1,0,0,0,3.32,15.2l4.87-1.39a1.5,1.5,0,0,1,1.15.17l3.78,2.27a4.5,4.5,0,0,0,2.3.63,4.56,4.56,0,0,0,2.3-.63l4.52-2.71A1,1,0,0,0,21.92,6.62Z"/>
       </svg>
       <div class="brand">IVOLGA <span>CO.</span></div>
     </div>
-    <a href="https://app.ivolgaco.com" class="nav-btn">Launch App</a>
+    <a href="https://app.ivolgaco.com" class="nav-btn">Access ToolPath Studio</a>
   </header>
 
   <section class="hero">
     <div class="badge">Manufacturing & Studio Craft</div>
-    <h1>Engineered Tools. <span>Artisan Fabrication.</span></h1>
-    <p>Bridging physical workshop craftsmanship with automated digital manufacturing tools for vinyl plotters, clicker dies, and custom guitar accessories.</p>
+    <!-- SEO Optimized H1 Header -->
+    <h1>Engineered Vectors for Plotters. <span>Artisan Fabrication.</span></h1>
+    <p>Bridging the gap between digital design and heavy mechanical manufacturing. Generate production-ready SVGs for Silhouette Cameo vinyl plotters, CAD files for steel rule clicker dies, and custom physical accessories.</p>
     <div class="hero-actions">
-      <a href="https://app.ivolgaco.com" class="nav-btn">Launch ToolPath Studio</a>
-      <a href="#divisions" class="btn-secondary">Explore Products</a>
+      <a href="#software" class="nav-btn">Get ToolPath Access</a>
+      <a href="#physical-goods" class="btn-secondary">Shop Luthier & Leather Goods</a>
     </div>
   </section>
 
-  <div id="divisions" class="section-title">Operations & Products</div>
+  <!-- Software Division / Pricing -->
+  <div id="software" class="section-title">ToolPath Studio Access</div>
+  <section class="pricing-grid">
+    <div class="price-card">
+      <h3>The Hobbyist Pass</h3>
+      <div class="price">$8 <span>/ 24 Hours</span></div>
+      <ul class="features">
+        <li>Unlimited 24-hour file generation</li>
+        <li>Clean SVGs for Silhouette/Vinyl plotters</li>
+        <li>One-piece outer lines & 50mm scale boxes</li>
+        <li>Ideal for one-off prototyping</li>
+      </ul>
+      <!-- Live Stripe Payment Link for $8 Day Pass -->
+      <a href="https://buy.stripe.com/00w00lcs0dWu36XcHvfjG00" class="btn-secondary" style="display: block; text-align: center;">Buy Day Pass</a>
+    </div>
+
+    <div class="price-card" style="background: var(--surface);">
+      <div class="badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #000;">Pro Manufacturer</div>
+      <h3>Studio Monthly</h3>
+      <div class="price">$25 <span>/ Month</span></div>
+      <ul class="features">
+        <li>Uninterrupted 24/7 API access</li>
+        <li>AutoCAD DXF generation for steel rule dies</li>
+        <li>3D STL rendering for brass embossing stamps</li>
+        <li>Stable password (rotates monthly)</li>
+      </ul>
+      <!-- Replace with Stripe Payment Link when created -->
+      <a href="YOUR_STRIPE_LINK_HERE" class="nav-btn" style="display: block; text-align: center;">Subscribe Now</a>
+    </div>
+  </section>
+
+  <!-- Physical Goods Division -->
+  <div id="physical-goods" class="section-title">Physical Manufacturing</div>
   <section class="grid">
     <div class="card">
       <div>
-        <div class="badge">Software</div>
-        <h3>ToolPath Studio</h3>
-        <p>In-browser vector and CAD generation engine. Converts images and typography directly into unified SVG cut paths, AutoCAD 2010 DXF layers, and 3D STL embossing dies.</p>
+        <div class="badge">Luthier Components</div>
+        <h3>Heavy Rubber Strap Locks</h3>
+        <p>Industrial-grade acoustic and electric guitar security components. Die-cut on a mechanical clicker press, we manufacture custom dark brown rubber guitar strap locks and tortoise rubber guitar strap locks using 80A Shore polyurethane for non-slip, maximum load-bearing security.</p>
       </div>
-      <a href="https://app.ivolgaco.com" class="nav-btn" style="text-align: center;">Open ToolPath Studio</a>
+      <!-- Replace with Stripe Payment Link for physical items -->
+      <a href="YOUR_STRIPE_LINK_HERE" class="btn-secondary" style="text-align: center;">Purchase Strap Locks</a>
     </div>
 
     <div class="card">
       <div>
-        <div class="badge">Workshop</div>
-        <h3>Custom Leathercraft</h3>
-        <p>Heavy-duty vegetable-tanned and water buffalo leather accessories. Die-cut via mechanical clicker press and embossed with custom solid-brass touchmark stamps.</p>
+        <div class="badge">Artisan Guitars</div>
+        <h3>Custom Acoustic Pickguards</h3>
+        <p>Premium 0.46mm celluloid scratchplates engineered for the perfect Yamaha FG series pickguard upgrade and standard dreadnought replacements. Finished with multi-layer UV resin, gold leaf accents, and backed with heavy-duty 3M 467MP transfer adhesive.</p>
       </div>
-      <a href="mailto:ivanou18@gmail.com?subject=Custom%20Leather%20Order" class="btn-secondary" style="text-align: center;">Inquire Custom Run</a>
+      <!-- Replace with Stripe Payment Link for physical items -->
+      <a href="YOUR_STRIPE_LINK_HERE" class="btn-secondary" style="text-align: center;">Shop Pickguards</a>
     </div>
 
     <div class="card">
       <div>
-        <div class="badge">Luthier Accessories</div>
-        <h3>Artisan Pickguards & Locks</h3>
-        <p>Custom-contoured acoustic pickguards with metallic leaf and resin finishes, paired with precision-stamped heavy rubber strap security locks.</p>
+        <div class="badge">Workshop Accessories</div>
+        <h3>Leathercraft & Connections</h3>
+        <p>Heavy-duty water buffalo leather goods and the essential brown leather guitar neck strap connector. We use guitar nitrocellulose lacquer safe leather naturally tanned to protect delicate vintage finishes. Each piece is die-cut and mechanically embossed using custom CNC-machined solid brass stamps.</p>
       </div>
-      <a href="mailto:ivanou18@gmail.com?subject=Guitar%20Accessories%20Inquiry" class="btn-secondary" style="text-align: center;">Request Catalog</a>
+      <!-- Replace with Stripe Payment Link for physical items -->
+      <a href="YOUR_STRIPE_LINK_HERE" class="btn-secondary" style="text-align: center;">Shop Leather Goods</a>
     </div>
   </section>
 
