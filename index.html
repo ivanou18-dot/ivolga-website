@@ -6,7 +6,17 @@
   <title>Ivolga Co. | ToolPath Studio & Artisan Digital Fabrication</title>
   <meta name="description" content="Generate machine-ready 3D printable STLs, AutoCAD DXFs, and plotter SVGs from any image or text. Calibrated for CNC brass dies, laser rubber stamps, clicker dies, and 3D printing." />
   <link rel="canonical" href="https://ivolgaco.com/" />
-  <link rel="icon" type="image/png" href="https://ivolgaco.com/ivolga-icon.png" />
+
+  <!-- Favicon: Inline Vector Golden Oriole Data URI (Loads Sharp on All Displays) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 400 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='y' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFE033'/%3E%3Cstop offset='35%25' stop-color='%23F6B800'/%3E%3Cstop offset='70%25' stop-color='%23EA9800'/%3E%3Cstop offset='100%25' stop-color='%23D97706'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0%25' y1='0%25' x2='80%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232D2A26'/%3E%3Cstop offset='100%25' stop-color='%230E0D0C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='200' cy='200' r='185' stroke='%23F6B800' stroke-width='8'/%3E%3Cpath d='M 235,250 C 265,275 292,305 315,302 C 324,296 322,286 302,268 C 280,250 252,242 235,250 Z' fill='url(%23b)'/%3E%3Cpath d='M 160,225 C 140,245 105,268 62,275 C 60,270 68,262 82,254 C 110,236 138,225 160,225 Z' fill='%231C1A18'/%3E%3Cpath d='M 148,218 C 135,232 118,244 100,250 C 115,242 135,230 152,216 C 165,205 185,212 188,222 Z' fill='url(%23y)'/%3E%3Cpath d='M 233,192 C 252,145 280,100 305,75 C 308,79 304,89 292,108 C 275,138 252,175 233,192 Z' fill='%2325221F'/%3E%3Cpath d='M 215,190 C 228,155 244,125 258,118 C 264,128 260,150 248,180 C 242,195 230,205 215,190 Z' fill='url(%23y)'/%3E%3Cpath d='M 125,192 C 134,182 152,180 174,185 C 192,188 215,188 232,198 C 252,210 262,230 265,245 C 255,255 240,258 226,252 C 205,244 190,238 175,232 C 158,228 142,218 132,204 Z' fill='url(%23y)'/%3E%3Cpath d='M 125,192 L 96,195 L 124,198 Z' fill='%238C7A70'/%3E%3Ccircle cx='140' cy='191' r='5' fill='%23000'/%3E%3Ccircle cx='139' cy='190' r='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+
+  <!-- OpenGraph / Social Sharing Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ivolga Co. | ToolPath Studio" />
+  <meta property="og:description" content="Instant image & text to machine-ready CAD, STL, DXF, and SVG toolpaths." />
+  <meta property="og:url" content="https://ivolgaco.com" />
+  <meta property="og:image" content="https://ivolgaco.com/ivolga-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Structured Data: Schema.org Entity Definition for Google Search & Knowledge Graph -->
   <script type="application/ld+json">
@@ -86,7 +96,7 @@
     header {
       border-bottom: 1px solid var(--card-border);
       background-color: #161616;
-      padding: 14px 24px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -95,19 +105,56 @@
       z-index: 100;
     }
 
-    .brand-logo {
+    .brand-logo-lockup {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
-      color: var(--text-main);
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: 0.5px;
+      transition: opacity 0.2s ease;
     }
 
-    .brand-logo span {
+    .brand-logo-lockup:hover {
+      opacity: 0.95;
+    }
+
+    .brand-emblem-svg {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      filter: drop-shadow(0 2px 8px rgba(255, 179, 0, 0.25));
+    }
+
+    .brand-logo-lockup:hover .brand-emblem-svg {
+      transform: scale(1.05);
+    }
+
+    .brand-typography {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 900;
+      font-size: 1.18rem;
+      letter-spacing: 0.12em;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
       color: var(--gold);
+    }
+
+    .brand-subtitle {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
     }
 
     .nav-actions {
@@ -121,7 +168,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 6px;
       font-size: 0.95rem;
       font-weight: 700;
@@ -133,11 +180,13 @@
       background-color: var(--gold);
       color: #000000;
       border: 1px solid #000000;
+      box-shadow: 0 2px 8px rgba(255, 179, 0, 0.3);
     }
 
     .nav-btn-primary:hover {
       background-color: var(--gold-hover);
       transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 179, 0, 0.45);
     }
 
     /* Container */
@@ -438,10 +487,56 @@
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Top Navigation with Pure Vector Golden Oriole Emblem Lockup -->
   <header>
-    <a href="https://ivolgaco.com" class="brand-logo">
-      🛠️ Ivolga <span>Co.</span>
+    <a href="https://ivolgaco.com" class="brand-logo-lockup" aria-label="Ivolga Co. Home">
+      <!-- Golden Oriole (Oriolus oriolus) Pure Vector Emblem -->
+      <svg class="brand-emblem-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ivolga Co. Emblem">
+        <defs>
+          <linearGradient id="ivolgaYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFE033"/>
+            <stop offset="35%" stop-color="#F6B800"/>
+            <stop offset="70%" stop-color="#EA9800"/>
+            <stop offset="100%" stop-color="#D97706"/>
+          </linearGradient>
+          <linearGradient id="ivolgaBlack" x1="0%" y1="0%" x2="80%" y2="100%">
+            <stop offset="0%" stop-color="#2D2A26"/>
+            <stop offset="100%" stop-color="#0E0D0C"/>
+          </linearGradient>
+          <linearGradient id="ringStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4B5563"/>
+            <stop offset="50%" stop-color="#FFB300"/>
+            <stop offset="100%" stop-color="#374151"/>
+          </linearGradient>
+        </defs>
+        <!-- Outer Ring -->
+        <circle cx="200" cy="200" r="185" stroke="url(#ringStroke)" stroke-width="6"/>
+        <!-- Tail Feathers -->
+        <path d="M 235,250 C 265,275 292,305 315,302 C 324,296 322,286 302,268 C 280,250 252,242 235,250 Z" fill="url(#ivolgaBlack)"/>
+        <path d="M 238,245 C 248,256 260,268 270,270 C 265,263 252,250 238,245 Z" fill="#F6B800"/>
+        <!-- Lower Wing -->
+        <path d="M 160,225 C 140,245 105,268 62,275 C 60,270 68,262 82,254 C 110,236 138,225 160,225 Z" fill="#1C1A18"/>
+        <path d="M 165,228 C 145,255 118,285 75,290 C 73,285 82,277 98,267 C 124,250 148,235 165,228 Z" fill="#24211E"/>
+        <path d="M 172,232 C 152,265 130,296 92,302 C 90,297 100,288 118,278 C 144,260 162,242 172,232 Z" fill="#181615"/>
+        <path d="M 148,218 C 135,232 118,244 100,250 C 115,242 135,230 152,216 C 165,205 185,212 188,222 Z" fill="url(#ivolgaYellow)"/>
+        <!-- Upper Wing -->
+        <path d="M 233,192 C 252,145 280,100 305,75 C 308,79 304,89 292,108 C 275,138 252,175 233,192 Z" fill="#25221F"/>
+        <path d="M 236,190 C 258,142 292,95 316,78 C 319,82 313,92 299,112 C 280,142 256,176 236,190 Z" fill="#1A1816"/>
+        <path d="M 239,188 C 265,142 304,96 324,85 C 326,90 320,100 304,120 C 284,148 260,178 239,188 Z" fill="#2C2925"/>
+        <path d="M 215,190 C 228,155 244,125 258,118 C 264,128 260,150 248,180 C 242,195 230,205 215,190 Z" fill="url(#ivolgaYellow)"/>
+        <!-- Body -->
+        <path d="M 125,192 C 134,182 152,180 174,185 C 192,188 215,188 232,198 C 252,210 262,230 265,245 C 255,255 240,258 226,252 C 205,244 190,238 175,232 C 158,228 142,218 132,204 Z" fill="url(#ivolgaYellow)"/>
+        <!-- Beak & Eye -->
+        <path d="M 125,192 L 96,195 L 124,198 Z" fill="#8C7A70"/>
+        <circle cx="140" cy="191" r="4.5" fill="#0C0A09"/>
+        <circle cx="138.8" cy="189.8" r="1.4" fill="#FFFFFF"/>
+        <!-- Claws -->
+        <path d="M 218,245 C 220,252 224,258 226,264 M 224,258 L 230,266" stroke="#A89F91" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-typography">
+        <span class="brand-title">IVOLGA <span>CO.</span></span>
+        <span class="brand-subtitle">ToolPath Studio</span>
+      </div>
     </a>
     <div class="nav-actions">
       <a href="https://app.ivolgaco.com" class="nav-btn nav-btn-primary">Launch App 🚀</a>
