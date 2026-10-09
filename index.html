@@ -1,174 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- SEO Title optimized for Image to CAD, 3D Printing, Stamps & Toolpaths -->
-  <title>Ivolga Co. | Image to CAD, 3D Printing STL, Rubber &amp; Brass Stamp Generator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivolga Co. | ToolPath Studio & Artisan Digital Fabrication</title>
+  <meta name="description" content="Generate machine-ready 3D printable STLs, AutoCAD DXFs, and plotter SVGs from any image or text. Calibrated for CNC brass dies, laser rubber stamps, clicker dies, and 3D printing." />
   <link rel="canonical" href="https://ivolgaco.com/" />
-  <!-- SEO Meta Description targeting exact phrase searches -->
-  <meta name="description" content="Instant image to CAD, image to 3D printing, text to CAD, image to rubber stamp, and image to brass stamp generator. Convert logos and artwork into 100% machine-ready 3D STL meshes, AutoCAD DXFs, and plotter SVGs. Built for 3D printing, leather clicker dies, CNC brass machining, ceramic touchmarks, and custom guitar accessories.">
-  <!-- Target SEO Keywords: All fabrication, CAD, stamp, and product queries -->
-  <meta name="keywords" content="image to CAD, image to 3D printing, text to CAD, text to 3D printing, image to STL, photo to 3D model, logo to 3D print, image to rubber stamp, text to rubber stamp, image to brass stamp, text to brass stamp, image to DXF, image to vector, clicker press die CAD, leather embossing stamp, steel rule die vector, ceramic touchmark CAD, pottery stamp 3D model, laser rubber stamp maker, vinyl plotter SVG, Silhouette Cameo cut file, custom acoustic pickguards, Yamaha FG pickguard, guitar strap locks">
+  <link rel="icon" type="image/png" href="https://ivolgaco.com/ivolga-icon.png" />
+
+  <!-- Structured Data: Schema.org Entity Definition for Google Search & Knowledge Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://ivolgaco.com/#software",
+        "name": "ToolPath Studio",
+        "url": "https://app.ivolgaco.com",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web Browser",
+        "description": "Instant image to CAD, text to CAD, 3D printing STL, and CNC brass/rubber stamp toolpath generator for craftsmen.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "24-Hour Craftsman Pass",
+            "price": "8.00",
+            "priceCurrency": "USD",
+            "url": "https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00"
+          },
+          {
+            "@type": "Offer",
+            "name": "Studio Monthly Subscription",
+            "price": "25.00",
+            "priceCurrency": "USD",
+            "url": "https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://ivolgaco.com/#organization",
+        "name": "Ivolga Co.",
+        "url": "https://ivolgaco.com",
+        "logo": "https://ivolgaco.com/ivolga-icon.png",
+        "description": "Digital fabrication software engineering and custom workshop craft.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Folsom",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root {
-      --primary: #FFB300;
-      --primary-hover: #E09D00;
       --bg-dark: #121212;
-      --surface: #1E1E1E;
-      --surface-border: #2D2D2D;
+      --card-bg: #1A1A1A;
+      --card-border: #2D2D2D;
+      --gold: #FFB300;
+      --gold-hover: #E09D00;
       --text-main: #FFFFFF;
       --text-muted: #A0A0A0;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
-    
-    header { display: flex; justify-content: space-between; align-items: center; padding: 24px 8%; border-bottom: 1px solid var(--surface-border); }
-    
-    /* Ivolga Flight Animation */
-    @keyframes hoverFlight {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-4px) rotate(2deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
-    }
-    .ivolga-bird {
-      animation: hoverFlight 3.5s ease-in-out infinite;
-      margin-right: 12px;
-      filter: drop-shadow(0px 3px 5px rgba(255, 179, 0, 0.3));
+      --text-body: #CCCCCC;
     }
 
-    .brand-container { display: flex; align-items: center; }
-    .brand { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--text-main); }
-    .brand span { color: var(--primary); }
-    
-    /* Header Navigation Button */
-    .nav-btn-header { background: var(--surface); color: var(--text-main); border: 1px solid var(--surface-border); text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
-    .nav-btn-header:hover { border-color: var(--primary); color: var(--primary); }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    /* Primary Action Button (Gold) */
-    .nav-btn { background: var(--primary); color: #000; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; transition: background 0.2s; display: inline-block; text-align: center; }
-    .nav-btn:hover { background: var(--primary-hover); }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
+      margin: 0;
+    }
 
-    .hero { text-align: center; padding: 70px 8% 50px; max-width: 1040px; margin: 0 auto; }
-    .hero h1 { font-size: 2.85rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-    .hero h1 span { color: var(--primary); }
-    .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 24px; }
-    .hero p strong { color: var(--text-main); font-weight: 700; }
-    
-    /* SEO Keyword Callout Strip */
-    .seo-keyword-strip {
+    /* Top Navigation Bar */
+    header {
+      border-bottom: 1px solid var(--card-border);
+      background-color: #161616;
+      padding: 14px 24px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-    .seo-pill {
-      background: rgba(255, 179, 0, 0.08);
-      border: 1px solid rgba(255, 179, 0, 0.3);
-      color: #FFF;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 4px;
-    }
-    .seo-pill strong {
-      color: var(--primary);
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    /* Trade Pills Container */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-logo span {
+      color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .nav-btn-primary {
+      background-color: var(--gold);
+      color: #000000;
+      border: 1px solid #000000;
+    }
+
+    .nav-btn-primary:hover {
+      background-color: var(--gold-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px 20px;
+      text-align: center;
+    }
+
+    /* Hero Section */
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(255, 179, 0, 0.12);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      color: var(--text-main);
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    /* 3-Step Instant Workflow Grid */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      max-width: 960px;
+      margin: 0 auto 35px auto;
+      text-align: left;
+    }
+
+    .workflow-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 20px 22px;
+      transition: border-color 0.2s;
+    }
+
+    .workflow-card:hover {
+      border-color: var(--gold);
+    }
+
+    .workflow-step {
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .workflow-title {
+      color: var(--text-main);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .workflow-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    /* Trade Presets Pills */
     .trade-pills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 35px;
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto 35px auto;
     }
+
     .trade-pill {
-      background: var(--surface);
-      border: 1px solid var(--surface-border);
-      color: var(--text-main);
-      font-size: 0.85rem;
+      background: #181818;
+      border: 1px solid #282828;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      color: var(--text-body);
       font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
+
     .trade-pill span {
-      color: var(--primary);
-      margin-right: 5px;
+      color: var(--gold);
+      font-size: 0.75rem;
     }
 
-    .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
-    .btn-secondary { background: var(--surface); color: var(--text-main); border: 1px solid var(--surface-border); text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; transition: border-color 0.2s, color 0.2s; }
-    .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+    /* Action Buttons CTA */
+    .cta-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
 
-    .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; font-weight: 800; }
-    .coming-soon-sub {
+    .btn-cta {
+      min-height: 52px;
+      min-width: 240px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn-primary {
+      background-color: var(--gold);
+      color: #000000;
+      border: 2px solid #000000;
+      box-shadow: 0 4px 14px rgba(255, 179, 0, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(255, 179, 0, 0.5);
+    }
+
+    .btn-secondary {
+      background-color: #1E1E1E;
+      color: var(--gold);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background-color: #262626;
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* Free Calibration Test File Callout Banner */
+    .verification-banner {
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .verification-pill {
       display: inline-block;
-      margin-top: 8px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--primary);
-      background: rgba(255, 179, 0, 0.12);
-      border: 1px solid rgba(255, 179, 0, 0.35);
-      padding: 4px 14px;
-      border-radius: 20px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      background: #1A1A1A;
+      border: 1px solid #333333;
+      padding: 12px 20px;
+      border-radius: 8px;
+      max-width: 840px;
+      line-height: 1.55;
+      text-align: center;
     }
-    
-    /* Pricing Table for Software */
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0 8% 60px; max-width: 900px; margin: 0 auto; }
-    .price-card { background: var(--bg-dark); border: 1px solid var(--primary); border-radius: 10px; padding: 40px 30px; text-align: center; position: relative; }
-    .price-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-    .price { font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px; }
-    .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
-    .features { list-style: none; margin-bottom: 30px; color: var(--text-muted); text-align: left; }
-    .features li { margin-bottom: 10px; padding-left: 24px; position: relative; }
-    .features li::before { content: "✓"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
-    
-    /* Product Grid for Physical Goods */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; padding: 0 8% 80px; max-width: 1200px; margin: 0 auto; }
-    .card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 10px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
-    .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); }
-    .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
-    .badge { display: inline-block; font-size: 0.75rem; text-transform: uppercase; background: #2A2A2A; color: var(--primary); padding: 4px 8px; border-radius: 4px; margin-bottom: 15px; font-weight: 700; width: fit-content; }
 
-    footer { text-align: center; padding: 40px 8%; border-top: 1px solid var(--surface-border); color: var(--text-muted); font-size: 0.9rem; }
+    .verification-pill strong.gold {
+      color: var(--gold);
+    }
+
+    .verification-pill strong.white {
+      color: var(--text-main);
+    }
+
+    /* Section Divider */
+    .divider {
+      border: none;
+      height: 1px;
+      background: var(--card-border);
+      margin: 20px auto 60px auto;
+      max-width: 960px;
+    }
+
+    /* Physical Workshop & Luthier Section */
+    .workshop-section {
+      text-align: left;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .section-desc {
+      color: var(--text-body);
+      font-size: 1rem;
+      margin-bottom: 28px;
+      max-width: 760px;
+      line-height: 1.6;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .product-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      background: #252525;
+      color: #9E9E9E;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .product-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 35px 20px;
+      text-align: center;
+      color: #777777;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+      .btn-cta {
+        width: 100%;
+        min-width: unset;
+      }
+      .workflow-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Top Navigation -->
   <header>
-    <div class="brand-container">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="38" height="38" class="ivolga-bird" fill="var(--primary)">
-        <path d="M21.92,6.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,6.5L16.29,11.2a2.46,2.46,0,0,0-1.07-.36L10.35,9.45a3.52,3.52,0,0,0-1.78-.4,3.56,3.56,0,0,0-2.31.86L2.68,13.49A1,1,0,0,0,3.32,15.2l4.87-1.39a1.5,1.5,0,0,1,1.15.17l3.78,2.27a4.5,4.5,0,0,0,2.3.63,4.56,4.56,0,0,0,2.3-.63l4.52-2.71A1,1,0,0,0,21.92,6.62Z"/>
-      </svg>
-      <div class="brand">IVOLGA <span>CO.</span></div>
+    <a href="https://ivolgaco.com" class="brand-logo">
+      🛠️ Ivolga <span>Co.</span>
+    </a>
+    <div class="nav-actions">
+      <a href="https://app.ivolgaco.com" class="nav-btn nav-btn-primary">Launch App 🚀</a>
     </div>
-    <a href="https://app.ivolgaco.com" class="nav-btn-header">ToolPath Studio</a>
   </header>
 
-  <section class="hero">
-    <div class="badge">Production CAD, 3D Printing &amp; Stamp Studio</div>
-    <h1>Machine-Ready Image to CAD &amp; 3D Printing. <span>For Craftsmen &amp; Workshops.</span></h1>
-    <p><strong>Skip the CAD software and manual cleanup.</strong> ToolPath Studio is your dedicated engine for <strong>image to CAD</strong>, <strong>image to 3D printing</strong>, <strong>text to CAD</strong>, <strong>image to rubber stamp</strong>, and <strong>image to brass stamp</strong> fabrication. Instantly transform raster graphics, photos, and custom fonts into <strong>100% machine-ready files</strong>—scaled to exact millimeters, mirrored for stamps, noise-filtered, and exported into watertight 3D STL meshes, layered AutoCAD DXFs, and single-line SVGs ready for immediate machining or slicing.</p>
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="hero-badge">Digital Fabrication CAD/CAM Software</div>
+    <h1>Instant Image &amp; Text to <span>Machine-Ready CAD</span></h1>
 
-    <!-- Complete Search Intent Keyword Matrix -->
-    <div class="seo-keyword-strip">
-      <div class="seo-pill">✓ <strong>Image to CAD</strong> (.DXF / .SVG)</div>
-      <div class="seo-pill">✓ <strong>Image to 3D Printing</strong> (.STL)</div>
-      <div class="seo-pill">✓ <strong>Text to CAD &amp; 3D Print</strong></div>
-      <div class="seo-pill">✓ <strong>Image to Rubber Stamp</strong> (Laser / SLA)</div>
-      <div class="seo-pill">✓ <strong>Image to Brass Stamp</strong> (CNC Toolpaths)</div>
-      <div class="seo-pill">✓ <strong>Clicker Press Die CAD</strong> (Leathercraft)</div>
-      <div class="seo-pill">✓ <strong>Ceramic Touchmarks &amp; Clay</strong></div>
-      <div class="seo-pill">✓ <strong>Vinyl Plotter Cut SVGs</strong> (Cameo / Cricut)</div>
+    <!-- 3-Step Instant Workflow Grid -->
+    <div class="workflow-grid">
+      <div class="workflow-card">
+        <div class="workflow-step">1. Upload &amp; Trace</div>
+        <div class="workflow-title">Image or Custom Text</div>
+        <div class="workflow-desc">Automatic edge detection, anti-aliased slit widening, and noise/dust filtering for clean geometry.</div>
+      </div>
+      <div class="workflow-card">
+        <div class="workflow-step">2. Parametric Setup</div>
+        <div class="workflow-title">Industry Preset Profiles</div>
+        <div class="workflow-desc">Pre-calibrated base and relief heights for CNC brass, rubber stamps, clicker dies, and stencils.</div>
+      </div>
+      <div class="workflow-card">
+        <div class="workflow-step">3. Export Toolpaths</div>
+        <div class="workflow-title">STL, DXF &amp; SVG Formats</div>
+        <div class="workflow-desc">Watertight 3D solids and closed-loop cut layers verified for slicers, CAM mills, and vinyl plotters.</div>
+      </div>
     </div>
-    
-    <!-- All Studio Trades -->
-   <div class="trade-pills">
+
+    <!-- Trade Presets Pills -->
+    <div class="trade-pills">
       <div class="trade-pill"><span>●</span>High-Res SLA &amp; FDM 3D Printing (.STL)</div>
       <div class="trade-pill"><span>●</span>Leather Stamps &amp; Heavy Clicker Dies</div>
       <div class="trade-pill"><span>●</span>CNC Brass Stamps &amp; Hot Foil Dies</div>
@@ -178,90 +485,61 @@
       <div class="trade-pill"><span>●</span>Microfluidics, Stencils &amp; Vinyl Plotters (.DXF / .SVG)</div>
     </div>
 
-    <!-- Main Launch Button -->
-    <div style="margin-bottom: 12px;">
-      <a href="https://app.ivolgaco.com" class="nav-btn">Launch ToolPath Studio App 🚀</a>
+    <!-- CTAs -->
+    <div class="cta-container">
+      <a href="https://app.ivolgaco.com" class="btn-cta btn-primary">Launch ToolPath Studio App 🚀</a>
+      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener noreferrer" class="btn-cta btn-secondary">24-Hr Craftsman Pass ($8)</a>
+      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener noreferrer" class="btn-cta btn-secondary">Studio Monthly ($25/mo)</a>
     </div>
 
-    <!-- Free Calibration Swatch Callout -->
-  <!-- Free Calibration Test File Callout -->
-    <div style="margin-bottom: 25px;">
-      <span style="display: inline-block; font-size: 0.85rem; color: #A0A0A0; background: #1E1E1E; border: 1px solid #2D2D2D; padding: 8px 16px; border-radius: 6px; max-width: 780px; line-height: 1.5;">
-        🔬 <strong style="color: #FFB300;">Free Toolpath Verification (Trial):</strong> Inspect your own artwork in <strong style="color: #FFFFFF;">Adobe Illustrator</strong>, <strong style="color: #FFFFFF;">AutoCAD</strong>, <strong style="color: #FFFFFF;">Bambu Studio</strong>, <strong style="color: #FFFFFF;">Cura</strong>, <strong style="color: #FFFFFF;">LightBurn</strong>, <strong style="color: #FFFFFF;">Fusion 360</strong>, or <strong style="color: #FFFFFF;">Silhouette Studio</strong> with our free 25mm calibration test file before buying a pass.
+    <!-- Free Calibration Test File Callout -->
+    <div class="verification-banner">
+      <span class="verification-pill">
+        🔬 <strong class="gold">Free Toolpath Verification (Trial):</strong> Inspect your own artwork in <strong class="white">Adobe Illustrator</strong>, <strong class="white">AutoCAD</strong>, <strong class="white">Bambu Studio</strong>, <strong class="white">Cura</strong>, <strong class="white">LightBurn</strong>, <strong class="white">Fusion 360</strong>, or <strong class="white">Silhouette Studio</strong> with our free 25mm calibration test file before buying a pass.
       </span>
     </div>
 
-    <div class="hero-actions">
-      <a href="#software" class="btn-secondary">View Pricing &amp; Passes</a>
-      <a href="#physical-goods" class="btn-secondary">Explore Luthier &amp; Leather Craft</a>
-    </div>
-  </section>
+    <hr class="divider" />
 
-  <!-- Software Division / Pricing -->
-  <div id="software" class="section-title">ToolPath Studio Access</div>
-  <section class="pricing-grid">
-    <div class="price-card">
-      <h3>The Craftsman Pass</h3>
-      <div class="price">$8 <span>/ 24 Hours</span></div>
-      <ul class="features">
-        <li>Unlimited 24-hour image to CAD, 3D printing STL &amp; stamp generation</li>
-        <li>Ready for your slicer, CNC, or die maker—no CAD cleanup needed</li>
-        <li>3D printing presets for SLA/FDM stamps &amp; ceramic touchmarks</li>
-        <li>2D CAD vectors for clicker dies, brass CNC, laser rubber &amp; plotters</li>
-      </ul>
-      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" class="btn-secondary" style="display: block; text-align: center;">Buy Craftsman Pass</a>
-    </div>
+    <!-- Physical Workshop & Luthier Goods Section -->
+    <section class="workshop-section">
+      <div class="section-tag">In-House Manufacturing</div>
+      <h2 class="section-title">Artisan Workshop &amp; Luthier Craft</h2>
+      <p class="section-desc">
+        In addition to engineering digital toolpath software, Ivolga Co. manufactures physical custom acoustic pickguards, die-cut guitar hardware, and leather accessories using clicker presses, precision cutting dies, and artisan resins.
+      </p>
 
-    <div class="price-card" style="background: var(--surface);">
-      <div class="badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #000;">Pro Manufacturer</div>
-      <h3>Studio Monthly</h3>
-      <div class="price">$25 <span>/ Month</span></div>
-      <ul class="features">
-        <li>Uninterrupted 24/7 studio access for daily shop production</li>
-        <li>Commercial image to CAD, 3D printing &amp; brass/rubber stamp exports</li>
-        <li>Layered AutoCAD DXFs for steel rule clicker dies &amp; brass CNC</li>
-        <li>Noise-filtered plotter SVGs + stable monthly access key</li>
-      </ul>
-      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" class="nav-btn" style="display: block; text-align: center;">Subscribe Now</a>
-    </div>
-  </section>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="product-badge">Custom Fabrication</span>
+          <div class="product-title">Resin Acoustic Pickguards</div>
+          <div class="product-desc">Precision-fit pickguards handcrafted for Yamaha FG830, Martin, and standard dreadnought geometries featuring gold foil and inlay accents.</div>
+        </div>
 
-  <!-- Physical Goods Division -->
-  <div id="physical-goods" class="section-title">
-    Artisan Luthier &amp; Studio Craft<br>
-    <span class="coming-soon-sub">✦ Coming Soon ✦</span>
+        <div class="product-card">
+          <span class="product-badge">Die-Cut Hardware</span>
+          <div class="product-title">Rubber Guitar Strap Locks</div>
+          <div class="product-desc">High-density 75D non-glossy brown rubber locking washers manufactured with custom-beveled steel dies for secure instrument protection.</div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge">Workshop Goods</span>
+          <div class="product-title">Custom Leather Accessories</div>
+          <div class="product-desc">Full-grain water buffalo and vegetable-tanned leather goods embossed using in-house CNC brass stamps and heavy clicker press tooling.</div>
+        </div>
+      </div>
+    </section>
   </div>
-  <section class="grid">
-    <div class="card">
-      <div>
-        <div class="badge">Finish-Matched Hardware</div>
-        <h3>Guitar Finish-Matching Strap Locks</h3>
-        <p>Industrial-grade acoustic and electric guitar security components. We manufacture custom dark brown, sunburst, and tortoise guitar strap locks using 80A Shore polyurethane for non-slip, maximum load-bearing security and guitar finish safety.</p>
-      </div>
-      <a href="mailto:ivanou18@gmail.com?subject=Reserve%20Guitar%20Finish-Matching%20Strap%20Locks" class="btn-secondary" style="text-align: center;">Coming Soon — Reserve Yours</a>
-    </div>
 
-    <div class="card">
-      <div>
-        <div class="badge">Artisan Guitars</div>
-        <h3>Custom Acoustic Pickguards</h3>
-        <p>Premium 0.6mm celluloid scratchplates engineered for Yamaha FG series and Martin D series pickguard upgrades and standard dreadnought replacements. Designed for seamless guitar finish and hardware matching, each guard is crafted with gold leaf accents, protected by a 5H anti-scratch top film, and backed with heavy-duty 3M 467MP transfer adhesive.</p>
-      </div>
-      <a href="mailto:ivanou18@gmail.com?subject=Reserve%20Custom%20Acoustic%20Pickguards" class="btn-secondary" style="text-align: center;">Coming Soon — Reserve Yours</a>
-    </div>
-
-    <div class="card">
-      <div>
-        <div class="badge">Workshop Accessories</div>
-        <h3>Leathercraft &amp; Connections</h3>
-        <p>Heavy-duty water buffalo leather goods and the essential brown leather guitar neck strap connector. We use guitar nitrocellulose lacquer safe leather naturally tanned to protect delicate vintage finishes. Each piece is die-cut and mechanically embossed using custom CNC-machined solid brass stamps.</p>
-      </div>
-      <a href="mailto:ivanou18@gmail.com?subject=Reserve%20Custom%20Leathercraft%20Accessories" class="btn-secondary" style="text-align: center;">Coming Soon — Reserve Yours</a>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Ivolga Co. All rights reserved. | Folsom, California</p>
+    <p>&copy; 2026 Ivolga Co. Folsom, California. All rights reserved.</p>
+    <p style="margin-top: 8px;">
+      <a href="https://app.ivolgaco.com">ToolPath Studio App</a> &bull; 
+      <a href="https://ivolgaco.com">Home</a> &bull; 
+      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener noreferrer">Daypass ($8)</a> &bull; 
+      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener noreferrer">Monthly ($25)</a>
+    </p>
   </footer>
 
 </body>
