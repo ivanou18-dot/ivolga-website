@@ -1,2 +1,5 @@
 User-agent: *
+
+Allow: /
+
 Sitemap: https://ivolgaco.com/sitemap.xml
