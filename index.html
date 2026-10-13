@@ -10,7 +10,7 @@
   <!-- Favicon: Inline Vector Golden Oriole Data URI -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 400 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='y' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFE033'/%3E%3Cstop offset='35%25' stop-color='%23F6B800'/%3E%3Cstop offset='70%25' stop-color='%23EA9800'/%3E%3Cstop offset='100%25' stop-color='%23D97706'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0%25' y1='0%25' x2='80%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232D2A26'/%3E%3Cstop offset='100%25' stop-color='%230E0D0C'/%3E%3C/linearGradient%3E%3ClinearGradient id='ringStroke' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234B5563'/%3E%3Cstop offset='50%25' stop-color='%23FFB300'/%3E%3Cstop offset='100%25' stop-color='%23374151'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='200' cy='200' r='185' fill='%23FFFFFF' stroke='url(%23ringStroke)' stroke-width='6'/%3E%3Cpath d='M 235,250 C 265,275 292,305 315,302 C 324,296 322,286 302,268 C 280,250 252,242 235,250 Z' fill='url(%23b)'/%3E%3Cpath d='M 238,245 C 248,256 260,268 270,270 C 265,263 252,250 238,245 Z' fill='%23F6B800'/%3E%3Cpath d='M 160,225 C 140,245 105,268 62,275 C 60,270 68,262 82,254 C 110,236 138,225 160,225 Z' fill='%231C1A18'/%3E%3Cpath d='M 165,228 C 145,255 118,285 75,290 C 73,285 82,277 98,267 C 124,250 148,235 165,228 Z' fill='%2324211E'/%3E%3Cpath d='M 172,232 C 152,265 130,296 92,302 C 90,297 100,288 118,278 C 144,260 162,242 172,232 Z' fill='%23181615'/%3E%3Cpath d='M 148,218 C 135,232 118,244 100,250 C 115,242 135,230 152,216 C 165,205 185,212 188,222 Z' fill='url(%23y)'/%3E%3Cpath d='M 233,192 C 252,145 280,100 305,75 C 308,79 304,89 292,108 C 275,138 252,175 233,192 Z' fill='%2325221F'/%3E%3Cpath d='M 236,190 C 258,142 292,95 316,78 C 319,82 313,92 299,112 C 280,142 256,176 236,190 Z' fill='%231A1816'/%3E%3Cpath d='M 239,188 C 265,142 304,96 324,85 C 326,90 320,100 304,120 C 284,148 260,178 239,188 Z' fill='%232C2925'/%3E%3Cpath d='M 215,190 C 228,155 244,125 258,118 C 264,128 260,150 248,180 C 242,195 230,205 215,190 Z' fill='url(%23y)'/%3E%3Cpath d='M 125,192 C 134,182 152,180 174,185 C 192,188 215,188 232,198 C 252,210 262,230 265,245 C 255,255 240,258 226,252 C 205,244 190,238 175,232 C 158,228 142,218 132,204 Z' fill='url(%23y)'/%3E%3Cpath d='M 125,192 L 96,195 L 124,198 Z' fill='%238C7A70'/%3E%3Ccircle cx='140' cy='191' r='4.5' fill='%230C0A09'/%3E%3Ccircle cx='138.8' cy='189.8' r='1.4' fill='%23FFFFFF'/%3E%3Cpath d='M 218,245 C 220,252 224,258 226,264 M 224,258 L 230,266' stroke='%23A89F91' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
 
-  <!-- Structured Data: Schema.org Entity Definition for Google Search & Knowledge Graph -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,11 +46,7 @@
         "name": "Ivolga Co.",
         "url": "https://ivolgaco.com",
         "logo": "https://ivolgaco.com/ivolga-icon.png",
-        "description": "Digital fabrication software engineering and custom artisan workshop craft.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "US"
-        }
+        "description": "Digital fabrication software engineering and custom artisan workshop craft."
       }
     ]
   }
@@ -68,33 +64,28 @@
       --text-body: #CCCCCC;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      padding: 0;
-      margin: 0;
     }
 
-    /* Top Navigation Bar */
+    /* Top Navigation Bar - Sticky & Prominent */
     header {
       border-bottom: 1px solid var(--card-border);
-      background-color: #161616;
+      background-color: rgba(22, 22, 22, 0.95);
+      backdrop-filter: blur(10px);
       padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
 
     .brand-logo-lockup {
@@ -105,9 +96,7 @@
       transition: opacity 0.2s ease;
     }
 
-    .brand-logo-lockup:hover {
-      opacity: 0.95;
-    }
+    .brand-logo-lockup:hover { opacity: 0.95; }
 
     .brand-emblem-svg {
       width: 42px;
@@ -117,27 +106,16 @@
       filter: drop-shadow(0 2px 8px rgba(255, 179, 0, 0.25));
     }
 
-    .brand-logo-lockup:hover .brand-emblem-svg {
-      transform: scale(1.05);
-    }
+    .brand-logo-lockup:hover .brand-emblem-svg { transform: scale(1.05); }
 
-    .brand-typography {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    .brand-typography { display: flex; flex-direction: column; justify-content: center; }
 
     .brand-title {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 900;
       font-size: 1.18rem;
       letter-spacing: 0.12em;
       color: var(--gold);
       line-height: 1.1;
-    }
-
-    .brand-title span {
-      color: var(--gold);
     }
 
     .brand-subtitle {
@@ -149,30 +127,20 @@
       margin-top: 2px;
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .nav-btn {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease-in-out;
-    }
-
     .nav-btn-primary {
       background-color: var(--gold);
       color: #000000;
       border: 1px solid #000000;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
       box-shadow: 0 2px 8px rgba(255, 179, 0, 0.3);
+      transition: all 0.2s ease-in-out;
     }
 
     .nav-btn-primary:hover {
@@ -185,11 +153,10 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px 80px 20px;
+      padding: 50px 20px 80px 20px;
       text-align: center;
     }
 
-    /* Hero Section */
     .hero-badge {
       display: inline-block;
       padding: 6px 14px;
@@ -211,9 +178,52 @@
       margin-bottom: 24px;
       color: var(--text-main);
     }
+    h1 span { color: var(--gold); }
 
-    h1 span {
+    /* Visual Proof Section (Before/After) */
+    .visual-proof-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      background: #161616;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 25px;
+      flex-wrap: wrap;
+    }
+    .proof-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 140px;
+    }
+    .proof-icon {
+      width: 70px;
+      height: 70px;
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    .proof-text {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .proof-arrow {
       color: var(--gold);
+      font-size: 1.5rem;
+      font-weight: bold;
     }
 
     /* 3-Step Instant Workflow Grid */
@@ -222,17 +232,15 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
       max-width: 960px;
-      margin: 0 auto 35px auto;
+      margin: 0 auto 45px auto;
       text-align: left;
     }
-
     .workflow-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 20px 22px;
     }
-
     .workflow-step {
       color: var(--gold);
       font-weight: 800;
@@ -241,21 +249,19 @@
       letter-spacing: 1px;
       margin-bottom: 6px;
     }
-
     .workflow-title {
       color: var(--text-main);
       font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 4px;
     }
-
     .workflow-desc {
       color: var(--text-muted);
       font-size: 0.88rem;
       line-height: 1.45;
     }
 
-    /* Feature Highlight: Engraving Box */
+    /* Engraving Highlight */
     .engraving-box {
       background: #161616;
       border: 1px solid var(--gold);
@@ -266,7 +272,6 @@
       text-align: left;
       box-shadow: 0 4px 15px rgba(255, 179, 0, 0.1);
     }
-
     .engraving-title {
       color: var(--gold);
       font-size: 1.35rem;
@@ -276,27 +281,23 @@
       align-items: center;
       gap: 8px;
     }
-
     .engraving-desc {
       color: #E0E0E0;
       font-size: 0.95rem;
       line-height: 1.55;
       margin-bottom: 20px;
     }
-
     .hw-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 15px;
     }
-
     .hw-card {
       background: #1E1E1E;
       border: 1px solid #333333;
       border-radius: 6px;
       padding: 15px;
     }
-
     .hw-title {
       color: var(--gold);
       font-size: 0.9rem;
@@ -304,39 +305,10 @@
       margin-bottom: 4px;
       display: block;
     }
-
     .hw-desc {
       color: var(--text-muted);
       font-size: 0.85rem;
       line-height: 1.4;
-    }
-
-    /* Trade Presets Pills */
-    .trade-pills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      max-width: 900px;
-      margin: 0 auto 35px auto;
-    }
-
-    .trade-pill {
-      background: #181818;
-      border: 1px solid #282828;
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 0.82rem;
-      color: var(--text-body);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .trade-pill span {
-      color: var(--gold);
-      font-size: 0.75rem;
     }
 
     /* Action Buttons CTA */
@@ -347,7 +319,6 @@
       gap: 14px;
       margin-bottom: 25px;
     }
-
     .btn-cta {
       min-height: 52px;
       min-width: 240px;
@@ -361,39 +332,34 @@
       text-decoration: none;
       transition: all 0.2s ease-in-out;
     }
-
     .btn-primary {
       background-color: var(--gold);
       color: #000000;
       border: 2px solid #000000;
       box-shadow: 0 4px 14px rgba(255, 179, 0, 0.35);
     }
-
     .btn-primary:hover {
       background-color: var(--gold-hover);
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(255, 179, 0, 0.5);
     }
-
     .btn-secondary {
       background-color: #1E1E1E;
       color: var(--gold);
       border: 1px solid var(--card-border);
     }
-
     .btn-secondary:hover {
       background-color: #262626;
       border-color: var(--gold);
       transform: translateY(-2px);
     }
 
-    /* Free Calibration Test File Callout Banner */
+    /* Free Calibration Callout */
     .verification-banner {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       display: flex;
       justify-content: center;
     }
-
     .verification-pill {
       display: inline-block;
       font-size: 0.88rem;
@@ -406,104 +372,8 @@
       line-height: 1.55;
       text-align: center;
     }
-
-    .verification-pill strong.gold {
-      color: var(--gold);
-    }
-
-    .verification-pill strong.white {
-      color: var(--text-main);
-    }
-
-    /* Section Divider */
-    .divider {
-      border: none;
-      height: 1px;
-      background: var(--card-border);
-      margin: 20px auto 60px auto;
-      max-width: 960px;
-    }
-
-    /* Physical Workshop Goods Section */
-    .workshop-section {
-      text-align: left;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .section-tag {
-      color: var(--gold);
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      color: var(--text-main);
-    }
-
-    .section-desc {
-      color: var(--text-body);
-      font-size: 1rem;
-      margin-bottom: 28px;
-      max-width: 760px;
-      line-height: 1.6;
-    }
-
-    /* Email Waitlist Form */
-    .waitlist-card {
-      background: #161616;
-      border: 1px dashed var(--gold);
-      border-radius: 8px;
-      padding: 40px 20px;
-      text-align: center;
-      margin-top: 20px;
-    }
-    
-    .waitlist-input-group {
-      display: flex;
-      gap: 10px;
-      max-width: 450px;
-      margin: 20px auto 0 auto;
-      flex-wrap: wrap;
-    }
-    
-    .waitlist-input {
-      flex: 1;
-      min-width: 220px;
-      padding: 14px 16px;
-      border-radius: 6px;
-      border: 1px solid #333;
-      background: #111;
-      color: #fff;
-      font-size: 1rem;
-      outline: none;
-    }
-    
-    .waitlist-input:focus {
-      border-color: var(--gold);
-    }
-    
-    .waitlist-btn {
-      padding: 14px 24px;
-      border-radius: 6px;
-      background: var(--gold);
-      color: #000;
-      border: none;
-      font-weight: 800;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    
-    .waitlist-btn:hover {
-      background: var(--gold-hover);
-    }
+    .verification-pill strong.gold { color: var(--gold); }
+    .verification-pill strong.white { color: var(--text-main); }
 
     /* Footer */
     footer {
@@ -512,46 +382,24 @@
       text-align: center;
       color: #777777;
       font-size: 0.85rem;
+      background: #111;
     }
-
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.1rem;
-      }
-      .btn-cta {
-        width: 100%;
-        min-width: unset;
-      }
-      .workflow-grid {
-        grid-template-columns: 1fr;
-      }
-      .hw-grid {
-        grid-template-columns: 1fr;
-      }
-      .waitlist-input-group {
-        flex-direction: column;
-      }
-      .waitlist-btn {
-        width: 100%;
-      }
+      h1 { font-size: 2.1rem; }
+      .btn-cta { width: 100%; min-width: unset; }
+      .proof-arrow { transform: rotate(90deg); margin: -5px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation with Pure Vector Golden Oriole Emblem Lockup -->
+  <!-- Persistent Top Navigation -->
   <header>
     <a href="https://ivolgaco.com" class="brand-logo-lockup" aria-label="Ivolga Co. Home">
-      <svg class="brand-emblem-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ivolga Co. Emblem">
+      <svg class="brand-emblem-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="ivolgaYellow" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#FFE033"/>
@@ -587,21 +435,35 @@
         <path d="M 218,245 C 220,252 224,258 226,264 M 224,258 L 230,266" stroke="#A89F91" stroke-width="2.5" stroke-linecap="round"/>
       </svg>
       <div class="brand-typography">
-        <span class="brand-title">IVOLGA <span>CO.</span></span>
+        <span class="brand-title">IVOLGA CO.</span>
         <span class="brand-subtitle">ToolPath Studio</span>
       </div>
     </a>
-    <div class="nav-actions">
-      <a href="https://app.ivolgaco.com" class="nav-btn nav-btn-primary">Launch App &#128640;</a>
-    </div>
+    <a href="https://app.ivolgaco.com" class="nav-btn-primary">Launch App 🚀</a>
   </header>
 
   <div class="container">
-    <!-- Hero Section -->
     <div class="hero-badge">Artisan Stamp &amp; Die Generator</div>
     <h1>Instant Logo to <span>3D Stamp &amp; Custom Die Generator</span></h1>
 
-    <!-- 3-Step Instant Workflow Grid -->
+    <!-- NEW: Visual Proof Flow -->
+    <div class="visual-proof-container">
+      <div class="proof-step">
+        <div class="proof-icon">🖼️</div>
+        <span class="proof-text">1. Flat PNG Logo</span>
+      </div>
+      <div class="proof-arrow">➔</div>
+      <div class="proof-step">
+        <div class="proof-icon">📐</div>
+        <span class="proof-text">2. Studio Cleanup</span>
+      </div>
+      <div class="proof-arrow">➔</div>
+      <div class="proof-step">
+        <div style="border-color: var(--gold);" class="proof-icon">🛠️</div>
+        <span style="color: var(--gold);" class="proof-text">3. 3D STL / Cut DXF</span>
+      </div>
+    </div>
+
     <div class="workflow-grid">
       <div class="workflow-card">
         <div class="workflow-step">1. Add Your Design</div>
@@ -620,10 +482,9 @@
       </div>
     </div>
 
-    <!-- NEW: Classical Engraving Highlight -->
     <div class="engraving-box">
       <h3 class="engraving-title">
-        <span style="font-size: 1.6rem;">&#128395;</span> New: Classical Banknote Engraving Mode
+        <span style="font-size: 1.6rem;">🖋️</span> New: Classical Banknote Engraving Mode
       </h3>
       <p class="engraving-desc">
         Convert photographs and shaded logos into photorealistic 3D volume using single-color directional hatching. The algorithm dynamically tapers line thickness to mimic shadows. <em>(Note: Flat black logos will render as flat zebra stripes; gradients are required for the 3D effect).</em>
@@ -645,74 +506,32 @@
       </div>
     </div>
 
-    <!-- Trade Presets Pills -->
-    <div class="trade-pills">
-      <div class="trade-pill"><span>&bull;</span>High-Res SLA &amp; FDM 3D Printing (.STL)</div>
-      <div class="trade-pill"><span>&bull;</span>Leather Stamps &amp; Heavy Clicker Dies</div>
-      <div class="trade-pill"><span>&bull;</span>CNC Brass Stamps &amp; Hot Foil Dies</div>
-      <div class="trade-pill"><span>&bull;</span>Laser Rubber Stamps &amp; Ink Makers</div>
-      <div class="trade-pill"><span>&bull;</span>Clay &amp; Ceramic Touchmarks</div>
-      <div class="trade-pill"><span>&bull;</span>Ice &amp; Culinary Brass CNC Dies</div>
-      <div class="trade-pill"><span>&bull;</span>Microfluidics, Stencils &amp; Vinyl Plotters (.DXF / .SVG)</div>
-    </div>
-
     <!-- CTAs -->
     <div class="cta-container">
-      <a href="https://app.ivolgaco.com" class="btn-cta btn-primary">Launch ToolPath Studio App &#128640;</a>
-      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener noreferrer" class="btn-cta btn-secondary">24-Hr Craftsman Pass ($8)</a>
-      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener noreferrer" class="btn-cta btn-secondary">Studio Monthly ($25/mo)</a>
+      <a href="https://app.ivolgaco.com" class="btn-cta btn-primary">Launch ToolPath Studio App 🚀</a>
+      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" class="btn-cta btn-secondary">24-Hr Craftsman Pass ($8)</a>
+      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" class="btn-cta btn-secondary">Studio Monthly ($25/mo)</a>
     </div>
 
     <!-- Free Calibration Test File Callout -->
     <div class="verification-banner">
       <span class="verification-pill">
-        &#128300; <strong class="gold">Free Capability Test:</strong> You can generate a free 25mm trial file to check ToolPath Studio capabilities in <strong class="white">Adobe Illustrator</strong>, <strong class="white">AutoCAD</strong>, <strong class="white">Bambu Studio</strong>, <strong class="white">Cura</strong>, <strong class="white">LightBurn</strong>, <strong class="white">Fusion 360</strong>, or <strong class="white">Silhouette Studio</strong> before purchasing a pass.
+        🧪 <strong class="gold">Free Capability Test:</strong> Generate a free 25mm trial file to check toolpath capabilities in <strong class="white">LightBurn, Bambu Studio, Cura, Fusion 360, or Silhouette</strong> before purchasing a pass.
       </span>
     </div>
 
-    <hr class="divider" />
-
-    <!-- Physical Workshop Goods Section -->
-    <section class="workshop-section">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
-        <div class="section-tag">In-House Manufacturing</div>
-        <div style="background: rgba(255, 179, 0, 0.12); border: 1px solid var(--gold); border-radius: 4px; padding: 4px 10px; color: var(--gold); font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">
-          &#128205; Artisan Workshop &amp; Studio
-        </div>
-      </div>
-      <h2 class="section-title">Physical Workshop Goods &bull; Coming Soon</h2>
-      <p class="section-desc">
-        Alongside engineering digital CAD software, Ivolga Co. manufactures custom instrument accessories and leather goods in our workshop. Our physical product line is currently in development.
-      </p>
-
-      <!-- VIP Waitlist Form -->
-      <div class="waitlist-card">
-        <div style="font-size: 2rem; margin-bottom: 15px;">&#9874;&#65039;</div>
-        <h3 style="color: #FFFFFF; font-size: 1.5rem; margin-bottom: 10px; font-weight: 800;">Workshop Setup in Progress</h3>
-        <p style="color: #A0A0A0; max-width: 500px; margin: 0 auto; font-size: 0.95rem; line-height: 1.5;">
-          Get early access, exclusive updates, and subscriber-only discounts when our handcrafted acoustic hardware and premium leather goods officially launch.
-        </p>
-        
-        <form class="waitlist-input-group" onsubmit="event.preventDefault(); alert('Thank you for joining the VIP waitlist!');">
-          <input type="email" class="waitlist-input" placeholder="Enter your email address" required>
-          <button type="submit" class="waitlist-btn">Notify Me</button>
-        </form>
-      </div>
-
-    </section>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Ivolga Co. &bull; Workshop &amp; Digital Fabrication Studio</p>
+    <p>&copy; 2026 Ivolga Co. &bull; Digital Fabrication Studio</p>
     <p style="margin-top: 8px; color: #888888; font-size: 0.8rem;">
-      Support &amp; Inquiries: <a href="mailto:contact@ivolgaco.com" style="color: var(--gold);">contact@ivolgaco.com</a> &bull; Guaranteed Scale Accuracy on All Toolpaths
+      Support: <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a> &bull; Guaranteed Scale Accuracy on All Toolpaths
     </p>
     <p style="margin-top: 10px;">
-      <a href="https://app.ivolgaco.com">ToolPath Studio App</a> &bull; 
-      <a href="https://ivolgaco.com">Home</a> &bull; 
-      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener noreferrer">24-Hr Pass ($8)</a> &bull; 
-      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener noreferrer">Monthly ($25)</a>
+      <a href="https://app.ivolgaco.com">Launch App</a> &bull; 
+      <a href="#">Physical Goods (Coming Soon)</a> &bull; 
+      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00">24-Hr Pass ($8)</a>
     </p>
   </footer>
 
