@@ -3,14 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ivolga Co. | ToolPath Studio: 3D Stamp & Die Generator</title>
-  <meta name="description" content="Instant logo to 3D printable STL stamp, clicker die, and CNC brass toolpath generator. Skip the CAD software and generate machine-ready files for your workshop." />
+  <title>Ivolga Co. | ToolPath Studio: 3D Stamp &amp; Custom Die Generator</title>
+  <meta name="description" content="Instant logo to 3D printable STL stamp, clicker die, and CNC brass toolpath generator. Skip CAD software and generate production-ready files for your artisan workshop." />
   <link rel="canonical" href="https://ivolgaco.com/" />
-  
-  <!-- Favicon: Inline Vector Golden Oriole Data URI -->
+
+  <!-- Enforce HTTPS redirect if accessed via older HTTP index -->
+  <script>
+    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search);
+    }
+  </script>
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ivolgaco.com/" />
+  <meta property="og:title" content="ToolPath Studio: 3D Stamp &amp; Custom Die Generator | Ivolga Co." />
+  <meta property="og:description" content="Instant logo to 3D printable STL stamp, clicker die, and CNC brass toolpath generator." />
+  <meta property="og:image" content="https://ivolgaco.com/ivolga-preview.png" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://ivolgaco.com/" />
+  <meta name="twitter:title" content="ToolPath Studio: 3D Stamp &amp; Custom Die Generator | Ivolga Co." />
+  <meta name="twitter:description" content="Instant logo to 3D printable STL stamp, clicker die, and CNC brass toolpath generator." />
+  <meta name="twitter:image" content="https://ivolgaco.com/ivolga-preview.png" />
+
+  <!-- Favicon: Vector Golden Oriole Data URI -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 400 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='y' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFE033'/%3E%3Cstop offset='35%25' stop-color='%23F6B800'/%3E%3Cstop offset='70%25' stop-color='%23EA9800'/%3E%3Cstop offset='100%25' stop-color='%23D97706'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0%25' y1='0%25' x2='80%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232D2A26'/%3E%3Cstop offset='100%25' stop-color='%230E0D0C'/%3E%3C/linearGradient%3E%3ClinearGradient id='ringStroke' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234B5563'/%3E%3Cstop offset='50%25' stop-color='%23FFB300'/%3E%3Cstop offset='100%25' stop-color='%23374151'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='200' cy='200' r='185' fill='%23FFFFFF' stroke='url(%23ringStroke)' stroke-width='6'/%3E%3Cpath d='M 235,250 C 265,275 292,305 315,302 C 324,296 322,286 302,268 C 280,250 252,242 235,250 Z' fill='url(%23b)'/%3E%3Cpath d='M 238,245 C 248,256 260,268 270,270 C 265,263 252,250 238,245 Z' fill='%23F6B800'/%3E%3Cpath d='M 160,225 C 140,245 105,268 62,275 C 60,270 68,262 82,254 C 110,236 138,225 160,225 Z' fill='%231C1A18'/%3E%3Cpath d='M 165,228 C 145,255 118,285 75,290 C 73,285 82,277 98,267 C 124,250 148,235 165,228 Z' fill='%2324211E'/%3E%3Cpath d='M 172,232 C 152,265 130,296 92,302 C 90,297 100,288 118,278 C 144,260 162,242 172,232 Z' fill='%23181615'/%3E%3Cpath d='M 148,218 C 135,232 118,244 100,250 C 115,242 135,230 152,216 C 165,205 185,212 188,222 Z' fill='url(%23y)'/%3E%3Cpath d='M 233,192 C 252,145 280,100 305,75 C 308,79 304,89 292,108 C 275,138 252,175 233,192 Z' fill='%2325221F'/%3E%3Cpath d='M 236,190 C 258,142 292,95 316,78 C 319,82 313,92 299,112 C 280,142 256,176 236,190 Z' fill='%231A1816'/%3E%3Cpath d='M 239,188 C 265,142 304,96 324,85 C 326,90 320,100 304,120 C 284,148 260,178 239,188 Z' fill='%232C2925'/%3E%3Cpath d='M 215,190 C 228,155 244,125 258,118 C 264,128 260,150 248,180 C 242,195 230,205 215,190 Z' fill='url(%23y)'/%3E%3Cpath d='M 125,192 C 134,182 152,180 174,185 C 192,188 215,188 232,198 C 252,210 262,230 265,245 C 255,255 240,258 226,252 C 205,244 190,238 175,232 C 158,228 142,218 132,204 Z' fill='url(%23y)'/%3E%3Cpath d='M 125,192 L 96,195 L 124,198 Z' fill='%238C7A70'/%3E%3Ccircle cx='140' cy='191' r='4.5' fill='%230C0A09'/%3E%3Ccircle cx='138.8' cy='189.8' r='1.4' fill='%23FFFFFF'/%3E%3Cpath d='M 218,245 C 220,252 224,258 226,264 M 224,258 L 230,266' stroke='%23A89F91' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
 
-  <!-- Structured Data -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,9 +83,19 @@
       --text-main: #FFFFFF;
       --text-muted: #A0A0A0;
       --text-body: #CCCCCC;
+      --green-ok: #10B981;
+      --amber-warn: #F59E0B;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       background-color: var(--bg-dark);
@@ -74,7 +105,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Navigation Bar - Sticky & Prominent */
+    /* Top Sticky Header */
     header {
       border-bottom: 1px solid var(--card-border);
       background-color: rgba(22, 22, 22, 0.95);
@@ -86,6 +117,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      gap: 16px;
     }
 
     .brand-logo-lockup {
@@ -95,7 +127,6 @@
       text-decoration: none;
       transition: opacity 0.2s ease;
     }
-
     .brand-logo-lockup:hover { opacity: 0.95; }
 
     .brand-emblem-svg {
@@ -105,7 +136,6 @@
       transition: transform 0.25s ease;
       filter: drop-shadow(0 2px 8px rgba(255, 179, 0, 0.25));
     }
-
     .brand-logo-lockup:hover .brand-emblem-svg { transform: scale(1.05); }
 
     .brand-typography { display: flex; flex-direction: column; justify-content: center; }
@@ -127,11 +157,35 @@
       margin-top: 2px;
     }
 
+    /* Lightweight Smooth-Scroll Header Anchors */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-nav a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+    .header-nav a:hover {
+      color: var(--gold);
+    }
+
     .nav-btn-primary {
       background-color: var(--gold);
       color: #000000;
       border: 1px solid #000000;
-      min-height: 48px;
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
       padding: 8px 18px;
@@ -141,19 +195,19 @@
       text-decoration: none;
       box-shadow: 0 2px 8px rgba(255, 179, 0, 0.3);
       transition: all 0.2s ease-in-out;
+      white-space: nowrap;
     }
-
     .nav-btn-primary:hover {
       background-color: var(--gold-hover);
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(255, 179, 0, 0.45);
     }
 
-    /* Container */
-    .container {
+    /* Main Content Container */
+    main.container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 50px 20px 80px 20px;
+      padding: 45px 20px 80px 20px;
       text-align: center;
     }
 
@@ -168,65 +222,127 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h1 {
       font-size: 2.8rem;
       font-weight: 900;
       line-height: 1.15;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       color: var(--text-main);
     }
     h1 span { color: var(--gold); }
 
-    /* Visual Proof Section (Before/After) */
+    .hero-subcopy {
+      max-width: 760px;
+      margin: 0 auto 28px auto;
+      color: var(--text-body);
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    /* Hero Primary CTA & High-Trust Micro-Copy */
+    .hero-cta-block {
+      margin-bottom: 38px;
+    }
+    .hero-micro-copy {
+      margin-top: 12px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-micro-copy strong {
+      color: var(--gold);
+    }
+    .hero-micro-copy span {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Macro Visual Proof Pipeline (Before / Cleanup / 3D Extrusion) */
     .visual-proof-container {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
-      gap: 15px;
-      max-width: 800px;
-      margin: 0 auto 40px auto;
+      gap: 16px;
+      max-width: 960px;
+      margin: 0 auto 45px auto;
       background: #161616;
       border: 1px solid #333;
       border-radius: 12px;
-      padding: 25px;
+      padding: 24px;
       flex-wrap: wrap;
     }
     .proof-step {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       flex: 1;
-      min-width: 140px;
+      min-width: 220px;
+      background: #1D1D1D;
+      border: 1px solid #2E2E2E;
+      border-radius: 10px;
+      padding: 16px;
     }
-    .proof-icon {
-      width: 70px;
-      height: 70px;
-      background: #222;
-      border: 1px solid #444;
-      border-radius: 8px;
+    .proof-step.highlight {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, rgba(255,179,0,0.06) 0%, #1D1D1D 100%);
+    }
+    .proof-Load-thumb {
+      width: 100%;
+      height: 115px;
+      background: #111111;
+      border: 1px solid #333333;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .proof-step.highlight .proof-Load-thumb {
+      border-color: rgba(255, 179, 0, 0.5);
+    }
+    .proof-tag {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--text-muted);
+      border: 1px solid #333;
+      letter-spacing: 0.5px;
     }
     .proof-text {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 700;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
+    }
+    .proof-sub {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+      margin-top: -6px;
     }
     .proof-arrow {
       color: var(--gold);
       font-size: 1.5rem;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* 3-Step Instant Workflow Grid */
+    /* 3-Step Workflow Grid */
     .workflow-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -234,6 +350,7 @@
       max-width: 960px;
       margin: 0 auto 45px auto;
       text-align: left;
+      scroll-margin-top: 85px;
     }
     .workflow-card {
       background: var(--card-bg);
@@ -261,22 +378,30 @@
       line-height: 1.45;
     }
 
-    /* Engraving Highlight */
+    /* Engraving Feature Highlight */
     .engraving-box {
       background: #161616;
       border: 1px solid var(--gold);
       border-radius: 8px;
-      padding: 25px 30px;
+      padding: 28px 30px;
       margin: 0 auto 40px auto;
       max-width: 960px;
       text-align: left;
       box-shadow: 0 4px 15px rgba(255, 179, 0, 0.1);
+      scroll-margin-top: 85px;
+    }
+    .engraving-header-Grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 22px;
     }
     .engraving-title {
       color: var(--gold);
       font-size: 1.35rem;
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -285,8 +410,57 @@
       color: #E0E0E0;
       font-size: 0.95rem;
       line-height: 1.55;
+    }
+    .banknote-macro-preview {
+      background: #101010;
+      border: 1px solid #383838;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+    .banknote-macro-caption {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 6px;
+    }
+
+    /* Two-Column Visual Callout Badge for Gradient vs. Flat Logos */
+    .engraving-callout-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
       margin-bottom: 20px;
     }
+    .callout-badge {
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .callout-badge.good {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #D1FAE5;
+    }
+    .callout-badge.good strong {
+      color: #34D399;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .callout-badge.warn {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #FEF3C7;
+    }
+    .callout-badge.warn strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 2px;
+    }
+
     .hw-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -354,28 +528,7 @@
       transform: translateY(-2px);
     }
 
-    /* Free Calibration Callout */
-    .verification-banner {
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: center;
-    }
-    .verification-pill {
-      display: inline-block;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      background: #1A1A1A;
-      border: 1px solid #333333;
-      padding: 12px 20px;
-      border-radius: 8px;
-      max-width: 840px;
-      line-height: 1.55;
-      text-align: center;
-    }
-    .verification-pill strong.gold { color: var(--gold); }
-    .verification-pill strong.white { color: var(--text-main); }
-
-    /* Footer */
+    /* Footer with WCAG AA Contrast & Non-Clickable Muted Coming Soon */
     footer {
       border-top: 1px solid var(--card-border);
       padding: 35px 20px;
@@ -384,21 +537,28 @@
       font-size: 0.85rem;
       background: #111;
     }
-    footer a { color: var(--gold); text-decoration: none; }
+    footer a { color: var(--gold); text-decoration: none; font-weight: 600; }
     footer a:hover { text-decoration: underline; }
+    .footer-muted-text {
+      color: #6B7280;
+      cursor: default;
+      user-select: none;
+    }
 
     @media (max-width: 768px) {
       h1 { font-size: 2.1rem; }
+      .header-nav { display: none; }
       .btn-cta { width: 100%; min-width: unset; }
-      .proof-arrow { transform: rotate(90deg); margin: -5px 0; }
+      .proof-arrow { transform: rotate(90deg); margin: -4px 0; }
+      .engraving-header-Grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Persistent Top Navigation -->
+  <!-- Persistent Top Navigation with Lightweight Smooth-Scroll Anchors -->
   <header>
-    <a href="https://ivolgaco.com" class="brand-logo-lockup" aria-label="Ivolga Co. Home">
+    <a href="https://ivolgaco.com/" class="brand-logo-lockup" aria-label="Ivolga Co. Home">
       <svg class="brand-emblem-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="ivolgaYellow" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -439,94 +599,181 @@
         <span class="brand-subtitle">ToolPath Studio</span>
       </div>
     </a>
-    <a href="https://app.ivolgaco.com" class="nav-btn-primary">Launch App 🚀</a>
+
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Section Navigation">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#banknote-mode">Banknote Mode</a>
+      </nav>
+      <a href="https://app.ivolgaco.com" class="nav-btn-primary">Launch App 🚀</a>
+    </div>
   </header>
 
-  <div class="container">
+  <main class="container">
     <div class="hero-badge">Artisan Stamp &amp; Die Generator</div>
     <h1>Instant Logo to <span>3D Stamp &amp; Custom Die Generator</span></h1>
-    
-    <p style="font-size: 1.15rem; color: var(--text-body); max-width: 800px; margin: 0 auto 35px auto; line-height: 1.6;">
-      <strong>Skip the CAD software and manual cleanup.</strong> Unlike basic file converters that leave you with messy nodes to fix in Illustrator or Fusion 360, ToolPath Studio outputs 100% machine-ready files—automatically scaled, noise-filtered, and extruded directly for your 3D slicer, CNC, die maker, or plotter.
+    <p class="hero-subcopy">
+      Skip the CAD software and manual cleanup. Unlike basic file converters that leave you with messy nodes to fix in Illustrator or Fusion 360, ToolPath Studio outputs watertight 3D stamps and clean cut paths in seconds.
     </p>
 
-    <!-- NEW: Visual Proof Flow -->
-    <div class="visual-proof-container">
-      <div class="proof-step">
-        <div class="proof-icon">🖼️</div>
-        <span class="proof-text">1. Flat PNG Logo</span>
-      </div>
-      <div class="proof-arrow">➔</div>
-      <div class="proof-step">
-        <div class="proof-icon">📐</div>
-        <span class="proof-text">2. Studio Cleanup</span>
-      </div>
-      <div class="proof-arrow">➔</div>
-      <div class="proof-step">
-        <div style="border-color: var(--gold);" class="proof-icon">🛠️</div>
-        <span style="color: var(--gold);" class="proof-text">3. 3D STL / Cut DXF</span>
-      </div>
+    <!-- Primary Hero CTA + High-Trust Free 25mm Test Subtext -->
+    <div class="hero-cta-block">
+      <a href="https://app.ivolgaco.com" class="btn-cta btn-primary">Launch ToolPath Studio App 🚀</a>
+      <p class="hero-micro-copy">
+        🧪 <strong>Free 25mm test export included</strong> — verify scale and watertight geometry in <span>LightBurn, Bambu Studio, Fusion 360, or Silhouette Studio</span> before buying a pass.
+      </p>
     </div>
 
-    <div class="workflow-grid">
+    <!-- Macro Visual Proof Pipeline (Static High-Contrast Vector Diagrams) -->
+    <section class="visual-proof-container" aria-label="Visual Proof Flow">
+      <!-- Step 1: Raw Pixelated Input -->
+      <div class="proof-step">
+        <div class="proof-Load-thumb">
+          <span class="proof-tag">RASTER .PNG</span>
+          <svg width="180" height="100" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Raw pixelated logo">
+            <!-- Pixelated stair-stepped anvil/mark representation -->
+            <rect x="45" y="25" width="90" height="50" fill="#2A2A2A" opacity="0.5"/>
+            <path d="M50 35 H130 V45 H115 V65 H125 V75 H55 V65 H65 V45 H50 V35 Z" fill="#888888" stroke="#555555" stroke-width="3" stroke-dasharray="4 2"/>
+            <!-- Simulated dust/noise specs -->
+            <rect x="32" y="28" width="4" height="4" fill="#666"/>
+            <rect x="142" y="62" width="5" height="5" fill="#666"/>
+            <rect x="38" y="70" width="3" height="3" fill="#666"/>
+          </svg>
+        </div>
+        <span class="proof-text">1. Flat PNG Logo</span>
+        <span class="proof-sub">Fuzzy edges, narrow slits &amp; background dust artifacts</span>
+      </div>
+
+      <div class="proof-arrow" aria-hidden="true">➔</div>
+
+      <!-- Step 2: Studio Vector Cleanup -->
+      <div class="proof-step">
+        <div class="proof-Load-thumb">
+          <span class="proof-tag" style="color: #60A5FA; border-color: #2563EB;">CLEAN NODES</span>
+          <svg width="180" height="100" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cleaned vector nodes">
+            <!-- Crisp vector geometry with CAD anchor nodes -->
+            <path d="M48 33 H132 V46 H112 V64 H128 V76 H52 V64 H68 V46 H48 Z" fill="rgba(255, 179, 0, 0.12)" stroke="#FFB300" stroke-width="2"/>
+            <!-- CAD Nodes -->
+            <rect x="46" y="31" width="5" height="5" fill="#3B82F6" stroke="#FFF" stroke-width="1"/>
+            <rect x="129" y="31" width="5" height="5" fill="#3B82F6" stroke="#FFF" stroke-width="1"/>
+            <rect x="110" y="44" width="5" height="5" fill="#3B82F6" stroke="#FFF" stroke-width="1"/>
+            <rect x="66" y="44" width="5" height="5" fill="#3B82F6" stroke="#FFF" stroke-width="1"/>
+            <rect x="50" y="73" width="5" height="5" fill="#3B82F6" stroke="#FFF" stroke-width="1"/>
+            <rect x="125" y="73" width="5" height="5" fill="#3B82F6" stroke="#FFF" stroke-width="1"/>
+          </svg>
+        </div>
+        <span class="proof-text">2. Studio Cleanup</span>
+        <span class="proof-sub">Auto-widened slits, dust filtered &amp; simplified loops</span>
+      </div>
+
+      <div class="proof-arrow" aria-hidden="true">➔</div>
+
+      <!-- Step 3: Extruded 3D Solid & Cut DXF -->
+      <div class="proof-step highlight">
+        <div class="proof-Load-thumb">
+          <span class="proof-tag" style="color: var(--gold); border-color: var(--gold);">1:1 .STL / .DXF</span>
+          <svg width="180" height="100" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="3D extruded stamp mesh">
+            <!-- Isometric 3D Baseplate -->
+            <polygon points="90,88 28,62 90,36 152,62" fill="#2D2D2D" stroke="#FFB300" stroke-width="1.5"/>
+            <polygon points="28,62 28,72 90,98 90,88" fill="#1F1F1F" stroke="#FFB300" stroke-width="1"/>
+            <polygon points="152,62 152,72 90,98 90,88" fill="#171717" stroke="#FFB300" stroke-width="1"/>
+            <!-- Raised 3D Relief Extrusion -->
+            <polygon points="90,70 55,55 90,40 125,55" fill="#FFB300" stroke="#FFF" stroke-width="1"/>
+            <polygon points="55,55 55,63 90,78 90,70" fill="#D97706"/>
+            <polygon points="125,55 125,63 90,78 90,70" fill="#B45309"/>
+          </svg>
+        </div>
+        <span style="color: var(--gold);" class="proof-text">3. 3D STL / Cut DXF</span>
+        <span class="proof-sub">Watertight 3D stamp solid on structural baseplate</span>
+      </div>
+    </section>
+
+    <!-- Semantic Workflow Steps -->
+    <section id="how-it-works" class="workflow-grid" aria-label="Workflow Guide">
       <div class="workflow-card">
         <div class="workflow-step">1. Add Your Design</div>
-        <div class="workflow-title">Image or Custom Text</div>
-        <div class="workflow-desc">Automatic edge detection, anti-aliased slit widening, and noise/dust filtering for clean geometry.</div>
+        <h2 class="workflow-title">Image or Custom Text</h2>
+        <p class="workflow-desc">Automatic edge detection, anti-aliased slit widening, and noise/dust filtering for clean geometry.</p>
       </div>
       <div class="workflow-card">
         <div class="workflow-step">2. Choose Preset</div>
-        <div class="workflow-title">Industry Preset Profiles</div>
-        <div class="workflow-desc">Pre-calibrated base and relief heights for CNC brass, rubber stamps, clicker dies, and stencils.</div>
+        <h2 class="workflow-title">Industry Preset Profiles</h2>
+        <p class="workflow-desc">Pre-calibrated base and relief heights for CNC brass, rubber stamps, clicker dies, and stencils.</p>
       </div>
       <div class="workflow-card">
         <div class="workflow-step">3. Export Toolpaths</div>
-        <div class="workflow-title">STL, DXF &amp; SVG Formats</div>
-        <div class="workflow-desc">Watertight 3D solids and closed-loop cut layers verified for slicers, CAM mills, and vinyl plotters.</div>
+        <h2 class="workflow-title">STL, DXF &amp; SVG Formats</h2>
+        <p class="workflow-desc">Watertight 3D solids and closed-loop cut layers verified for slicers, CAM mills, and vinyl plotters.</p>
       </div>
-    </div>
+    </section>
 
-    <div class="engraving-box">
-      <h3 class="engraving-title">
-        <span style="font-size: 1.6rem;">🖋️</span> New: Classical Banknote Engraving Mode
-      </h3>
-      <p class="engraving-desc">
-        Convert photographs and shaded logos into photorealistic 3D volume using single-color directional hatching. The algorithm dynamically tapers line thickness to mimic shadows. <em>(Note: Flat black logos will render as flat zebra stripes; gradients are required for the 3D effect).</em>
-      </p>
+    <!-- Engraving Highlight Box -->
+    <section id="banknote-mode" class="engraving-box" aria-label="Classical Banknote Engraving Mode">
+      <div class="engraving-header-Grid">
+        <div>
+          <h2 class="engraving-title">
+            <span style="font-size: 1.5rem;" aria-hidden="true">🖋️</span> Classical Banknote Engraving Mode
+          </h2>
+          <p class="engraving-desc">
+            Convert photographs and shaded emblems into photorealistic 3D volume using single-color directional hatching. The algorithm dynamically tapers vector line thickness across light and shadow gradients.
+          </p>
+        </div>
+
+        <!-- High-Contrast Macro Zoom Showcase -->
+        <div class="banknote-macro-preview">
+          <svg width="100%" height="95" viewBox="0 0 260 95" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Macro view of variable-width tapered engraving lines">
+            <rect width="260" height="95" rx="4" fill="#0D0D0D"/>
+            <!-- Variable-width tapered horizontal hatching lines simulating a 3D shaded sphere -->
+            <path d="M15 15 L110 14 L245 15 L110 17 Z" fill="#FFB300"/>
+            <path d="M15 27 L95 24 L245 27 L95 31 Z" fill="#FFB300"/>
+            <path d="M15 40 L85 35 L245 40 L85 45 Z" fill="#FFB300"/>
+            <path d="M15 53 L80 46 L245 53 L80 60 Z" fill="#FFB300"/>
+            <path d="M15 66 L90 60 L245 66 L90 72 Z" fill="#FFB300"/>
+            <path d="M15 79 L105 76 L245 79 L105 82 Z" fill="#FFB300"/>
+            <!-- Magnifying Loupe Ring -->
+            <circle cx="95" cy="48" r="38" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="3 3" fill="rgba(255, 179, 0, 0.05)"/>
+          </svg>
+          <div class="banknote-macro-caption">🔍 Macro View: Dynamic Line Taper</div>
+        </div>
+      </div>
+
+      <!-- Two-Column Visual Callout Box (Replaces Parenthetical Text) -->
+      <div class="engraving-callout-grid">
+        <div class="callout-badge good">
+          <strong>✅ Use Shaded Photos &amp; Gradients</strong>
+          Produces 3D tapered hatching depth as lines dynamically thicken in shadows and taper in highlights.
+        </div>
+        <div class="callout-badge warn">
+          <strong>⚠️ Avoid Flat Solid Silhouettes</strong>
+          Flat black logos lack gradients and will render as uniform zebra stripes. Use <em>Auto-Detect (Standard)</em> mode instead.
+        </div>
+      </div>
 
       <div class="hw-grid">
         <div class="hw-card">
           <span class="hw-title">Lasers &amp; Vinyl (.SVG/.DXF)</span>
-          <span class="hw-desc">This is where the engine shines. Absolutely incredible precision and photorealism.</span>
+          <span class="hw-desc">This is where the engine shines. Crisp variable-width paths with extraordinary photorealism.</span>
         </div>
         <div class="hw-card">
           <span class="hw-title">CNC Routers (.DXF)</span>
-          <span class="hw-desc">Produces excellent results when paired with a fine V-Carve engraving bit.</span>
+          <span class="hw-desc">Produces classic intaglio results when paired with a fine V-Carve engraving bit.</span>
         </div>
         <div class="hw-card">
           <span class="hw-title">3D Printing (.STL)</span>
-          <span class="hw-desc">SLA Resin prints flawlessly. Standard FDM requires a large scale to resolve the microscopic gaps.</span>
+          <span class="hw-desc">SLA Resin prints fine hatching cleanly. Standard FDM requires a larger scale to resolve micro-gaps.</span>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- CTAs -->
+    <!-- Bottom Action Buttons CTA -->
     <div class="cta-container">
       <a href="https://app.ivolgaco.com" class="btn-cta btn-primary">Launch ToolPath Studio App 🚀</a>
-      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" class="btn-cta btn-secondary">24-Hr Craftsman Pass ($8)</a>
-      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" class="btn-cta btn-secondary">Studio Monthly ($25/mo)</a>
+      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" class="btn-cta btn-secondary" target="_blank" rel="noopener noreferrer">24-Hr Craftsman Pass ($8)</a>
+      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" class="btn-cta btn-secondary" target="_blank" rel="noopener noreferrer">Studio Monthly ($25/mo)</a>
     </div>
+  </main>
 
-    <!-- Free Calibration Test File Callout -->
-    <div class="verification-banner">
-      <span class="verification-pill">
-        🧪 <strong class="gold">Free Capability Test:</strong> Generate a free 25mm trial file to check toolpath capabilities in <strong class="white">LightBurn, Bambu Studio, Cura, Fusion 360, or Silhouette</strong> before purchasing a pass.
-      </span>
-    </div>
-
-  </div>
-
-  <!-- Footer -->
+  <!-- Accessible Footer -->
   <footer>
     <p>&copy; 2026 Ivolga Co. &bull; Digital Fabrication Studio</p>
     <p style="margin-top: 8px; color: #9CA3AF; font-size: 0.8rem;">
@@ -534,10 +781,10 @@
     </p>
     <p style="margin-top: 10px;">
       <a href="https://app.ivolgaco.com">Launch App</a> &bull; 
-      <a href="#">Physical Goods (Coming Soon)</a> &bull; 
-      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00">24-Hr Pass ($8)</a>
+      <span class="footer-muted-text">Physical Goods (Coming Soon)</span> &bull; 
+      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener noreferrer">24-Hr Pass ($8)</a> &bull; 
+      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener noreferrer">Studio Monthly ($25/mo)</a>
     </p>
   </footer>
-
 </body>
 </html>
