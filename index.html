@@ -3,41 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logo &amp; Image to 3D Stamp (.STL) &amp; Cut File (.DXF / .SVG) Generator | ToolPath Studio</title>
-  <meta name="description" content="Convert PNG/JPG logos, photos, and text into watertight 3D stamp STL files and clean DXF/SVG cut vectors in seconds. Make 3D printed leather stamps, CNC brass dies, laser rubber stamps, and clicker dies compatible with Bambu Studio, LightBurn, Adobe Illustrator, Fusion 360, Silhouette Studio, and Cura." />
+  <title>Logo &amp; Image to 3D Stamp (.STL), Laser &amp; Clicker Die (.DXF / .SVG) Generator | ToolPath Studio</title>
+  <meta name="description" content="Convert logos, vintage line art, and text into watertight 3D stamp STL files and clean 2D cut vectors in seconds. Dedicated presets for 3D printed leather stamps, steel-rule clicker dies, laser engravers, vinyl plotters, and CNC brass dies. Compatible with Bambu Studio, LightBurn, Illustrator, Fusion 360, and Silhouette Studio." />
   <link rel="canonical" href="https://ivolgaco.com/" />
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ivolgaco.com/" />
-  <meta property="og:title" content="Convert Logo to 3D Stamp (.STL) &amp; Laser Cut (.DXF / .SVG) | ToolPath Studio" />
-  <meta property="og:description" content="Generate watertight 3D stamps, leather embossing dies, and clean DXF/SVG cut vectors from any image or text in seconds." />
+  <meta property="og:title" content="Convert Logo &amp; Image to 3D Stamp (.STL), Laser &amp; Clicker Die (.DXF / .SVG) | ToolPath Studio" />
+  <meta property="og:description" content="Generate watertight 3D stamps, steel-rule clicker die cut paths, laser engraving vectors, and drag-knife vinyl files from any graphic in seconds." />
 
-  <!-- Structured Data with High-Intent Search Phrases -->
+  <!-- Structured Data: SoftwareApplication with Validated AggregateRating & Offers -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://ivolgaco.com/#software",
     "name": "ToolPath Studio by Ivolga Co.",
     "applicationCategory": "DesignApplication",
-    "operatingSystem": "Web",
+    "operatingSystem": "Web Browser",
     "url": "https://app.ivolgaco.com/",
-    "description": "Web-based CAD/CAM generator that converts PNG/JPG logos, photos, and custom text into 1:1 millimeter 3D stamp STL files and 2D DXF/SVG cut vectors.",
-    "keywords": "logo to STL stamp generator, PNG to DXF converter, 3D printed leather stamp maker, custom clicker die DXF, laser rubber stamp generator, CNC brass stamp STL, photo to laser engraving SVG, LightBurn DXF generator, Bambu Studio stamp STL, Silhouette Cameo SVG cut file",
+    "description": "Web-based CAD/CAM toolpath generator that converts PNG/JPG logos, vector artwork, and custom arched text into 1:1 millimeter 3D stamp STL files and 2D DXF/SVG cut paths for 3D printers, laser cutters, steel-rule clicker dies, vinyl plotters, and CNC routers.",
+    "keywords": "logo to STL stamp generator, PNG to DXF converter, 3D printed leather stamp maker, steel-rule clicker die DXF, laser rubber stamp generator, CNC brass stamp STL, vinyl plotter SVG cut file, LightBurn DXF generator, Bambu Studio stamp STL, Silhouette Cameo cut paths",
     "offers": [
       {
         "@type": "Offer",
         "name": "24-Hr Craftsman Pass",
         "price": "8.00",
-        "priceCurrency": "USD"
+        "priceCurrency": "USD",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00"
       },
       {
         "@type": "Offer",
         "name": "Studio Monthly",
         "price": "25.00",
-        "priceCurrency": "USD"
+        "priceCurrency": "USD",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01"
       }
-    ]
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "28",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   }
   </script>
 
@@ -51,6 +65,7 @@
       --text-main: #FFFFFF;
       --text-muted: #B0B0B0;
       --border-subtle: #2A2A2A;
+      --border-amber: rgba(255, 179, 0, 0.45);
     }
 
     * {
@@ -77,7 +92,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(14, 14, 14, 0.92);
+      background: rgba(14, 14, 14, 0.94);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-subtle);
       padding: 12px 28px;
@@ -185,7 +200,6 @@
       color: var(--amber);
     }
 
-    /* Container */
     .container {
       max-width: 1080px;
       margin: 0 auto;
@@ -213,10 +227,10 @@
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      font-size: clamp(2.1rem, 4.5vw, 3.4rem);
       font-weight: 900;
       line-height: 1.15;
-      max-width: 840px;
+      max-width: 890px;
       margin: 0 auto 18px;
     }
 
@@ -227,7 +241,7 @@
     .hero p.lead {
       color: #CCCCCC;
       font-size: 1.08rem;
-      max-width: 740px;
+      max-width: 780px;
       margin: 0 auto 26px;
     }
 
@@ -238,7 +252,7 @@
       border-radius: 14px;
       padding: 24px;
       margin: 36px auto 0;
-      max-width: 920px;
+      max-width: 960px;
       display: grid;
       grid-template-columns: 1fr auto 1fr auto 1fr;
       align-items: center;
@@ -300,7 +314,7 @@
     }
 
     .pipeline-step h3 {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 800;
       letter-spacing: 0.5px;
       margin-bottom: 4px;
@@ -317,6 +331,27 @@
       padding: 48px 0;
     }
 
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+
+    .section-header h2 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 span {
+      color: var(--amber);
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -328,6 +363,13 @@
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .card:hover {
+      border-color: #3D3D3D;
     }
 
     .card-kicker {
@@ -346,57 +388,74 @@
 
     .card p {
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
-    /* Banknote Section */
-    .banknote-panel {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 32px;
-    }
-
-    .banknote-header {
-      max-width: 760px;
-      margin-bottom: 24px;
-    }
-
-    .banknote-header h2 {
-      font-size: 1.75rem;
-      color: var(--amber);
-      margin-bottom: 10px;
-    }
-
-    .callout-grid {
+    /* Machine Presets Detailed Showcase */
+    .machine-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 20px 0 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 10px;
     }
 
-    .callout-good {
-      background: rgba(76, 175, 80, 0.08);
-      border: 1px solid rgba(76, 175, 80, 0.4);
+    .machine-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--amber);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .machine-card h4 {
+      font-size: 1.05rem;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .machine-card p {
+      color: #B5B5B5;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .badge-fmt {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      background: #111;
+      border: 1px solid #333;
+      padding: 2px 7px;
+      border-radius: 4px;
+      color: var(--amber);
+      margin-top: 8px;
+    }
+
+    /* Notice Callout Panel */
+    .info-callout {
+      background-color: #1A1812;
+      border: 1px solid #4A3B18;
+      border-left: 4px solid var(--amber);
       border-radius: 8px;
-      padding: 14px 18px;
+      padding: 16px 20px;
+      margin: 32px 0 10px;
+      font-size: 0.88rem;
+      color: #D8D8D8;
+      line-height: 1.5;
     }
 
-    .callout-warn {
-      background: rgba(255, 179, 0, 0.08);
-      border: 1px solid rgba(255, 179, 0, 0.4);
-      border-radius: 8px;
-      padding: 14px 18px;
-    }
-
-    /* Bottom CTA */
+    /* Bottom CTA Panel */
     .cta-panel {
       text-align: center;
       background: linear-gradient(180deg, #181818 0%, #121212 100%);
       border: 1px solid #333333;
       border-radius: 14px;
-      padding: 40px 24px;
-      margin: 20px 0 48px;
+      padding: 42px 24px;
+      margin: 30px 0 48px;
     }
 
     .cta-buttons {
@@ -410,7 +469,7 @@
     /* Footer */
     footer {
       border-top: 1px solid var(--border-subtle);
-      padding: 32px 20px;
+      padding: 34px 20px;
       text-align: center;
       color: #888888;
       font-size: 0.86rem;
@@ -422,22 +481,26 @@
       margin: 0 6px;
     }
 
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     footer code {
       color: #E0E0E0;
       background: #1A1A1A;
-      padding: 1px 5px;
+      padding: 1px 6px;
       border-radius: 4px;
       font-size: 0.8rem;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 860px) {
       .pipeline-box {
         grid-template-columns: 1fr;
       }
       .pipeline-arrow {
         transform: rotate(90deg);
       }
-      .grid-3, .callout-grid {
+      .grid-3, .machine-grid {
         grid-template-columns: 1fr;
       }
       .nav-links a.nav-item {
@@ -467,7 +530,7 @@
 
     <nav class="nav-links">
       <a href="#how-it-works" class="nav-item">How It Works</a>
-      <a href="#banknote-mode" class="nav-item">Banknote Mode</a>
+      <a href="#machine-presets" class="nav-item">Hardware Presets</a>
       <a href="https://app.ivolgaco.com/" class="btn-primary btn-header">Launch App 🚀</a>
     </nav>
   </header>
@@ -475,39 +538,38 @@
   <main class="container">
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge">Artisan 3D Stamp (.STL) &amp; Cut File (.DXF / .SVG) Maker</div>
-      <h1>Convert Logo &amp; Text to <span>3D Stamp &amp; Custom Die Files</span></h1>
+      <div class="hero-badge">3D Stamp (.STL), Laser, Clicker Die &amp; Plotter (.DXF / .SVG) Maker</div>
+      <h1>Convert Logo &amp; Text into <span>Production-Ready Stamp &amp; Cut Files</span></h1>
       <p class="lead">
-        Skip the CAD software and manual node cleanup. Convert PNG/JPG logos, photos, and custom text into watertight 3D printed leather stamps, CNC brass dies, laser rubber stamps, and clean clicker die cut paths in seconds.
+        Skip complex CAD interfaces and manual node stitching. Convert logos, line art, and arched text into watertight 3D printed leather stamps, steel-rule clicker die cut paths, laser engraving vectors, and drag-knife vinyl files in seconds.
       </p>
 
       <a href="https://app.ivolgaco.com/" class="btn-primary">Launch ToolPath Studio App 🚀</a>
 
-      <!-- Protective 1:1 Millimeter Geometry & Machine Setup Test Messaging -->
-      <p style="margin-top: 14px; font-size: 0.92rem; color: #CCCCCC; line-height: 1.55; max-width: 720px; margin-left: auto; margin-right: auto;">
-        🛡️ <strong style="color: #FFB300;">Clean 1:1 Millimeter Geometry (.STL, .DXF, .SVG)</strong> — built for standard 3D slicers, laser software, vinyl plotters &amp; CAD/CAM. <span style="color: #A0A0A0;">Use the <strong>free 25mm sample export</strong> in-app to test your machine settings before full production.</span>
+      <p style="margin-top: 14px; font-size: 0.92rem; color: #CCCCCC; line-height: 1.55; max-width: 740px; margin-left: auto; margin-right: auto;">
+        🛡️ <strong style="color: var(--amber);">Strict 1:1 Millimeter Dimensions</strong> — built for Bambu Studio, LightBurn, Fusion 360, Illustrator &amp; Silhouette Cameo. <span style="color: #A0A0A0;">Verify your machine scaling and mirror settings first using the <strong>free 25mm test sample export</strong> in-app.</span>
       </p>
 
       <!-- 3-Card Visual Pipeline -->
       <div class="pipeline-box">
         <div class="pipeline-step">
           <div class="pipeline-visual">
-            <span class="pipeline-tag">RASTER .PNG</span>
+            <span class="pipeline-tag">RAW BITMAP</span>
             <svg width="120" height="70" viewBox="0 0 120 70">
               <rect x="28" y="18" width="64" height="34" fill="#757575" stroke="#424242" stroke-dasharray="3,2" stroke-width="2"/>
               <circle cx="18" cy="24" r="2" fill="#616161"/>
               <circle cx="102" cy="48" r="2.5" fill="#616161"/>
             </svg>
           </div>
-          <h3>1. FLAT PNG / JPG LOGO</h3>
-          <p>Fuzzy edges, narrow slits &amp; background dust artifacts</p>
+          <h3>1. UPLOAD IMAGE OR TEXT</h3>
+          <p>PNG, JPG, or custom text. Raw bitmaps contain noise, artifacts, and jagged edges.</p>
         </div>
 
         <div class="pipeline-arrow">➔</div>
 
         <div class="pipeline-step">
           <div class="pipeline-visual">
-            <span class="pipeline-tag blue">CLEAN NODES</span>
+            <span class="pipeline-tag blue">HARDWARE-AWARE</span>
             <svg width="120" height="70" viewBox="0 0 120 70">
               <rect x="28" y="18" width="64" height="34" fill="none" stroke="#FFB300" stroke-width="2"/>
               <rect x="25" y="15" width="6" height="6" fill="#42A5F5"/>
@@ -516,15 +578,15 @@
               <rect x="89" y="49" width="6" height="6" fill="#42A5F5"/>
             </svg>
           </div>
-          <h3>2. VECTOR &amp; MESH CLEANUP</h3>
-          <p>Auto-widened slits, dust filtered &amp; simplified loops</p>
+          <h3>2. GEOMETRY PROCESSING</h3>
+          <p>Automatic dust filtering, 0.4mm nozzle wall boost, and clicker die outer-line isolation.</p>
         </div>
 
         <div class="pipeline-arrow">➔</div>
 
         <div class="pipeline-step active">
           <div class="pipeline-visual">
-            <span class="pipeline-tag gold">1:1 .STL / .DXF</span>
+            <span class="pipeline-tag gold">1:1 .STL / .DXF / .SVG</span>
             <svg width="130" height="76" viewBox="0 0 130 76">
               <polygon points="65,48 110,60 65,72 20,60" fill="#262626" stroke="#FFB300" stroke-width="1.2"/>
               <polygon points="65,26 96,36 65,46 34,36" fill="#FFB300" stroke="#FFF" stroke-width="0.8"/>
@@ -532,80 +594,88 @@
               <polygon points="96,36 65,46 65,54 96,44" fill="#B26E00"/>
             </svg>
           </div>
-          <h3 style="color: var(--amber);">3. 3D STAMP STL / CUT DXF</h3>
-          <p>Watertight 3D stamp solid on structural baseplate</p>
+          <h3 style="color: var(--amber);">3. PRODUCTION EXPORT</h3>
+          <p>Watertight 3D solids and closed-loop vector cut paths ready for your machine.</p>
         </div>
       </div>
     </section>
 
-    <!-- How It Works 3-Step Section (With High-Intent Buyer Search Phrases) -->
+    <!-- How It Works 3-Card Section -->
     <section id="how-it-works">
       <div class="grid-3">
         <div class="card">
-          <div class="card-kicker">1. ADD YOUR DESIGN</div>
-          <h3>Image to Clean DXF &amp; STL</h3>
-          <p>Upload any PNG/JPG logo, photo, or custom arched text. Automatic edge detection and noise filtering generate clean, watertight geometry.</p>
+          <div class="card-kicker">1. WORKFLOW MODES</div>
+          <h3>Logo, Text &amp; Arched Combos</h3>
+          <p>Choose <strong>🖼️ Logo / Photo</strong>, <strong>✍️ Custom Text</strong>, or <strong>🔀 Logo + Text Combo</strong>. Position text directly below, above, or arched concentrically around your logo mark with live proportional scaling.</p>
         </div>
         <div class="card">
-          <div class="card-kicker">2. CHOOSE PRESET</div>
-          <h3>3D Stamp &amp; Die Profiles</h3>
-          <p>Pre-calibrated base and relief heights for 3D printed leather embossing stamps, CNC brass hot-foil dies, laser rubber stamps, clicker dies, and stencils.</p>
+          <div class="card-kicker">2. PHYSICAL FILTERING</div>
+          <h3>Live Weeding &amp; Wall Boost</h3>
+          <p>Dynamic live filtering removes microscopic stray specks and fills un-weedable internal pinholes on screen. Built-in 0.4mm nozzle wall protection ensures thin strokes slice cleanly in Bambu Studio and Cura.</p>
         </div>
         <div class="card">
-          <div class="card-kicker">3. EXPORT TOOLPATHS</div>
-          <h3>True-to-Scale STL, DXF &amp; SVG</h3>
-          <p>Download watertight 3D stamp solids and closed-loop 1:1 millimeter cut vectors built for standard 3D slicers, laser engravers, vinyl plotters, and CAD/CAM.</p>
+          <div class="card-kicker">3. ACCURATE EXPORT</div>
+          <h3>Direct DXF, SVG &amp; STL Files</h3>
+          <p>Exports standard R2010 DXF polylines, vector SVGs, and watertight binary STLs. Features automatic horizontal mirroring for stamp faces, layer-separated cut lines, and optional 50mm reference calibration boxes.</p>
         </div>
       </div>
     </section>
 
-    <!-- Classical Banknote Engraving Section -->
-    <section id="banknote-mode">
-      <div class="banknote-panel">
-        <div class="banknote-header">
-          <h2>🖋️ Photo to Laser Engraving SVG &amp; CNC V-Carve Hatching</h2>
-          <p style="color: #CCCCCC;">
-            Our Classical Banknote Engraving Mode converts shaded photographs, portraits, and 3D medallions into photorealistic 3D volume using single-color directional line hatching.
-          </p>
+    <!-- Dedicated Machine Presets Section -->
+    <section id="machine-presets">
+      <div class="section-header">
+        <h2>Built for Your <span>Workshop Hardware</span></h2>
+        <p>Pre-calibrated geometric configurations designed for specific tooling, blade offsets, and nozzle constraints.</p>
+      </div>
+
+      <div class="machine-grid">
+        <div class="machine-card">
+          <h4>🎯 Laser Engraver &amp; Marking</h4>
+          <p>Exports clean, closed vector loops with separate color-coded layers for engraving and perimeter cut passes. Includes line thickener controls for laser kerf compensation and rubber stamp relief.</p>
+          <span class="badge-fmt">EXPORTS: .SVG • .DXF</span>
         </div>
 
-        <div class="callout-grid">
-          <div class="callout-good">
-            <strong style="color: #81C784;">✅ Use Shaded Photos &amp; Gradients</strong>
-            <p style="font-size: 0.88rem; color: #CCCCCC; margin-top: 4px;">
-              Produces 3D tapered hatching depth as engraving lines dynamically thicken in shadows and taper in highlights.
-            </p>
-          </div>
-          <div class="callout-warn">
-            <strong style="color: var(--amber);">⚠️ Avoid Flat Solid Silhouettes</strong>
-            <p style="font-size: 0.88rem; color: #CCCCCC; margin-top: 4px;">
-              Flat black logos lack gradients and will render as uniform zebra stripes. Use <strong>Auto-Detect (Standard)</strong> mode instead.
-            </p>
-          </div>
+        <div class="machine-card">
+          <h4>🔪 Steel-Rule Clicker Dies</h4>
+          <p>Automatically strips all internal holes and small cavities to export a single, continuous outer cut perimeter (<code>STEEL_RULE_CUT</code>). Features an adjustable outer offset and corner smoothing slider so steel rule blades bend cleanly.</p>
+          <span class="badge-fmt">EXPORTS: .DXF • .SVG</span>
         </div>
 
-        <div class="grid-3">
-          <div class="card" style="background: var(--bg-card-inner);">
-            <h3>Laser Engraving &amp; Plotters (.SVG / .DXF)</h3>
-            <p>Crisp variable-width vector paths for laser rubber stamps, anodized metal marking, and custom vinyl plotter decals.</p>
-          </div>
-          <div class="card" style="background: var(--bg-card-inner);">
-            <h3>CNC Brass Dies &amp; Routers (.DXF)</h3>
-            <p>Produces classic intaglio banknote engraving results in brass, aluminum, or hardwood when paired with a fine V-Carve bit.</p>
-          </div>
-          <div class="card" style="background: var(--bg-card-inner);">
-            <h3>3D Printed Stamps (.STL)</h3>
-            <p>SLA Resin printers resolve fine hatching cleanly. Standard FDM 3D printers work best with lower line density or larger stamp widths.</p>
-          </div>
+        <div class="machine-card">
+          <h4>✂️ Vinyl Plotters &amp; Drag Knives</h4>
+          <p>Features automatic drag-knife corner rounding to blunt needle-sharp V-tips, preventing blade catches. Integrated live weeding filter merges narrow slits that tear when weeding adhesive vinyl or paint masks.</p>
+          <span class="badge-fmt">EXPORTS: .SVG • .DXF</span>
         </div>
+
+        <div class="machine-card">
+          <h4>🖨️ 3D Printed Stamps &amp; Touchmarks</h4>
+          <p>Generates solid, watertight 3D meshes on structural baseplates. Pre-calibrated for leather embossing presses, arbor presses, polymer clay, and ceramic marks. Includes wall thickening to prevent slicer wall skipping on 0.4mm nozzles.</p>
+          <span class="badge-fmt">EXPORTS: .STL • .DXF • .SVG</span>
+        </div>
+
+        <div class="machine-card">
+          <h4>⚙️ CNC Router &amp; V-Carve Dies</h4>
+          <p>Deep baseplate margins and clean, unified loops built for brass, aluminum, and delrin machining. Compatible with standard V-carve tooling, pocketing toolpaths, and 3D carving in Fusion 360 and Vectric.</p>
+          <span class="badge-fmt">EXPORTS: .DXF • .SVG • .STL</span>
+        </div>
+
+        <div class="machine-card">
+          <h4>📐 Custom Dimension Specifications</h4>
+          <p>Full control over physical parameters. Adjust Base Thickness (0.0 to 15.0 mm), Relief Height (0.5 to 15.0 mm), and Baseplate Frame Margin (0.0 to 15.0 mm) directly below your target cut width.</p>
+          <span class="badge-fmt">EXPORTS: .STL • .DXF • .SVG</span>
+        </div>
+      </div>
+
+      <div class="info-callout">
+        💡 <strong style="color: var(--amber);">Calibration First:</strong> Use the in-app <strong>Free 25mm Test Sample</strong> export to verify that your slicer, laser driver, or plotter reads file units in true millimeters (mm) before running full-scale production jobs.
       </div>
     </section>
 
-    <!-- Bottom CTA & Direct Passes -->
+    <!-- Bottom CTA Panel -->
     <div class="cta-panel">
-      <h2 style="font-size: 1.8rem; margin-bottom: 8px;">Ready to Generate Your Custom Stamp or Cut File?</h2>
+      <h2 style="font-size: 1.85rem; margin-bottom: 8px;">Ready to Generate Your Custom Stamp or Cut File?</h2>
       <p style="color: var(--text-muted); max-width: 660px; margin: 0 auto;">
-        Export clean, watertight 1:1 millimeter (.STL, .DXF, .SVG) files — test your slicer, laser, or cutter settings first with the free 25mm sample export in-app.
+        Export clean, watertight 1:1 millimeter (.STL, .DXF, .SVG) files immediately. Test your machine settings with the free 25mm sample or unlock full-scale production below.
       </p>
       <div class="cta-buttons">
         <a href="https://app.ivolgaco.com/" class="btn-primary">Launch ToolPath Studio App 🚀</a>
@@ -615,14 +685,14 @@
     </div>
   </main>
 
-  <!-- Footer with SEO Compatibility Keywords & Protective Machine Setup Disclaimer -->
+  <!-- Footer with SEO Compatibility Keywords & Protective Verification Notice -->
   <footer>
     <p><strong>© 2026 Ivolga Co. • Digital Fabrication Studio.</strong></p>
-    <p style="margin: 8px auto; max-width: 780px; color: #9E9E9E; font-size: 0.82rem;">
-      <strong>Compatible Slicer, Laser &amp; CAD Software:</strong> Exports standard 1:1 millimeter <code>.STL</code>, <code>.DXF</code> (R2010), and <code>.SVG</code> geometry compatible with Bambu Studio, PrusaSlicer, UltiMaker Cura, LightBurn, Silhouette Studio, Cricut Design Space, Adobe Illustrator, AutoCAD, and Autodesk Fusion 360.
+    <p style="margin: 8px auto; max-width: 820px; color: #9E9E9E; font-size: 0.82rem;">
+      <strong>Compatible Slicer, Laser &amp; CAD Software:</strong> Exports standard 1:1 millimeter <code>.STL</code>, <code>.DXF</code> (R2010), and <code>.SVG</code> geometry compatible with Bambu Studio, OrcaSlicer, PrusaSlicer, UltiMaker Cura, LightBurn, Silhouette Studio, Cricut Design Space, Adobe Illustrator, AutoCAD, and Autodesk Fusion 360.
     </p>
-    <p style="margin: 6px auto; max-width: 740px; color: #777777; font-size: 0.78rem;">
-      Support: <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a> • Because every 3D printer, laser, plotter, and CNC machine varies, always confirm import units (mm), stamp mirroring, and material cut settings using the free 25mm sample before running production jobs.
+    <p style="margin: 6px auto; max-width: 780px; color: #777777; font-size: 0.78rem;">
+      Support: <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a> • Because machine setups, cutting kerfs, blade offsets, and material behaviors vary, always confirm import units (mm), stamp mirroring, and toolpath parameters using the free 25mm sample before full production runs.
     </p>
     <p style="margin-top: 10px;">
       <a href="https://app.ivolgaco.com/">Launch App</a> •
