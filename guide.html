@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToolPath Studio by Ivolga Co. — Official User &amp; Technical Manual (PDF)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0E0E0E;
+      color: #F0F0F0;
+      padding: 28px 18px;
+      line-height: 1.55;
+    }
+    .print-bar {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #161616;
+      border: 1px solid #2E2E2E;
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+    .btn-gold {
+      background: #FFB300;
+      color: #000000;
+      font-weight: 900;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-dark {
+      background: #1F1F1F;
+      color: #FFB300;
+      font-weight: 700;
+      border: 1px solid #3A3A3A;
+      padding: 9px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    .manual-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #161616;
+      border: 2px solid #FFB300;
+      border-radius: 12px;
+      padding: 36px 40px;
+    }
+    .manual-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #2E2E2E;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .manual-header h1 {
+      color: #FFB300;
+      font-size: 1.65rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .manual-header .subtitle {
+      color: #CCCCCC;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .manual-meta {
+      text-align: right;
+      font-size: 0.82rem;
+      color: #BDBDBD;
+      line-height: 1.45;
+    }
+    .manual-meta strong { color: #FFB300; }
+    h2 {
+      color: #FFB300;
+      font-size: 1.12rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin: 26px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #2A2A2A;
+    }
+    h3 {
+      color: #FFFFFF;
+      font-size: 0.96rem;
+      font-weight: 800;
+      margin: 14px 0 6px;
+    }
+    p, li {
+      font-size: 0.86rem;
+      color: #DDDDDD;
+    }
+    ul, ol {
+      margin: 6px 0 12px 20px;
+    }
+    li { margin-bottom: 5px; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 10px 0 14px;
+    }
+    .card-box {
+      background: #111111;
+      border: 1px solid #2E2E2E;
+      border-left: 4px solid #FFB300;
+      border-radius: 8px;
+      padding: 12px 15px;
+    }
+    .card-box strong.title {
+      color: #FFFFFF;
+      font-size: 0.92rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 16px;
+      font-size: 0.82rem;
+    }
+    th, td {
+      border: 1px solid #2C2C2C;
+      padding: 9px 11px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #101010;
+      color: #FFB300;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      letter-spacing: 0.4px;
+    }
+    code {
+      background: #222222;
+      color: #FFB300;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    .prompt-box {
+      background: #0D0D0D;
+      border: 1px solid #333333;
+      border-left: 3px solid #81C784;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: monospace;
+      font-size: 0.76rem;
+      color: #E0E0E0;
+      margin: 8px 0 12px;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+    .footer-bar {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 2px solid #2A2A2A;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: #9E9E9E;
+    }
+    @media (max-width: 720px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .manual-container { padding: 22px 18px; }
+    }
+    @media print {
+      body {
+        background: #121212 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        padding: 0;
+      }
+      .print-bar { display: none !important; }
+      .manual-container {
+        border: 2px solid #FFB300;
+        max-width: 100%;
+        padding: 24px 28px;
+      }
+      table, .card-box { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <a href="https://ivolgaco.com/" class="btn-dark">← Return to Ivolga Co. Home</a>
+    <button type="button" class="btn-gold" onclick="window.print()">🖨️ Save / Print Official PDF Manual</button>
+    <a href="https://app.ivolgaco.com/" class="btn-gold">🚀 Launch ToolPath Studio App</a>
+  </div>
+
+  <div class="manual-container">
+    <div class="manual-header">
+      <div>
+        <h1>🛠️ TOOLPATH STUDIO — OFFICIAL USER &amp; TECHNICAL MANUAL</h1>
+        <div class="subtitle">1:1 Millimeter 3D Stamp (.STL), Clicker Die &amp; Laser/Plotter Vector (.DXF / .SVG) Generator</div>
+      </div>
+      <div class="manual-meta">
+        <strong>Ivolga Co. Digital Fabrication</strong><br />
+        Workspace: <strong>app.ivolgaco.com</strong><br />
+        Web: <strong>ivolgaco.com</strong><br />
+        Support: <strong>contact@ivolgaco.com</strong>
+      </div>
+    </div>
+
+    <h2>1. System Overview &amp; Fabrication Architecture</h2>
+    <p>
+      ToolPath Studio replaces manual CAD tracing and mesh healing with an automated, hardware-aware manufacturing pipeline. Upload any PNG, JPG, or WEBP graphic—or type custom arched typography—to export watertight 3D <code>.STL</code> stamp meshes, AutoCAD R2010 <code>.DXF</code> polylines, and closed-loop <code>.SVG</code> cut files calibrated to exact real-world millimeters (<code>mm</code>).
+    </p>
+
+    <h2>2. Studio Creation Modes</h2>
+    <div class="grid-2">
+      <div class="card-box">
+        <strong class="title">🖼️ Mode 1: Logo / Photo</strong>
+        Converts multi-color or B&amp;W logos, intaglio engravings, physical templates, and 3D reliefs into 3D stamps or 2D cut paths. Features automatic color-halo separation and 1-click Vision AI background cleanup.
+      </div>
+      <div class="card-box">
+        <strong class="title">✍️ Mode 2: Custom Text &amp; 🔀 Mode 3: Combo</strong>
+        Includes 7 built-in shop fonts (<em>Clean Bold Block, Classic Serif, Heavy Impact, Military Stencil, Vintage Typewriter, Varsity Block, Cursive Script</em>), Letter Boldness (<code>1–10</code>), and concentric <strong>Arced Text Around Logo</strong> layouts.
+      </div>
+    </div>
+
+    <h2>3. Workshop Hardware Presets &amp; Specifications</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Machine Preset</th>
+          <th>Export Formats</th>
+          <th>Default Specs</th>
+          <th>Built-In Physics &amp; Geometry Protection</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>🖨️ 3D Printer</strong></td>
+          <td><code>.STL</code> (Binary 3D Mesh)</td>
+          <td>50 mm Width<br />3.0 mm Base<br />2.5 mm Relief</td>
+          <td>Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong> so fine facial lines and thin strokes never vanish on <code>0.4 mm</code> FDM nozzles. Adds a <code>5.0 mm</code> structural base margin per side.</td>
+        </tr>
+        <tr>
+          <td><strong>🎯 Laser Engraver</strong></td>
+          <td><code>.SVG</code> • <code>.DXF</code></td>
+          <td>60 mm Width<br />2D Closed Loops</td>
+          <td>Extracts kerf-true sub-pixel vectors (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps.</td>
+        </tr>
+        <tr>
+          <td><strong>🔪 Clicker Die</strong></td>
+          <td><code>.DXF</code> • <code>.SVG</code></td>
+          <td>100 mm Width<br />Outer Cut Only</td>
+          <td>Strips all internal holes and table shadows to isolate a single continuous outer perimeter (<code>STEEL_RULE_CUT</code> layer) with adjustable <strong>Outer Blade Offset (0.0–6.0 mm)</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>✂️ Vinyl Plotter</strong></td>
+          <td><code>.SVG</code> • <code>.DXF</code></td>
+          <td>80 mm Width<br />Drag-Knife Safe</td>
+          <td>Rounds needle-sharp corners to prevent blade tears on Silhouette Cameo/Cricut and enforces a <code>0.35 mm²</code> dust filter and <code>≥0.75 mm</code> weeding guard.</td>
+        </tr>
+        <tr>
+          <td><strong>⚙️ CNC / Brass Die</strong></td>
+          <td><code>.DXF</code> • <code>.STL</code> • <code>.SVG</code></td>
+          <td>50 mm Width<br />8.0 mm Base<br />3.0 mm Relief</td>
+          <td>Heavy-duty stock solid (<code>.STL</code>) and layer-separated 2D vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code>) for brass hot-foil dies, leather embossing, and V-carving.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Tracing Styles &amp; AI Photo Pre-Conditioning</h2>
+    <ul>
+      <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines from colored fills using a 3-pixel separation halo so adjacent colors never fuse into a solid blob. Preserves internal feather slits and extracts 3D facial contours via Multi-Scale Retinex, SAR Lee Despeckling, and Hessian Principal Curvature (<code>λ₁</code>).</li>
+      <li><strong>🏛️ Classical Banknote Hatching (3D Shading Lines):</strong> Converts smooth continuous grayscale reliefs and medallions into variable-width engraving lines (<em>Diagonal 45°, Cross-Hatch 45° Mesh, Concentric Seal, Horizontal, Vertical</em>) with adjustable <strong>3D Contour Wave Curvature (0–10)</strong>, or traces pre-drawn intaglio engravings directly.</li>
+      <li><strong>✨ Automatic &amp; 1-Click Vision AI Cleanup:</strong> Strips background clutter, monitor borders, outer rims, and marble/stone speckles to pure white (<code>#FFFFFF</code>) while rendering the subject in crisp, connected black (<code>#000000</code>) stamp line-art.</li>
+    </ul>
+
+    <h3>📜 Master AI Prompt for Classic 3D Banknote &amp; Intaglio Engravings</h3>
+    <p>Use this prompt in ChatGPT, Gemini, or Midjourney (or open the in-app <strong>1-Click AI Prompt Studio</strong>) to generate engraving artwork:</p>
+    <div class="prompt-box">Create a high-resolution, square 1:1 aspect ratio classic 3D banknote engraving and Intaglio-style artwork of [your subject, pose, and description], centered on a solid, seamless, pure white (#FFFFFF) background.
+
+COMPOSITION &amp; ZERO GROUND SHADOW: The entire subject is prominently centered in a square 1:1 frame with ample, generous white space (margins) on all four sides, ensuring no part of the artwork touches the edges. The subject is 100% isolated in mid-air on the pure white background: strictly NO ground shadow, NO cast shadow, NO floor dust, and NO borders or frames.
+
+ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage etching, and intaglio printmaking. Use crisp, high-contrast, varying-weight hand-etched cross-contour hatching lines that curve naturally across the subject's 3D anatomy to create volumetric depth solely through sharp black (#000000) linework on pure white (#FFFFFF) paper.</div>
+
+    <h2>5. Step-by-Step Operating Checklist</h2>
+    <ol>
+      <li><strong>Select Mode &amp; Upload:</strong> Choose <em>Logo / Photo</em>, <em>Custom Text</em>, or <em>Logo + Text Combo</em> and upload a high-contrast PNG, JPG, or WEBP image (at least <code>500 × 500 px</code>).</li>
+      <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your hardware preset and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em>.</li>
+      <li><strong>Set Width (mm) &amp; Orientation:</strong> Enter your exact target width in millimeters (<code>5–350 mm</code>). Check <strong>🔄 Mirror Horizontally</strong> if making a face-down stamp (leather, ink, clay, brass die) or HTV iron-on transfer.</li>
+      <li><strong>Optional Fine-Tuning:</strong> Expand <em>🎛️ Optional Fine-Tuning</em> only if you wish to customize 3D Base Thickness (<code>0–15 mm</code>), 3D Relief Height (<code>0.5–15 mm</code>), Detail Balance (<code>-80 to +80</code>), or Extra Line Thickness Boost (<code>0–8</code>).</li>
+      <li><strong>Verify &amp; Export:</strong> Confirm the status bar shows <strong>✅ Vector-Ready</strong>. Click <strong>🧪 Download Free 25mm Test Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
+    </ol>
+
+    <h2>6. Slicer, Laser &amp; CAD Import Guidelines</h2>
+    <div class="grid-2">
+      <div class="card-box">
+        <strong class="title">🖨️ Bambu Studio, OrcaSlicer &amp; Cura (.STL)</strong>
+        • Import units: <strong>Millimeters (mm)</strong>.<br />
+        • Enable <strong>Arachne Wall Generator</strong> for sharp tapered details.<br />
+        • <strong>Hand Stamps (Ink/Clay):</strong> 0.16–0.20 mm layers, 4 top shells, 25%–40% Gyroid/Grid infill.<br />
+        • <strong>Arbor / Clicker Press Leather Stamps:</strong> 5+ top/bottom shells, 4–6 wall loops, <strong>80%–100% infill</strong>.
+      </div>
+      <div class="card-box">
+        <strong class="title">📐 Illustrator, AutoCAD &amp; LightBurn (.DXF / .SVG)</strong>
+        • Set import scale to <strong>1 Unit = 1 Millimeter (mm)</strong>.<br />
+        • <strong>Illustrator Outline Tip:</strong> Press <code>Ctrl + Y</code> (Outline Mode) to inspect the zero-thickness mathematical cut path without Illustrator's default 0.25 mm visual stroke.<br />
+        • <strong>LightBurn Rubber Stamps:</strong> Enable <em>Ramp</em> (0.5–1.0 mm) on the engraved fill layer.
+      </div>
+    </div>
+
+    <h2>7. Pre-Flight Quality Gates &amp; Troubleshooting</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Status Alert</th>
+          <th>Cause</th>
+          <th>Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>⛔ Background Clutter / Screen Frame</strong></td>
+          <td>Unremoved background, table shadow, or computer monitor UI bars reaching the image edges.</td>
+          <td>Click <strong>✨ AI Remove Background &amp; Convert to Stamp Line-Art</strong> or switch to <strong>🔪 Clicker Die Mode</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>⛔ Surface Speckles / Noise Detected</strong></td>
+          <td>Stone/marble pits or paper grain created <code>22+</code> detached dots.</td>
+          <td>Click <strong>✨ AI Remove Background &amp; Convert</strong> or slide <strong>Detail / Edge Balance</strong> left (<code>-15 to -40</code>).</td>
+        </tr>
+        <tr>
+          <td><strong>⛔ Incomplete Subject / Half-Face Washout</strong></td>
+          <td>Harsh directional lighting washed out one side of a 3D face or bust.</td>
+          <td>Click <strong>✨ AI Remove Background &amp; Convert</strong> to reconstruct full facial features evenly.</td>
+        </tr>
+        <tr>
+          <td><strong>⚠️ Build Plate / Mat Width Notice</strong></td>
+          <td>Total 3D baseplate width (<code>Graphic Width + 10 mm</code>) exceeds 220 mm (Ender/Prusa) or 305 mm (vinyl mat).</td>
+          <td>Reduce Target Graphic Width to <code>≤210 mm</code> for 220 mm beds (or <code>≤246 mm</code> for 256 mm Bambu A1/P1S/X1C beds).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer-bar">
+      <span>© 2026 Ivolga Co. • Digital Fabrication Studio • Folsom, California</span>
+      <span>Free 25mm Sample Export • $8 24-Hr Craftsman Pass • $25/mo Studio Monthly</span>
+    </div>
+  </div>
+
+</body>
+</html>
