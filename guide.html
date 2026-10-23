@@ -3,755 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Primary High-Intent SEO Title & Meta Description -->
-  <title>Pixel2Path Studio | Convert Logos, Photos &amp; Text to 3D Stamps (.STL) &amp; Cut Vectors (.SVG / .DXF)</title>
-  <meta name="description" content="Your artwork. Your machine. One production-ready file. Upload a logo, photo, or custom text and create a 1:1 millimeter 3D stamp (.STL), laser/plotter vector (.SVG), or steel-rule clicker die (.DXF) in seconds. Test free at 25mm." />
-  <meta name="keywords" content="Pixel2Path Studio, logo to 3D stamp STL, image to leather stamp, steel rule clicker die DXF generator, logo to DXF for laser cutting, photo to engraving line art, logo to CNC brass stamp, arched text stamp generator" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="author" content="Pixel2Path Studio" />
-  <meta name="theme-color" content="#FFB300" />
-  <link rel="canonical" href="https://ivolgaco.com/" />
-
-  <!-- Golden Oriole Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='186' fill='%23FFFFFF' stroke='%234A4A4A' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='178' fill='none' stroke='%23FFB300' stroke-width='6'/%3E%3Cpath d='M 168,224 C 138,236 95,256 62,268 C 72,272 84,271 96,266 C 80,275 68,280 58,281 C 70,285 85,283 98,277 C 86,286 76,290 68,291 C 98,298 135,292 175,278 L 214,256 Z' fill='%231C1814'/%3E%3Cpath d='M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z' fill='%231C1814'/%3E%3Cpath d='M 198,196 C 218,162 246,118 265,86 C 271,88 272,99 267,112 C 276,96 283,84 289,82 C 294,86 292,99 285,114 C 294,101 302,92 308,91 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z' fill='%231C1814'/%3E%3Cpath d='M 195,196 C 212,175 232,155 248,145 C 258,168 256,202 245,224 C 230,226 210,215 195,196 Z' fill='%23FFD000'/%3E%3Cpath d='M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 272,256 286,268 296,274 C 278,274 258,266 242,256 C 222,258 196,248 178,233 C 164,222 156,210 144,204 C 134,200 126,197 122,193 Z' fill='%23FFD000'/%3E%3Cpath d='M 124,191 L 96,195 L 125,198 Z' fill='%238D6E4E'/%3E%3Ccircle cx='140' cy='192' r='6' fill='%2314100C'/%3E%3C/svg%3E" />
-
-  <!-- Preconnect & DNS-Prefetch -->
-  <link rel="preconnect" href="https://app.ivolgaco.com" crossorigin />
-  <link rel="dns-prefetch" href="https://app.ivolgaco.com" />
-
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Pixel2Path Studio" />
-  <meta property="og:url" content="https://ivolgaco.com/" />
-  <meta property="og:title" content="Pixel2Path Studio | Your Artwork. Your Machine. One Production-Ready File." />
-  <meta property="og:description" content="Upload a logo or photo and create a 1:1 millimeter STL stamp, laser-ready SVG, or clicker-die DXF without manual CAD cleanup. Test free at 25mm." />
-  <meta property="og:image" content="https://ivolgaco.com/proof-bambu.jpg" />
-
-  <!-- Twitter / X Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pixel2Path Studio | Logo &amp; Text to 3D Stamp (.STL) &amp; Cut Vectors (.SVG / .DXF)" />
-  <meta name="twitter:description" content="Instant 1:1 millimeter 3D stamp STL meshes and closed-loop DXF/SVG cut paths for 3D printers, clicker presses, lasers, CNC mills, and vinyl plotters." />
-  <meta name="twitter:image" content="https://ivolgaco.com/proof-bambu.jpg" />
-
-  <!-- Structured Data Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://ivolgaco.com/#software",
-        "name": "Pixel2Path Studio",
-        "applicationCategory": "DesignApplication",
-        "applicationSubCategory": "CAD/CAM & 3D Stamp Generator",
-        "operatingSystem": "Web Browser (Desktop & Mobile)",
-        "url": "https://app.ivolgaco.com/",
-        "description": "Specialized production-file generator for makers who need their artwork or text to become a correctly sized, machine-appropriate 3D stamp (.STL), laser/plotter vector (.SVG), or steel-rule clicker die (.DXF) without manual CAD cleanup.",
-        "featureList": [
-          "1-Click conversion from PNG/JPG/WEBP logos, photos, or custom arched text to .STL, .DXF, and .SVG",
-          "Hardware presets for 3D Printers, Laser Engravers, Vinyl Plotters, Steel-Rule Clicker Dies, and CNC Routers",
-          "Watertight 3D Stamp STL extrusion with >=0.45mm minimum nozzle wall guard",
-          "Steel-Rule Clicker Die outer perimeter isolation (STEEL_RULE_CUT layer) with shadow suppression",
-          "Automatic Advanced Vision background removal for raw photos and 3D reliefs",
-          "Live Export-Readiness Validation Panel checking stroke widths, closed loops, and 1:1 millimeter scale",
-          "Free 25mm test sample export on every hardware preset"
-        ],
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Free 25mm Test Sample Export (.STL, .DXF, .SVG)",
-            "price": "0.00",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "url": "https://app.ivolgaco.com/"
-          },
-          {
-            "@type": "Offer",
-            "name": "24-Hr Craftsman Pass ($8)",
-            "price": "8.00",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "url": "https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00"
-          },
-          {
-            "@type": "Offer",
-            "name": "Studio Monthly Subscription ($25/mo)",
-            "price": "25.00",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "url": "https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01"
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://ivolgaco.com/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is free versus paid in Pixel2Path Studio?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Uploading artwork, live toolpath previewing, and downloading a 25mm test sample file (.STL, .DXF, or .SVG) are 100% free with no account required. Full-scale production exports up to 350mm are unlocked with an $8 24-Hr Craftsman Pass (includes 25 Advanced Vision credits) or a $25/mo Studio Monthly subscription (includes 100 Advanced Vision credits/month)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Should I choose .SVG or .DXF for Laser Engravers and Vinyl Plotters?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Select .SVG (Default) for Cricut Design Space, Adobe Illustrator, LightBurn, and Glowforge—it exports as a single unified Compound Path with inner holes pre-grouped. Select .DXF for industrial CAD/CAM systems (AutoCAD, SolidWorks) or for the free Silhouette Studio Basic Edition."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are my uploaded client logos and artwork kept private?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Uploaded images are processed in volatile memory (RAM) for your active session only and are automatically purged. When Advanced Vision Background Removal is used, the image is processed via an encrypted enterprise vision endpoint and is never used to train public models."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-
+  <title>Pixel2Path Studio — Official User &amp; Technical Manual</title>
+  <meta name="description" content="Official User and Technical Manual for Pixel2Path Studio: 1:1 millimeter 3D stamp (.STL), steel-rule clicker die (.DXF), and laser/plotter cut vector (.SVG) generator." />
+  <link rel="canonical" href="https://ivolgaco.com/guide.html" />
   <style>
-    :root {
-      --bg-dark: #0E0E0E;
-      --bg-card: #161616;
-      --amber: #FFB300;
-      --amber-hover: #E09D00;
-      --green: #81C784;
-      --text-main: #FFFFFF;
-      --text-muted: #B0B0B0;
-      --border-subtle: #2A2A2A;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
+    body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0E0E0E;
+      color: #F0F0F0;
+      padding: 28px 18px;
+      line-height: 1.55;
     }
-
-    body { background-color: var(--bg-dark); line-height: 1.6; overflow-x: hidden; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(14, 14, 14, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 12px 28px;
+    .print-bar {
+      max-width: 920px;
+      margin: 0 auto 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-    }
-
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .brand-logo { width: 42px; height: 42px; flex-shrink: 0; }
-    .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-    .brand-title { color: var(--amber); font-weight: 900; font-size: 1.08rem; letter-spacing: 1px; }
-    .brand-sub { color: var(--text-muted); font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; }
-
-    .nav-links { display: flex; align-items: center; gap: 18px; }
-    .nav-links a.nav-item {
-      color: #E0E0E0;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: color 0.15s ease;
-    }
-    .nav-links a.nav-item:hover { color: var(--amber); }
-
-    .btn-primary {
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: var(--amber);
-      color: #000000;
-      font-weight: 800;
-      font-size: 1rem;
-      padding: 13px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0 4px 18px rgba(255, 179, 0, 0.3);
-      transition: all 0.15s ease;
-    }
-    .btn-primary:hover { background-color: var(--amber-hover); transform: translateY(-1px); }
-    .btn-header { padding: 8px 16px; font-size: 0.88rem; }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #1A1A1A;
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 0.94rem;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 1px solid #3A3A3A;
-      transition: all 0.15s ease;
-    }
-    .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
-
-    .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
-
-    /* 01. HERO */
-    .hero { text-align: center; padding: 44px 0 30px; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255, 179, 0, 0.12);
-      color: var(--amber);
-      border: 1px solid rgba(255, 179, 0, 0.4);
-      font-size: 0.76rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 4.3vw, 3.1rem);
-      font-weight: 900;
-      line-height: 1.15;
-      max-width: 820px;
-      margin: 0 auto 14px;
-    }
-    .hero h1 span { color: var(--amber); }
-    .hero p.lead {
-      color: #D0D0D0;
-      font-size: 1.05rem;
-      max-width: 720px;
-      margin: 0 auto 22px;
-    }
-    .hero-cta-row {
-      display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 12px;
-      margin-bottom: 14px;
+      background: #161616;
+      border: 1px solid #2E2E2E;
+      padding: 12px 18px;
+      border-radius: 10px;
     }
-    .boundary-pill {
-      display: inline-block;
-      background: #141A14;
-      border: 1px solid #2E5A32;
-      border-left: 4px solid var(--green);
+    .btn-gold {
+      background: #FFB300;
+      color: #000000;
+      font-weight: 900;
+      border: 2px solid #FFFFFF;
+      padding: 10px 20px;
       border-radius: 8px;
-      padding: 8px 16px;
-      font-size: 0.86rem;
-      color: #E8F5E9;
-      max-width: 740px;
-      margin: 4px auto 0;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-
-    section { padding: 36px 0; border-top: 1px solid #1C1C1C; }
-    .section-header { text-align: center; max-width: 700px; margin: 0 auto 24px; }
-    .section-header h2 { font-size: 1.68rem; font-weight: 900; margin-bottom: 6px; }
-    .section-header h2 span { color: var(--amber); }
-    .section-header p { color: var(--text-muted); font-size: 0.94rem; }
-
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+    .btn-dark {
+      background: #1F1F1F;
+      color: #FFB300;
+      font-weight: 700;
+      border: 1px solid #3A3A3A;
+      padding: 9px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+    .manual-container {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #161616;
+      border: 2px solid #FFB300;
       border-radius: 12px;
-      padding: 20px;
+      padding: 36px 40px;
     }
-    .card-kicker {
-      color: var(--amber);
-      font-size: 0.74rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .manual-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #2E2E2E;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo { width: 52px; height: 52px; flex-shrink: 0; }
+    .manual-header h1 {
+      color: #FFB300;
+      font-size: 1.55rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
       margin-bottom: 4px;
     }
-    .card h3 { font-size: 1.08rem; margin-bottom: 6px; }
-    .card p { color: var(--text-muted); font-size: 0.87rem; line-height: 1.48; }
-
-    .proof-box {
-      background: #101010;
-      border: 1px solid #2A2A2A;
-      border-radius: 8px;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-    .proof-tag {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
-      background: rgba(14, 14, 14, 0.9);
-      border: 1px solid #3A3A3A;
-      color: #BDBDBD;
-    }
-
-    /* Compact 5-Button Hardware Strip */
-    .hw-strip {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    a.hw-pill {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      text-decoration: none;
-      background: var(--bg-card);
-      border: 1px solid #333;
-      border-top: 3px solid var(--amber);
-      border-radius: 10px;
-      padding: 14px 10px;
-      transition: all 0.15s ease;
-    }
-    a.hw-pill:hover { transform: translateY(-2px); border-color: var(--amber); background: #1D1A12; }
-    .hw-pill strong { color: #FFF; font-size: 0.9rem; margin-bottom: 4px; }
-    .hw-pill span { color: var(--text-muted); font-size: 0.75rem; line-height: 1.35; }
-    .hw-pill code {
-      margin-top: 6px;
-      font-size: 0.68rem;
-      color: var(--amber);
-      background: #111;
-      padding: 2px 6px;
-      border-radius: 4px;
-      border: 1px solid #2E2E2E;
-    }
-
-    /* Pricing Cards */
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .price-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .price-card.featured { border: 2px solid var(--amber); box-shadow: 0 6px 24px rgba(255, 179, 0, 0.12); }
-    .price-amount { font-size: 1.9rem; font-weight: 900; color: #FFF; margin: 6px 0 4px; }
-    .price-amount span { font-size: 0.86rem; color: var(--text-muted); font-weight: 600; }
-    .price-list { list-style: none; margin: 12px 0 18px; font-size: 0.85rem; color: #D0D0D0; }
-    .price-list li { margin-bottom: 7px; }
-
-    /* Expandable Drawers */
-    .faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-    details.faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 14px 18px;
-    }
-    details.faq-item[open] { border-color: var(--amber); }
-    details.faq-item summary {
-      font-weight: 800;
-      font-size: 0.94rem;
-      color: #FFFFFF;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    details.faq-item summary::-webkit-details-marker { display: none; }
-    details.faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.2rem; font-weight: 900; }
-    details.faq-item[open] summary::after { content: "−"; }
-    details.faq-item .faq-body {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid #262626;
+    .manual-header .subtitle {
       color: #CCCCCC;
-      font-size: 0.87rem;
-      line-height: 1.52;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
-
-    .comp-table-wrap { overflow-x: auto; margin-top: 10px; }
-    table.comp-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.82rem; }
-    table.comp-table th, table.comp-table td { padding: 10px 12px; border-bottom: 1px solid #262626; }
-    table.comp-table th { background: #111; color: #FFF; font-weight: 800; }
-    table.comp-table th.highlight-col { color: var(--amber); border-bottom: 2px solid var(--amber); }
-    table.comp-table td.highlight-col { background: rgba(255, 179, 0, 0.06); color: #FFF; font-weight: 600; }
-
-    /* Trust & Privacy Bar */
-    .trust-bar {
-      background: #141414;
-      border: 1px solid #2A2A2A;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 24px 0 10px;
+    .manual-meta {
+      text-align: right;
+      font-size: 0.82rem;
+      color: #BDBDBD;
+      line-height: 1.45;
+    }
+    .manual-meta strong { color: #FFB300; }
+    h2 {
+      color: #FFB300;
+      font-size: 1.12rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin: 26px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #2A2A2A;
+    }
+    h3 {
+      color: #FFFFFF;
+      font-size: 0.96rem;
+      font-weight: 800;
+      margin: 14px 0 6px;
+    }
+    p, li {
+      font-size: 0.86rem;
+      color: #DDDDDD;
+    }
+    ul, ol { margin: 6px 0 12px 20px; }
+    li { margin-bottom: 6px; }
+    .grid-2 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      font-size: 0.82rem;
-      color: #C8C8C8;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 10px 0 14px;
     }
-    .trust-bar strong { color: var(--amber); display: block; margin-bottom: 4px; font-size: 0.88rem; }
-
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 28px 20px;
-      text-align: center;
-      color: #888888;
+    .card-box {
+      background: #111111;
+      border: 1px solid #2E2E2E;
+      border-left: 4px solid #FFB300;
+      border-radius: 8px;
+      padding: 12px 15px;
+    }
+    .card-box strong.title {
+      color: #FFFFFF;
+      font-size: 0.92rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 16px;
       font-size: 0.82rem;
     }
-    footer a { color: var(--amber); text-decoration: none; margin: 0 6px; }
-
-    @media (max-width: 860px) {
-      .grid-3, .pricing-grid, .trust-bar { grid-template-columns: 1fr; }
-      .hw-strip { grid-template-columns: repeat(2, 1fr); }
-      .nav-links a.nav-item { display: none; }
+    th, td {
+      border: 1px solid #2C2C2C;
+      padding: 9px 11px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #101010;
+      color: #FFB300;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      letter-spacing: 0.4px;
+    }
+    code {
+      background: #222222;
+      color: #FFB300;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    .prompt-box {
+      background: #0D0D0D;
+      border: 1px solid #333333;
+      border-left: 3px solid #81C784;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: monospace;
+      font-size: 0.76rem;
+      color: #E0E0E0;
+      margin: 8px 0 12px;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+    .footer-bar {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 2px solid #2A2A2A;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: #9E9E9E;
+    }
+    @media (max-width: 720px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .manual-container { padding: 22px 18px; }
+      .manual-meta { text-align: left; }
+    }
+    @media print {
+      body {
+        background: #121212 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        padding: 0;
+      }
+      .print-bar { display: none !important; }
+      .manual-container {
+        border: 2px solid #FFB300;
+        max-width: 100%;
+        padding: 24px 28px;
+      }
+      table, .card-box { page-break-inside: avoid; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <a href="https://ivolgaco.com/" class="brand">
-      <svg class="brand-logo" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Pixel2Path Studio Logo">
-        <circle cx="200" cy="200" r="186" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="6"/>
-        <circle cx="200" cy="200" r="180" fill="none" stroke="#FFB300" stroke-width="4"/>
-        <path d="M 168,224 C 138,236 95,256 62,268 C 72,272 84,271 96,266 C 80,275 68,280 58,281 C 70,285 85,283 98,277 C 86,286 76,290 68,291 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
-        <path d="M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z" fill="#1C1814"/>
-        <path d="M 198,196 C 218,162 246,118 265,86 C 271,88 272,99 267,112 C 276,96 283,84 289,82 C 294,86 292,99 285,114 C 294,101 302,92 308,91 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
-        <path d="M 195,196 C 212,175 232,155 248,145 C 258,168 256,202 245,224 C 230,226 210,215 195,196 Z" fill="#FFD000"/>
-        <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 272,256 286,268 296,274 C 278,274 258,266 242,256 C 222,258 196,248 178,233 C 164,222 156,210 144,204 C 134,200 126,197 122,193 Z" fill="#FFD000"/>
-        <path d="M 124,191 L 96,195 L 125,198 Z" fill="#8D6E4E"/>
-        <circle cx="140" cy="192" r="5" fill="#14100C"/>
-      </svg>
-      <div class="brand-text">
-        <span class="brand-title">PIXEL2PATH STUDIO</span>
-        <span class="brand-sub">1:1 STAMP &amp; VECTOR GENERATOR</span>
-      </div>
-    </a>
+  <div class="print-bar">
+    <a href="index.html" class="btn-dark">← Return to Pixel2Path Studio Home</a>
+    <button type="button" class="btn-gold" onclick="window.print()">🖨️ Save / Print Official PDF Manual</button>
+    <a href="https://app.ivolgaco.com/" class="btn-gold">Launch Pixel2Path Studio 🚀</a>
+  </div>
 
-    <nav class="nav-links" aria-label="Primary Navigation">
-      <a href="#real-work" class="nav-item">Real Output</a>
-      <a href="#workflow" class="nav-item">3-Step Workflow</a>
-      <a href="#machines" class="nav-item">Machines</a>
-      <a href="#pricing" class="nav-item">Pricing</a>
-      <a href="guide.html" class="nav-item">📖 User Guide</a>
-      <a href="https://app.ivolgaco.com/" class="btn-primary btn-header">Try Free (25mm) 🚀</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <!-- 01 · HERO -->
-    <section class="hero" style="border-top: none;">
-      <div class="hero-badge">Pixel2Path Studio • 3D Stamp (.STL) &amp; Cut Vector (.SVG / .DXF) Generator</div>
-      <h1>Your Artwork. Your Machine. <span>One Production-Ready File.</span></h1>
-      <p class="lead">
-        Upload a logo, photo, or custom arched text and create a 1:1 millimeter <strong>3D stamp (.STL)</strong>, <strong>laser/plotter cut vector (.SVG)</strong>, or <strong>steel-rule clicker die (.DXF)</strong>—without combining multiple CAD programs or cleaning up broken nodes by hand.
-      </p>
-
-      <div class="hero-cta-row">
-        <a href="https://app.ivolgaco.com/" class="btn-primary">Try Free in Browser (25mm Sample) 🚀</a>
-        <a href="#real-work" class="btn-secondary">🔍 See Real Example</a>
-        <a href="#pricing" class="btn-secondary">💳 View Passes ($8 / $25)</a>
-      </div>
-
-      <div class="boundary-pill">
-        🟢 <strong>Test Free at 25mm:</strong> Upload your own graphic, inspect the live Export-Readiness check, and download a <strong>25mm sample (.STL, .DXF, .SVG) 100% free</strong>. Unlock full-size exports up to 350mm anytime ($8 Day Pass or $25/mo).
-      </div>
-    </section>
-
-    <!-- 02 · REAL OUTPUT -->
-    <section id="real-work">
-      <div class="section-header">
-        <h2>Real Output: <span>Artwork ➔ Validated Geometry ➔ Slicer</span></h2>
-        <p>Every upload is verified against your machine's physical toolhead limits before you export.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="proof-box">
-            <span class="proof-tag">1. INPUT ARTWORK</span>
-            <img src="proof-raw.jpg" alt="Raw multi-color logo uploaded to Pixel2Path Studio" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
-              <svg width="140" height="140" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="165" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="8"/>
-                <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
-                <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
-                <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 C 164,222 156,210 144,204 Z" fill="#FFD000"/>
-                <circle cx="140" cy="192" r="7" fill="#14100C"/>
-              </svg>
-            </div>
-          </div>
-          <div class="card-kicker">A. SOURCE IMAGE OR TEXT</div>
-          <h3>Upload Logo, Photo, or Text</h3>
-          <p>Accepts PNG, JPG, or WEBP graphics plus straight or arched text. Automatically separates touching colors and strips busy photo backgrounds.</p>
-        </div>
-
-        <div class="card" style="border-color: rgba(255, 179, 0, 0.55);">
-          <div class="proof-box">
-            <span class="proof-tag" style="color:var(--amber);border-color:var(--amber);">2. GEOMETRY CHECK</span>
-            <img src="proof-processed.jpg" alt="Processed 1:1 millimeter vector mask in Pixel2Path Studio" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
-              <svg width="135" height="135" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="165" fill="none" stroke="#FFFFFF" stroke-width="12"/>
-                <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#FFFFFF"/>
-                <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#FFFFFF"/>
-                <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 Z" fill="#FFFFFF" stroke="#000" stroke-width="10"/>
-              </svg>
-              <span style="font-size:0.72rem;color:#81C784;font-weight:800;">✅ Vector-Ready • 50.0 × 50.0 mm</span>
-            </div>
-          </div>
-          <div class="card-kicker">B. LIVE READINESS PANEL</div>
-          <h3>Verify Scale &amp; Wall Thickness</h3>
-          <p>Confirms exact millimeter dimensions, closed-loop counts, mirror orientation, and ≥0.45mm nozzle wall protection before download.</p>
-        </div>
-
-        <div class="card">
-          <div class="proof-box">
-            <span class="proof-tag" style="color:var(--green);border-color:var(--green);">3. SLICER / CAM</span>
-            <img src="proof-bambu.jpg" alt="Watertight 3D stamp STL and DXF cut paths in Bambu Studio and LightBurn" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
-              <svg width="155" height="120" viewBox="0 0 160 125">
-                <polygon points="80,76 142,96 80,116 18,96" fill="#262626" stroke="#81C784" stroke-width="1.5"/>
-                <polygon points="18,96 80,116 80,123 18,103" fill="#1B3B1E"/>
-                <polygon points="142,96 80,116 80,123 142,103" fill="#142B16"/>
-                <ellipse cx="80" cy="72" rx="42" ry="18" fill="#FFB300" stroke="#FFFFFF" stroke-width="1.2"/>
-                <path d="M 62,70 Q 80,58 98,72" fill="none" stroke="#14100C" stroke-width="3.5" stroke-linecap="round"/>
-                <text x="42" y="24" fill="#81C784" font-size="9" font-weight="bold">3.0mm Base + 2.5mm Relief</text>
-              </svg>
-            </div>
-          </div>
-          <div class="card-kicker">C. PRODUCTION EXPORT</div>
-          <h3>Print, Cut, or Mill at 1:1 Scale</h3>
-          <p>Imports at true millimeter scale into Bambu Studio, PrusaSlicer, Cura, LightBurn, Silhouette Studio, Illustrator, or Fusion 360.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 · THREE-STEP WORKFLOW & 04 · COMPACT MACHINE COMPATIBILITY -->
-    <section id="workflow">
-      <div class="section-header">
-        <h2>Three Steps. <span>Five Workshop Machines.</span></h2>
-        <p>Select your machine below to launch Pixel2Path Studio pre-calibrated for your toolhead.</p>
-      </div>
-
-      <div id="machines" class="hw-strip">
-        <a href="https://app.ivolgaco.com/?preset=stamp" class="hw-pill">
-          <strong>🖨️ 3D Printer</strong>
-          <span>Leather, Clay &amp; Wax Stamps (≥0.45mm Wall Guard)</span>
-          <code>.STL</code>
-        </a>
-        <a href="https://app.ivolgaco.com/?preset=laser" class="hw-pill">
-          <strong>🎯 Laser Engraver</strong>
-          <span>Wood, Leather &amp; Rubber Stamps + Banknote Hatching</span>
-          <code>.SVG • .DXF</code>
-        </a>
-        <a href="https://app.ivolgaco.com/?preset=vinyl" class="hw-pill">
-          <strong>✂️ Vinyl Plotter</strong>
-          <span>Cricut (.SVG) &amp; Free Silhouette Basic (.DXF)</span>
-          <code>.SVG • .DXF</code>
-        </a>
-        <a href="https://app.ivolgaco.com/?preset=clicker" class="hw-pill">
-          <strong>🔪 Clicker Die</strong>
-          <span>Outer Blade Cut Line Only (Strips Inner Holes)</span>
-          <code>.DXF • .SVG</code>
-        </a>
-        <a href="https://app.ivolgaco.com/?preset=cnc" class="hw-pill">
-          <strong>⚙️ CNC / Brass Die</strong>
-          <span>8mm Heavy Stock Solids &amp; V-Carve Vectors</span>
-          <code>.DXF • .STL • .SVG</code>
-        </a>
-      </div>
-
-      <!-- Expandable Specialist Specs & Competitor Matrix (Hides Jargon Until Clicked) -->
-      <div class="faq-list" style="margin-top: 18px;">
-        <details class="faq-item">
-          <summary>⚙️ View Detailed Machine Specifications &amp; Competitor Comparison (Inkscape / Tinkercad / SplitSTL)</summary>
-          <div class="faq-body">
-            <p style="margin-bottom: 8px;">Need full slicer settings, depth guides, or CAD layer names? <a href="guide.html" style="color:var(--amber);font-weight:700;">Open the Complete User &amp; Technical Manual →</a></p>
-            <div class="comp-table-wrap">
-              <table class="comp-table">
-                <thead>
-                  <tr>
-                    <th>Fabrication Requirement</th>
-                    <th class="highlight-col">Pixel2Path Studio</th>
-                    <th>SplitSTL / MeshShift</th>
-                    <th>Inkscape + Tinkercad</th>
-                    <th>Draw DXF</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Unified 2D + 3D Output</strong></td>
-                    <td class="highlight-col">.STL + .SVG + .DXF in 1 click</td>
-                    <td>3D-focused</td>
-                    <td>Requires 2–3 separate apps</td>
-                    <td>2D DXF/SVG focused</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Steel-Rule Clicker Die Mode</strong></td>
-                    <td class="highlight-col">Single <code>STEEL_RULE_CUT</code> outer loop + shadow filter</td>
-                    <td>Not built for clicker dies</td>
-                    <td>Manual node deletion</td>
-                    <td>Manual path editing</td>
-                  </tr>
-                  <tr>
-                    <td><strong>3D Nozzle Wall Guard</strong></td>
-                    <td class="highlight-col">Automatic ≥0.45mm stroke protection</td>
-                    <td>Standard extrusion</td>
-                    <td>Thin lines vanish in slicer</td>
-                    <td>N/A (2D only)</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Multi-Color &amp; Photo Cleanup</strong></td>
-                    <td class="highlight-col">Color separation + 1-Click Advanced Vision</td>
-                    <td>Varies by tier</td>
-                    <td>Manual bitmap trace</td>
-                    <td>Standard trace</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Dimensional Tolerance</strong></td>
-                    <td class="highlight-col">Post-filter 1:1 mm lock (±0.05mm)</td>
-                    <td>User-scaled</td>
-                    <td>DPI scaling drift (72/96 DPI)</td>
-                    <td>Millimeter CAD</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- 05 · TRUST, PRICING & CONVERSION -->
-    <section id="pricing">
-      <div class="section-header">
-        <h2>Simple, Transparent <span>Maker Pricing</span></h2>
-        <p>Test free at 25mm first. All deterministic .STL, .DXF, and .SVG exports use 0 credits and are 100% unlimited on paid passes.</p>
-      </div>
-
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div>
-            <div class="card-kicker">FREE VALIDATION</div>
-            <h3>25mm Sample Export</h3>
-            <div class="price-amount">$0 <span>/ forever</span></div>
-            <ul class="price-list">
-              <li>✓ Upload your own logo, photo, or text</li>
-              <li>✓ Full live preview &amp; Readiness Check</li>
-              <li>✓ Download real <strong>25mm .STL, .DXF, or .SVG</strong> sample files</li>
-              <li>✓ Verify slicer &amp; laser scaling before paying</li>
-            </ul>
-          </div>
-          <a href="https://app.ivolgaco.com/" class="btn-secondary">Test Free in App 🚀</a>
-        </div>
-
-        <div class="price-card featured">
-          <div>
-            <div class="card-kicker">SINGLE PROJECT / WEEKEND RUN</div>
-            <h3>24-Hr Craftsman Pass</h3>
-            <div class="price-amount">$8 <span>/ 24 hours (one-time)</span></div>
-            <ul class="price-list">
-              <li>✓ <strong>Unlimited 1:1 full-scale exports</strong> (up to 350mm)</li>
-              <li>✓ All formats: <strong>.STL, .DXF &amp; .SVG</strong></li>
-              <li>✓ Includes <strong>25 Advanced Vision Credits</strong> for 1-click photo background cleanup</li>
-              <li>✓ Instant cross-device access key</li>
-              <li>✓ No auto-renewal — expires automatically after 24 hrs</li>
-            </ul>
-          </div>
-          <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener noreferrer" class="btn-primary">Get 24-Hr Pass ($8) ⚡</a>
-        </div>
-
-        <div class="price-card">
-          <div>
-            <div class="card-kicker">REPEAT MAKERS &amp; WORKSHOPS</div>
-            <h3>Studio Monthly</h3>
-            <div class="price-amount">$25 <span>/ month</span></div>
-            <ul class="price-list">
-              <li>✓ <strong>Always-on studio access</strong> for repeat client orders</li>
-              <li>✓ <strong>Unlimited 1:1 full-scale .STL, .DXF &amp; .SVG exports</strong></li>
-              <li>✓ Includes <strong>100 Advanced Vision Credits / mo</strong> (auto-refreshes every 30 days)</li>
-              <li>✓ Cross-device key works on phone &amp; workshop PC</li>
-              <li>✓ Cancel anytime in 1 click</li>
-            </ul>
-          </div>
-          <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener noreferrer" class="btn-secondary">Start Studio Monthly ($25/mo) 🏆</a>
-        </div>
-      </div>
-
-      <!-- Concise 3-Question FAQ -->
-      <div class="faq-list" style="margin-top: 28px;">
-        <details class="faq-item">
-          <summary>Should I choose .SVG or .DXF for Laser Engravers and Vinyl Plotters (Cricut / Silhouette)?</summary>
-          <div class="faq-body">
-            Both formats are included. Select <strong><code>.SVG</code> (Default)</strong> for Cricut Design Space, Adobe Illustrator, LightBurn, and Glowforge—it exports as a single unified <code>&lt;Compound Path&gt;</code> with inner holes pre-grouped. Select <strong><code>.DXF</code></strong> for industrial CAD/CAM systems (AutoCAD, SolidWorks) or if you use the free <strong>Silhouette Studio Basic Edition</strong>, which imports 1:1 millimeter <code>.DXF</code> files for free without requiring a paid Designer upgrade.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What uses Advanced Vision Credits vs. Unlimited CAD Exports?</summary>
-          <div class="faq-body">
-            All standard logo tracing, custom arched text, classical banknote hatching, slider adjustments, and 1:1 millimeter <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong> and are <strong>100% unlimited</strong>. Only clicking <strong>Advanced Vision Background Removal</strong> to strip complex photo backgrounds uses 1 credit (cached per image so moving sliders uses 0 extra credits).
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>How do I switch from my phone to my desktop computer after purchasing a pass?</summary>
-          <div class="faq-body">
-            Immediately after Stripe checkout, your screen displays your personal <strong>Cross-Device Access Key</strong>. Copy and paste that key into the app on your Windows PC or Mac to restore your unlocked session and remaining credit balance.
-          </div>
-        </details>
-      </div>
-
-      <!-- Trust, Advanced Vision Privacy & Cancellation Disclosure -->
-      <div class="trust-bar">
+  <div class="manual-container">
+    <div class="manual-header">
+      <div class="brand-row">
+        <svg class="brand-logo" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Pixel2Path Studio Logo">
+          <circle cx="200" cy="200" r="186" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="6"/>
+          <circle cx="200" cy="200" r="180" fill="none" stroke="#FFB300" stroke-width="4"/>
+          <path d="M 168,224 C 138,236 95,256 62,268 C 72,272 84,271 96,266 C 80,275 68,280 58,281 C 70,285 85,283 98,277 C 86,286 76,290 68,291 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
+          <path d="M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z" fill="#1C1814"/>
+          <path d="M 198,196 C 218,162 246,118 265,86 C 271,88 272,99 267,112 C 276,96 283,84 289,82 C 294,86 292,99 285,114 C 294,101 302,92 308,91 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
+          <path d="M 195,196 C 212,175 232,155 248,145 C 258,168 256,202 245,224 C 230,226 210,215 195,196 Z" fill="#FFD000"/>
+          <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 272,256 286,268 296,274 C 278,274 258,266 242,256 C 222,258 196,248 178,233 C 164,222 156,210 144,204 C 134,200 126,197 122,193 Z" fill="#FFD000"/>
+          <path d="M 124,191 L 96,195 L 125,198 Z" fill="#8D6E4E"/>
+          <circle cx="140" cy="192" r="5" fill="#14100C"/>
+        </svg>
         <div>
-          <strong>🔒 Advanced Vision &amp; Artwork Privacy Disclosure</strong>
-          Uploaded images and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. When <strong>Advanced Vision Background Removal</strong> is used, the image is processed via an encrypted enterprise vision endpoint and is strictly never used to train public models.
-        </div>
-        <div>
-          <strong>📐 Published Tolerance &amp; Verification</strong>
-          Export bounding boxes are calibrated after morphological filtering to within ±0.05mm of your target width. Always test your machine kerf, blade offset, and mirror orientation using the free 25mm sample export before full production runs.
-        </div>
-        <div>
-          <strong>🛡️ Support &amp; 1-Click Cancellation</strong>
-          Need help with a file, access key recovery, or subscription cancellation? Email <a href="mailto:contact@ivolgaco.com" style="color:var(--amber);font-weight:700;">contact@ivolgaco.com</a> for fast support.
+          <h1>PIXEL2PATH STUDIO — USER &amp; TECHNICAL MANUAL</h1>
+          <div class="subtitle">1:1 Millimeter 3D Stamp (.STL), Clicker Die &amp; Laser/Plotter Vector (.DXF / .SVG) Generator</div>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="manual-meta">
+        <strong>Pixel2Path Studio</strong><br />
+        Workspace: <strong>app.ivolgaco.com</strong><br />
+        Website: <strong>ivolgaco.com</strong><br />
+        Support: <strong>contact@ivolgaco.com</strong>
+      </div>
+    </div>
 
-  <footer>
-    <p><strong>© 2026 Pixel2Path Studio • Folsom, California, USA.</strong></p>
-    <p style="margin: 6px auto; max-width: 800px; color: #9E9E9E; font-size: 0.8rem;">
-      Compatible with Bambu Studio, OrcaSlicer, PrusaSlicer, UltiMaker Cura, LightBurn, Adobe Illustrator, AutoCAD, Fusion 360, Vectric VCarve, Cricut Design Space, and Silhouette Studio.
+    <h2>1. System Overview &amp; Fabrication Architecture</h2>
+    <p>
+      <strong>Pixel2Path Studio</strong> replaces fragmented 2D and 3D utilities (such as manual Inkscape bitmap tracing, node deletion, and Tinkercad extrusion) with a unified, hardware-aware manufacturing pipeline. Upload any PNG, JPG, or WEBP graphic—or type custom straight or concentrically arched typography—to export watertight 3D <code>.STL</code> stamp meshes, AutoCAD R2010 <code>.DXF</code> polylines, and unified Compound Path <code>.SVG</code> cut files calibrated to exact real-world millimeters (<code>mm</code>).
     </p>
-    <p style="margin-top: 8px;">
-      <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> •
-      <a href="guide.html">User &amp; Technical Manual</a> •
-      <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener noreferrer">24-Hr Pass ($8)</a> •
-      <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener noreferrer">Studio Monthly ($25/mo)</a> •
-      <a href="mailto:contact@ivolgaco.com">Support</a>
-    </p>
-  </footer>
+
+    <h2>2. Studio Creation Modes (Step 1)</h2>
+    <div class="grid-2">
+      <div class="card-box">
+        <strong class="title">🖼️ Mode 1: Logo / Photo</strong>
+        Converts multi-color or B&amp;W logos, intaglio engravings, physical templates, and 3D reliefs into 3D stamps or 2D cut paths. Features automatic color-halo separation and 1-click <strong>Advanced Vision Background Removal</strong>.
+      </div>
+      <div class="card-box">
+        <strong class="title">✍️ Mode 2: Custom Text &amp; 🔀 Mode 3: Combo</strong>
+        Includes 7 built-in shop fonts (<em>Clean Bold Block, Classic Serif, Heavy Impact Block, Military Stencil, Vintage Typewriter, Varsity Block, Cursive Script</em>), Letter Boldness (<code>1–10</code>), and concentric <strong>Text Arced Around Logo</strong> layouts.
+      </div>
+    </div>
+
+    <h2>3. Workshop Hardware Presets &amp; Specifications (Step 2)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Machine Preset</th>
+          <th>Export Formats</th>
+          <th>Default Specs</th>
+          <th>Built-In Physics &amp; Geometry Protection</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>🖨️ 3D Printer</strong></td>
+          <td><code>.STL</code> (Binary 3D Mesh)</td>
+          <td>50 mm Width<br />3.0 mm Base<br />2.5 mm Relief</td>
+          <td>Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong> so fine facial lines and thin strokes never vanish on <code>0.4 mm</code> FDM nozzles. Adds a <code>5.0 mm</code> structural base margin per side.</td>
+        </tr>
+        <tr>
+          <td><strong>🎯 Laser Engraver</strong></td>
+          <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
+          <td>60 mm Width<br />2D Closed Loops</td>
+          <td>Extracts kerf-true sub-pixel vectors (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps.</td>
+        </tr>
+        <tr>
+          <td><strong>🔪 Clicker Die</strong></td>
+          <td><code>.DXF</code> • <code>.SVG</code></td>
+          <td>100 mm Width<br />Outer Cut Only</td>
+          <td>Strips all internal holes and table shadows to isolate a single continuous outer perimeter (<code>STEEL_RULE_CUT</code> layer) with adjustable <strong>Outer Blade Offset (0.0–6.0 mm)</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>✂️ Vinyl Plotter</strong></td>
+          <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
+          <td>80 mm Width<br />Drag-Knife Safe</td>
+          <td>Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on Silhouette Cameo and Cricut.</td>
+        </tr>
+        <tr>
+          <td><strong>⚙️ CNC / Brass Die</strong></td>
+          <td><code>.DXF</code> • <code>.STL</code> • <code>.SVG</code></td>
+          <td>50 mm Width<br />8.0 mm Base<br />3.0 mm Relief</td>
+          <td>Heavy-duty stock solid (<code>.STL</code>) and layer-separated 2D vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code>) for brass hot-foil dies, leather embossing, and V-carving.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Tracing Styles &amp; Advanced Vision Pre-Conditioning</h2>
+    <ul>
+      <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines from colored fills using a separation halo so touching colors (such as yellow bodies and black wings) never fuse into a solid blob. Preserves internal feather slits and extracts 3D facial contours.</li>
+      <li><strong>🏛️ Classical Banknote Hatching (3D Shading Lines):</strong> Converts smooth continuous grayscale reliefs and medallions into variable-width engraving lines (<em>Diagonal 45°, Cross-Hatch 45° Mesh, Concentric Seal, Horizontal, Vertical</em>) with adjustable <strong>3D Contour Wave Curvature (0–10)</strong>, or traces pre-drawn intaglio engravings directly.</li>
+      <li><strong>✨ Automatic &amp; 1-Click Advanced Vision Background Removal:</strong> Strips background clutter, monitor borders, outer rims, and stone speckles to pure white (<code>#FFFFFF</code>) while rendering the subject in crisp, connected black (<code>#000000</code>) stamp line-art.</li>
+    </ul>
+
+    <h3>📜 Master Prompt for Classic 3D Banknote &amp; Intaglio Engravings</h3>
+    <p>Open the in-app <strong>1-Click Advanced Vision Prompt Studio</strong> or copy this prompt into your AI image tool:</p>
+    <div class="prompt-box">Create a high-resolution, square 1:1 aspect ratio classic 3D banknote engraving and Intaglio-style artwork of [your subject, pose, and description], centered on a solid, seamless, pure white (#FFFFFF) background.
+
+COMPOSITION &amp; ZERO GROUND SHADOW: The entire subject is prominently centered in a square 1:1 frame with ample, generous white space (margins) on all four sides, ensuring no part of the artwork touches the edges. The subject is 100% isolated in mid-air on the pure white background: strictly NO ground shadow, NO cast shadow, NO floor dust, and NO borders or frames.
+
+ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage etching, and intaglio printmaking. Use crisp, high-contrast, varying-weight hand-etched cross-contour hatching lines that curve naturally across the subject's 3D anatomy to create volumetric depth solely through sharp black (#000000) linework on pure white (#FFFFFF) paper.</div>
+
+    <h2>5. Step-by-Step Operating Checklist</h2>
+    <ol>
+      <li><strong>Select Mode &amp; Upload:</strong> Choose <em>Logo / Photo</em>, <em>Custom Text</em>, or <em>Logo + Text Combo</em> and upload a high-contrast PNG, JPG, or WEBP image (at least <code>500 × 500 px</code>).</li>
+      <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your hardware preset and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em>.</li>
+      <li><strong>Set Width (mm) &amp; Orientation:</strong> Enter your exact target width in millimeters (<code>5–350 mm</code>). Check <strong>🔄 Mirror Horizontally</strong> if making a face-down stamp (leather, ink, clay, wax, brass die) or HTV iron-on transfer.</li>
+      <li><strong>Optional Fine-Tuning:</strong> Expand <em>🎛️ Optional Fine-Tuning</em> only if you wish to customize 3D Base Thickness (<code>0–15 mm</code>), 3D Relief Height (<code>0.5–15 mm</code>), Detail Balance (<code>-80 to +80</code>), or Extra Line Thickness Boost (<code>0–8</code>).</li>
+      <li><strong>Verify &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Vector-Ready</strong>. Click <strong>🧪 Download Free 25mm Test Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
+    </ol>
+
+    <h2>6. Slicer, Laser &amp; CAD Import Guidelines</h2>
+    <div class="grid-2">
+      <div class="card-box">
+        <strong class="title">🖨️ Bambu Studio, OrcaSlicer, PrusaSlicer &amp; Cura (.STL)</strong>
+        • Import units: <strong>Millimeters (mm)</strong>.<br />
+        • Enable <strong>Arachne Wall Generator</strong> for sharp tapered details.<br />
+        • <strong>Hand Stamps (Ink/Clay):</strong> 0.16–0.20 mm layers, 4 top shells, 25%–40% Gyroid/Grid infill.<br />
+        • <strong>Arbor / Clicker Press Leather Stamps:</strong> 5+ top/bottom shells, 4–6 wall loops, <strong>80%–100% solid infill</strong>.<br />
+        • 💡 <strong>Need a Recessed Negative Mold (Soap/Wax/Clay)?</strong> Export the standard positive <code>.STL</code>. In Bambu Studio / PrusaSlicer, right-click the bed ➔ <em>Add Primitive (Cube/Cylinder)</em>, right-click that shape ➔ <em>Add Negative Part ➔ Load .STL</em> to cut out a custom mold cavity in 2 clicks.
+      </div>
+      <div class="card-box">
+        <strong class="title">📐 .SVG vs. .DXF in Illustrator, Cricut, Silhouette &amp; LightBurn</strong>
+        • Set import scale to <strong>1 Unit = 1 Millimeter (mm)</strong>.<br />
+        • <strong><code>.SVG</code> (Default):</strong> Exports a single unified <code>&lt;Compound Path&gt;</code> with inner holes pre-grouped. Best for Cricut Design Space, Illustrator, LightBurn, and Glowforge.<br />
+        • <strong><code>.DXF</code> (R2010 CAD):</strong> Exports closed <code>LWPOLYLINE</code> loops for AutoCAD, SolidWorks, and free <strong>Silhouette Studio Basic Edition</strong>. To group inner holes as a compound path manually:<br />
+        &nbsp;&nbsp;– <strong>Illustrator:</strong> Select All (<code>Ctrl+A</code>) ➔ <code>Ctrl+8</code> (<code>Cmd+8</code> on Mac)<br />
+        &nbsp;&nbsp;– <strong>Silhouette Studio:</strong> Select All ➔ Right-Click ➔ <em>Make Compound Path</em> (<code>Ctrl+E</code>)<br />
+        &nbsp;&nbsp;– <strong>LightBurn:</strong> Select All ➔ Press <code>Alt+J</code> (<em>Auto-Join</em>)
+      </div>
+    </div>
+
+    <h2>7. Passes, Cross-Device Access Keys &amp; Advanced Vision Credits</h2>
+    <ul>
+      <li><strong>Free 25mm Validation Sample ($0):</strong> Test any graphic and download a real 25mm <code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code> sample file for free.</li>
+      <li><strong>24-Hr Craftsman Pass ($8 One-Time):</strong> Unlocks 24 hours of unlimited 1:1 full-scale CAD exports (up to 350mm) + <strong>25 Advanced Vision Credits</strong>.</li>
+      <li><strong>Studio Monthly ($25/mo):</strong> Continuous studio access for repeat production with unlimited 1:1 full-scale CAD exports + <strong>100 Advanced Vision Credits / month</strong> (auto-refreshes every 30 days).</li>
+      <li><strong>0 Credits Used (Unlimited):</strong> Standard logo tracing, custom arched text, banknote hatching, slider adjustments, and all <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong>. Only <strong>Advanced Vision Background Removal</strong> uses 1 credit per photo.</li>
+      <li><strong>🔒 Privacy &amp; RAM-Only Processing:</strong> Uploaded artwork and generated files are processed in volatile memory (RAM) during your session and automatically purged. Advanced Vision uses an encrypted enterprise vision endpoint and never trains public models.</li>
+    </ul>
+
+    <div class="footer-bar">
+      <span>© 2026 Pixel2Path Studio • California, USA</span>
+      <span>Support: <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:none;">contact@ivolgaco.com</a></span>
+    </div>
+  </div>
 
 </body>
 </html>
