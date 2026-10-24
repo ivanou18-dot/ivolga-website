@@ -262,59 +262,59 @@
       </div>
     </div>
 
-    <h2>3. Workshop Hardware Presets &amp; Specifications (Step 2)</h2>
+    <h2>3. Workshop Hardware Presets &amp; Machine Assumptions (Step 2)</h2>
     <table>
       <thead>
         <tr>
           <th>Machine Preset</th>
           <th>Export Formats</th>
           <th>Default Specs</th>
-          <th>Built-In Physics &amp; Geometry Protection</th>
+          <th>Built-In Machine Assumptions &amp; Geometry Guards</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>🖨️ 3D Printer</strong></td>
+          <td><strong>🖨️ 3D Printer</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Slicer Amber/Green)</span></td>
           <td><code>.STL</code> (Binary 3D Mesh)</td>
           <td>50 mm Width<br />3.0 mm Base<br />2.5 mm Relief</td>
-          <td>Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong> so fine facial lines and thin strokes never vanish on <code>0.4 mm</code> FDM nozzles. Adds a <code>5.0 mm</code> structural base margin per side.</td>
+          <td>Calibrated for standard <code>0.4 mm</code> FDM nozzles and SLA resin printers. Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong> so fine facial lines never vanish in Bambu Studio, PrusaSlicer, or Cura. Adds a <code>5.0 mm</code> structural base margin per side.</td>
         </tr>
         <tr>
-          <td><strong>🎯 Laser Engraver</strong></td>
+          <td><strong>🎯 Laser Engraver</strong><br /><span style="color:#FF5252;font-size:0.74rem;">(Vector Hairline Red)</span></td>
           <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
           <td>60 mm Width<br />2D Closed Loops</td>
-          <td>Extracts kerf-true sub-pixel vectors (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps.</td>
+          <td>Calibrated for <code>0.10 mm</code> laser kerf resolution (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps.</td>
         </tr>
         <tr>
-          <td><strong>🔪 Clicker Die</strong></td>
+          <td><strong>🔪 Clicker Die</strong><br /><span style="color:#00E5FF;font-size:0.74rem;">(Die-Maker Heavy Cyan)</span></td>
           <td><code>.DXF</code> • <code>.SVG</code></td>
           <td>100 mm Width<br />Outer Cut Only</td>
           <td>Strips all internal holes and table shadows to isolate a single continuous outer perimeter (<code>STEEL_RULE_CUT</code> layer) with adjustable <strong>Outer Blade Offset (0.0–6.0 mm)</strong>.</td>
         </tr>
         <tr>
-          <td><strong>✂️ Vinyl Plotter</strong></td>
+          <td><strong>✂️ Vinyl Plotter</strong><br /><span style="color:#E040FB;font-size:0.74rem;">(Contour Cut Magenta)</span></td>
           <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
           <td>80 mm Width<br />Drag-Knife Safe</td>
-          <td>Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on Silhouette Cameo and Cricut.</td>
+          <td>Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on Silhouette Cameo and Cricut drag-knife blades.</td>
         </tr>
         <tr>
-          <td><strong>⚙️ CNC / Brass Die</strong></td>
+          <td><strong>⚙️ CNC / Brass Die</strong><br /><span style="color:#448AFF;font-size:0.74rem;">(CAD/CAM Toolpath Blue)</span></td>
           <td><code>.DXF</code> • <code>.STL</code> • <code>.SVG</code></td>
           <td>50 mm Width<br />8.0 mm Base<br />3.0 mm Relief</td>
-          <td>Heavy-duty stock solid (<code>.STL</code>) and layer-separated 2D vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code>) for brass hot-foil dies, leather embossing, and V-carving.</td>
+          <td>Heavy-duty stock solid (<code>.STL</code>) and layer-separated 2D vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code>) with a <code>≥0.38 mm</code> minimum feature guard for brass hot-foil dies, leather embossing, and V-carving.</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>4. Tracing Styles &amp; Advanced Vision Pre-Conditioning</h2>
+    <h2>4. Tracing Styles &amp; AI Prompt Generator</h2>
     <ul>
       <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines from colored fills using a separation halo so touching colors (such as yellow bodies and black wings) never fuse into a solid blob. Preserves internal feather slits and extracts 3D facial contours.</li>
       <li><strong>🏛️ Classical Banknote Hatching (3D Shading Lines):</strong> Converts smooth continuous grayscale reliefs and medallions into variable-width engraving lines (<em>Diagonal 45°, Cross-Hatch 45° Mesh, Concentric Seal, Horizontal, Vertical</em>) with adjustable <strong>3D Contour Wave Curvature (0–10)</strong>, or traces pre-drawn intaglio engravings directly.</li>
       <li><strong>✨ Automatic &amp; 1-Click Advanced Vision Background Removal:</strong> Strips background clutter, monitor borders, outer rims, and stone speckles to pure white (<code>#FFFFFF</code>) while rendering the subject in crisp, connected black (<code>#000000</code>) stamp line-art.</li>
     </ul>
 
-    <h3>📜 Master Prompt for Classic 3D Banknote &amp; Intaglio Engravings</h3>
-    <p>Open the in-app <strong>1-Click Advanced Vision Prompt Studio</strong> or copy this prompt into your AI image tool:</p>
+    <h3>📜 In-App AI Prompt Generator (ChatGPT, Gemini, Claude, Grok, etc.)</h3>
+    <p>Open the purple <strong>📜 AI Prompt Generator (ChatGPT, Gemini, Claude, Grok, etc.) — Tailored to Your Machine</strong> bar in Step 1 to generate machine-specific prompts, or copy this master prompt for classic 3D banknote engravings:</p>
     <div class="prompt-box">Create a high-resolution, square 1:1 aspect ratio classic 3D banknote engraving and Intaglio-style artwork of [your subject, pose, and description], centered on a solid, seamless, pure white (#FFFFFF) background.
 
 COMPOSITION &amp; ZERO GROUND SHADOW: The entire subject is prominently centered in a square 1:1 frame with ample, generous white space (margins) on all four sides, ensuring no part of the artwork touches the edges. The subject is 100% isolated in mid-air on the pure white background: strictly NO ground shadow, NO cast shadow, NO floor dust, and NO borders or frames.
@@ -324,10 +324,10 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
     <h2>5. Step-by-Step Operating Checklist</h2>
     <ol>
       <li><strong>Select Mode &amp; Upload:</strong> Choose <em>Logo / Photo</em>, <em>Custom Text</em>, or <em>Logo + Text Combo</em> and upload a high-contrast PNG, JPG, or WEBP image (at least <code>500 × 500 px</code>).</li>
-      <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your hardware preset and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em>.</li>
+      <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your color-coded hardware preset and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em>.</li>
       <li><strong>Set Width (mm) &amp; Orientation:</strong> Enter your exact target width in millimeters (<code>5–350 mm</code>). Check <strong>🔄 Mirror Horizontally</strong> if making a face-down stamp (leather, ink, clay, wax, brass die) or HTV iron-on transfer.</li>
       <li><strong>Optional Fine-Tuning:</strong> Expand <em>🎛️ Optional Fine-Tuning</em> only if you wish to customize 3D Base Thickness (<code>0–15 mm</code>), 3D Relief Height (<code>0.5–15 mm</code>), Detail Balance (<code>-80 to +80</code>), or Extra Line Thickness Boost (<code>0–8</code>).</li>
-      <li><strong>Verify &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Vector-Ready</strong>. Click <strong>🧪 Download Free 25mm Test Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
+      <li><strong>Verify &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Geometry Verified</strong> (listing exact islands, inner holes, and machine assumptions). Click <strong>🧪 Download Free 25mm Test Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
     </ol>
 
     <h2>6. Slicer, Laser &amp; CAD Import Guidelines</h2>
@@ -351,9 +351,10 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
       </div>
     </div>
 
-    <h2>7. Passes, Cross-Device Access Keys &amp; Advanced Vision Credits</h2>
+    <h2>7. Tolerance Scope, Passes &amp; Advanced Vision Credits</h2>
     <ul>
-      <li><strong>Free 25mm Validation Sample ($0):</strong> Test any graphic and download a real 25mm <code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code> sample file for free. <em>Note: The 25mm sample validates file import, 1:1 millimeter scaling, and closed-loop topology; always verify material settings, press tonnage, and laser kerf for your full-scale production job.</em></li>
+      <li><strong>📐 Outer Bounding-Box Tolerance (±0.05 mm) vs. Internal Feature Guards:</strong> External bounding-box width and height are calibrated after morphological filtering to within <code>±0.05 mm</code> of your target width. Internal sub-spec strokes are intentionally thickened (<code>≥0.45 mm</code> for 3D printing, <code>≥0.75 mm</code> for vinyl plotters, <code>≥0.38 mm</code> for CNC) to survive physical manufacturing.</li>
+      <li><strong>Free 25mm Validation Sample ($0):</strong> Test any graphic and download a real 25mm <code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code> sample file for free. <em>Validates file import, 1:1 millimeter scaling, and closed-loop topology; always verify material hardness, press tonnage, and laser kerf for your full-scale production job.</em></li>
       <li><strong>24-Hr Craftsman Pass ($8 One-Time):</strong> Unlocks 24 hours of unlimited 1:1 full-scale CAD exports (up to 350mm) + <strong>25 Advanced Vision Credits</strong>. <em>The 24-hour clock starts immediately upon checkout completion and displays your remaining time in the app.</em></li>
       <li><strong>Studio Monthly ($25/mo):</strong> Continuous studio access for repeat production with unlimited 1:1 full-scale CAD exports + <strong>100 Advanced Vision Credits / month</strong> (auto-refreshes every 30 days).</li>
       <li><strong>0 Credits Used (Unlimited):</strong> Standard logo tracing, custom arched text, banknote hatching, slider adjustments, and all <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong>. Only <strong>Advanced Vision Background Removal</strong> uses 1 credit per photo (deducted only on a successful return).</li>
