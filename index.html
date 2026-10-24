@@ -331,6 +331,9 @@
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .card-kicker {
       color: var(--amber);
@@ -375,6 +378,18 @@
       background: rgba(14, 14, 14, 0.9);
       border: 1px solid #3A3A3A;
       color: #BDBDBD;
+    }
+    .proof-spec-pill {
+      margin-top: 12px;
+      background: #111111;
+      border: 1px solid #2C2C2C;
+      border-left: 3px solid var(--amber);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 0.76rem;
+      color: #E0E0E0;
+      font-family: monospace;
+      line-height: 1.35;
     }
 
     /* Compact 5-Button Hardware Strip */
@@ -589,7 +604,7 @@
       </div>
     </section>
 
-    <!-- 02 · REAL OUTPUT (Displays Your Uploaded proof-raw.jpg, proof-processed.jpg & proof-bambu.jpg + Silent SVG Fallback) -->
+    <!-- 02 · REAL OUTPUT (Displays Your Uploaded proof-raw.jpg, proof-processed.jpg & proof-bambu.jpg + Matched Spec Captions) -->
     <section id="real-work">
       <div class="section-header">
         <h2>Real Output: <span>Artwork ➔ Validated Geometry ➔ Slicer</span></h2>
@@ -599,63 +614,72 @@
       <div class="grid-3">
         <!-- Card 1: proof-raw.jpg -->
         <div class="card">
-          <div class="proof-box">
-            <span class="proof-tag">1. INPUT ARTWORK</span>
-            <img src="proof-raw.jpg" alt="Original uploaded artwork in Pixel2Path Studio" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
-              <svg width="140" height="140" viewBox="0 0 400 400" role="img" aria-label="Source multi-color Oriole logo input">
-                <circle cx="200" cy="200" r="165" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="8"/>
-                <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
-                <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
-                <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 C 164,222 156,210 144,204 Z" fill="#FFD000"/>
-                <circle cx="140" cy="192" r="7" fill="#14100C"/>
-              </svg>
+          <div>
+            <div class="proof-box">
+              <span class="proof-tag">1. INPUT ARTWORK</span>
+              <img src="proof-raw.jpg" alt="Original uploaded artwork in Pixel2Path Studio" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
+                <svg width="140" height="140" viewBox="0 0 400 400" role="img" aria-label="Source multi-color Oriole logo input">
+                  <circle cx="200" cy="200" r="165" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="8"/>
+                  <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
+                  <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
+                  <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 C 164,222 156,210 144,204 Z" fill="#FFD000"/>
+                  <circle cx="140" cy="192" r="7" fill="#14100C"/>
+                </svg>
+              </div>
             </div>
+            <div class="card-kicker">A. SOURCE IMAGE OR TEXT</div>
+            <h3>1. Upload Logo, Photo, or Text</h3>
+            <p>Accepts PNG, JPG, or WEBP graphics plus straight or arched text. Automatically separates touching colors and strips busy photo backgrounds.</p>
           </div>
-          <div class="card-kicker">A. SOURCE IMAGE OR TEXT</div>
-          <h3>1. Upload Logo, Photo, or Text</h3>
-          <p>Accepts PNG, JPG, or WEBP graphics plus straight or arched text. Automatically separates touching colors and strips busy photo backgrounds.</p>
+          <div class="proof-spec-pill">📌 <strong>Input:</strong> Shaded Relief / Logo Artwork (PNG / JPG)</div>
         </div>
 
         <!-- Card 2: proof-processed.jpg -->
         <div class="card" style="border-color: rgba(255, 179, 0, 0.55);">
-          <div class="proof-box">
-            <span class="proof-tag" style="color:var(--amber);border-color:var(--amber);">2. GEOMETRY CHECK</span>
-            <img src="proof-processed.jpg" alt="Processed 1:1 millimeter vector mask in Pixel2Path Studio" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
-              <svg width="135" height="135" viewBox="0 0 400 400" role="img" aria-label="1:1 millimeter calibrated vector mask preview">
-                <circle cx="200" cy="200" r="165" fill="none" stroke="#FFFFFF" stroke-width="12"/>
-                <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#FFFFFF"/>
-                <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#FFFFFF"/>
-                <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 Z" fill="#FFFFFF" stroke="#000" stroke-width="10"/>
-              </svg>
-              <span style="font-size:0.72rem;color:#81C784;font-weight:800;">✅ Vector-Ready • 50.0 × 50.0 mm</span>
+          <div>
+            <div class="proof-box">
+              <span class="proof-tag" style="color:var(--amber);border-color:var(--amber);">2. GEOMETRY CHECK</span>
+              <img src="proof-processed.jpg" alt="Processed 1:1 millimeter vector mask in Pixel2Path Studio" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
+                <svg width="135" height="135" viewBox="0 0 400 400" role="img" aria-label="1:1 millimeter calibrated vector mask preview">
+                  <circle cx="200" cy="200" r="165" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+                  <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#FFFFFF"/>
+                  <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#FFFFFF"/>
+                  <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 Z" fill="#FFFFFF" stroke="#000" stroke-width="10"/>
+                </svg>
+                <span style="font-size:0.72rem;color:#81C784;font-weight:800;">✅ Vector-Ready • 50.0 × 50.0 mm</span>
+              </div>
             </div>
+            <div class="card-kicker">B. PROCESSED IN PIXEL2PATH STUDIO</div>
+            <h3>2. Verify Scale &amp; Wall Thickness</h3>
+            <p>Confirms exact millimeter dimensions, closed-loop counts, mirror orientation, and ≥0.45mm nozzle wall protection before download.</p>
           </div>
-          <div class="card-kicker">B. PROCESSED IN PIXEL2PATH STUDIO</div>
-          <h3>2. Verify Scale &amp; Wall Thickness</h3>
-          <p>Confirms exact millimeter dimensions, closed-loop counts, mirror orientation, and ≥0.45mm nozzle wall protection before download.</p>
+          <div class="proof-spec-pill" style="border-left-color:var(--green);">📌 <strong>Verified:</strong> 1:1 mm Outer BBox (±0.05mm) • ≥0.45mm Wall Guard</div>
         </div>
 
         <!-- Card 3: proof-bambu.jpg -->
         <div class="card">
-          <div class="proof-box">
-            <span class="proof-tag" style="color:var(--green);border-color:var(--green);">3. SLICER / CAM</span>
-            <img src="proof-bambu.jpg" alt="Watertight 3D stamp STL and cut paths in Bambu Studio and LightBurn" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
-              <svg width="155" height="120" viewBox="0 0 160 125" role="img" aria-label="3D stamp solid mesh on baseplate">
-                <polygon points="80,76 142,96 80,116 18,96" fill="#262626" stroke="#81C784" stroke-width="1.5"/>
-                <polygon points="18,96 80,116 80,123 18,103" fill="#1B3B1E"/>
-                <polygon points="142,96 80,116 80,123 142,103" fill="#142B16"/>
-                <ellipse cx="80" cy="72" rx="42" ry="18" fill="#FFB300" stroke="#FFFFFF" stroke-width="1.2"/>
-                <path d="M 62,70 Q 80,58 98,72" fill="none" stroke="#14100C" stroke-width="3.5" stroke-linecap="round"/>
-                <text x="42" y="24" fill="#81C784" font-size="9" font-weight="bold">3.0mm Base + 2.5mm Relief</text>
-              </svg>
+          <div>
+            <div class="proof-box">
+              <span class="proof-tag" style="color:var(--green);border-color:var(--green);">3. SLICER / CAM</span>
+              <img src="proof-bambu.jpg" alt="Watertight 3D stamp STL and cut paths in Bambu Studio and LightBurn" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
+                <svg width="155" height="120" viewBox="0 0 160 125" role="img" aria-label="3D stamp solid mesh on baseplate">
+                  <polygon points="80,76 142,96 80,116 18,96" fill="#262626" stroke="#81C784" stroke-width="1.5"/>
+                  <polygon points="18,96 80,116 80,123 18,103" fill="#1B3B1E"/>
+                  <polygon points="142,96 80,116 80,123 142,103" fill="#142B16"/>
+                  <ellipse cx="80" cy="72" rx="42" ry="18" fill="#FFB300" stroke="#FFFFFF" stroke-width="1.2"/>
+                  <path d="M 62,70 Q 80,58 98,72" fill="none" stroke="#14100C" stroke-width="3.5" stroke-linecap="round"/>
+                  <text x="42" y="24" fill="#81C784" font-size="9" font-weight="bold">3.0mm Base + 2.5mm Relief</text>
+                </svg>
+              </div>
             </div>
+            <div class="card-kicker">C. PRODUCTION EXPORT</div>
+            <h3>3. Print, Cut, or Mill at 1:1 Scale</h3>
+            <p>Imports at true millimeter scale into Bambu Studio, PrusaSlicer, Cura, LightBurn, Silhouette Studio, Illustrator, or Fusion 360.</p>
           </div>
-          <div class="card-kicker">C. PRODUCTION EXPORT</div>
-          <h3>3. Print, Cut, or Mill at 1:1 Scale</h3>
-          <p>Imports at true millimeter scale into Bambu Studio, PrusaSlicer, Cura, LightBurn, Silhouette Studio, Illustrator, or Fusion 360.</p>
+          <div class="proof-spec-pill">📌 <strong>Output:</strong> Watertight .STL (3.0mm Base + 2.5mm Relief) / .SVG / .DXF</div>
         </div>
       </div>
     </section>
@@ -742,8 +766,8 @@
                     <td>Standard trace</td>
                   </tr>
                   <tr>
-                    <td><strong>Dimensional Tolerance</strong></td>
-                    <td class="highlight-col">Post-filter 1:1 mm lock (±0.05mm)</td>
+                    <td><strong>Outer BBox Tolerance</strong></td>
+                    <td class="highlight-col">Post-filter 1:1 mm outer lock (±0.05mm)</td>
                     <td>User-scaled</td>
                     <td>DPI scaling drift (72/96 DPI)</td>
                     <td>Millimeter CAD</td>
@@ -858,15 +882,15 @@
         </details>
       </div>
 
-      <!-- Trust, Advanced Vision Privacy & Cancellation Disclosure -->
+      <!-- Trust, Advanced Vision Privacy & Precise Outer BBox Tolerance Disclosure -->
       <div class="trust-bar">
         <div>
           <strong>🔒 Advanced Vision &amp; Artwork Privacy Disclosure</strong>
           Uploaded images and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. When <strong>Advanced Vision Background Removal</strong> is used, the image is processed via an encrypted enterprise vision endpoint and is strictly never used to train public models.
         </div>
         <div>
-          <strong>📐 Published Tolerance &amp; Verification</strong>
-          Export bounding boxes are calibrated after morphological filtering to within ±0.05mm of your target width. The free 25mm sample validates file import, 1:1 millimeter scaling, and closed-loop topology; always verify material settings, press tonnage, and laser kerf for your full-scale production job.
+          <strong>📐 Outer Bounding-Box Tolerance &amp; Machine Guards</strong>
+          External bounding-box width and height are calibrated after morphological filtering to within <strong>±0.05mm</strong> of your requested target width. To prevent physical toolhead failure, sub-spec internal strokes are intentionally widened to match your selected machine profile (<strong>≥0.45mm</strong> for 0.4mm FDM nozzles, <strong>≥0.75mm</strong> for vinyl weeding, and <strong>≥0.38mm</strong> for CNC). Always verify material settings, press tonnage, and laser kerf using the free 25mm sample.
         </div>
         <div>
           <strong>🛡️ Support &amp; 1-Click Cancellation</strong>
