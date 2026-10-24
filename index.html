@@ -20,17 +20,19 @@
   <link rel="preconnect" href="https://app.ivolgaco.com" crossorigin />
   <link rel="dns-prefetch" href="https://app.ivolgaco.com" />
 
-  <!-- Open Graph / Social Sharing (Zero external .jpg 404s) -->
+  <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Ivolga Co." />
   <meta property="og:url" content="https://ivolgaco.com/" />
   <meta property="og:title" content="Pixel2Path Studio by Ivolga Co. | Logo, Photo &amp; Text to .SVG, .DXF &amp; 3D .STL" />
   <meta property="og:description" content="Convert logos, photos, or arched text into 1:1 millimeter laser/plotter vectors (.SVG / .DXF), 3D printable stamps (.STL), and steel-rule clicker dies (.DXF). Test free at 25mm." />
+  <meta property="og:image" content="https://ivolgaco.com/proof-bambu.jpg" />
 
   <!-- Twitter / X Card -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pixel2Path Studio by Ivolga Co. | Text &amp; Logo to .SVG, .DXF &amp; 3D Stamp (.STL)" />
   <meta name="twitter:description" content="Instant 1:1 millimeter 3D stamp STL meshes and closed-loop SVG/DXF cut paths for laser engravers, 3D printers, clicker presses, CNC mills, and vinyl plotters." />
+  <meta name="twitter:image" content="https://ivolgaco.com/proof-bambu.jpg" />
 
   <!-- Comprehensive Multi-Machine Structured Data Schema -->
   <script type="application/ld+json">
@@ -345,7 +347,7 @@
       background: #101010;
       border: 1px solid #2A2A2A;
       border-radius: 8px;
-      height: 180px;
+      height: 205px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -354,10 +356,18 @@
       overflow: hidden;
       flex-direction: column;
     }
+    .proof-box img.proof-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 6px;
+    }
     .proof-tag {
       position: absolute;
       top: 8px;
       right: 8px;
+      z-index: 2;
       font-size: 0.65rem;
       font-weight: 800;
       padding: 2px 7px;
@@ -579,7 +589,7 @@
       </div>
     </section>
 
-    <!-- 02 · REAL OUTPUT (Pure Native Inline SVG Diagrams — Zero External .jpg 404s) -->
+    <!-- 02 · REAL OUTPUT (Displays Your Uploaded proof-raw.jpg, proof-processed.jpg & proof-bambu.jpg + Silent SVG Fallback) -->
     <section id="real-work">
       <div class="section-header">
         <h2>Real Output: <span>Artwork ➔ Validated Geometry ➔ Slicer</span></h2>
@@ -587,49 +597,61 @@
       </div>
 
       <div class="grid-3">
+        <!-- Card 1: proof-raw.jpg -->
         <div class="card">
           <div class="proof-box">
             <span class="proof-tag">1. INPUT ARTWORK</span>
-            <svg width="140" height="140" viewBox="0 0 400 400" role="img" aria-label="Source multi-color Oriole logo input">
-              <circle cx="200" cy="200" r="165" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="8"/>
-              <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
-              <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
-              <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 C 164,222 156,210 144,204 Z" fill="#FFD000"/>
-              <circle cx="140" cy="192" r="7" fill="#14100C"/>
-            </svg>
+            <img src="proof-raw.jpg" alt="Original uploaded artwork in Pixel2Path Studio" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
+              <svg width="140" height="140" viewBox="0 0 400 400" role="img" aria-label="Source multi-color Oriole logo input">
+                <circle cx="200" cy="200" r="165" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="8"/>
+                <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
+                <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
+                <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 C 164,222 156,210 144,204 Z" fill="#FFD000"/>
+                <circle cx="140" cy="192" r="7" fill="#14100C"/>
+              </svg>
+            </div>
           </div>
           <div class="card-kicker">A. SOURCE IMAGE OR TEXT</div>
           <h3>1. Upload Logo, Photo, or Text</h3>
           <p>Accepts PNG, JPG, or WEBP graphics plus straight or arched text. Automatically separates touching colors and strips busy photo backgrounds.</p>
         </div>
 
+        <!-- Card 2: proof-processed.jpg -->
         <div class="card" style="border-color: rgba(255, 179, 0, 0.55);">
           <div class="proof-box">
             <span class="proof-tag" style="color:var(--amber);border-color:var(--amber);">2. GEOMETRY CHECK</span>
-            <svg width="135" height="135" viewBox="0 0 400 400" role="img" aria-label="1:1 millimeter calibrated vector mask preview">
-              <circle cx="200" cy="200" r="165" fill="none" stroke="#FFFFFF" stroke-width="12"/>
-              <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#FFFFFF"/>
-              <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#FFFFFF"/>
-              <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 Z" fill="#FFFFFF" stroke="#000" stroke-width="10"/>
-            </svg>
-            <span style="font-size:0.72rem;color:#81C784;font-weight:800;">✅ Vector-Ready • 50.0 × 50.0 mm</span>
+            <img src="proof-processed.jpg" alt="Processed 1:1 millimeter vector mask in Pixel2Path Studio" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
+              <svg width="135" height="135" viewBox="0 0 400 400" role="img" aria-label="1:1 millimeter calibrated vector mask preview">
+                <circle cx="200" cy="200" r="165" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+                <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#FFFFFF"/>
+                <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#FFFFFF"/>
+                <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 Z" fill="#FFFFFF" stroke="#000" stroke-width="10"/>
+              </svg>
+              <span style="font-size:0.72rem;color:#81C784;font-weight:800;">✅ Vector-Ready • 50.0 × 50.0 mm</span>
+            </div>
           </div>
           <div class="card-kicker">B. PROCESSED IN PIXEL2PATH STUDIO</div>
           <h3>2. Verify Scale &amp; Wall Thickness</h3>
           <p>Confirms exact millimeter dimensions, closed-loop counts, mirror orientation, and ≥0.45mm nozzle wall protection before download.</p>
         </div>
 
+        <!-- Card 3: proof-bambu.jpg -->
         <div class="card">
           <div class="proof-box">
             <span class="proof-tag" style="color:var(--green);border-color:var(--green);">3. SLICER / CAM</span>
-            <svg width="155" height="120" viewBox="0 0 160 125" role="img" aria-label="3D stamp solid mesh on baseplate">
-              <polygon points="80,76 142,96 80,116 18,96" fill="#262626" stroke="#81C784" stroke-width="1.5"/>
-              <polygon points="18,96 80,116 80,123 18,103" fill="#1B3B1E"/>
-              <polygon points="142,96 80,116 80,123 142,103" fill="#142B16"/>
-              <ellipse cx="80" cy="72" rx="42" ry="18" fill="#FFB300" stroke="#FFFFFF" stroke-width="1.2"/>
-              <path d="M 62,70 Q 80,58 98,72" fill="none" stroke="#14100C" stroke-width="3.5" stroke-linecap="round"/>
-              <text x="42" y="24" fill="#81C784" font-size="9" font-weight="bold">3.0mm Base + 2.5mm Relief</text>
-            </svg>
+            <img src="proof-bambu.jpg" alt="Watertight 3D stamp STL and cut paths in Bambu Studio and LightBurn" class="proof-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
+              <svg width="155" height="120" viewBox="0 0 160 125" role="img" aria-label="3D stamp solid mesh on baseplate">
+                <polygon points="80,76 142,96 80,116 18,96" fill="#262626" stroke="#81C784" stroke-width="1.5"/>
+                <polygon points="18,96 80,116 80,123 18,103" fill="#1B3B1E"/>
+                <polygon points="142,96 80,116 80,123 142,103" fill="#142B16"/>
+                <ellipse cx="80" cy="72" rx="42" ry="18" fill="#FFB300" stroke="#FFFFFF" stroke-width="1.2"/>
+                <path d="M 62,70 Q 80,58 98,72" fill="none" stroke="#14100C" stroke-width="3.5" stroke-linecap="round"/>
+                <text x="42" y="24" fill="#81C784" font-size="9" font-weight="bold">3.0mm Base + 2.5mm Relief</text>
+              </svg>
+            </div>
           </div>
           <div class="card-kicker">C. PRODUCTION EXPORT</div>
           <h3>3. Print, Cut, or Mill at 1:1 Scale</h3>
