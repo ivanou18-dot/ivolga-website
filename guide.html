@@ -12,7 +12,6 @@
       --bg-card: #151515;
       --amber: #FFB300;
       --amber-hover: #E09D00;
-      --cyan: #00E5FF;
       --green: #81C784;
       --text-main: #F0F0F0;
       --text-muted: #BDBDBD;
@@ -111,7 +110,6 @@
       line-height: 1.2;
     }
     .manual-header h1 .txt-white { color: #FFFFFF; }
-    .manual-header h1 .txt-cyan { color: var(--cyan); }
     .manual-header h1 .txt-gold { color: var(--amber); }
     .manual-header .subtitle {
       color: #CCCCCC;
@@ -160,7 +158,6 @@
       border-radius: 8px;
       padding: 12px 15px;
     }
-    .card-box.cyan-left { border-left-color: var(--cyan); }
     .card-box.green-left { border-left-color: var(--green); }
     .card-box strong.title {
       color: #FFFFFF;
@@ -267,7 +264,7 @@
           <circle cx="140" cy="192" r="5" fill="#14100C"/>
         </svg>
         <div>
-          <h1>📐 <span class="txt-white">PIXEL2PATH STUDIO:</span> <span class="txt-cyan">OFFICIAL USER MANUAL</span></h1>
+          <h1>📐 <span class="txt-white">PIXEL2PATH STUDIO:</span> <span class="txt-gold">OFFICIAL USER MANUAL</span></h1>
           <div class="subtitle">1:1 Millimeter 3D Stamp (.STL), Steel-Rule Clicker Die &amp; Laser/Plotter Vector (.DXF / .SVG) Generator</div>
         </div>
       </div>
@@ -290,9 +287,9 @@
         <strong class="title">🖼️ Mode 1: Logo / Photo (📤 Upload Image)</strong>
         Converts multi-color or B&amp;W logos, pre-drawn intaglio engravings, die-board templates, and 3D reliefs into 3D stamps or 2D cut paths. Features automatic color-halo separation, a <strong>Universal Line-Art Scanner</strong>, and automatic / 1-click <strong>Advanced Vision Background Removal</strong> (with a <strong>🔄 Clear Advanced Vision Enhancement</strong> reset option).
       </div>
-      <div class="card-box cyan-left">
+      <div class="card-box">
         <strong class="title">✍️ Mode 2: Custom Text &amp; 🔀 Mode 3: Logo + Text Combo</strong>
-        Includes a high-visibility <strong>✍️ Enter Custom Text</strong> input (available both in Step 1 and directly beside the live preview in Combo mode), 7 built-in shop fonts (<em>Clean Bold Block, Classic Serif, Heavy Impact Block, Military Stencil, Vintage Typewriter, Varsity Block, Cursive Script</em>), Letter Boldness (<code>1–10</code>), and concentric <strong>Text Arced Around Logo</strong> layouts.
+        Includes a high-visibility <strong>✍️ Enter Custom Text</strong> input (press <code>Enter ↵</code> or tap <strong>✅ Apply Text</strong> to update), 7 built-in shop fonts (<em>Clean Bold Block, Classic Serif, Heavy Impact Block, Military Stencil, Vintage Typewriter, Varsity Block, Cursive Script</em>), Letter Boldness (<code>1–10</code>), and concentric <strong>Text Arced Around Logo</strong> layouts.
       </div>
     </div>
 
@@ -326,7 +323,7 @@
           <td>Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on Silhouette Cameo and Cricut drag-knife blades.</td>
         </tr>
         <tr>
-          <td><strong>🗜️ Clicker Die</strong><br /><span style="color:#00E5FF;font-size:0.74rem;">(Die-Maker Heavy Cyan)</span></td>
+          <td><strong>🗜️ Clicker Die</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Die-Board Cut Paths)</span></td>
           <td><code>.DXF</code> • <code>.SVG</code></td>
           <td>100 mm Width<br />Die-Board Cut Paths</td>
           <td>Suppresses table shadows and generates continuous, closed vector cut paths (<code>STEEL_RULE_CUT</code> layer) preserving internal cutouts, slits, and multi-part forms for laser-cut steel-rule die boards, with an optional <strong>Outer Blade Offset (0.0–6.0 mm)</strong>.</td>
@@ -340,12 +337,12 @@
       </tbody>
     </table>
 
-    <h2>4. Tracing Styles, Universal Line-Art Scanner &amp; AI Prompt Generator</h2>
+    <h2>4. Tracing Styles, Universal Line-Art Scanner &amp; Advanced Vision</h2>
     <ul>
       <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines from colored fills using a separation halo so touching colors (such as yellow bodies and black wings) never fuse into a solid blob. Preserves internal feather slits and extracts 3D facial contours.</li>
       <li><strong>🏛️ Classical Banknote Hatching (3D Shading Lines):</strong> Converts smooth continuous grayscale reliefs and medallions into variable-width engraving lines (<em>Diagonal 45°, Cross-Hatch 45° Mesh, Concentric Seal, Horizontal, Vertical</em>) with adjustable <strong>3D Contour Wave Curvature (0–10)</strong>, or traces pre-drawn intaglio engravings directly.</li>
-      <li><strong>✨ 1-Click AI Intaglio Banknote Transformer:</strong> If you select <em>🏛️ Classical Banknote Hatching</em> on a flat 2D graphic, tap <strong>✨ Transform into Banknote Engraving</strong> to automatically convert flat areas into fine 45° parallel hatching lines and cross-hatch meshes using Advanced Vision.</li>
-      <li><strong>🔍 Universal Line-Art &amp; Preprocessed Vector Scanner:</strong> Automatically detects pre-drawn intaglio engravings and crisp AI-generated line-art on upload, bypassing destructive binarization so delicate hatching lines trace 1:1 with zero loss.</li>
+      <li><strong>✨ 1-Click Advanced Vision Banknote Transformer:</strong> If you select <em>🏛️ Classical Banknote Hatching</em> on a flat 2D graphic, tap <strong>✨ Transform into Banknote Engraving</strong> to automatically convert flat areas into fine 45° parallel hatching lines and cross-hatch meshes using Advanced Vision.</li>
+      <li><strong>🔍 Universal Line-Art &amp; Preprocessed Vector Scanner:</strong> Automatically detects pre-drawn intaglio engravings and crisp line-art on upload, bypassing destructive binarization so delicate hatching lines trace 1:1 with zero loss.</li>
     </ul>
 
     <h3>📜 In-App AI Prompt Generator (ChatGPT, Gemini, Claude, Grok, etc.)</h3>
@@ -392,7 +389,7 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
       <li><strong>Free 25mm Graphic Width Sample ($0):</strong> Test any graphic and download a real <strong>25mm graphic width sample</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>) for free. <em>The 25mm graphic width sample validates file import, 1:1 millimeter scaling, and closed-loop topology; always verify material hardness, press tonnage, and laser kerf for your full-scale production job.</em></li>
       <li><strong>24-Hr Craftsman Pass ($8 One-Time):</strong> Unlocks 24 hours of unlimited 1:1 full-scale CAD exports (up to 350mm) + <strong>25 Advanced Vision Credits</strong>. <em>The 24-hour clock starts immediately upon checkout completion and displays your remaining time in the app.</em></li>
       <li><strong>Studio Monthly ($25/mo):</strong> Continuous studio access for repeat production with unlimited 1:1 full-scale CAD exports + <strong>100 Advanced Vision Credits / month</strong> (auto-refreshes every 30 days).</li>
-      <li><strong>One-Time Credit Guard &amp; Unlimited Local Exports:</strong> Standard logo tracing, pre-drawn intaglio tracing, custom arched text, classical banknote hatching sliders, and all <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong>. An Advanced Vision credit is charged <strong>at most once per uploaded image</strong> (whether used for background removal or AI Banknote Intaglio transformation—toggling between styles afterwards costs 0 extra credits).</li>
+      <li><strong>One-Time Credit Guard &amp; Unlimited Local Exports:</strong> Standard logo tracing, pre-drawn intaglio tracing, custom arched text, classical banknote hatching sliders, and all <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong>. An Advanced Vision credit is charged <strong>at most once per uploaded image</strong> (whether used for background removal or Banknote Intaglio transformation—toggling between styles afterwards costs 0 extra credits).</li>
       <li><strong>🔒 Privacy &amp; RAM-Only Processing:</strong> Uploaded artwork and generated files are processed in volatile memory (RAM) during your session and automatically purged. Advanced Vision uses an encrypted enterprise vision endpoint and never trains public models.</li>
     </ul>
 
