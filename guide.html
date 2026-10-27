@@ -285,7 +285,7 @@
     <div class="grid-2">
       <div class="card-box">
         <strong class="title">🖼️ Mode 1: Logo / Photo (📤 Upload Image)</strong>
-        Converts multi-color or B&amp;W logos, pre-drawn intaglio engravings, die-board templates, and 3D reliefs into 3D stamps or 2D cut paths. Features automatic color-halo separation, a <strong>Universal Line-Art Scanner</strong>, and automatic / 1-click <strong>Advanced Vision Background Removal</strong> (with a <strong>🔄 Clear Advanced Vision Enhancement</strong> reset option).
+        Converts multi-color or B&amp;W logos, pre-drawn intaglio engravings, die-board templates, and 3D reliefs into 3D stamps or 2D cut paths. Features automatic color-halo separation, a <strong>Universal Line-Art Scanner</strong>, and automatic / 1-click <strong>Advanced Vision Background Removal</strong> (with side-by-side <strong>🔄 Clear Advanced Vision Enhancement</strong> and <strong>✨ Restore Advanced Vision Enhancement (0 Credits)</strong> controls).
       </div>
       <div class="card-box">
         <strong class="title">✍️ Mode 2: Custom Text &amp; 🔀 Mode 3: Logo + Text Combo</strong>
@@ -306,7 +306,7 @@
       <tbody>
         <tr>
           <td><strong>🧊 3D Printer</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Slicer Amber/Green)</span></td>
-          <td><code>.STL</code> (Binary 3D Mesh)</td>
+          <td><code>.STL</code> (Default)</td>
           <td>50 mm Width<br />3.0 mm Base<br />2.5 mm Relief</td>
           <td>Calibrated for standard <code>0.4 mm</code> FDM nozzles and SLA resin printers. Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong> so fine facial lines never vanish in Bambu Studio, PrusaSlicer, or Cura. Adds a <code>5.0 mm</code> structural base margin per side.</td>
         </tr>
@@ -314,25 +314,25 @@
           <td><strong>⚡ Laser Engraver</strong><br /><span style="color:#FF5252;font-size:0.74rem;">(Vector Hairline Red)</span></td>
           <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
           <td>60 mm Width<br />2D Closed Loops</td>
-          <td>Calibrated for <code>0.10 mm</code> laser kerf resolution (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps. SVG exports include <code>vector-effect="non-scaling-stroke"</code> for clear browser viewing.</td>
+          <td>Calibrated for <code>0.10 mm</code> laser kerf resolution (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps. SVG exports use an exact <code>0.0882mm (0.25pt)</code> mathematical hairline stroke with <code>vector-effect="non-scaling-stroke"</code> for clear browser viewing.</td>
         </tr>
         <tr>
           <td><strong>✂️ Vinyl Plotter</strong><br /><span style="color:#E040FB;font-size:0.74rem;">(Contour Cut Magenta)</span></td>
           <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
           <td>80 mm Width<br />Drag-Knife Safe</td>
-          <td>Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on Silhouette Cameo and Cricut drag-knife blades.</td>
+          <td>Defaults to unified <code>.SVG</code> Compound Paths (for Cricut/Illustrator) with <code>.DXF</code> for free Silhouette Studio Basic. Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on drag-knife blades.</td>
         </tr>
         <tr>
           <td><strong>🗜️ Clicker Die</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Die-Board Cut Paths)</span></td>
-          <td><code>.DXF</code> • <code>.SVG</code></td>
+          <td><code>.DXF</code> (Default) • <code>.SVG</code></td>
           <td>100 mm Width<br />Die-Board Cut Paths</td>
           <td>Suppresses table shadows and generates continuous, closed vector cut paths (<code>STEEL_RULE_CUT</code> layer) preserving internal cutouts, slits, and multi-part forms for laser-cut steel-rule die boards, with an optional <strong>Outer Blade Offset (0.0–6.0 mm)</strong>.</td>
         </tr>
         <tr>
           <td><strong>🔩 CNC / Brass Die</strong><br /><span style="color:#448AFF;font-size:0.74rem;">(CAD/CAM Toolpath Blue)</span></td>
-          <td><code>.DXF</code> • <code>.STL</code> • <code>.SVG</code></td>
+          <td><code>.DXF</code> (Default) • <code>.STL</code> • <code>.SVG</code></td>
           <td>50 mm Width<br />8.0 mm Base<br />3.0 mm Relief</td>
-          <td>Heavy-duty stock solid (<code>.STL</code>) and layer-separated 2D vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code>) with a <code>≥0.38 mm</code> minimum feature guard for brass hot-foil dies, leather embossing, and V-carving.</td>
+          <td>Defaults to layer-separated 2D CAD vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code> in <code>.DXF</code>) for V-carving/pocketing, plus heavy-duty 3D stock solids (<code>.STL</code>) and <code>.SVG</code> with a <code>≥0.38 mm</code> minimum feature guard for brass hot-foil dies and leather embossing.</td>
         </tr>
       </tbody>
     </table>
@@ -375,8 +375,8 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
       <div class="card-box green-left">
         <strong class="title">📐 .SVG vs. .DXF in Illustrator, Cricut, Silhouette &amp; LightBurn</strong>
         • Set import scale to <strong>1 Unit = 1 Millimeter (mm)</strong>.<br />
-        • <strong><code>.SVG</code> (Default):</strong> Exports a single unified <code>&lt;Compound Path&gt;</code> with inner holes pre-grouped and <code>vector-effect="non-scaling-stroke"</code> so paths are clearly visible in web browsers while keeping the mathematical cut line razor-thin.<br />
-        • <strong><code>.DXF</code> (R2010 CAD):</strong> Exports closed <code>LWPOLYLINE</code> loops (0.25 pt / 0.088 mm mathematical hairlines) for AutoCAD, SolidWorks, die-board lasers, and free <strong>Silhouette Studio Basic Edition</strong>. <em>If a .DXF looks blank on open, zoom in or enable Outline / Hairline view.</em> To group inner holes as a compound path manually:<br />
+        • <strong><code>.SVG</code> (Default for Laser &amp; Vinyl Plotter):</strong> Exports a single unified <code>&lt;Compound Path&gt;</code> with inner holes pre-grouped, an exact <strong><code>0.0882mm (0.25pt)</code> mathematical hairline stroke</strong>, and <code>vector-effect="non-scaling-stroke"</code> so paths are clearly visible in web browsers while keeping the mathematical cut line razor-thin in Illustrator and LightBurn.<br />
+        • <strong><code>.DXF</code> (Default for Clicker Die &amp; CNC):</strong> Exports closed R2010 <code>LWPOLYLINE</code> loops (0.25 pt / 0.0882 mm mathematical hairlines) for AutoCAD, SolidWorks, Fusion 360, Vectric VCarve, die-board lasers, and free <strong>Silhouette Studio Basic Edition</strong>. <em>If a .DXF looks blank on open, zoom in or enable Outline / Hairline view.</em> To group inner holes as a compound path manually:<br />
         &nbsp;&nbsp;– <strong>Illustrator:</strong> Select All (<code>Ctrl+A</code>) ➔ <code>Ctrl+8</code> (<code>Cmd+8</code> on Mac)<br />
         &nbsp;&nbsp;– <strong>Silhouette Studio:</strong> Select All ➔ Right-Click ➔ <em>Make Compound Path</em> (<code>Ctrl+E</code>)<br />
         &nbsp;&nbsp;– <strong>LightBurn:</strong> Select All ➔ Press <code>Alt+J</code> (<em>Auto-Join</em>)
@@ -388,8 +388,8 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
       <li><strong>📐 Outer Bounding-Box Tolerance (±0.05 mm) vs. Internal Feature Guards:</strong> External bounding-box width and height are calibrated after morphological filtering to within <code>±0.05 mm</code> of your target width. Internal sub-spec strokes are intentionally thickened (<code>≥0.45 mm</code> for 3D printing, <code>≥0.75 mm</code> for vinyl plotters, <code>≥0.38 mm</code> for CNC) to survive physical manufacturing.</li>
       <li><strong>Free 25mm Graphic Width Sample ($0):</strong> Test any graphic and download a real <strong>25mm graphic width sample</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>) for free. <em>The 25mm graphic width sample validates file import, 1:1 millimeter scaling, and closed-loop topology; always verify material hardness, press tonnage, and laser kerf for your full-scale production job.</em></li>
       <li><strong>24-Hr Craftsman Pass ($8 One-Time):</strong> Unlocks 24 hours of unlimited 1:1 full-scale CAD exports (up to 350mm) + <strong>25 Advanced Vision Credits</strong>. <em>The 24-hour clock starts immediately upon checkout completion and displays your remaining time in the app.</em></li>
-      <li><strong>Studio Monthly ($25/mo):</strong> Continuous studio access for repeat production with unlimited 1:1 full-scale CAD exports + <strong>100 Advanced Vision Credits / month</strong> (auto-refreshes every 30 days).</li>
-      <li><strong>One-Time Credit Guard &amp; Unlimited Local Exports:</strong> Standard logo tracing, pre-drawn intaglio tracing, custom arched text, classical banknote hatching sliders, and all <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong>. An Advanced Vision credit is charged <strong>at most once per uploaded image</strong> (whether used for background removal or Banknote Intaglio transformation—toggling between styles afterwards costs 0 extra credits).</li>
+      <li><strong>Studio Monthly ($25/mo):</strong> Continuous studio access for repeat production with unlimited 1:1 full-scale CAD exports + <strong>150 Advanced Vision Credits / month</strong> (auto-refreshes every 30 days).</li>
+      <li><strong>One-Time Credit Guard &amp; Clear/Restore Controls:</strong> Standard logo tracing, pre-drawn intaglio tracing, custom arched text, classical banknote hatching sliders, and all <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong>. An Advanced Vision credit is charged <strong>at most once per uploaded image</strong>—toggling between styles or clicking <strong>🔄 Clear Advanced Vision Enhancement</strong> and <strong>✨ Restore Advanced Vision Enhancement (0 Credits)</strong> reuses the session cache at 0 extra credits.</li>
       <li><strong>🔒 Privacy &amp; RAM-Only Processing:</strong> Uploaded artwork and generated files are processed in volatile memory (RAM) during your session and automatically purged. Advanced Vision uses an encrypted enterprise vision endpoint and never trains public models.</li>
     </ul>
 
