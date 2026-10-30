@@ -3,10 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pixel2Path Studio by Ivolga Co. — Official User &amp; Technical Manual</title>
-  <meta name="description" content="Official User and Technical Manual for Pixel2Path Studio by Ivolga Co.: 1:1 millimeter 3D stamp (.STL), steel-rule clicker die (.DXF), and laser/plotter cut vector (.SVG) generator. Test free with a 25mm graphic width sample." />
+  <!-- Primary High-Intent SEO Title & Meta Description (Calibrated for Zero SERP Truncation) -->
+  <title>Pixel2Path Studio User Guide | 3D Stamp (.STL), .SVG &amp; .DXF Manual</title>
+  <meta name="description" content="Official manual for Pixel2Path Studio by Ivolga Co.: 1:1mm 3D stamps (.STL), laser/plotter vectors (.SVG / .DXF), clicker dies &amp; slicer settings." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://ivolgaco.com/guide.html" />
+  <meta name="author" content="Ivolga Co." />
+  <meta name="theme-color" content="#FFB300" />
+  <meta name="keywords" content="Pixel2Path Studio user manual, 3D stamp STL slicer settings, Bambu Studio stamp settings, LightBurn SVG hairline 0.0882mm, Silhouette Studio Basic DXF import, steel rule clicker die DXF manual, banknote intaglio engraving prompt" />
+
+  <!-- Golden Oriole Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='186' fill='%23FFFFFF' stroke='%234A4A4A' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='178' fill='none' stroke='%23FFB300' stroke-width='6'/%3E%3Cpath d='M 168,224 C 138,236 95,256 62,268 C 72,272 84,271 96,266 C 80,275 68,280 58,281 C 70,285 85,283 98,277 C 86,286 76,290 68,291 C 98,298 135,292 175,278 L 214,256 Z' fill='%231C1814'/%3E%3Cpath d='M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z' fill='%231C1814'/%3E%3Cpath d='M 198,196 C 218,162 246,118 265,86 C 271,88 272,99 267,112 C 276,96 283,84 289,82 C 294,86 292,99 285,114 C 294,101 302,92 308,91 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z' fill='%231C1814'/%3E%3Cpath d='M 195,196 C 212,175 232,155 248,145 C 258,168 256,202 245,224 C 230,226 210,215 195,196 Z' fill='%23FFD000'/%3E%3Cpath d='M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 272,256 286,268 296,274 C 278,274 258,266 242,256 C 222,258 196,248 178,233 C 164,222 156,210 144,204 C 134,200 126,197 122,193 Z' fill='%23FFD000'/%3E%3Cpath d='M 124,191 L 96,195 L 125,198 Z' fill='%238D6E4E'/%3E%3Ccircle cx='140' cy='192' r='6' fill='%2314100C'/%3E%3C/svg%3E" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Pixel2Path Studio — Ivolga Co." />
+  <meta property="og:url" content="https://ivolgaco.com/guide.html" />
+  <meta property="og:title" content="Pixel2Path Studio User Guide | 3D Stamp (.STL), .SVG &amp; .DXF Manual" />
+  <meta property="og:description" content="Complete technical reference for 1:1 millimeter 3D stamp (.STL), laser/plotter (.SVG / .DXF), clicker die, and CNC brass die workflows in Pixel2Path Studio." />
+  <meta property="og:image" content="https://ivolgaco.com/proof-bambu.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Pixel2Path Studio 1:1 millimeter 3D stamp STL mesh sliced in Bambu Studio" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pixel2Path Studio User Guide | 3D Stamp (.STL), .SVG &amp; .DXF Manual" />
+  <meta name="twitter:description" content="Official slicer, laser, plotter, clicker die, and CNC import settings for Pixel2Path Studio by Ivolga Co." />
+  <meta name="twitter:image" content="https://ivolgaco.com/proof-bambu.jpg" />
+  <meta name="twitter:image:alt" content="Pixel2Path Studio 1:1 millimeter 3D stamp STL mesh sliced in Bambu Studio" />
+
+  <!-- Structured Data: BreadcrumbList + TechArticle + HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ivolgaco.com/guide.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Pixel2Path Studio",
+            "item": "https://ivolgaco.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Official User & Technical Manual",
+            "item": "https://ivolgaco.com/guide.html"
+          }
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://ivolgaco.com/guide.html#manual",
+        "url": "https://ivolgaco.com/guide.html",
+        "headline": "Pixel2Path Studio Official User & Technical Manual",
+        "description": "Official manual for Pixel2Path Studio by Ivolga Co.: 1:1 millimeter 3D stamp (.STL), steel-rule clicker die (.DXF), CNC brass die, and laser/plotter vector (.SVG / .DXF) workflows and slicer settings.",
+        "image": "https://ivolgaco.com/proof-bambu.jpg",
+        "inLanguage": "en-US",
+        "proficiencyLevel": "Beginner",
+        "author": {
+          "@type": "Organization",
+          "@id": "https://ivolgaco.com/#organization",
+          "name": "Ivolga Co.",
+          "url": "https://ivolgaco.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://ivolgaco.com/#organization",
+          "name": "Ivolga Co.",
+          "url": "https://ivolgaco.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ivolgaco.com/proof-raw.jpg"
+          }
+        },
+        "mainEntityOfPage": "https://ivolgaco.com/guide.html"
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://ivolgaco.com/guide.html#howto",
+        "name": "How to Convert Artwork or Text into a 1:1mm 3D Stamp (.STL), .SVG, or .DXF",
+        "description": "Five-step workflow in Pixel2Path Studio to convert any PNG, JPG, WEBP logo, photo, or custom arched text into a calibrated 3D stamp (.STL) or closed-loop vector (.SVG / .DXF).",
+        "image": "https://ivolgaco.com/proof-bambu.jpg",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Select Creation Mode & Upload Artwork",
+            "url": "https://ivolgaco.com/guide.html#creation-modes",
+            "text": "Choose Logo / Photo, Custom Text, or Logo + Text Combo and upload a PNG, JPG, or WEBP graphic (800x800 px recommended; 450x350 px minimum)."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Choose Workshop Machine & Tracing Style",
+            "url": "https://ivolgaco.com/guide.html#hardware-presets",
+            "text": "Select 3D Printer (.STL), Laser Engraver (.SVG / .DXF), Vinyl Plotter (.SVG / .DXF), Clicker Die (.DXF / .SVG), or CNC / Brass Die (.DXF / .STL / .SVG), and pick Smart Auto-Trace or Classical Banknote Hatching."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Set Target Graphic Width (mm) & Orientation",
+            "url": "https://ivolgaco.com/guide.html#operating-checklist",
+            "text": "Enter your target width in millimeters (5 to 350 mm) and enable Mirror Horizontally when making face-down stamps or iron-on transfers."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Adjust Optional Fine-Tuning",
+            "url": "https://ivolgaco.com/guide.html#operating-checklist",
+            "text": "Optionally customize 3D Base Thickness, 3D Relief Height, Detail / Tone Balance, Extra Line Thickness Boost, Outer Blade Offset, or Banknote Hatch Density."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Verify Readiness & Export 1:1 CAD File",
+            "url": "https://ivolgaco.com/guide.html#slicer-cad-import",
+            "text": "Confirm Geometry Verified, test free with a 25mm graphic width sample (.STL, .DXF, or .SVG), or generate your full-scale 1:1 millimeter production file."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
+    html { scroll-behavior: smooth; }
     :root {
       --bg-dark: #0D0D0D;
       --bg-card: #151515;
@@ -244,7 +370,7 @@
 <body>
 
   <div class="print-bar">
-    <a href="index.html" class="btn-dark">← Return to Ivolga Co. Home</a>
+    <a href="https://ivolgaco.com/" class="btn-dark">← Return to Ivolga Co. Home</a>
     <button type="button" class="btn-gold" onclick="window.print()">🖨️ Save / Print Official PDF Manual</button>
     <a href="https://app.ivolgaco.com/" class="btn-gold">Launch Pixel2Path Studio 🚀</a>
   </div>
@@ -276,12 +402,12 @@
       </div>
     </div>
 
-    <h2>1. System Overview &amp; Fabrication Architecture</h2>
+    <h2 id="overview">1. System Overview &amp; Fabrication Architecture</h2>
     <p>
       <strong>Pixel2Path Studio by Ivolga Co.</strong> replaces fragmented 2D and 3D utilities (such as manual Inkscape bitmap tracing, node deletion, and Tinkercad extrusion) with a unified, hardware-aware manufacturing pipeline. Upload any PNG, JPG, or WEBP graphic (<code>≥ 800 × 800 px</code> recommended; <code>450 × 350 px</code> minimum floor, with automatic smartphone <strong>EXIF upright orientation correction</strong> and smart upscaling)—or type custom straight or concentrically arched typography—to export watertight 3D <code>.STL</code> stamp meshes, AutoCAD R2010 <code>.DXF</code> polylines, and unified Compound Path <code>.SVG</code> cut files calibrated to exact real-world millimeters (<code>mm</code>).
     </p>
 
-    <h2>2. Studio Creation Modes (Step 1)</h2>
+    <h2 id="creation-modes">2. Studio Creation Modes (Step 1)</h2>
     <div class="grid-2">
       <div class="card-box">
         <strong class="title">🖼️ Mode 1: Logo / Photo (📤 Universal Image Upload)</strong>
@@ -293,7 +419,7 @@
       </div>
     </div>
 
-    <h2>3. Workshop Hardware Presets &amp; Machine Assumptions (Step 2)</h2>
+    <h2 id="hardware-presets">3. Workshop Hardware Presets &amp; Machine Assumptions (Step 2)</h2>
     <table>
       <thead>
         <tr>
@@ -337,7 +463,7 @@
       </tbody>
     </table>
 
-    <h2>4. Tracing Styles, Universal Line-Art Scanner &amp; Advanced Vision</h2>
+    <h2 id="tracing-styles">4. Tracing Styles, Universal Line-Art Scanner &amp; Advanced Vision</h2>
     <ul>
       <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines from colored fills using a separation halo so touching colors (such as yellow bodies and black wings) never fuse into a solid blob. Preserves internal feather slits, delights uneven lighting shadows, and extracts sculpted 3D facial contours.</li>
       <li><strong>🏛️ Classical Banknote Hatching (3D Shading Lines — 0 Credits on Clean White or Dark Studio Reliefs):</strong> Isolates smooth grayscale sculptures, busts, and medallions on clean white <em>or</em> uniform dark studio backdrops with LAB shadow delighting and an unbroken enclosing contour rim, converting shading gradients into variable-width engraving lines with full fine-tuning: <strong>Midtone Hatch Density (40–160)</strong>, <strong>Solid Highlight Fill (1–10)</strong>, <strong>Hatch Pattern</strong> (<em>Diagonal 45°, Cross-Hatch 45° Mesh, Concentric Circles Seal, Horizontal 0°, Vertical 90°</em>), <strong>3D Contour Wave Curvature (0–10)</strong>, <strong>Fine-Line Detail / Tone Balance (-80 to +80)</strong>, <strong>Extra Line Thickness Boost (0–8)</strong>, and <strong>Invert Hatching</strong> (plus 1-click <strong>🔄 Switch to Mathematical 3D Hatching Sliders (0 Credits)</strong>).</li>
@@ -351,9 +477,9 @@
 
 COMPOSITION &amp; ZERO GROUND SHADOW: The entire subject is prominently centered in a square 1:1 frame with ample, generous white space (margins) on all four sides, ensuring no part of the artwork touches the edges. The subject is 100% isolated in mid-air on the pure white background: strictly NO ground shadow, NO cast shadow, NO floor dust, NO grass/ground lines beneath the feet/hooves, and NO borders or frames.
 
-ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage etching, and intaglio printmaking. Use crisp, high-contrast, varying-weight hand-etched cross-contour hatching lines that curve naturally across the subject's 3D anatomy to create volumetric depth solely through sharp black (#000000) linework on pure white (#FFFFFF) paper (no smooth gray digital gradients). All shading lines must stay strictly inside the subject's body contour.</div>
+CLASSICAL INTAGLIO RULES (TAPERED ENDS, 90-DEGREE MOIRE AVOIDANCE &amp; SECOND SYSTEM): Authentic 19th-century banknote engraving, vintage etching, and steel-plate intaglio printmaking. Every hatching line must begin as a fine point, swell in width across shadows, and taper cleanly into highlights. Use a primary system of continuous contour-following lines that wrap naturally around the subject's 3D anatomy, and add a second intersecting system at near 90-degree right angles ONLY in deeper shadows (never intersect at acute angles that cause moire mud). Create volumetric depth solely through sharp pure black (#000000) linework on pure white (#FFFFFF) paper (zero smooth gray digital gradients and zero solid black shadow blotches). All shading lines must stay strictly inside a continuous outer subject contour.</div>
 
-    <h2>5. Step-by-Step Operating Checklist</h2>
+    <h2 id="operating-checklist">5. Step-by-Step Operating Checklist</h2>
     <ol>
       <li><strong>Select Mode &amp; Upload:</strong> Choose <em>🖼️ Logo / Photo</em>, <em>✍️ Custom Text</em>, or <em>🔀 Logo + Text Combo</em> and upload a PNG, JPG, or WEBP image (<strong><code>≥ 800 × 800 px</code> recommended</strong>; <code>450 × 350 px</code> minimum floor; images under <code>800 × 500 px</code> are automatically upscaled).</li>
       <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your color-coded hardware preset (<code>🧊 3D Printer</code>, <code>⚡ Laser Engraver</code>, <code>✂️ Vinyl Plotter</code>, <code>🗜️ Clicker Die</code>, or <code>🔩 CNC / Brass Die</code>) and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em> (on Laser &amp; CNC).</li>
@@ -362,7 +488,7 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
       <li><strong>Verify, Auto-Fix &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Geometry Verified</strong> (or use 1-click quick-fix buttons if flagged: <strong>🎚️ Auto-Separate Lines (Detail Balance -25)</strong>, <strong>🔄 Re-Generate Advanced Vision Pass (0 Credits)</strong>, <strong>🔄 Reset Fine-Tuning to Auto-Default (0)</strong>, or 1-click machine routing). Click <strong>🧪 Download Free 25mm graphic width Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
     </ol>
 
-    <h2>6. Slicer, Laser &amp; CAD Import Guidelines</h2>
+    <h2 id="slicer-cad-import">6. Slicer, Laser &amp; CAD Import Guidelines</h2>
     <div class="grid-2">
       <div class="card-box">
         <strong class="title">🧊 Bambu Studio, OrcaSlicer, PrusaSlicer &amp; Cura (.STL)</strong>
@@ -383,7 +509,7 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
       </div>
     </div>
 
-    <h2>7. Tolerance Scope, Passes &amp; Advanced Vision Credits</h2>
+    <h2 id="tolerances-passes">7. Tolerance Scope, Passes &amp; Advanced Vision Credits</h2>
     <ul>
       <li><strong>📐 Outer Bounding-Box Tolerance (±0.05 mm) vs. Internal Feature Guards:</strong> External bounding-box width and height are calibrated after morphological filtering to within <code>±0.05 mm</code> of your target width. Internal sub-spec strokes are intentionally thickened (<code>≥0.45 mm</code> for 3D printing, <code>≥0.75 mm</code> for vinyl plotters, <code>≥0.38 mm</code> for CNC 3D meshes) to survive physical manufacturing.</li>
       <li><strong>Free 25mm Graphic Width Sample ($0 + Guest Vision Trial):</strong> Test any graphic—including up to <strong>3 free Advanced Vision trial passes per session</strong>—and download a real <strong>25mm graphic width sample</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>) for free. <em>The 25mm graphic width sample validates file import, 1:1 millimeter scaling, and closed-loop topology; always verify material hardness, press tonnage, and laser kerf for your full-scale production job.</em></li>
@@ -396,7 +522,11 @@ ART STYLE &amp; TECHNIQUE: Authentic 19th-century banknote engraving, vintage et
 
     <div class="footer-bar">
       <span>© 2026 Ivolga Co. • Digital Fabrication Studio • California, USA</span>
-      <span>Support: <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:none;">contact@ivolgaco.com</a></span>
+      <span>
+        <a href="https://ivolgaco.com/" style="color:#FFB300;text-decoration:none;font-weight:700;">Ivolga Co. Home</a> •
+        <a href="https://app.ivolgaco.com/" style="color:#FFB300;text-decoration:none;font-weight:700;">Launch Studio</a> •
+        Support: <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:none;">contact@ivolgaco.com</a>
+      </span>
     </div>
   </div>
 
