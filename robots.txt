@@ -1,5 +1,5 @@
+# Pixel2Path Studio by Ivolga Co. — Search & AI Crawler Indexing Rules
 User-agent: *
-
 Allow: /
 
 Sitemap: https://ivolgaco.com/sitemap.xml
