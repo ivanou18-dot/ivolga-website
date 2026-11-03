@@ -88,7 +88,7 @@
         "@type": "HowTo",
         "@id": "https://ivolgaco.com/guide.html#howto",
         "name": "How to Convert Artwork or Text into a 1:1mm 3D Stamp (.STL), .SVG, or .DXF",
-        "description": "Five-step workflow in Pixel2Path Studio to convert any PNG, JPG, WEBP logo, photo, or custom arched text into a calibrated 3D stamp (.STL) or closed-loop vector (.SVG / .DXF).",
+        "description": "Five-step workflow in Pixel2Path Studio to convert any PNG, JPG, WEBP, SVG, TIFF, BMP, or GIF logo, photo, QR/barcode, or custom arched text into a calibrated 3D stamp, wax-seal cavity, or sculpted 3D bas-relief (.STL) or closed-loop vector (.SVG / .DXF).",
         "image": "https://ivolgaco.com/proof-bambu.jpg",
         "step": [
           {
@@ -96,35 +96,35 @@
             "position": 1,
             "name": "Select Creation Mode & Upload Artwork",
             "url": "https://ivolgaco.com/guide.html#creation-modes",
-            "text": "Choose Logo / Photo, Custom Text, or Logo + Text Combo and upload a PNG, JPG, or WEBP graphic (800x800 px recommended; 450x350 px minimum)."
+            "text": "Choose Logo / Photo, Custom Text, or Logo + Text Combo and upload a PNG, JPG, WEBP, SVG, TIFF, BMP, or GIF graphic (800x800 px recommended; 450x350 px minimum)."
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Choose Workshop Machine & Tracing Style",
             "url": "https://ivolgaco.com/guide.html#hardware-presets",
-            "text": "Select 3D Printer (.STL), Laser Engraver (.SVG / .DXF), Vinyl Plotter (.SVG / .DXF), Clicker Die (.DXF / .SVG), or CNC / Brass Die (.DXF / .STL / .SVG), and pick Smart Auto-Trace or Classical Banknote Hatching."
+            "text": "Select 3D Printer (.STL), Laser Engraver (.SVG / .DXF), Vinyl Plotter (.SVG / .DXF), Clicker Die (.DXF / .SVG), or CNC / Brass Die (.DXF / .STL / .SVG) to activate processing, and pick Smart Auto-Trace or Classical Banknote Hatching."
           },
           {
             "@type": "HowToStep",
             "position": 3,
-            "name": "Set Target Graphic Width (mm) & Orientation",
+            "name": "Set Target Graphic Width (mm), Surface Mode & Orientation",
             "url": "https://ivolgaco.com/guide.html#operating-checklist",
-            "text": "Enter your target width in millimeters (5 to 350 mm) and enable Mirror Horizontally when making face-down stamps or iron-on transfers."
+            "text": "Enter your target width in millimeters (5 to 350 mm), choose your 3D .STL Surface Mode (Raised Relief Stamp, Recessed Cavity Seal, or Sculpted 3D Bas-Relief), and enable Mirror Horizontally for face-down stamps or HTV transfers."
           },
           {
             "@type": "HowToStep",
             "position": 4,
-            "name": "Adjust Optional Fine-Tuning",
+            "name": "Adjust Optional Bridges & Fine-Tuning",
             "url": "https://ivolgaco.com/guide.html#operating-checklist",
-            "text": "Optionally customize 3D Base Thickness, 3D Relief Height, Detail / Tone Balance, Extra Line Thickness Boost, Outer Blade Offset, or Banknote Hatch Density."
+            "text": "Optionally enable 1.6mm Stencil Holding Bridges on Laser/Vinyl, or customize 3D Base Thickness, 3D Relief Height, Detail / Tone Balance, Extra Line Thickness Boost, Outer Blade Offset, or Banknote Hatch Density."
           },
           {
             "@type": "HowToStep",
             "position": 5,
             "name": "Verify Readiness & Export 1:1 CAD File",
             "url": "https://ivolgaco.com/guide.html#slicer-cad-import",
-            "text": "Confirm Geometry Verified, test free with a 25mm graphic width sample (.STL, .DXF, or .SVG), or generate your full-scale 1:1 millimeter production file."
+            "text": "Confirm Geometry Verified (including 2D Build Plate Fit and Mirror Text checks), test free with a 25mm graphic width sample (.STL, .DXF, or .SVG), or generate your full-scale 1:1 millimeter production file."
           }
         ]
       }
@@ -404,18 +404,18 @@
 
     <h2 id="overview">1. System Overview &amp; Fabrication Architecture</h2>
     <p>
-      <strong>Pixel2Path Studio by Ivolga Co.</strong> replaces fragmented 2D and 3D utilities (such as manual Inkscape bitmap tracing, node deletion, and Tinkercad extrusion) with a unified, hardware-aware manufacturing pipeline. Upload any PNG, JPG, or WEBP graphic (<code>≥ 800 × 800 px</code> recommended; <code>450 × 350 px</code> minimum floor, with automatic smartphone <strong>EXIF upright orientation correction</strong> and smart upscaling)—or type custom straight or concentrically arched typography—to export watertight 3D <code>.STL</code> stamp meshes, AutoCAD R2010 <code>.DXF</code> polylines, and unified Compound Path <code>.SVG</code> cut files calibrated to exact real-world millimeters (<code>mm</code>).
+      <strong>Pixel2Path Studio by Ivolga Co.</strong> replaces fragmented 2D and 3D utilities (such as manual Inkscape bitmap tracing, node deletion, and Tinkercad extrusion) with a unified, hardware-aware manufacturing pipeline. Upload any PNG, JPG, WEBP, SVG, TIFF, BMP, or GIF graphic (<code>≥ 800 × 800 px</code> recommended; <code>450 × 350 px</code> minimum floor, with automatic smartphone <strong>EXIF upright orientation correction</strong>, native <code>.SVG</code> vector rasterization, <strong>QR Code &amp; 1D Barcode module locks</strong>, and smart upscaling)—or type custom straight or concentrically arched typography—to export watertight 3D <code>.STL</code> meshes (<strong>Raised Relief Stamps</strong>, <strong>Recessed Wax-Seal Cavities</strong>, and <strong>Sculpted 3D Bas-Relief Plaques</strong>), AutoCAD R2010 <code>.DXF</code> polylines, and unified Compound Path <code>.SVG</code> cut files calibrated to exact real-world millimeters (<code>mm</code>).
     </p>
 
     <h2 id="creation-modes">2. Studio Creation Modes (Step 1)</h2>
     <div class="grid-2">
       <div class="card-box">
-        <strong class="title">🖼️ Mode 1: Logo / Photo (📤 Universal Image Upload)</strong>
-        Simple graphics and logos (<code>≤ 5</code> contours) run instantaneously at <strong>0 credits</strong> via the internal mathematical engine (with automatic color-halo separation and a <strong>Universal Line-Art Scanner</strong>). Complex photos, 3D busts, portraits, and shaded scenes (<code>&gt; 5</code> contours) engage the <strong>Autonomous Multi-Stage Advanced Vision Pipeline</strong>—combining LAB directional shadow delighting, subject auto-cropping, adaptive scene recognition, positive 3D relief sculpting, and autonomous self-critique verification—paired with an always-visible 3-button bar: <strong>✨ Apply Advanced Vision Enhancement (1 Credit / 0 Credits)</strong>, <strong>🔄 Clear Advanced Vision Enhancement (0 Credits)</strong>, and <strong>🗑️ Clear Uploaded Image</strong>.
+        <strong class="title">🖼️ Mode 1: Logo / Photo (📤 Universal Image &amp; SVG Upload)</strong>
+        Step 1 accepts your upload and waits cleanly until you pick your target workshop machine in Step 2, running a <strong>7-Gate Input Shield</strong> (catching UI screenshots, multi-item sheets, heavy halftone/fabric grain via 1-click <strong>🪄 Smooth Specks / Descreen Texture (0 Credits)</strong>, True Coin/Seal recessed-table retention vs. blank stone medallion rim stripping, and crisp QR/1D barcodes). Simple graphics and logos run instantaneously at <strong>0 credits</strong> via the internal mathematical engine (with automatic color-halo &amp; chromatic-tier separation plus a <strong>Universal Line-Art Scanner</strong>). Complex photos, 3D busts, portraits, and shaded scenes engage the <strong>Autonomous Multi-Stage Advanced Vision Pipeline</strong>—paired with mode-aware controls: <strong>✨ Apply Advanced Vision Enhancement (1 Credit / 0 Credits)</strong> &amp; <strong>🔄 Clear Advanced Vision Enhancement (0 Credits)</strong> in Smart Auto-Trace, or the dedicated <strong>✨ Transform into Banknote Engraving</strong> control in Banknote mode, plus <strong>🗑️ Clear Uploaded Image</strong>.
       </div>
       <div class="card-box">
         <strong class="title">✍️ Mode 2: Custom Text &amp; 🔀 Mode 3: Logo + Text Combo</strong>
-        Includes a high-visibility <strong>✍️ Enter Custom Text</strong> input (press <code>Enter ↵</code> or tap <strong>✅ Apply Text</strong> to update), 7 built-in shop fonts (<em>Clean Bold Block, Classic Serif, Heavy Impact Block, Military Stencil, Vintage Typewriter, Varsity Block, Cursive Script</em>), Letter Boldness (<code>1–10</code>), and concentric <strong>Text Arced Around Logo</strong> layouts.
+        Includes a high-visibility <strong>✍️ Enter Custom Text</strong> input (press <code>Enter ↵</code> or tap <strong>✅ Apply Text</strong> to update), 7 built-in shop fonts (<em>Clean Bold Block, Classic Serif, Heavy Impact Block, Military Stencil, Vintage Typewriter, Varsity Block, Cursive Script</em>), Letter Boldness (<code>1–10</code>), concentric <strong>Text Arced Around Logo</strong> layouts, and a pre-export <strong>🪞 Mirror Stamp Text Guard</strong> so face-down stamp lettering never prints backwards.
       </div>
     </div>
 
@@ -434,19 +434,19 @@
           <td><strong>🧊 3D Printer</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Slicer Amber/Green)</span></td>
           <td><code>.STL</code> (Default)</td>
           <td>50 mm Width<br />3.0 mm Base<br />2.5 mm Relief</td>
-          <td>Calibrated for standard <code>0.4 mm</code> FDM nozzles and SLA resin printers. Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong> so fine facial lines never vanish in Bambu Studio, PrusaSlicer, or Cura. Adds a <code>5.0 mm</code> structural base margin per side.</td>
+          <td>Includes <strong>3 native <code>.STL</code> Surface Modes</strong>: <strong>🔼 Raised Relief Stamp</strong> (ink, leather &amp; clay debossing), <strong>🔽 Recessed Cavity Seal</strong> (wax seals, raised clay embossers &amp; soap molds with a <code>≥1.5 mm</code> solid floor guard), and <strong>🗿 Sculpted 3D Bas-Relief</strong> (continuous Z-heightmap plaques &amp; busts). Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong>, <strong>≥0.38 mm 3D groove guard</strong>, <code>5.0 mm</code> base margin per side, and a <strong>2D Build Plate Fit Guard</strong>.</td>
         </tr>
         <tr>
           <td><strong>⚡ Laser Engraver</strong><br /><span style="color:#FF5252;font-size:0.74rem;">(Vector Hairline Red)</span></td>
           <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
           <td>60 mm Width<br />2D Closed Loops</td>
-          <td>Calibrated for <code>0.10 mm</code> laser kerf resolution (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps. SVG exports use a 1:1 mm <code>viewBox</code>, unified <code>&lt;Compound Path&gt;</code> (<code>fill-rule="evenodd"</code>), and an exact <code>0.0882mm (0.25pt)</code> mathematical hairline stroke.</td>
+          <td>Calibrated for <code>0.10 mm</code> laser kerf resolution (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps. SVG exports use a 1:1 mm <code>viewBox</code>, unified <code>&lt;Compound Path&gt;</code> (<code>fill-rule="evenodd"</code>), and an exact <code>0.0882mm (0.25pt)</code> mathematical hairline stroke, with optional <strong>🌉 Stencil Holding Bridges (<code>1.6 mm</code>)</strong> to anchor inner letter islands.</td>
         </tr>
         <tr>
           <td><strong>✂️ Vinyl Plotter</strong><br /><span style="color:#E040FB;font-size:0.74rem;">(Contour Cut Magenta)</span></td>
           <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
           <td>80 mm Width<br />Drag-Knife Safe</td>
-          <td>Defaults to unified <code>.SVG</code> Compound Paths (for Cricut/Illustrator) with <code>.DXF</code> for free Silhouette Studio Basic. Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on drag-knife blades.</td>
+          <td>Defaults to unified <code>.SVG</code> Compound Paths (for Cricut/Illustrator) with <code>.DXF</code> for free Silhouette Studio Basic. Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on drag-knife blades, plus optional <strong>🌉 Stencil Holding Bridges (<code>1.6 mm</code>)</strong> for spray-paint &amp; mylar stencils.</td>
         </tr>
         <tr>
           <td><strong>🗜️ Clicker Die</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Die-Board Cut Paths)</span></td>
@@ -458,17 +458,17 @@
           <td><strong>🔩 CNC / Brass Die</strong><br /><span style="color:#448AFF;font-size:0.74rem;">(CAD/CAM Toolpath Blue)</span></td>
           <td><code>.DXF</code> (Default) • <code>.STL</code> • <code>.SVG</code></td>
           <td>50 mm Width<br />8.0 mm Base<br />3.0 mm Relief</td>
-          <td>Defaults to layer-separated 2D CAD vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code> in <code>.DXF</code>) for V-carving/pocketing, plus heavy-duty 3D stock solids (<code>.STL</code>) and <code>.SVG</code>. Preserves hairline intaglio paths on 2D Banknote <code>.DXF</code>/<code>.SVG</code> exports while enforcing a <code>≥0.38 mm</code> minimum feature guard on 3D <code>.STL</code> brass/embossing meshes.</td>
+          <td>Defaults to layer-separated 2D CAD vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code> in <code>.DXF</code>) for V-carving/pocketing, plus heavy-duty 3D stock solids (<code>.STL</code> in Raised, Recessed Cavity, or Sculpted 3D Bas-Relief modes) and <code>.SVG</code>. Preserves hairline intaglio paths on 2D Banknote exports while enforcing <code>≥0.38 mm</code> feature &amp; groove guards on 3D <code>.STL</code> brass/embossing meshes.</td>
         </tr>
       </tbody>
     </table>
 
     <h2 id="tracing-styles">4. Tracing Styles, Universal Line-Art Scanner &amp; Advanced Vision</h2>
     <ul>
-      <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines from colored fills using a separation halo so touching colors (such as yellow bodies and black wings) never fuse into a solid blob. Preserves internal feather slits, delights uneven lighting shadows, and extracts sculpted 3D facial contours.</li>
+      <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines and isoluminant multi-color tiers using CIE LAB Di Zenzo chromatic valley carving so touching colors (such as red, yellow, and blue plumage) never fuse into a solid blob. Preserves internal feather slits, delights uneven lighting shadows, and extracts sculpted 3D facial contours.</li>
       <li><strong>🏛️ Classical Banknote Hatching (3D Shading Lines — 0 Credits on Clean White or Dark Studio Reliefs):</strong> Isolates smooth grayscale sculptures, busts, and medallions on clean white <em>or</em> uniform dark studio backdrops with LAB shadow delighting and an unbroken enclosing contour rim, converting shading gradients into variable-width engraving lines with full fine-tuning: <strong>Midtone Hatch Density (40–160)</strong>, <strong>Solid Highlight Fill (1–10)</strong>, <strong>Hatch Pattern</strong> (<em>Diagonal 45°, Cross-Hatch 45° Mesh, Concentric Circles Seal, Horizontal 0°, Vertical 90°</em>), <strong>3D Contour Wave Curvature (0–10)</strong>, <strong>Fine-Line Detail / Tone Balance (-80 to +80)</strong>, <strong>Extra Line Thickness Boost (0–8)</strong>, and <strong>Invert Hatching</strong> (plus 1-click <strong>🔄 Switch to Mathematical 3D Hatching Sliders (0 Credits)</strong>).</li>
-      <li><strong>✨ Autonomous &amp; 1-Click Advanced Vision Banknote Engraving:</strong> Uploading a flat 2D graphic or cluttered photo/portrait while Banknote mode is active automatically transforms it in a single pass into authentic 19th-century steel-plate intaglio line-art (or tap <strong>✨ Apply Advanced Vision Enhancement</strong> / <strong>✨ Transform into Advanced Vision Banknote Engraving</strong> anytime), verified by an autonomous Intaglio Self-Critique Gate and a <code>45°</code> Anti-Blotch separator.</li>
-      <li><strong>🔍 Universal Line-Art &amp; Preprocessed Vector Scanner:</strong> Automatically detects pre-drawn intaglio engravings and crisp line-art on upload, preserving open white troughs between fine parallel etching lines so delicate strokes trace 1:1 with zero loss.</li>
+      <li><strong>✨ Autonomous &amp; 1-Click Banknote Intaglio Engraving:</strong> Uploading a flat 2D graphic or cluttered photo/portrait while Banknote mode is active automatically transforms it in a single pass into authentic 19th-century steel-plate intaglio line-art (or tap <strong>✨ Transform into Banknote Engraving</strong> / <strong>🔄 Re-Generate Banknote Engraving</strong> anytime), verified by an autonomous Intaglio Self-Critique Gate and a <code>45°</code> Anti-Blotch separator.</li>
+      <li><strong>🔍 Universal Line-Art &amp; Preprocessed Vector Scanner:</strong> Automatically detects pre-drawn intaglio engravings, crisp line-art, native <code>.SVG</code> files, and QR/1D barcodes on upload, preserving open white troughs between fine parallel etching lines so delicate strokes trace 1:1 with zero loss.</li>
     </ul>
 
     <h3>📜 In-App AI Prompt Generator (ChatGPT, Gemini, Claude, Grok, etc.)</h3>
@@ -481,22 +481,21 @@ CLASSICAL INTAGLIO RULES (TAPERED ENDS, 90-DEGREE MOIRE AVOIDANCE &amp; SECOND S
 
     <h2 id="operating-checklist">5. Step-by-Step Operating Checklist</h2>
     <ol>
-      <li><strong>Select Mode &amp; Upload:</strong> Choose <em>🖼️ Logo / Photo</em>, <em>✍️ Custom Text</em>, or <em>🔀 Logo + Text Combo</em> and upload a PNG, JPG, or WEBP image (<strong><code>≥ 800 × 800 px</code> recommended</strong>; <code>450 × 350 px</code> minimum floor; images under <code>800 × 500 px</code> are automatically upscaled).</li>
-      <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your color-coded hardware preset (<code>🧊 3D Printer</code>, <code>⚡ Laser Engraver</code>, <code>✂️ Vinyl Plotter</code>, <code>🗜️ Clicker Die</code>, or <code>🔩 CNC / Brass Die</code>) and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em> (on Laser &amp; CNC).</li>
-      <li><strong>📐 Set Graphic Width (mm) &amp; Orientation:</strong> Enter your exact target width in millimeters (<code>5–350 mm</code>)—height scales automatically to lock your 1:1 aspect ratio. Check <strong>🔄 Mirror Horizontally</strong> if making a face-down stamp (leather, ink, clay, wax, brass die) or HTV iron-on transfer. Optionally check <strong>📏 Include 50×50 mm Scale Calibration Box (.SVG / .DXF)</strong> to add a 50mm reference square.</li>
+      <li><strong>Select Mode &amp; Upload:</strong> Choose <em>🖼️ Logo / Photo</em>, <em>✍️ Custom Text</em>, or <em>🔀 Logo + Text Combo</em> and upload a PNG, JPG, WEBP, SVG, TIFF, BMP, or GIF graphic (<strong><code>≥ 800 × 800 px</code> recommended</strong>; <code>450 × 350 px</code> minimum floor; images under <code>800 × 500 px</code> are automatically upscaled, and halftone/fabric dots offer a 1-click <strong>🪄 Smooth Specks / Descreen Texture (0 Credits)</strong> button).</li>
+      <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your color-coded hardware preset (<code>🧊 3D Printer</code>, <code>⚡ Laser Engraver</code>, <code>✂️ Vinyl Plotter</code>, <code>🗜️ Clicker Die</code>, or <code>🔩 CNC / Brass Die</code>) to activate toolhead-calibrated processing, and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em> (on Laser &amp; CNC).</li>
+      <li><strong>📐 Set Graphic Width (mm), 3D Surface Mode &amp; Orientation:</strong> Enter your exact target width in millimeters (<code>5–350 mm</code>)—height scales automatically to lock your 1:1 aspect ratio. On <code>.STL</code> exports, choose <strong>🔼 Raised Relief Stamp</strong>, <strong>🔽 Recessed Cavity Seal</strong>, or <strong>🗿 Sculpted 3D Bas-Relief</strong>. Check <strong>🔄 Mirror Horizontally</strong> for face-down stamps/seals or HTV iron-on (custom text stamps show a 1-click <strong>🪞 Mirror Stamp Text Now</strong> reminder if left unmirrored). On Laser/Vinyl, optionally check <strong>🌉 Add Stencil Holding Bridges (<code>1.6 mm</code>)</strong> or <strong>📏 Include 50×50 mm Scale Calibration Box (.SVG / .DXF)</strong>.</li>
       <li><strong>Optional Fine-Tuning:</strong> Expand <em>🎛️ Optional Fine-Tuning</em> only if you wish to customize 3D Base Thickness (<code>0–15 mm</code>), 3D Relief Height (<code>0.5–15 mm</code>), Detail / Edge or Tone Balance (<code>-80 to +80</code>), Extra Line Thickness Boost (<code>0–8</code>), Outer Blade Offset (<code>0–6 mm</code>), or Banknote Hatch Density (<code>40–160</code>), Highlight Fill (<code>1–10</code>), and Wave Curvature (<code>0–10</code>).</li>
-      <li><strong>Verify, Auto-Fix &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Geometry Verified</strong> (or use 1-click quick-fix buttons if flagged: <strong>🎚️ Auto-Separate Lines (Detail Balance -25)</strong>, <strong>🔄 Re-Generate Advanced Vision Pass (0 Credits)</strong>, <strong>🔄 Reset Fine-Tuning to Auto-Default (0)</strong>, or 1-click machine routing). Click <strong>🧪 Download Free 25mm graphic width Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
+      <li><strong>Verify, Auto-Fix &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Geometry Verified</strong>—including automatic <strong>2D (<code>Width × Height</code>) Build Plate Overhang checks</strong> for <code>256×256 mm</code> &amp; <code>220×220 mm</code> beds (with <code>45°</code> diagonal fit detection &amp; 1-click <strong>📐 Auto-Fit Straight to Bed</strong>), plus 1-click recovery buttons (<strong>🗿 Switch to Sculpted 3D Bas-Relief</strong>, <strong>🎚️ Auto-Separate Lines</strong>, <strong>🔄 Re-Generate Advanced Vision Pass (0 Credits)</strong>, or <strong>🔄 Reset Fine-Tuning</strong>). Click <strong>🧪 Download Free 25mm graphic width Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
     </ol>
 
     <h2 id="slicer-cad-import">6. Slicer, Laser &amp; CAD Import Guidelines</h2>
     <div class="grid-2">
       <div class="card-box">
         <strong class="title">🧊 Bambu Studio, OrcaSlicer, PrusaSlicer &amp; Cura (.STL)</strong>
-        • Import units: <strong>Millimeters (mm)</strong>.<br />
-        • Enable <strong>Arachne Wall Generator</strong> for sharp tapered details.<br />
-        • <strong>Hand Stamps (Ink/Clay):</strong> 0.16–0.20 mm layers, 4 top shells, 25%–40% Gyroid/Grid infill.<br />
-        • <strong>Arbor / Clicker Press Leather Stamps:</strong> 5+ top/bottom shells, 4–6 wall loops, <strong>80%–100% solid infill</strong>.<br />
-        • 💡 <strong>Need a Recessed Negative Mold (Soap/Wax/Clay)?</strong> Export the standard positive <code>.STL</code>. In Bambu Studio / PrusaSlicer, right-click the bed ➔ <em>Add Primitive (Cube/Cylinder)</em>, right-click that shape ➔ <em>Add Negative Part ➔ Load .STL</em> to cut out a custom mold cavity in 2 clicks.
+        • Import units: <strong>Millimeters (mm)</strong>; enable <strong>Quality ➔ Wall Generator ➔ Arachne</strong>.<br />
+        • <strong>🔼 Raised Stamps &amp; 🔽 Recessed Wax Seals:</strong> 0.16–0.20 mm layers, 4–5 top shells (<strong>80%–100% solid infill</strong> for arbor/clicker leather presses; choose <strong>🔽 Recessed Cavity Seal</strong> directly in-app for wax seals, soap molds &amp; raised clay embossers—no manual slicer boolean needed).<br />
+        • <strong>🗿 Sculpted 3D Bas-Relief Plaques &amp; Busts:</strong> Use <strong><code>0.12–0.16 mm</code> layer height</strong> (<code>0.12 mm Fine</code> recommended) and 4–5 top shells for smooth Z-depth shading.<br />
+        • 🎨 <strong>Bambu Studio / OrcaSlicer Preview Tip:</strong> After slicing, switch <strong>Color Scheme</strong> from <em>Line Type</em> (which colors all top surfaces flat green when viewed straight down) to <strong>Height</strong> and tilt the 3D camera (<code>Right-Click + Drag</code>) to inspect full Z-relief depth. For tall Logo+Text combos flagged by the Build Plate Fit check, rotate <strong><code>45°</code> around Z</strong> on the bed or click <strong>📐 Auto-Fit Straight to Bed</strong>.
       </div>
       <div class="card-box green-left">
         <strong class="title">📐 .SVG vs. .DXF in Illustrator, Cricut, Silhouette &amp; LightBurn</strong>
