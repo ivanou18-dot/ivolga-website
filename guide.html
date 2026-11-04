@@ -132,7 +132,7 @@
   }
   </script>
   <style>
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
     :root {
       --bg-dark: #0D0D0D;
       --bg-card: #151515;
@@ -159,6 +159,7 @@
       color: var(--text-main);
       padding: 28px 18px;
       line-height: 1.56;
+      overflow-x: clip;
     }
     .print-bar {
       max-width: 940px;
@@ -291,10 +292,19 @@
       display: block;
       margin-bottom: 4px;
     }
+    .table-scroll-wrap {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 10px 0 16px;
+      border-radius: 6px;
+    }
     table {
       width: 100%;
+      min-width: 600px;
       border-collapse: collapse;
-      margin: 10px 0 16px;
+      margin: 0;
       font-size: 0.82rem;
     }
     th, td {
@@ -318,6 +328,8 @@
       border-radius: 4px;
       font-family: monospace;
       font-size: 0.8rem;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .prompt-box {
       background: #0B0B0B;
@@ -330,6 +342,7 @@
       color: #E0E0E0;
       margin: 8px 0 12px;
       white-space: pre-wrap;
+      overflow-wrap: anywhere;
       line-height: 1.45;
     }
     .footer-bar {
@@ -344,8 +357,14 @@
       color: #9E9E9E;
     }
     @media (max-width: 720px) {
+      body { padding: 16px 10px; }
+      .print-bar { padding: 10px 12px; gap: 8px; }
+      .btn-gold, .btn-dark { width: 100%; justify-content: center; text-align: center; padding: 9px 12px; font-size: 0.84rem; }
+      .brand-row { align-items: flex-start; }
+      .brand-row > div { min-width: 0; }
+      .manual-header h1 { font-size: 1.24rem; }
       .grid-2 { grid-template-columns: 1fr; }
-      .manual-container { padding: 22px 18px; }
+      .manual-container { padding: 20px 14px; }
       .manual-meta { text-align: left; }
     }
     @media print {
@@ -363,6 +382,8 @@
         padding: 24px 28px;
         box-shadow: none !important;
       }
+      .table-scroll-wrap { overflow: visible !important; }
+      table { min-width: 0 !important; width: 100% !important; }
       table, .card-box { page-break-inside: avoid; }
     }
   </style>
@@ -421,6 +442,7 @@
     </div>
 
     <h2 id="hardware-presets">3. Workshop Hardware Presets &amp; Machine Assumptions (Step 2)</h2>
+    <div class="table-scroll-wrap" role="region" aria-label="Workshop Hardware Presets Specifications" tabindex="0">
     <table>
       <thead>
         <tr>
@@ -463,6 +485,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <h2 id="tracing-styles">4. Tracing Styles, Universal Line-Art Scanner &amp; Advanced Vision</h2>
     <ul>
@@ -514,10 +537,24 @@ CLASSICAL INTAGLIO RULES (TAPERED ENDS, 90-DEGREE MOIRE AVOIDANCE &amp; SECOND S
       <li><strong>📐 Outer Bounding-Box Tolerance (±0.05 mm) vs. Internal Feature Guards:</strong> External bounding-box width and height are calibrated after morphological filtering to within <code>±0.05 mm</code> of your target width. Internal sub-spec strokes are intentionally thickened (<code>≥0.45 mm</code> for 3D printing, <code>≥0.75 mm</code> for vinyl plotters, <code>≥0.38 mm</code> for CNC 3D meshes) to survive physical manufacturing.</li>
       <li><strong>Free 25mm Graphic Width Sample ($0 + Guest Vision Trial):</strong> Test any graphic—including up to <strong>3 free Advanced Vision trial passes per session</strong>—and download a real <strong>25mm graphic width sample</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>) for free. <em>The 25mm graphic width sample validates file import, 1:1 millimeter scaling, and closed-loop topology; always verify material hardness, press tonnage, and laser kerf for your full-scale production job.</em></li>
       <li><strong>24-Hr Craftsman Pass ($8 One-Time):</strong> Unlocks 24 hours of unlimited 1:1 full-scale CAD exports (up to 350mm) + <strong>3 <a href="vault.html" style="color:#FFB300;text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP packs</strong> + <strong>25 Advanced Vision Credits</strong>. <em>The 24-hour clock starts immediately upon checkout completion and displays your remaining time in the app.</em></li>
-      <li><strong>Studio Monthly ($25/mo):</strong> Continuous studio access for repeat production with unlimited 1:1 full-scale CAD exports + <strong>Unlimited <a href="vault.html" style="color:#FFB300;text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP downloads</strong> + <strong>150 Advanced Vision Credits / month</strong> (auto-resets to 150 every 30 days; no rollover).</li>
+      <li><strong>Studio Monthly ($25/mo):</strong> Continuous studio access for repeat production with unlimited 1:1 full-scale CAD exports + <strong>Unlimited <a href="vault.html" style="color:#FFB300;text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP downloads</strong> + <strong>150 Advanced Vision Credits / month</strong> (auto-resets to 150 every 30 days; no rollover). Cancel anytime in 1 click directly from your unlocked Studio pass panel, your Stripe receipt email, or <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:underline;">contact@ivolgaco.com</a>.</li>
       <li><strong>🔑 Cross-Device Access Key (<code>TPS-XXXX-XXXX</code>) &amp; Single-Device Lock:</strong> Enter your key on your phone, Windows PC, or Mac to transfer your unlocked session and remaining credits instantly. Passes enforce <strong>Single-Device Active Session Lock</strong> (1 active device at a time—entering your key on a second device seamlessly transfers your session and signs out the previous device).</li>
       <li><strong>One-Time Credit Guard &amp; Apply/Clear Controls:</strong> Standard logo tracing, pre-drawn intaglio tracing, clean white/dark studio relief Banknote hatching, custom arched text, and all <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads use <strong>0 credits</strong>. An Advanced Vision credit is charged <strong>at most once per uploaded image</strong>—toggling between <strong>🔄 Clear Advanced Vision Enhancement (0 Credits)</strong> and <strong>✨ Apply Advanced Vision Enhancement (0 Credits)</strong> reuses the session cache at 0 extra credits.</li>
       <li><strong>🔒 Privacy &amp; RAM-Only Processing:</strong> Uploaded artwork and generated files are processed in volatile memory (RAM) during your session and automatically purged. Advanced Vision uses an encrypted enterprise vision endpoint and never trains public models.</li>
+    </ul>
+
+    <h2 id="privacy-terms">8. Privacy, Data Processors, Upload Safeguards &amp; Billing Terms</h2>
+    <ul>
+      <li><strong>🔒 Volatile RAM-Only Artwork Retention &amp; Deletion:</strong> Uploaded raster/vector files and generated <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> toolpaths are processed exclusively in volatile server memory (<code>RAM</code>) during your active browser session, bounded by automatic LRU session eviction (<code>MAX_IMAGE_SESSION_VAULT_SIZE = 16</code>), and purged automatically when your session closes or rotates. Client artwork is never written to permanent object storage, published, sold, or used to train AI models.</li>
+      <li><strong>🛡️ Server-Side Upload Safeguards:</strong> Uploads are capped at <strong><code>25 MB</code> maximum</strong> (<code>2 MB</code> maximum for raw <code>.SVG</code> XML) with file-header signature verification, a <strong><code>64 MP</code> decompression-bomb pixel ceiling</strong>, and strict XML entity/script sanitization (blocking <code>&lt;!ENTITY</code>, <code>&lt;script&gt;</code>, and <code>&lt;foreignObject&gt;</code> payloads prior to vector parsing), alongside passcode brute-force rate limiting.</li>
+      <li><strong>🌐 Sub-Processors &amp; Data Flows:</strong>
+        <strong>(1) Stripe, Inc.</strong> — PCI-DSS Level 1 checkout, subscription billing, receipt delivery, and Customer Billing Portal (Ivolga Co. never receives or stores payment card numbers);
+        <strong>(2) Supabase, Inc.</strong> — Encrypted pass registry storing only anonymous <code>TPS-XXXX-XXXX</code> passcodes, expiration/reset timestamps, single-device session identifiers, credit balances, and Vault claim slugs (zero user artwork stored);
+        <strong>(3) Google Cloud / Gemini Enterprise API</strong> — Encrypted TLS vision processing invoked <em>only</em> when Advanced Vision cleanup or Banknote intaglio transformation is requested (excluded from public model training);
+        <strong>(4) Google Workspace / Drive</strong> — Read-only delivery of pre-verified Ready-to-Cut CAD Vault <code>.ZIP</code> bundles on <code>vault.html</code>.
+      </li>
+      <li><strong>💳 Billing, Renewal &amp; Cancellation Policy:</strong> The <strong>$8 24-Hr Craftsman Pass</strong> is a one-time, non-recurring 24-hour unlock starting at checkout. <strong>Studio Monthly ($25/mo)</strong> renews every 30 days (resetting Advanced Vision credits to <code>150</code> without rollover) and may be cancelled anytime prior to the next billing cycle via the <strong>💳 Manage / Cancel Subscription</strong> button inside an unlocked Pixel2Path Studio Monthly session, via your <strong>Stripe email receipt</strong> management link, or by emailing <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:underline;">contact@ivolgaco.com</a>.</li>
+      <li><strong>📜 Commercial Physical-Goods License:</strong> All exported custom files and CAD Vault templates include a royalty-free commercial license to fabricate and sell physical goods; reselling or redistributing raw digital Vault <code>.ZIP</code>/<code>.DXF</code>/<code>.SVG</code> packs as standalone digital files is prohibited. Always test material settings, press tonnage, and laser kerf with the free <code>25mm</code> sample before production runs.</li>
     </ul>
 
     <div class="footer-bar">
@@ -525,6 +562,7 @@ CLASSICAL INTAGLIO RULES (TAPERED ENDS, 90-DEGREE MOIRE AVOIDANCE &amp; SECOND S
       <span>
         <a href="https://ivolgaco.com/" style="color:#FFB300;text-decoration:none;font-weight:700;">Ivolga Co. Home</a> •
         <a href="vault.html" style="color:#FFB300;text-decoration:none;font-weight:700;">CAD Vault</a> •
+        <a href="#privacy-terms" style="color:#FFB300;text-decoration:none;font-weight:700;">Privacy &amp; Terms</a> •
         <a href="https://app.ivolgaco.com/" style="color:#FFB300;text-decoration:none;font-weight:700;">Launch Studio</a> •
         Support: <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:none;">contact@ivolgaco.com</a>
       </span>
