@@ -168,7 +168,7 @@
             "name": "Are my uploaded client logos and artwork kept private?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Uploaded images and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. When Advanced Vision is used, the image is processed via an encrypted enterprise vision endpoint and is strictly never used to train public models."
+              "text": "Yes. Uploaded images (capped at 25MB with header & XML sanitization) and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. Payments run via Stripe, pass counters via Supabase, and Advanced Vision via an encrypted enterprise vision endpoint that strictly never trains public models. Full processor & retention details are documented in the Privacy & Terms section of our User Guide."
             }
           }
         ]
@@ -960,7 +960,7 @@
               <li>✓ <strong>Unlimited <a href="vault.html" style="color:var(--amber);text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP Downloads</strong></li>
               <li>✓ Includes <strong>150 Advanced Vision Credits / mo</strong> (resets to 150 every 30 days; no rollover)</li>
               <li>✓ Cross-device key for phone &amp; workshop PC (1 active device at a time)</li>
-              <li>✓ Cancel anytime in 1 click</li>
+              <li>✓ Cancel anytime (1-click in Studio pass bar, Stripe receipt, or email)</li>
             </ul>
           </div>
           <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer" class="btn-primary" style="width:100%;">Start Studio Monthly ($25/mo) 🏆</a>
@@ -1000,7 +1000,7 @@
         <details class="faq-item">
           <summary>Are my uploaded client logos and artwork kept private?</summary>
           <div class="faq-body">
-            Yes. Uploaded images and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. When <strong>Advanced Vision</strong> is used, the image is processed via an encrypted enterprise vision endpoint and is strictly never used to train public models.
+            Yes. Uploaded images (capped at <code>25 MB</code> with header &amp; XML sanitization) and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. Payments run via <strong>Stripe</strong>, pass counters via <strong>Supabase</strong>, and <strong>Advanced Vision</strong> via an encrypted enterprise vision endpoint that strictly never trains public models. See <a href="guide.html#privacy-terms" style="color:var(--amber);font-weight:700;">Privacy, Data Processors &amp; Billing Terms</a> for full details.
           </div>
         </details>
       </div>
@@ -1009,15 +1009,15 @@
       <div class="trust-bar">
         <div>
           <strong>🔒 Advanced Vision &amp; Artwork Privacy Disclosure</strong>
-          Uploaded images and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. When <strong>Advanced Vision</strong> is used, the image is processed via an encrypted enterprise vision endpoint and is strictly never used to train public models.
+          Uploaded images (<code>≤25 MB</code>) and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. Advanced Vision uses an encrypted enterprise vision endpoint and never trains public models. <a href="guide.html#privacy-terms" style="color:var(--amber);font-weight:700;">Privacy &amp; Processor Details →</a>
         </div>
         <div>
           <strong>📐 Outer Bounding-Box Tolerance &amp; Machine Guards</strong>
           External bounding-box width and height are calibrated after morphological filtering to within <strong>±0.05mm</strong> of your requested target width. To prevent physical toolhead failure, sub-spec internal strokes are intentionally widened to match your selected machine profile (<strong>≥0.45mm</strong> for 0.4mm FDM nozzles, <strong>≥0.75mm</strong> for vinyl weeding, and <strong>≥0.38mm</strong> for CNC 3D meshes). Always verify material settings, press tonnage, and laser kerf using the free 25mm graphic width sample.
         </div>
         <div>
-          <strong>🛡️ Support &amp; 1-Click Cancellation</strong>
-          Need help with a file, access key recovery, or subscription cancellation? Email <a href="mailto:contact@ivolgaco.com" style="color:var(--amber);font-weight:700;">contact@ivolgaco.com</a> for fast support.
+          <strong>🛡️ Support &amp; Subscription Cancellation</strong>
+          Studio Monthly subscribers can cancel anytime in 1 click via the <strong>💳 Manage / Cancel Subscription</strong> button inside an unlocked Studio session, via their Stripe receipt email, or by emailing <a href="mailto:contact@ivolgaco.com" style="color:var(--amber);font-weight:700;">contact@ivolgaco.com</a>. See <a href="guide.html#privacy-terms" style="color:var(--amber);font-weight:700;">Billing Terms</a>.
         </div>
       </div>
 
@@ -1047,6 +1047,7 @@
       <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> •
       <a href="vault.html">Ready-to-Cut CAD Vault</a> •
       <a href="guide.html">Official User Guide</a> •
+      <a href="guide.html#privacy-terms">Privacy &amp; Terms</a> •
       <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="nofollow noopener noreferrer">24-Hr Pass ($8)</a> •
       <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer">Studio Monthly ($25/mo)</a> •
       <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
