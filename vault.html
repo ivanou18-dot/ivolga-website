@@ -484,7 +484,36 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-bottom: 34px;
+      margin-bottom: 22px;
+    }
+    .vault-pagination {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 2px 0 34px;
+      text-align: center;
+    }
+    .vault-count-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .vault-count-label strong {
+      color: #FFFFFF;
+    }
+    .btn-load-more {
+      min-width: 260px;
+      padding: 11px 22px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      border-color: rgba(255, 179, 0, 0.65);
+      background: rgba(255, 179, 0, 0.08);
+    }
+    .btn-load-more:hover:not(:disabled) {
+      background: rgba(255, 179, 0, 0.18);
+      border-color: var(--amber);
     }
     .vault-card {
       background: rgba(21, 21, 21, 0.97);
@@ -570,6 +599,24 @@
       padding: 3px 8px;
       font-size: 0.68rem;
       font-weight: 800;
+    }
+    .stage-right-badges {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .badge-new {
+      background: linear-gradient(135deg, #FFB300 0%, #FFA000 100%);
+      color: #000000;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.35px;
+      box-shadow: 0 2px 8px rgba(255, 179, 0, 0.4);
     }
     .zoom-hint {
       position: absolute;
@@ -872,6 +919,7 @@
       .pass-input-row .btn-primary,
       .pass-input-row .btn-secondary { width: 100%; }
       .vault-grid { grid-template-columns: 1fr; }
+      .btn-load-more { width: 100%; min-width: 0; white-space: normal; text-align: center; }
       .pass-buy-btns { grid-template-columns: 1fr; }
       .search-input { width: 100%; min-width: 0; }
       .search-sort-group { width: 100%; }
@@ -974,11 +1022,11 @@
           <div class="pass-buy-btns">
             <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener" class="btn-buy-tier">
               <strong>⚡ $8 · 24-Hr Pass</strong>
-              <span>Includes <strong>3 Vault .ZIP Packs</strong> + 24h Full Studio &amp; 25 AI Credits</span>
+              <span>Includes <strong>3 Vault .ZIP Packs</strong> + 24h Full Studio &amp; 25 Vision Credits</span>
             </a>
             <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener" class="btn-buy-tier featured">
               <strong>🏆 $25/mo · Studio Monthly</strong>
-              <span><strong>UNLIMITED Vault .ZIPs</strong> + Full 3D/Vector Studio &amp; 150 Credits</span>
+              <span><strong>UNLIMITED Vault .ZIPs</strong> + Full 3D/Vector Studio &amp; 150 Vision Credits</span>
             </a>
           </div>
           <div class="pass-buy-note">
@@ -1003,7 +1051,7 @@
           aria-label="Search CAD templates"
         />
         <select id="sortSelect" class="sort-select" aria-label="Sort templates">
-          <option value="newest">Newest Added</option>
+          <option value="newest" selected>Newest Added</option>
           <option value="az">Name (A–Z)</option>
           <option value="area">Largest Footprint</option>
         </select>
@@ -1021,6 +1069,7 @@
     </div>
 
     <div id="vaultGrid" class="vault-grid" style="display:none;"></div>
+    <div id="vaultPagination" class="vault-pagination" style="display:none;"></div>
 
     <!-- CUSTOM STUDIO CROSS-SELL -->
     <section class="studio-cta-panel">
@@ -1062,6 +1111,7 @@
       <a href="index.html">Ivolga Co. Home</a> ·
       <a href="vault.html">CAD Vault</a> ·
       <a href="guide.html">Official User Manual</a> ·
+      <a href="guide.html#cad-vault">Vault Manual</a> ·
       <a href="guide.html#privacy-terms">Privacy &amp; Terms</a> ·
       <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> ·
       <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
@@ -1076,6 +1126,10 @@
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuDDrGEJFYPrU-DgCul2usu_5GAp1P6lxgqhRDWQsw2fz3IvlwFFKfiHPTLKaNPOgRjA/exec";
 
     const STORAGE_KEY_PASS = "p2p_vault_passcode_v1";
+    const STORAGE_KEY_CATALOG = "p2p_vault_catalog_v1";
+    const CATALOG_CACHE_TTL_MS = 5 * 60 * 1000;
+    const PAGE_SIZE = 12;
+    const NEW_BADGE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
     const CATEGORY_LABELS = {
       all: "All Templates",
       leathercraft: "🗜️ Leathercraft",
@@ -1142,6 +1196,7 @@
 
     let catalogItems = [];
     let activeCategory = "all";
+    let visibleCount = PAGE_SIZE;
     let previewCache = {};
     let previewObserver = null;
     let currentLightboxSlug = null;
@@ -1463,8 +1518,30 @@
 
     function setCategory(cat) {
       activeCategory = cat;
+      visibleCount = PAGE_SIZE;
       renderCategoryPills();
       renderCatalog();
+    }
+
+    function loadMoreTemplates() {
+      visibleCount += PAGE_SIZE;
+      renderCatalog();
+    }
+
+    function parseItemTimestampMs(item) {
+      if (!item) return 0;
+      const raw = item.approved_at || item.updated_at || item.created_at || "";
+      if (!raw) return 0;
+      const ms = Date.parse(String(raw));
+      return isNaN(ms) ? 0 : ms;
+    }
+
+    function isRecentVaultItem(item) {
+      if (!item || item.is_sample) return false;
+      const ts = parseItemTimestampMs(item);
+      if (ts <= 0) return false;
+      const ageMs = Date.now() - ts;
+      return ageMs >= -86400000 && ageMs <= NEW_BADGE_MAX_AGE_MS;
     }
 
     function getFilteredItems() {
@@ -1491,9 +1568,14 @@
         if (sortBy === "area") {
           const areaA = Number(a.width_mm || 0) * Number(a.height_mm || 0);
           const areaB = Number(b.width_mm || 0) * Number(b.height_mm || 0);
-          return areaB - areaA;
+          return (areaB - areaA) || (parseItemTimestampMs(b) - parseItemTimestampMs(a));
         }
-        return String(b.updated_at || "").localeCompare(String(a.updated_at || ""));
+        const diffTs = parseItemTimestampMs(b) - parseItemTimestampMs(a);
+        if (diffTs !== 0) return diffTs;
+        return (
+          String(b.updated_at || "").localeCompare(String(a.updated_at || "")) ||
+          String(a.title || "").localeCompare(String(b.title || ""))
+        );
       });
 
       return list;
@@ -1520,10 +1602,13 @@
     function renderCatalog() {
       const stateBox = document.getElementById("vaultStateBox");
       const grid = document.getElementById("vaultGrid");
+      const pagEl = document.getElementById("vaultPagination");
       const filtered = getFilteredItems();
 
       if (catalogItems.length === 0) {
         grid.style.display = "none";
+        pagEl.style.display = "none";
+        pagEl.innerHTML = "";
         stateBox.style.display = "block";
         stateBox.innerHTML = `
           <h3>🗄️ No Approved Templates in Vault Yet</h3>
@@ -1534,6 +1619,8 @@
 
       if (filtered.length === 0) {
         grid.style.display = "none";
+        pagEl.style.display = "none";
+        pagEl.innerHTML = "";
         stateBox.style.display = "block";
         stateBox.innerHTML = `
           <h3>No matching templates found</h3>
@@ -1545,9 +1632,12 @@
       stateBox.style.display = "none";
       grid.style.display = "grid";
 
-      grid.innerHTML = filtered.map((item) => {
+      const visibleItems = filtered.slice(0, visibleCount);
+
+      grid.innerHTML = visibleItems.map((item) => {
         const catLabel = CATEGORY_LABELS[item.category] || "🛠️ CAD Template";
         const isClaimed = passState.verified && !passState.unlimited && passState.claimed_slugs.includes(item.slug);
+        const isNew = isRecentVaultItem(item);
         const dimText = (item.width_mm && item.height_mm)
           ? `${Number(item.width_mm).toFixed(1)} × ${Number(item.height_mm).toFixed(1)} mm`
           : "1:1 mm Calibrated";
@@ -1581,7 +1671,10 @@
                 ${stageMedia}
                 <div class="stage-top-badges">
                   <span class="badge-cat">${escapeHtml(catLabel)}</span>
-                  <span class="badge-verified">${item.is_sample ? "SAMPLE" : "✅ 1:1 MM"}</span>
+                  <span class="stage-right-badges">
+                    ${isNew ? '<span class="badge-new">✨ NEW</span>' : ""}
+                    <span class="badge-verified">${item.is_sample ? "SAMPLE" : "✅ 1:1 MM"}</span>
+                  </span>
                 </div>
                 <span class="zoom-hint">🔍 Inspect</span>
               </div>
@@ -1607,6 +1700,15 @@
           </article>
         `;
       }).join("");
+
+      const remaining = Math.max(0, filtered.length - visibleItems.length);
+      const nextBatch = Math.min(PAGE_SIZE, remaining);
+      pagEl.style.display = "flex";
+      pagEl.innerHTML =
+        `<div class="vault-count-label">Showing <strong>${visibleItems.length}</strong> of <strong>${filtered.length}</strong> verified 1:1mm ${filtered.length === 1 ? "template" : "templates"}</div>` +
+        (remaining > 0
+          ? `<button type="button" class="btn-secondary btn-load-more" onclick="loadMoreTemplates()">➕ Load ${nextBatch} More ${nextBatch === 1 ? "Template" : "Templates"} (${remaining} remaining)</button>`
+          : "");
 
       attachImgFallbacks();
       observeLazyPreviews();
@@ -1921,6 +2023,7 @@
     async function loadCatalog(forceRefresh) {
       const stateBox = document.getElementById("vaultStateBox");
       const grid = document.getElementById("vaultGrid");
+      const pagEl = document.getElementById("vaultPagination");
 
       if (!isConfigured()) {
         document.getElementById("setupBanner").style.display = "block";
@@ -1930,7 +2033,35 @@
         return;
       }
 
+      if (!forceRefresh) {
+        try {
+          const rawCached = sessionStorage.getItem(STORAGE_KEY_CATALOG);
+          if (rawCached) {
+            const parsed = JSON.parse(rawCached);
+            if (
+              parsed &&
+              Array.isArray(parsed.items) &&
+              parsed.items.length > 0 &&
+              Date.now() - Number(parsed.ts || 0) < CATALOG_CACHE_TTL_MS
+            ) {
+              catalogItems = parsed.items;
+              renderCategoryPills();
+              renderCatalog();
+              return;
+            }
+          }
+        } catch (e) {
+          // Ignore sessionStorage read errors
+        }
+      } else {
+        visibleCount = PAGE_SIZE;
+        try {
+          sessionStorage.removeItem(STORAGE_KEY_CATALOG);
+        } catch (e) {}
+      }
+
       grid.style.display = "none";
+      pagEl.style.display = "none";
       stateBox.style.display = "block";
       stateBox.innerHTML = `
         <div class="spinner"></div>
@@ -1946,6 +2077,12 @@
           throw new Error(data.message || "Catalog error");
         }
         catalogItems = Array.isArray(data.items) ? data.items : [];
+        try {
+          sessionStorage.setItem(
+            STORAGE_KEY_CATALOG,
+            JSON.stringify({ ts: Date.now(), items: catalogItems })
+          );
+        } catch (e) {}
         renderCategoryPills();
         renderCatalog();
         if (forceRefresh) showToast("✅ Vault catalog refreshed (" + catalogItems.length + " packs).");
@@ -1959,8 +2096,14 @@
 
     // Initialize URL ?key=... or saved Passcode + Event Listeners
     document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("searchInput").addEventListener("input", renderCatalog);
-      document.getElementById("sortSelect").addEventListener("change", renderCatalog);
+      document.getElementById("searchInput").addEventListener("input", () => {
+        visibleCount = PAGE_SIZE;
+        renderCatalog();
+      });
+      document.getElementById("sortSelect").addEventListener("change", () => {
+        visibleCount = PAGE_SIZE;
+        renderCatalog();
+      });
       document.getElementById("passcodeInput").addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           e.preventDefault();
