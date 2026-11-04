@@ -61,7 +61,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -78,6 +78,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: clip;
     }
 
     /* Sticky Header (Matches index.html 1:1) */
@@ -90,6 +91,7 @@
       border-bottom: 1px solid var(--border-subtle);
       padding: 11px 24px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
@@ -856,11 +858,25 @@
       .pass-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
+      header { padding: 10px 14px; gap: 8px; }
+      .brand { gap: 9px; }
+      .brand-logo { width: 34px; height: 34px; }
+      .brand-title { font-size: 0.96rem; }
+      .nav-links { width: 100%; justify-content: flex-start; gap: 6px; }
+      .nav-links a.nav-item { display: none; }
+      .btn-nav-pill { padding: 5px 9px; font-size: 0.78rem; }
+      .btn-header { padding: 6px 11px; font-size: 0.79rem; white-space: normal; text-align: center; }
+      .container { padding: 0 14px; }
+      .pass-console { padding: 14px; }
+      .pass-input { min-width: 0; width: 100%; }
+      .pass-input-row .btn-primary,
+      .pass-input-row .btn-secondary { width: 100%; }
       .vault-grid { grid-template-columns: 1fr; }
       .pass-buy-btns { grid-template-columns: 1fr; }
-      .nav-links a.nav-item { display: none; }
       .search-input { width: 100%; min-width: 0; }
       .search-sort-group { width: 100%; }
+      .studio-cta-panel { padding: 18px 16px; }
+      .studio-cta-panel .btn-primary { width: 100%; white-space: normal; text-align: center; }
     }
   </style>
 </head>
@@ -1026,7 +1042,7 @@
         <button type="button" class="lightbox-close" onclick="closeLightbox()">✕ Close (Esc)</button>
       </div>
       <div class="lightbox-img-wrap">
-        <img id="lightboxImg" src="" alt="1:1 millimeter CAD blueprint preview" />
+        <img id="lightboxImg" width="720" height="450" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='450' viewBox='0 0 720 450'%3E%3Crect width='720' height='450' fill='%230E131A'/%3E%3C/svg%3E" alt="1:1 millimeter CAD blueprint preview" />
       </div>
       <div class="lightbox-footer">
         <span id="lightboxMeta">1:1 Millimeter Verified Blueprint</span>
@@ -1046,6 +1062,7 @@
       <a href="index.html">Ivolga Co. Home</a> ·
       <a href="vault.html">CAD Vault</a> ·
       <a href="guide.html">Official User Manual</a> ·
+      <a href="guide.html#privacy-terms">Privacy &amp; Terms</a> ·
       <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> ·
       <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
     </div>
@@ -1544,24 +1561,13 @@
           countsPill = `<span class="spec-pill">🧩 <strong>${Number(item.part_count)}</strong> ${item.part_count === 1 ? "Part" : "Parts"}</span>`;
         }
 
-        const cachedImg = previewCache[item.png_id];
-        let stageMedia = "";
-        if (cachedImg) {
-          stageMedia = `<img src="${cachedImg}" alt="${escapeHtml(item.title)} 1:1mm CAD blueprint preview" loading="lazy" />`;
-        } else if (item.png_id) {
-          stageMedia = `
-            <div class="blueprint-placeholder" data-png-id="${escapeHtml(item.png_id)}" data-title="${escapeHtml(item.title)}">
-              <span>📐 Loading 1:1mm Blueprint...</span>
-            </div>
-          `;
-        } else {
-          stageMedia = `
-            <div class="blueprint-placeholder">
-              <strong style="color:#FFB300;font-size:0.86rem;">📐 ${escapeHtml(dimText)}</strong>
-              <span>1:1 MM CAD VECTOR PACK<br/>(.DXF + .SVG + GUIDE)</span>
-            </div>
-          `;
-        }
+        const cachedImg = item.png_id ? previewCache[item.png_id] : "";
+        const fallbackSvgUrl = buildBlueprintFallbackDataUrl(item);
+        const initialSrc = cachedImg || fallbackSvgUrl;
+        const lazyAttrs = (!cachedImg && item.png_id)
+          ? ` data-png-id="${escapeHtml(item.png_id)}" data-slug="${escapeHtml(item.slug)}" data-title="${escapeHtml(item.title)}"`
+          : "";
+        const stageMedia = `<img src="${initialSrc}" width="720" height="450" alt="${escapeHtml(item.title)} 1:1mm CAD blueprint (${escapeHtml(dimText)})" loading="lazy"${lazyAttrs} />`;
 
         const deliv = Array.isArray(item.deliverables) && item.deliverables.length
           ? item.deliverables.join(" · ")
@@ -1602,12 +1608,98 @@
         `;
       }).join("");
 
+      attachImgFallbacks();
       observeLazyPreviews();
     }
 
+    function buildBlueprintFallbackDataUrl(item) {
+      const wMm = Math.max(10, Number(item && item.width_mm) || 160);
+      const hMm = Math.max(10, Number(item && item.height_mm) || 100);
+      const maxBoxW = 460;
+      const maxBoxH = 220;
+      const scale = Math.min(maxBoxW / wMm, maxBoxH / hMm);
+      const drawW = Math.max(88, Math.round(wMm * scale));
+      const drawH = Math.max(64, Math.round(hMm * scale));
+      const rx = Math.round((720 - drawW) / 2);
+      const ry = Math.round(78 + (maxBoxH - drawH) / 2);
+      const parts = Math.max(1, Number(item && item.part_count) || 1);
+      const stitches = Number(item && item.stitch_count) || 0;
+      const cutouts = Number(item && item.cutout_count) || 0;
+      const safeTitle = String((item && item.title) || "1:1mm CAD Blueprint")
+        .replace(/[<>&"']/g, "")
+        .slice(0, 52);
+      const dimLabel = (item && item.width_mm && item.height_mm)
+        ? `${Number(item.width_mm).toFixed(1)} × ${Number(item.height_mm).toFixed(1)} mm`
+        : "1:1 mm Calibrated";
+      let detailSpec = `${parts} ${parts === 1 ? "Part" : "Parts"}`;
+      if (stitches > 0) detailSpec += ` · ${stitches} Stitch Holes`;
+      else if (cutouts > 0) detailSpec += ` · ${cutouts} Cutouts`;
+
+      let innerGeom = "";
+      if (parts >= 2) {
+        const gap = 8;
+        const cellW = Math.max(24, Math.floor((drawW - 24 - gap) / 2));
+        const cellH = Math.max(18, Math.floor((drawH - 24 - gap) / 2));
+        innerGeom += `<rect x="${rx + 12}" y="${ry + 12}" width="${cellW}" height="${cellH}" rx="4" fill="rgba(255,179,0,0.06)" stroke="#4FC3F7" stroke-width="1.3"/>`;
+        innerGeom += `<rect x="${rx + 12 + cellW + gap}" y="${ry + 12}" width="${cellW}" height="${cellH}" rx="4" fill="rgba(255,179,0,0.06)" stroke="#4FC3F7" stroke-width="1.3"/>`;
+        innerGeom += `<rect x="${rx + 12}" y="${ry + 12 + cellH + gap}" width="${drawW - 24}" height="${cellH}" rx="4" fill="rgba(129,199,132,0.06)" stroke="#81C784" stroke-width="1.3"/>`;
+      } else if (cutouts > 0) {
+        const cols = Math.min(5, Math.max(2, Math.ceil(Math.sqrt(cutouts))));
+        const rows = Math.min(3, Math.max(1, Math.ceil(cutouts / cols)));
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            if (r * cols + c >= cutouts) break;
+            const cx = Math.round(rx + ((c + 1) * drawW) / (cols + 1));
+            const cy = Math.round(ry + ((r + 1) * drawH) / (rows + 1));
+            innerGeom += `<circle cx="${cx}" cy="${cy}" r="6.5" fill="none" stroke="#4FC3F7" stroke-width="1.5"/>`;
+          }
+        }
+      } else {
+        innerGeom += `<line x1="${rx + 14}" y1="${ry + Math.round(drawH / 2)}" x2="${rx + drawW - 14}" y2="${ry + Math.round(drawH / 2)}" stroke="#4FC3F7" stroke-width="1" stroke-dasharray="5 5"/>`;
+      }
+      if (stitches > 0) {
+        innerGeom += `<rect x="${rx + 6}" y="${ry + 6}" width="${drawW - 12}" height="${drawH - 12}" rx="4" fill="none" stroke="#81C784" stroke-width="1.2" stroke-dasharray="2.5 4.5"/>`;
+      }
+
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="450" viewBox="0 0 720 450">` +
+        `<defs><pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#182230" stroke-width="1"/></pattern></defs>` +
+        `<rect width="720" height="450" fill="#0E131A"/>` +
+        `<rect width="720" height="450" fill="url(#g)"/>` +
+        `<rect x="16" y="16" width="688" height="418" rx="8" fill="none" stroke="#263547" stroke-width="1.5"/>` +
+        `<line x1="${rx}" y1="${ry - 14}" x2="${rx + drawW}" y2="${ry - 14}" stroke="#FFB300" stroke-width="1.2"/>` +
+        `<line x1="${rx}" y1="${ry - 19}" x2="${rx}" y2="${ry - 9}" stroke="#FFB300" stroke-width="1.4"/>` +
+        `<line x1="${rx + drawW}" y1="${ry - 19}" x2="${rx + drawW}" y2="${ry - 9}" stroke="#FFB300" stroke-width="1.4"/>` +
+        `<text x="${rx + Math.round(drawW / 2)}" y="${ry - 21}" text-anchor="middle" fill="#FFB300" font-family="monospace" font-size="13" font-weight="bold">${Number(wMm).toFixed(1)} mm</text>` +
+        `<rect x="${rx}" y="${ry}" width="${drawW}" height="${drawH}" rx="6" fill="rgba(255,179,0,0.05)" stroke="#FFB300" stroke-width="2.2"/>` +
+        innerGeom +
+        `<text x="360" y="346" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold">${safeTitle}</text>` +
+        `<text x="360" y="372" text-anchor="middle" fill="#FFB300" font-family="monospace" font-size="13.5" font-weight="bold">📐 ${dimLabel} · ${detailSpec}</text>` +
+        `<text x="360" y="396" text-anchor="middle" fill="#90A4AE" font-family="monospace" font-size="12">1:1 MM CAD BLUEPRINT · DXF R2010 + SVG + ASSEMBLY GUIDE</text>` +
+        `</svg>`;
+      return "data:image/svg+xml," + encodeURIComponent(svg);
+    }
+
+    function attachImgFallbacks() {
+      const stages = document.querySelectorAll(".blueprint-stage img");
+      stages.forEach((imgEl) => {
+        imgEl.onerror = function () {
+          const slug = imgEl.getAttribute("data-slug");
+          const item = catalogItems.find((x) => x.slug === slug);
+          imgEl.onerror = null;
+          imgEl.src = buildBlueprintFallbackDataUrl(item || {});
+        };
+      });
+    }
+
+    const previewQueue = [];
+    let activePreviewFetches = 0;
+    const previewInFlight = {};
+    let previewPostSupported = true;
+
     function observeLazyPreviews() {
       if (previewObserver) previewObserver.disconnect();
-      const targets = document.querySelectorAll("[data-png-id]");
+      const targets = document.querySelectorAll("img[data-png-id]");
       if (!targets.length || !isConfigured()) return;
 
       previewObserver = new IntersectionObserver((entries, obs) => {
@@ -1617,47 +1709,165 @@
           const pngId = el.getAttribute("data-png-id");
           const title = el.getAttribute("data-title") || "CAD Blueprint";
           obs.unobserve(el);
-          fetchPreviewImage(pngId, el, title);
+          enqueuePreviewFetch(pngId, el, title);
         }
       }, { rootMargin: "220px" });
 
       targets.forEach((el) => previewObserver.observe(el));
     }
 
-    async function fetchPreviewImage(pngId, placeholderEl, title) {
+    function enqueuePreviewFetch(pngId, imgEl, title) {
       if (!pngId) return;
       if (previewCache[pngId]) {
-        swapPlaceholderWithImg(placeholderEl, previewCache[pngId], title);
+        applyResolvedPreview(pngId, previewCache[pngId], imgEl);
         return;
       }
-      try {
-        const resp = await fetch(`${APPS_SCRIPT_URL}?action=preview&id=${encodeURIComponent(pngId)}`, {
-          method: "GET",
-          redirect: "follow"
+      previewQueue.push({ pngId, imgEl, title });
+      pumpPreviewQueue();
+    }
+
+    function pumpPreviewQueue() {
+      while (activePreviewFetches < 2 && previewQueue.length > 0) {
+        const job = previewQueue.shift();
+        activePreviewFetches++;
+        fetchPreviewImage(job.pngId, job.imgEl, job.title).finally(() => {
+          activePreviewFetches--;
+          pumpPreviewQueue();
         });
-        const data = await resp.json();
-        if (data.status === "ok" && data.dataUrl) {
-          previewCache[pngId] = data.dataUrl;
-          swapPlaceholderWithImg(placeholderEl, data.dataUrl, title);
-          if (currentLightboxSlug) {
-            const lbItem = catalogItems.find((x) => x.slug === currentLightboxSlug);
-            if (lbItem && lbItem.png_id === pngId) {
-              document.getElementById("lightboxImg").src = data.dataUrl;
-            }
-          }
-        }
-      } catch (e) {
-        // Leave clean architectural fallback if offline
       }
     }
 
-    function swapPlaceholderWithImg(el, dataUrl, title) {
-      if (!el || !el.parentNode) return;
-      const img = document.createElement("img");
-      img.src = dataUrl;
-      img.alt = title + " 1:1mm CAD blueprint preview";
-      img.loading = "lazy";
-      el.replaceWith(img);
+    function verifyImageLoads(srcUrl, timeoutMs) {
+      return new Promise((resolve) => {
+        if (!srcUrl) {
+          resolve(false);
+          return;
+        }
+        const probe = new Image();
+        let settled = false;
+        const timer = setTimeout(() => {
+          if (!settled) {
+            settled = true;
+            resolve(false);
+          }
+        }, timeoutMs || 5000);
+        probe.referrerPolicy = "no-referrer";
+        probe.onload = () => {
+          if (!settled) {
+            settled = true;
+            clearTimeout(timer);
+            resolve(probe.naturalWidth > 8 && probe.naturalHeight > 8);
+          }
+        };
+        probe.onerror = () => {
+          if (!settled) {
+            settled = true;
+            clearTimeout(timer);
+            resolve(false);
+          }
+        };
+        probe.src = srcUrl;
+      });
+    }
+
+    function extractPreviewUrlFromPayload(data) {
+      if (!data || typeof data !== "object") return "";
+      if (data.dataUrl && String(data.dataUrl).startsWith("data:image/")) return String(data.dataUrl);
+      if (data.preview_url) return String(data.preview_url);
+      const rawB64 = data.fileData || data.base64 || data.image_base64 || "";
+      if (rawB64 && String(rawB64).length > 32) {
+        return String(rawB64).startsWith("data:image/")
+          ? String(rawB64)
+          : "data:image/png;base64," + String(rawB64);
+      }
+      return "";
+    }
+
+    function applyResolvedPreview(pngId, resolvedSrc, targetImgEl) {
+      if (!pngId || !resolvedSrc) return;
+      previewCache[pngId] = resolvedSrc;
+      if (targetImgEl && targetImgEl.isConnected) {
+        targetImgEl.src = resolvedSrc;
+        targetImgEl.removeAttribute("data-png-id");
+      }
+      document.querySelectorAll(`img[data-png-id="${CSS.escape ? CSS.escape(pngId) : pngId}"]`).forEach((node) => {
+        node.src = resolvedSrc;
+        node.removeAttribute("data-png-id");
+      });
+      if (currentLightboxSlug) {
+        const lbItem = catalogItems.find((x) => x.slug === currentLightboxSlug);
+        if (lbItem && lbItem.png_id === pngId) {
+          document.getElementById("lightboxImg").src = resolvedSrc;
+        }
+      }
+    }
+
+    async function fetchPreviewImage(pngId, targetImgEl, title) {
+      if (!pngId) return;
+      if (previewCache[pngId]) {
+        applyResolvedPreview(pngId, previewCache[pngId], targetImgEl);
+        return;
+      }
+      if (previewInFlight[pngId]) {
+        const sharedSrc = await previewInFlight[pngId];
+        if (sharedSrc) applyResolvedPreview(pngId, sharedSrc, targetImgEl);
+        return;
+      }
+
+      previewInFlight[pngId] = (async () => {
+        // 1. Primary Apps Script GET preview with 6.5s timeout
+        try {
+          const ctrl = new AbortController();
+          const tId = setTimeout(() => ctrl.abort(), 6500);
+          const resp = await fetch(`${APPS_SCRIPT_URL}?action=preview&id=${encodeURIComponent(pngId)}`, {
+            method: "GET",
+            redirect: "follow",
+            signal: ctrl.signal
+          });
+          clearTimeout(tId);
+          if (resp.ok) {
+            const data = await resp.json();
+            const candidate = extractPreviewUrlFromPayload(data);
+            if (candidate && (await verifyImageLoads(candidate, 4500))) {
+              return candidate;
+            }
+          }
+        } catch (e) {
+          // Proceed to fallback
+        }
+
+        // 2. Secondary Apps Script text/plain POST fallback (avoids GET redirect throttling)
+        if (previewPostSupported) {
+          try {
+            const postData = await postToVaultApi({ client_action: "preview", id: pngId, png_id: pngId });
+            const postCandidate = extractPreviewUrlFromPayload(postData);
+            if (postCandidate && (await verifyImageLoads(postCandidate, 4500))) {
+              return postCandidate;
+            }
+            if (postData && postData.status && postData.status !== "ok" && /unknown|invalid|action/i.test(String(postData.message || ""))) {
+              previewPostSupported = false;
+            }
+          } catch (e) {
+            // Proceed to thumbnail probe
+          }
+        }
+
+        // 3. Direct Google Drive thumbnail probe (succeeds when Drive file has link/public read permission)
+        const driveThumb = `https://drive.google.com/thumbnail?id=${encodeURIComponent(pngId)}&sz=w1000`;
+        if (await verifyImageLoads(driveThumb, 4500)) {
+          return driveThumb;
+        }
+        return "";
+      })();
+
+      try {
+        const finalSrc = await previewInFlight[pngId];
+        if (finalSrc) {
+          applyResolvedPreview(pngId, finalSrc, targetImgEl);
+        }
+      } finally {
+        delete previewInFlight[pngId];
+      }
     }
 
     function openLightbox(slug) {
@@ -1673,12 +1883,15 @@
         `${dimText} · ${item.target_material || "1:1mm DXF + SVG Production Pack"}`;
 
       const imgEl = document.getElementById("lightboxImg");
+      const fallbackUrl = buildBlueprintFallbackDataUrl(item);
+      imgEl.onerror = () => {
+        imgEl.onerror = null;
+        imgEl.src = fallbackUrl;
+      };
       if (item.png_id && previewCache[item.png_id]) {
         imgEl.src = previewCache[item.png_id];
       } else {
-        imgEl.src = "data:image/svg+xml," + encodeURIComponent(
-          `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420"><rect width="720" height="420" fill="#101620"/><rect x="24" y="24" width="672" height="372" fill="none" stroke="#FFB300" stroke-width="2" stroke-dasharray="8 6"/><text x="360" y="195" text-anchor="middle" fill="#FFB300" font-family="monospace" font-size="22" font-weight="bold">${item.title.replace(/[<>&"]/g, "")}</text><text x="360" y="232" text-anchor="middle" fill="#B0BEC5" font-family="monospace" font-size="16">${dimText} · Loading Blueprint Preview...</text></svg>`
-        );
+        imgEl.src = fallbackUrl;
         if (item.png_id && isConfigured()) {
           fetchPreviewImage(item.png_id, null, item.title);
         }
