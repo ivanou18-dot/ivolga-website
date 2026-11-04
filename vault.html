@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ready-to-Cut CAD Vault | 1:1mm DXF &amp; SVG Templates | Pixel2Path Studio</title>
+  <meta name="description" content="Browse geometry-verified 1:1mm .DXF and .SVG fabrication templates for leather clicker dies, wallets, guitar pickguards, Eurorack panels, and CNC workshop jigs. Included with Pixel2Path Studio passes." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#FFB300" />
+  <link rel="canonical" href="https://ivolgaco.com/vault.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='47' fill='%23FFFFFF' stroke='%23FFB300' stroke-width='5'/%3E%3Cpath d='M25,52 C35,44 52,46 66,30 C76,42 74,64 58,70 C44,72 32,62 25,52 Z' fill='%23FFD000' stroke='%231C1814' stroke-width='4'/%3E%3Cpath d='M50,48 L72,22 C79,34 78,54 64,65 Z' fill='%231C1814'/%3E%3Ccircle cx='34' cy='50' r='3.2' fill='%2314100C'/%3E%3C/svg%3E" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Pixel2Path Studio by Ivolga Co." />
+  <meta property="og:title" content="Ready-to-Cut CAD Vault — 1:1mm DXF &amp; SVG Fabrication Templates" />
+  <meta property="og:description" content="Geometry-audited leathercraft patterns, steel-rule clicker dies, luthier routing templates, Eurorack panels, and CNC jigs. Browse blueprints free; unlock .ZIP packs with your Studio Pass." />
+  <meta property="og:url" content="https://ivolgaco.com/vault.html" />
+  <meta property="og:image" content="https://ivolgaco.com/proof-processed.jpg" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ready-to-Cut CAD Vault | Pixel2Path Studio" />
+  <meta name="twitter:description" content="1:1mm calibrated .DXF &amp; .SVG templates for laser cutters, CNC routers, and leather workshops." />
+  <meta name="twitter:image" content="https://ivolgaco.com/proof-processed.jpg" />
+
+  <!-- Structured Data: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Pixel2Path Ready-to-Cut CAD Vault",
+    "url": "https://ivolgaco.com/vault.html",
+    "description": "Curated 1:1 millimeter verified AutoCAD R2010 .DXF and .SVG production templates for leathercraft, luthier routing, Eurorack panels, EDC gear, and CNC workshop jigs.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Pixel2Path Studio by Ivolga Co.",
+      "url": "https://ivolgaco.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ivolga Co.",
+      "url": "https://ivolgaco.com/",
+      "email": "contact@ivolgaco.com"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #0D0D0D;
+      --bg-card: #151515;
+      --bg-card-elev: #1B1B1B;
+      --amber: #FFB300;
+      --amber-hover: #E09D00;
+      --green: #81C784;
+      --red-soft: #FF6B6B;
+      --text-main: #FFFFFF;
+      --text-muted: #B0B0B0;
+      --border-subtle: #2A2A2A;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      background-image:
+        linear-gradient(45deg, #131313 25%, transparent 25%),
+        linear-gradient(-45deg, #131313 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #131313 75%),
+        linear-gradient(-45deg, transparent 75%, #131313 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+      color: var(--text-main);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Sticky Header (Matches index.html 1:1) */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 13, 13, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 11px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .brand-logo { width: 42px; height: 42px; flex-shrink: 0; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .brand-title { font-weight: 900; font-size: 1.05rem; letter-spacing: 0.5px; }
+    .brand-sub { font-size: 0.72rem; color: var(--amber); font-weight: 700; letter-spacing: 0.4px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .nav-links a.nav-item {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .nav-links a.nav-item:hover { color: var(--amber); }
+
+    .btn-nav-pill {
+      color: var(--amber) !important;
+      border: 1px solid rgba(255, 179, 0, 0.45);
+      padding: 6px 12px;
+      border-radius: 7px;
+      background: rgba(255, 179, 0, 0.08);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+    .btn-nav-pill:hover {
+      background: rgba(255, 179, 0, 0.18);
+      border-color: var(--amber);
+    }
+    .btn-nav-active {
+      background: rgba(255, 179, 0, 0.22);
+      border-color: var(--amber);
+      color: #FFFFFF !important;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: linear-gradient(135deg, #FFB300 0%, #FFA000 100%);
+      color: #000000 !important;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 10px 18px;
+      border-radius: 9px;
+      border: 2px solid #FFFFFF;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255, 179, 0, 0.32);
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(255, 179, 0, 0.48);
+    }
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+    .btn-header { padding: 8px 15px; font-size: 0.85rem; border-width: 1.5px; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #1C1C1C;
+      color: var(--amber) !important;
+      font-weight: 700;
+      font-size: 0.86rem;
+      padding: 9px 15px;
+      border-radius: 8px;
+      border: 1.5px solid #3D3D3D;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-secondary:hover:not(:disabled) {
+      border-color: var(--amber);
+      color: #FFFFFF !important;
+      background: #252525;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    /* Vault Hero Header */
+    .vault-hero {
+      padding: 30px 0 18px;
+    }
+    .hero-kicker-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 179, 0, 0.14);
+      border: 1px solid var(--amber);
+      color: var(--amber);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+    .hero-kicker-label {
+      font-size: 0.75rem;
+      color: #B8B8B8;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .vault-hero h1 {
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .vault-hero h1 .txt-gold { color: var(--amber); }
+    .vault-hero p.lead {
+      color: #D2D2D2;
+      font-size: 0.98rem;
+      max-width: 840px;
+    }
+
+    /* Setup Notice Banner (Only visible before APPS_SCRIPT_URL is configured) */
+    .setup-banner {
+      display: none;
+      margin-top: 16px;
+      background: rgba(255, 179, 0, 0.10);
+      border: 1.5px dashed var(--amber);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 0.85rem;
+      color: #F0F0F0;
+    }
+    .setup-banner code {
+      background: #111;
+      color: var(--amber);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* Passcode Unlock Console */
+    .pass-console {
+      margin: 18px 0 22px;
+      background: rgba(21, 21, 21, 0.97);
+      border: 1.5px solid #343434;
+      border-left: 4px solid var(--amber);
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .pass-console.unlocked {
+      border-color: rgba(129, 199, 132, 0.55);
+      border-left: 4px solid var(--green);
+    }
+    .pass-console.pulse-focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.32), 0 12px 32px rgba(0, 0, 0, 0.7);
+    }
+    .pass-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .pass-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pass-input-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .pass-input {
+      flex: 1;
+      min-width: 205px;
+      background: #0B0B0B;
+      border: 1.5px solid #3A3A3A;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 10px 13px;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .pass-input:focus {
+      border-color: var(--amber);
+    }
+    .pass-status-msg {
+      margin-top: 8px;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .pass-status-msg.ok { color: var(--green); font-weight: 700; }
+    .pass-status-msg.err { color: var(--red-soft); font-weight: 700; }
+
+    .pass-buy-col {
+      background: #101010;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .pass-buy-label {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .pass-buy-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .btn-buy-tier {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+      background: #181818;
+      border: 1px solid #383838;
+      border-radius: 8px;
+      padding: 8px 11px;
+      transition: all 0.15s ease;
+    }
+    .btn-buy-tier:hover {
+      border-color: var(--amber);
+      background: #201C12;
+      transform: translateY(-1px);
+    }
+    .btn-buy-tier.featured {
+      border-color: rgba(255, 179, 0, 0.75);
+      background: rgba(255, 179, 0, 0.08);
+    }
+    .btn-buy-tier strong {
+      color: #FFFFFF;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+    .btn-buy-tier span {
+      color: #BDBDBD;
+      font-size: 0.73rem;
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+    .pass-buy-note {
+      margin-top: 7px;
+      font-size: 0.73rem;
+      color: #9A9A9A;
+      line-height: 1.35;
+    }
+
+    /* Filter & Search Toolbar */
+    .vault-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #222222;
+    }
+    .cat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .cat-pill {
+      background: #151515;
+      color: #CCCCCC;
+      border: 1px solid #303030;
+      border-radius: 999px;
+      padding: 6px 13px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .cat-pill:hover {
+      border-color: var(--amber);
+      color: #FFFFFF;
+    }
+    .cat-pill.active {
+      background: var(--amber);
+      color: #000000;
+      border-color: #FFFFFF;
+      font-weight: 900;
+    }
+    .cat-pill .count {
+      opacity: 0.78;
+      font-size: 0.73rem;
+      margin-left: 3px;
+    }
+
+    .search-sort-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      background: #121212;
+      border: 1px solid #343434;
+      border-radius: 8px;
+      color: #FFFFFF;
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      min-width: 220px;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--amber); }
+    .sort-select {
+      background: #121212;
+      border: 1px solid #343434;
+      border-radius: 8px;
+      color: #E0E0E0;
+      padding: 8px 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+    .btn-icon {
+      background: #161616;
+      border: 1px solid #343434;
+      border-radius: 8px;
+      color: var(--amber);
+      padding: 7px 11px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-icon:hover {
+      border-color: var(--amber);
+      background: #222;
+    }
+
+    /* Vault Cards Grid */
+    .vault-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+    .vault-card {
+      background: rgba(21, 21, 21, 0.97);
+      border: 1.5px solid #2D2D2D;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+    }
+    .vault-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 179, 0, 0.7);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
+    }
+    .vault-card.claimed-card {
+      border-color: rgba(129, 199, 132, 0.55);
+    }
+
+    .blueprint-stage {
+      position: relative;
+      background: #0E0E12; /* Matches package_product.py dark-studio background */
+      height: 225px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid #2A2A2A;
+      cursor: zoom-in;
+    }
+    .blueprint-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 0;
+      transition: transform 0.2s ease;
+    }
+    .blueprint-stage:hover img {
+      transform: scale(1.03);
+    }
+    .blueprint-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1B2330 0%, #0E131A 100%);
+      color: #90A4AE;
+      font-size: 0.78rem;
+      font-family: monospace;
+      text-align: center;
+      padding: 16px;
+    }
+    .stage-top-badges {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      gap: 6px;
+    }
+    .badge-cat {
+      background: rgba(13, 13, 13, 0.88);
+      color: var(--amber);
+      border: 1px solid rgba(255, 179, 0, 0.55);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.69rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+    .badge-verified {
+      background: rgba(13, 13, 13, 0.88);
+      color: var(--green);
+      border: 1px solid rgba(129, 199, 132, 0.5);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+    .zoom-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(13, 13, 13, 0.84);
+      color: #FFFFFF;
+      border: 1px solid #3A3A3A;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.69rem;
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    .card-body {
+      padding: 15px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex: 1;
+    }
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.28;
+    }
+    .spec-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .spec-pill {
+      background: #101010;
+      border: 1px solid #2C2C2C;
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-size: 0.73rem;
+      color: #DCDCDC;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .spec-pill strong { color: var(--amber); }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: #B8B8B8;
+      line-height: 1.42;
+    }
+
+    .deliverables-row {
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid #232323;
+      font-size: 0.72rem;
+      color: #9E9E9E;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .deliverables-row span.files {
+      color: #D0D0D0;
+      font-weight: 700;
+    }
+
+    .card-footer {
+      padding: 0 16px 16px;
+    }
+    .btn-card-dl {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.15s ease;
+    }
+    .btn-card-dl.locked {
+      background: #1E1E1E;
+      color: var(--amber);
+      border: 1.5px solid rgba(255, 179, 0, 0.55);
+    }
+    .btn-card-dl.locked:hover {
+      background: rgba(255, 179, 0, 0.14);
+      border-color: var(--amber);
+      color: #FFFFFF;
+    }
+    .btn-card-dl.unlocked {
+      background: linear-gradient(135deg, #FFB300 0%, #FFA000 100%);
+      color: #000000;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 4px 14px rgba(255, 179, 0, 0.28);
+    }
+    .btn-card-dl.unlocked:hover:not(:disabled) {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+    }
+    .btn-card-dl.claimed {
+      background: rgba(129, 199, 132, 0.16);
+      color: var(--green);
+      border: 1.5px solid var(--green);
+    }
+    .btn-card-dl.claimed:hover:not(:disabled) {
+      background: rgba(129, 199, 132, 0.26);
+      color: #FFFFFF;
+    }
+    .btn-card-dl:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    /* Loading & Empty States */
+    .state-box {
+      background: rgba(21, 21, 21, 0.96);
+      border: 1px solid #2E2E2E;
+      border-radius: 12px;
+      padding: 44px 24px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .state-box h3 {
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .state-box p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .spinner {
+      width: 34px;
+      height: 34px;
+      border: 3px solid #2E2E2E;
+      border-top-color: var(--amber);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 14px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Bottom Studio Cross-Sell Panel */
+    .studio-cta-panel {
+      background: linear-gradient(180deg, rgba(24, 24, 24, 0.98) 0%, rgba(15, 15, 15, 0.98) 100%);
+      border: 2px solid var(--amber);
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin: 8px 0 38px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: 0 6px 24px rgba(255, 179, 0, 0.12);
+    }
+    .studio-cta-panel h2 {
+      font-size: 1.28rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+    .studio-cta-panel h2 span { color: var(--amber); }
+    .studio-cta-panel p {
+      color: #CCCCCC;
+      font-size: 0.88rem;
+      max-width: 680px;
+    }
+
+    /* Fullscreen Blueprint Lightbox Modal */
+    .lightbox-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-backdrop.open { display: flex; }
+    .lightbox-dialog {
+      background: #141414;
+      border: 2px solid var(--amber);
+      border-radius: 12px;
+      max-width: 980px;
+      width: 100%;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.85);
+    }
+    .lightbox-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid #2A2A2A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .lightbox-title {
+      font-weight: 900;
+      font-size: 1rem;
+      color: #FFFFFF;
+    }
+    .lightbox-close {
+      background: #222;
+      color: #FFF;
+      border: 1px solid #444;
+      border-radius: 7px;
+      padding: 5px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .lightbox-close:hover { border-color: var(--amber); color: var(--amber); }
+    .lightbox-img-wrap {
+      background: #0E0E12; /* Matches package_product.py dark-studio background */
+      flex: 1;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      min-height: 300px;
+    }
+    .lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+    .lightbox-footer {
+      padding: 12px 18px;
+      border-top: 1px solid #2A2A2A;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: #CCCCCC;
+    }
+
+    /* Toast Notification */
+    .vault-toast {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 1050;
+      background: #161616;
+      color: #FFFFFF;
+      border: 1.5px solid var(--amber);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.75);
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      max-width: 360px;
+    }
+    .vault-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 26px 20px;
+      text-align: center;
+      color: #888888;
+      font-size: 0.82rem;
+      background: rgba(13, 13, 13, 0.95);
+    }
+    footer a { color: var(--amber); text-decoration: none; margin: 0 6px; font-weight: 600; }
+
+    @media (max-width: 980px) {
+      .vault-grid { grid-template-columns: repeat(2, 1fr); }
+      .pass-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .vault-grid { grid-template-columns: 1fr; }
+      .pass-buy-btns { grid-template-columns: 1fr; }
+      .nav-links a.nav-item { display: none; }
+      .search-input { width: 100%; min-width: 0; }
+      .search-sort-group { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header>
+    <a href="index.html" class="brand">
+      <svg class="brand-logo" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ivolga Co. Pixel2Path Studio Logo">
+        <defs>
+          <linearGradient id="hdrBodyGrad" x1="120" y1="175" x2="265" y2="265" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFF033"/>
+            <stop offset="55%" stop-color="#FFD000"/>
+            <stop offset="100%" stop-color="#E5A400"/>
+          </linearGradient>
+          <linearGradient id="hdrWingDark" x1="200" y1="95" x2="315" y2="245" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#2B241D"/>
+            <stop offset="100%" stop-color="#14110E"/>
+          </linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="186" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="6"/>
+        <circle cx="200" cy="200" r="180" fill="none" stroke="#FFB300" stroke-width="4"/>
+        <path d="M 168,224 C 138,236 95,256 62,268 C 72,272 84,271 96,266 C 80,275 68,280 58,281 C 70,285 85,283 98,277 C 86,286 76,290 68,291 C 98,298 135,292 175,278 L 214,256 Z" fill="url(#hdrWingDark)"/>
+        <path d="M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z" fill="url(#hdrWingDark)"/>
+        <path d="M 198,196 C 218,162 246,118 265,86 C 271,88 272,99 267,112 C 276,96 283,84 289,82 C 294,86 292,99 285,114 C 294,101 302,92 308,91 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="url(#hdrWingDark)"/>
+        <path d="M 222,175 L 266,94 M 230,182 L 286,92 M 236,189 L 304,102 M 242,196 L 315,120 M 246,203 L 319,142 M 250,210 L 318,165 M 252,217 L 312,188 M 254,224 L 302,210" stroke="#3D342B" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M 195,196 C 212,175 232,155 248,145 C 254,154 252,166 246,176 C 254,172 258,180 252,191 C 258,190 259,198 251,208 C 255,210 254,218 245,224 C 230,226 210,215 195,196 Z" fill="url(#hdrBodyGrad)"/>
+        <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 272,256 286,268 296,274 C 278,274 258,266 242,256 C 222,258 196,248 178,233 C 164,222 156,210 144,204 C 134,200 126,197 122,193 Z" fill="url(#hdrBodyGrad)"/>
+        <path d="M 124,191 L 96,195 L 125,198 Z" fill="#9E7B56" stroke="#4A3828" stroke-width="1"/>
+        <circle cx="140" cy="192" r="4.8" fill="#14100C"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">IVOLGA CO.</span>
+        <span class="brand-sub">PIXEL2PATH STUDIO</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary Navigation">
+      <a href="index.html" class="nav-item">← Home</a>
+      <a href="vault.html" class="btn-nav-pill btn-nav-active">🗄️ CAD Vault</a>
+      <a href="guide.html" class="btn-nav-pill">📖 User Guide</a>
+      <a href="https://app.ivolgaco.com/" class="btn-primary btn-header">📤 Custom 3D/Vector Studio →</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="vault-hero">
+      <div class="hero-kicker-row">
+        <span class="hero-badge">🗄️ READY-TO-CUT CAD VAULT</span>
+        <span class="hero-kicker-label">1:1 MM CALIBRATED · DXF (R2010) + SVG + ASSEMBLY GUIDE</span>
+      </div>
+      <h1>Geometry-Verified <span class="txt-gold">Fabrication Templates.</span></h1>
+      <p class="lead">
+        Inspect every 1:1 millimeter blueprint before you cut. Download production-ready <strong>.DXF</strong> &amp; <strong>.SVG</strong> packs for leather clicker dies, wallets, luthier routing templates, Eurorack panels, and CNC workshop jigs — included with your Pixel2Path Studio Pass.
+      </p>
+
+      <div id="setupBanner" class="setup-banner">
+        ⚙️ <strong>Admin Setup Mode:</strong> Paste your deployed Google Apps Script Web App URL into <code>APPS_SCRIPT_URL</code> near the bottom of <code>vault.html</code> to load live bundles from your <code>CAD_Products_Approved</code> Google Drive folder. Showing sample layout cards below.
+      </div>
+    </section>
+
+    <!-- PASSCODE UNLOCK BAR -->
+    <section id="passConsole" class="pass-console" aria-label="Studio Pass Unlock">
+      <div class="pass-grid">
+        <div>
+          <div class="pass-title">
+            <span id="passHeaderIcon">🔑</span>
+            <span id="passHeaderText">Have a Pixel2Path Studio Access Key?</span>
+          </div>
+          <div class="pass-input-row">
+            <input
+              id="passcodeInput"
+              type="text"
+              class="pass-input"
+              placeholder="TPS-XXXX-XXXX"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Enter your TPS-XXXX-XXXX Studio Access Key"
+            />
+            <button id="unlockBtn" type="button" class="btn-primary" onclick="verifyPasscode()">
+              Unlock Vault
+            </button>
+            <button id="clearKeyBtn" type="button" class="btn-secondary" style="display:none;" onclick="clearPasscode()">
+              Sign Out Key
+            </button>
+          </div>
+          <div id="passStatusMsg" class="pass-status-msg">
+            Browse &amp; zoom all blueprints free. Enter your <code>TPS-XXXX-XXXX</code> key to unlock instant <code>.ZIP</code> downloads (works alongside <strong>app.ivolgaco.com</strong> without signing out your Studio session).
+          </div>
+        </div>
+
+        <div class="pass-buy-col">
+          <div class="pass-buy-label">⚡ Need an Access Key? Zero Per-File Markups:</div>
+          <div class="pass-buy-btns">
+            <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener" class="btn-buy-tier">
+              <strong>⚡ $8 · 24-Hr Pass</strong>
+              <span>Includes <strong>3 Vault .ZIP Packs</strong> + 24h Full Studio &amp; 25 AI Credits</span>
+            </a>
+            <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener" class="btn-buy-tier featured">
+              <strong>🏆 $25/mo · Studio Monthly</strong>
+              <span><strong>UNLIMITED Vault .ZIPs</strong> + Full 3D/Vector Studio &amp; 150 Credits</span>
+            </a>
+          </div>
+          <div class="pass-buy-note">
+            After checkout, copy your instant <code>TPS-XXXX-XXXX</code> key shown in Pixel2Path Studio and paste it on the left.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH TOOLBAR -->
+    <section class="vault-toolbar" aria-label="Catalog Filters">
+      <div id="catPills" class="cat-pills">
+        <button type="button" class="cat-pill active" data-cat="all">All Templates</button>
+      </div>
+
+      <div class="search-sort-group">
+        <input
+          id="searchInput"
+          type="search"
+          class="search-input"
+          placeholder="🔍 Search wallet, pickguard, panel, jig..."
+          aria-label="Search CAD templates"
+        />
+        <select id="sortSelect" class="sort-select" aria-label="Sort templates">
+          <option value="newest">Newest Added</option>
+          <option value="az">Name (A–Z)</option>
+          <option value="area">Largest Footprint</option>
+        </select>
+        <button type="button" class="btn-icon" onclick="loadCatalog(true)" title="Refresh catalog from Google Drive">
+          🔄 Refresh
+        </button>
+      </div>
+    </section>
+
+    <!-- DYNAMIC CATALOG CONTAINER -->
+    <div id="vaultStateBox" class="state-box">
+      <div class="spinner"></div>
+      <h3>Loading Approved CAD Vault...</h3>
+      <p>Fetching verified 1:1mm production bundles.</p>
+    </div>
+
+    <div id="vaultGrid" class="vault-grid" style="display:none;"></div>
+
+    <!-- CUSTOM STUDIO CROSS-SELL -->
+    <section class="studio-cta-panel">
+      <div>
+        <h2>Need a Custom 3D Stamp or Cut File from <span>Your Own Logo or Photo?</span></h2>
+        <p>
+          Your same <code>TPS-XXXX-XXXX</code> pass unlocks <strong>Pixel2Path Studio</strong> — convert any PNG, JPG, SVG, or arched text into watertight 3D stamps (<code>.STL</code>), steel-rule clicker dies (<code>.DXF</code>), and laser/plotter vectors (<code>.SVG</code>).
+        </p>
+      </div>
+      <a href="https://app.ivolgaco.com/" class="btn-primary">📤 Launch Pixel2Path Studio →</a>
+    </section>
+  </main>
+
+  <!-- BLUEPRINT LIGHTBOX MODAL -->
+  <div id="lightboxModal" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" onclick="handleLightboxBackdrop(event)">
+    <div class="lightbox-dialog">
+      <div class="lightbox-header">
+        <div id="lightboxTitle" class="lightbox-title">Blueprint Inspection</div>
+        <button type="button" class="lightbox-close" onclick="closeLightbox()">✕ Close (Esc)</button>
+      </div>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="1:1 millimeter CAD blueprint preview" />
+      </div>
+      <div class="lightbox-footer">
+        <span id="lightboxMeta">1:1 Millimeter Verified Blueprint</span>
+        <button id="lightboxDlBtn" type="button" class="btn-primary" style="padding:8px 16px;font-size:0.84rem;">
+          ⬇️ Download Production .ZIP
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="vaultToast" class="vault-toast" role="status" aria-live="polite"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="margin-bottom:8px;">
+      <a href="index.html">Ivolga Co. Home</a> ·
+      <a href="vault.html">CAD Vault</a> ·
+      <a href="guide.html">Official User Manual</a> ·
+      <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> ·
+      <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
+    </div>
+    <div>© 2026 Ivolga Co. · Digital Fabrication Studio · All Vault packs include Commercial Physical-Goods Cut License.</div>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // 1. PASTE YOUR GOOGLE APPS SCRIPT WEB APP "/exec" URL RIGHT BELOW:
+    // =========================================================================
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuDDrGEJFYPrU-DgCul2usu_5GAp1P6lxgqhRDWQsw2fz3IvlwFFKfiHPTLKaNPOgRjA/exec";
+
+    const STORAGE_KEY_PASS = "p2p_vault_passcode_v1";
+    const CATEGORY_LABELS = {
+      all: "All Templates",
+      leathercraft: "🗜️ Leathercraft",
+      luthier: "🎸 Guitar & Luthier",
+      synth_panel: "🎛️ Synth & Pedal",
+      edc: "🔪 EDC & Carry",
+      workshop_jig: "🛠️ Workshop Jig",
+      gasket_foam: "⚙️ Gasket & Foam"
+    };
+
+    const SAMPLE_ITEMS = [
+      {
+        slug: "minimalist_3_pocket_bifold_card_wallet_template",
+        title: "Minimalist 3-Pocket Bifold Card Wallet Template",
+        category: "leathercraft",
+        target_material: "4–5 oz (1.6–2.0 mm) Veg-Tan Leather",
+        width_mm: 225.8,
+        height_mm: 101.6,
+        part_count: 4,
+        stitch_count: 138,
+        commercial_reason: "4-piece nested bifold card wallet pattern with 4.0mm pitch stitch holes, T-slots, and fold line.",
+        deliverables: ["DXF R2010", "SVG 1:1mm", "Assembly Guide"],
+        zip_size_kb: 94,
+        zip_id: "sample_1",
+        png_id: "",
+        updated_at: "2026-11-03T18:00:00Z",
+        is_sample: true
+      },
+      {
+        slug: "eurorack_synth_front_panel",
+        title: "3U 10HP Eurorack Synth Front Panel",
+        category: "synth_panel",
+        target_material: "2.0 mm Anodized Aluminum / FR4 Panel",
+        width_mm: 50.5,
+        height_mm: 128.5,
+        part_count: 1,
+        cutout_count: 14,
+        commercial_reason: "Doepfer A-100 standard 3U × 10HP faceplate with 3.2mm slotted mounting rails and pot/jack cutouts.",
+        deliverables: ["DXF R2010", "SVG 1:1mm", "Assembly Guide"],
+        zip_size_kb: 68,
+        zip_id: "sample_2",
+        png_id: "",
+        updated_at: "2026-11-03T17:00:00Z",
+        is_sample: true
+      },
+      {
+        slug: "vintage_1952_spec_8_hole_telecaster_pickguard",
+        title: "Vintage 1952 Spec 8-Hole Telecaster Pickguard",
+        category: "luthier",
+        target_material: "2.4 mm Single-Ply Pickguard / 6 mm Acrylic",
+        width_mm: 215.9,
+        height_mm: 188.4,
+        part_count: 1,
+        cutout_count: 11,
+        commercial_reason: "1:1 luthier CNC & laser routing template with neck pocket relief, pickup cavity, and 8 mounting holes.",
+        deliverables: ["DXF R2010", "SVG 1:1mm", "Assembly Guide"],
+        zip_size_kb: 82,
+        zip_id: "sample_3",
+        png_id: "",
+        updated_at: "2026-11-03T16:00:00Z",
+        is_sample: true
+      }
+    ];
+
+    let catalogItems = [];
+    let activeCategory = "all";
+    let previewCache = {};
+    let previewObserver = null;
+    let currentLightboxSlug = null;
+
+    let passState = {
+      verified: false,
+      passcode: "",
+      tier: "",
+      plan_label: "",
+      unlimited: false,
+      limit: 3,
+      used: 0,
+      remaining: 0,
+      claimed_slugs: []
+    };
+
+    function isConfigured() {
+      return (
+        APPS_SCRIPT_URL &&
+        APPS_SCRIPT_URL.startsWith("https://script.google.com/macros/s/") &&
+        !APPS_SCRIPT_URL.includes("PASTE_YOUR_")
+      );
+    }
+
+    function escapeHtml(str) {
+      return String(str == null ? "" : str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("vaultToast");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => el.classList.remove("show"), 4200);
+    }
+
+    async function postToVaultApi(payload) {
+      // Uses text/plain CORS simple request so Google Apps Script never rejects an OPTIONS preflight
+      const resp = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+        redirect: "follow"
+      });
+      if (!resp.ok) {
+        throw new Error("HTTP " + resp.status);
+      }
+      return await resp.json();
+    }
+
+    function formatTimeRemaining(isoStr) {
+      if (!isoStr) return "";
+      const expMs = Date.parse(isoStr);
+      if (isNaN(expMs)) return "";
+      const diffMs = expMs - Date.now();
+      if (diffMs <= 0) return "Expired";
+      const totalMins = Math.floor(diffMs / 60000);
+      const days = Math.floor(totalMins / 1440);
+      const hrs = Math.floor((totalMins % 1440) / 60);
+      const mins = totalMins % 60;
+      if (days >= 1) return days + "d " + hrs + "h left";
+      return hrs + "h " + mins + "m left";
+    }
+
+    function applyPassStateUI() {
+      const consoleEl = document.getElementById("passConsole");
+      const hdrIcon = document.getElementById("passHeaderIcon");
+      const hdrText = document.getElementById("passHeaderText");
+      const msgEl = document.getElementById("passStatusMsg");
+      const clearBtn = document.getElementById("clearKeyBtn");
+      const unlockBtn = document.getElementById("unlockBtn");
+
+      if (!passState.verified) {
+        consoleEl.classList.remove("unlocked");
+        hdrIcon.textContent = "🔑";
+        hdrText.textContent = "Have a Pixel2Path Studio Access Key?";
+        clearBtn.style.display = "none";
+        unlockBtn.textContent = "Unlock Vault";
+        return;
+      }
+
+      consoleEl.classList.add("unlocked");
+      clearBtn.style.display = "inline-flex";
+      unlockBtn.textContent = "Refresh Key";
+
+      if (passState.unlimited) {
+        hdrIcon.textContent = "🏆";
+        hdrText.textContent = passState.plan_label + " Unlocked — Unlimited Vault Downloads";
+        msgEl.className = "pass-status-msg ok";
+        msgEl.textContent = "✅ Unlimited 1:1mm production .ZIP downloads are active on this key.";
+      } else {
+        const timeStr = formatTimeRemaining(passState.expires_at);
+        hdrIcon.textContent = "⚡";
+        hdrText.textContent = passState.plan_label + " Active — " + passState.remaining + " of " + passState.limit + " Vault Packs Remaining";
+        msgEl.className = "pass-status-msg ok";
+        msgEl.textContent =
+          "✅ Pick up to " + passState.limit + " unique .ZIP packs on your 24-Hr Pass (re-downloading unlocked packs is free)" +
+          (timeStr ? " · " + timeStr : "") + ".";
+      }
+      renderCatalog();
+    }
+
+    async function verifyPasscode(silentOnInit) {
+      const input = document.getElementById("passcodeInput");
+      const msgEl = document.getElementById("passStatusMsg");
+      const btn = document.getElementById("unlockBtn");
+      const rawKey = (input.value || "").trim().toUpperCase();
+
+      if (!rawKey) {
+        if (!silentOnInit) {
+          msgEl.className = "pass-status-msg err";
+          msgEl.textContent = "⚠️ Please enter your TPS-XXXX-XXXX Access Key first.";
+          input.focus();
+        }
+        return false;
+      }
+
+      if (!isConfigured()) {
+        msgEl.className = "pass-status-msg err";
+        msgEl.textContent = "⚙️ Admin Setup Mode: Configure APPS_SCRIPT_URL in vault.html first to verify live keys.";
+        return false;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Verifying...";
+      try {
+        const data = await postToVaultApi({
+          client_action: "verify",
+          passcode: rawKey
+        });
+
+        if (data.status !== "ok") {
+          passState.verified = false;
+          localStorage.removeItem(STORAGE_KEY_PASS);
+          msgEl.className = "pass-status-msg err";
+          msgEl.textContent = "❌ " + (data.message || "Invalid or expired Access Key.");
+          applyPassStateUI();
+          renderCatalog();
+          return false;
+        }
+
+        passState = {
+          verified: true,
+          passcode: rawKey,
+          tier: data.tier || "daypass",
+          plan_label: data.plan_label || "Studio Pass",
+          unlimited: Boolean(data.unlimited),
+          limit: Number(data.limit || 3),
+          used: Number(data.used || 0),
+          remaining: Number(data.remaining != null ? data.remaining : 3),
+          claimed_slugs: Array.isArray(data.claimed_slugs) ? data.claimed_slugs : [],
+          expires_at: data.expires_at || ""
+        };
+        localStorage.setItem(STORAGE_KEY_PASS, rawKey);
+        applyPassStateUI();
+        if (!silentOnInit) {
+          showToast("🔓 Vault unlocked: " + passState.plan_label);
+        }
+        return true;
+      } catch (err) {
+        msgEl.className = "pass-status-msg err";
+        msgEl.textContent = "⚠️ Could not reach verification service. Check your connection and try again.";
+        return false;
+      } finally {
+        btn.disabled = false;
+        if (!passState.verified) btn.textContent = "Unlock Vault";
+      }
+    }
+
+    function clearPasscode() {
+      localStorage.removeItem(STORAGE_KEY_PASS);
+      document.getElementById("passcodeInput").value = "";
+      passState = {
+        verified: false,
+        passcode: "",
+        tier: "",
+        plan_label: "",
+        unlimited: false,
+        limit: 3,
+        used: 0,
+        remaining: 0,
+        claimed_slugs: []
+      };
+      const msgEl = document.getElementById("passStatusMsg");
+      msgEl.className = "pass-status-msg";
+      msgEl.textContent = "Key cleared from this browser. Browse blueprints freely or enter a key anytime.";
+      applyPassStateUI();
+      renderCatalog();
+    }
+
+    function promptUnlockBar() {
+      const consoleEl = document.getElementById("passConsole");
+      const input = document.getElementById("passcodeInput");
+      consoleEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      consoleEl.classList.add("pulse-focus");
+      setTimeout(() => consoleEl.classList.remove("pulse-focus"), 1800);
+      setTimeout(() => input.focus(), 350);
+    }
+
+    function base64ToZipBlob(b64Data) {
+      const binStr = atob(b64Data);
+      const len = binStr.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binStr.charCodeAt(i);
+      }
+      return new Blob([bytes], { type: "application/zip" });
+    }
+
+    async function handleDownloadClick(slug, btnEl) {
+      const item = catalogItems.find((x) => x.slug === slug);
+      if (!item) return;
+
+      if (item.is_sample) {
+        showToast("⚙️ Sample card — connect APPS_SCRIPT_URL to download live .ZIP bundles.");
+        promptUnlockBar();
+        return;
+      }
+
+      // If user typed their key in the input box but hadn't clicked "Unlock Vault" yet, verify automatically!
+      const typedKey = (document.getElementById("passcodeInput").value || "").trim();
+      if (!passState.verified && typedKey) {
+        const ok = await verifyPasscode(false);
+        if (!ok) return;
+      }
+
+      if (!passState.verified) {
+        showToast("🔑 Enter your TPS-XXXX-XXXX Pass Key above to unlock .ZIP downloads.");
+        promptUnlockBar();
+        return;
+      }
+
+      const alreadyClaimed = passState.claimed_slugs.includes(item.slug);
+      if (!passState.unlimited && !alreadyClaimed && passState.remaining <= 0) {
+        showToast("⚡ All 3 picks on this 24-Hr Pass are used. Upgrade to Studio Monthly ($25/mo) for unlimited Vault packs!");
+        promptUnlockBar();
+        return;
+      }
+
+      const origHtml = btnEl ? btnEl.innerHTML : "";
+      if (btnEl) {
+        btnEl.disabled = true;
+        btnEl.textContent = "⏳ Preparing Verified .ZIP...";
+      }
+
+      try {
+        const res = await postToVaultApi({
+          client_action: "download",
+          passcode: passState.passcode,
+          zip_id: item.zip_id,
+          slug: item.slug
+        });
+
+        if (res.status !== "ok" || !res.fileData) {
+          showToast("❌ " + (res.message || "Download could not be authorized."));
+          if (res.quota_exhausted) {
+            passState.remaining = 0;
+            applyPassStateUI();
+          }
+          return;
+        }
+
+        const blob = base64ToZipBlob(res.fileData);
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = res.filename || (item.slug + "_production_package.zip");
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 15000);
+
+        if (!passState.unlimited) {
+          passState.used = Number(res.used != null ? res.used : passState.used);
+          passState.remaining = Number(res.remaining != null ? res.remaining : passState.remaining);
+          if (Array.isArray(res.claimed_slugs)) {
+            passState.claimed_slugs = res.claimed_slugs;
+          } else if (!passState.claimed_slugs.includes(item.slug)) {
+            passState.claimed_slugs.push(item.slug);
+          }
+        }
+        applyPassStateUI();
+        showToast("✅ Downloaded " + (res.filename || item.slug + ".zip"));
+      } catch (err) {
+        showToast("⚠️ Network error while downloading .ZIP. Please try again.");
+      } finally {
+        if (btnEl) {
+          btnEl.disabled = false;
+          btnEl.innerHTML = origHtml;
+          renderCatalog();
+        }
+      }
+    }
+
+    function renderCategoryPills() {
+      const container = document.getElementById("catPills");
+      const counts = { all: catalogItems.length };
+      for (const item of catalogItems) {
+        const c = item.category || "workshop_jig";
+        counts[c] = (counts[c] || 0) + 1;
+      }
+
+      const orderedKeys = ["all", "leathercraft", "luthier", "synth_panel", "edc", "workshop_jig", "gasket_foam"];
+      let html = "";
+      for (const key of orderedKeys) {
+        const cnt = counts[key] || 0;
+        if (key !== "all" && cnt === 0) continue;
+        const activeCls = activeCategory === key ? " active" : "";
+        const label = CATEGORY_LABELS[key] || key;
+        html += `<button type="button" class="cat-pill${activeCls}" onclick="setCategory('${escapeHtml(key)}')">${escapeHtml(label)}<span class="count">(${cnt})</span></button>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      renderCategoryPills();
+      renderCatalog();
+    }
+
+    function getFilteredItems() {
+      const q = (document.getElementById("searchInput").value || "").trim().toLowerCase();
+      const sortBy = document.getElementById("sortSelect").value;
+
+      let list = catalogItems.filter((item) => {
+        if (activeCategory !== "all" && item.category !== activeCategory) return false;
+        if (!q) return true;
+        const hay = [
+          item.title,
+          item.slug,
+          item.category,
+          item.target_material,
+          item.commercial_reason
+        ].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+
+      list.sort((a, b) => {
+        if (sortBy === "az") {
+          return String(a.title || "").localeCompare(String(b.title || ""));
+        }
+        if (sortBy === "area") {
+          const areaA = Number(a.width_mm || 0) * Number(a.height_mm || 0);
+          const areaB = Number(b.width_mm || 0) * Number(b.height_mm || 0);
+          return areaB - areaA;
+        }
+        return String(b.updated_at || "").localeCompare(String(a.updated_at || ""));
+      });
+
+      return list;
+    }
+
+    function buildCardButton(item) {
+      const slugEsc = escapeHtml(item.slug);
+      if (!passState.verified) {
+        return `<button type="button" class="btn-card-dl locked" onclick="handleDownloadClick('${slugEsc}', this)">🔒 Unlock .ZIP with Studio Pass</button>`;
+      }
+      if (passState.unlimited) {
+        return `<button type="button" class="btn-card-dl unlocked" onclick="handleDownloadClick('${slugEsc}', this)">⬇️ Download Production .ZIP</button>`;
+      }
+      const isClaimed = passState.claimed_slugs.includes(item.slug);
+      if (isClaimed) {
+        return `<button type="button" class="btn-card-dl claimed" onclick="handleDownloadClick('${slugEsc}', this)">✅ Re-Download .ZIP (Unlocked)</button>`;
+      }
+      if (passState.remaining > 0) {
+        return `<button type="button" class="btn-card-dl unlocked" onclick="handleDownloadClick('${slugEsc}', this)">⬇️ Download .ZIP (Uses 1 of ${passState.remaining} Left)</button>`;
+      }
+      return `<button type="button" class="btn-card-dl locked" onclick="handleDownloadClick('${slugEsc}', this)">🔒 3/3 Picks Used — Upgrade Monthly</button>`;
+    }
+
+    function renderCatalog() {
+      const stateBox = document.getElementById("vaultStateBox");
+      const grid = document.getElementById("vaultGrid");
+      const filtered = getFilteredItems();
+
+      if (catalogItems.length === 0) {
+        grid.style.display = "none";
+        stateBox.style.display = "block";
+        stateBox.innerHTML = `
+          <h3>🗄️ No Approved Templates in Vault Yet</h3>
+          <p>Move any verified <code>*_production_package.zip</code> + <code>*_preview.png</code> pair from <code>CAD_Products_Intake</code> into <code>CAD_Products_Approved</code> in Google Drive, then click <strong>🔄 Refresh</strong>.</p>
+        `;
+        return;
+      }
+
+      if (filtered.length === 0) {
+        grid.style.display = "none";
+        stateBox.style.display = "block";
+        stateBox.innerHTML = `
+          <h3>No matching templates found</h3>
+          <p>Try clearing your search filter or switching back to <strong>All Templates</strong>.</p>
+        `;
+        return;
+      }
+
+      stateBox.style.display = "none";
+      grid.style.display = "grid";
+
+      grid.innerHTML = filtered.map((item) => {
+        const catLabel = CATEGORY_LABELS[item.category] || "🛠️ CAD Template";
+        const isClaimed = passState.verified && !passState.unlimited && passState.claimed_slugs.includes(item.slug);
+        const dimText = (item.width_mm && item.height_mm)
+          ? `${Number(item.width_mm).toFixed(1)} × ${Number(item.height_mm).toFixed(1)} mm`
+          : "1:1 mm Calibrated";
+
+        let countsPill = "";
+        if (item.stitch_count > 0) {
+          countsPill = `<span class="spec-pill">🧵 <strong>${Number(item.stitch_count)}</strong> Stitch Holes</span>`;
+        } else if (item.cutout_count > 0) {
+          countsPill = `<span class="spec-pill">⭕ <strong>${Number(item.cutout_count)}</strong> Cutouts</span>`;
+        } else if (item.part_count > 0) {
+          countsPill = `<span class="spec-pill">🧩 <strong>${Number(item.part_count)}</strong> ${item.part_count === 1 ? "Part" : "Parts"}</span>`;
+        }
+
+        const cachedImg = previewCache[item.png_id];
+        let stageMedia = "";
+        if (cachedImg) {
+          stageMedia = `<img src="${cachedImg}" alt="${escapeHtml(item.title)} 1:1mm CAD blueprint preview" loading="lazy" />`;
+        } else if (item.png_id) {
+          stageMedia = `
+            <div class="blueprint-placeholder" data-png-id="${escapeHtml(item.png_id)}" data-title="${escapeHtml(item.title)}">
+              <span>📐 Loading 1:1mm Blueprint...</span>
+            </div>
+          `;
+        } else {
+          stageMedia = `
+            <div class="blueprint-placeholder">
+              <strong style="color:#FFB300;font-size:0.86rem;">📐 ${escapeHtml(dimText)}</strong>
+              <span>1:1 MM CAD VECTOR PACK<br/>(.DXF + .SVG + GUIDE)</span>
+            </div>
+          `;
+        }
+
+        const deliv = Array.isArray(item.deliverables) && item.deliverables.length
+          ? item.deliverables.join(" · ")
+          : "DXF R2010 · SVG 1:1mm · Guide";
+        const sizeStr = item.zip_size_kb ? `${item.zip_size_kb} KB .ZIP` : "Verified .ZIP";
+
+        return `
+          <article class="vault-card${isClaimed ? " claimed-card" : ""}">
+            <div>
+              <div class="blueprint-stage" onclick="openLightbox('${escapeHtml(item.slug)}')" title="Click to inspect full-size blueprint">
+                ${stageMedia}
+                <div class="stage-top-badges">
+                  <span class="badge-cat">${escapeHtml(catLabel)}</span>
+                  <span class="badge-verified">${item.is_sample ? "SAMPLE" : "✅ 1:1 MM"}</span>
+                </div>
+                <span class="zoom-hint">🔍 Inspect</span>
+              </div>
+
+              <div class="card-body">
+                <h2 class="card-title">${escapeHtml(item.title)}</h2>
+                <div class="spec-pills">
+                  <span class="spec-pill">📐 <strong>${escapeHtml(dimText)}</strong></span>
+                  ${countsPill}
+                  ${item.target_material ? `<span class="spec-pill">🪵 ${escapeHtml(item.target_material)}</span>` : ""}
+                </div>
+                ${item.commercial_reason ? `<p class="card-desc">${escapeHtml(item.commercial_reason)}</p>` : ""}
+                <div class="deliverables-row">
+                  <span class="files">📦 ${escapeHtml(deliv)}</span>
+                  <span>${escapeHtml(sizeStr)}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              ${buildCardButton(item)}
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      observeLazyPreviews();
+    }
+
+    function observeLazyPreviews() {
+      if (previewObserver) previewObserver.disconnect();
+      const targets = document.querySelectorAll("[data-png-id]");
+      if (!targets.length || !isConfigured()) return;
+
+      previewObserver = new IntersectionObserver((entries, obs) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const el = entry.target;
+          const pngId = el.getAttribute("data-png-id");
+          const title = el.getAttribute("data-title") || "CAD Blueprint";
+          obs.unobserve(el);
+          fetchPreviewImage(pngId, el, title);
+        }
+      }, { rootMargin: "220px" });
+
+      targets.forEach((el) => previewObserver.observe(el));
+    }
+
+    async function fetchPreviewImage(pngId, placeholderEl, title) {
+      if (!pngId) return;
+      if (previewCache[pngId]) {
+        swapPlaceholderWithImg(placeholderEl, previewCache[pngId], title);
+        return;
+      }
+      try {
+        const resp = await fetch(`${APPS_SCRIPT_URL}?action=preview&id=${encodeURIComponent(pngId)}`, {
+          method: "GET",
+          redirect: "follow"
+        });
+        const data = await resp.json();
+        if (data.status === "ok" && data.dataUrl) {
+          previewCache[pngId] = data.dataUrl;
+          swapPlaceholderWithImg(placeholderEl, data.dataUrl, title);
+          if (currentLightboxSlug) {
+            const lbItem = catalogItems.find((x) => x.slug === currentLightboxSlug);
+            if (lbItem && lbItem.png_id === pngId) {
+              document.getElementById("lightboxImg").src = data.dataUrl;
+            }
+          }
+        }
+      } catch (e) {
+        // Leave clean architectural fallback if offline
+      }
+    }
+
+    function swapPlaceholderWithImg(el, dataUrl, title) {
+      if (!el || !el.parentNode) return;
+      const img = document.createElement("img");
+      img.src = dataUrl;
+      img.alt = title + " 1:1mm CAD blueprint preview";
+      img.loading = "lazy";
+      el.replaceWith(img);
+    }
+
+    function openLightbox(slug) {
+      const item = catalogItems.find((x) => x.slug === slug);
+      if (!item) return;
+      currentLightboxSlug = slug;
+
+      document.getElementById("lightboxTitle").textContent = item.title;
+      const dimText = (item.width_mm && item.height_mm)
+        ? `${Number(item.width_mm).toFixed(1)} × ${Number(item.height_mm).toFixed(1)} mm`
+        : "1:1 mm Calibrated";
+      document.getElementById("lightboxMeta").textContent =
+        `${dimText} · ${item.target_material || "1:1mm DXF + SVG Production Pack"}`;
+
+      const imgEl = document.getElementById("lightboxImg");
+      if (item.png_id && previewCache[item.png_id]) {
+        imgEl.src = previewCache[item.png_id];
+      } else {
+        imgEl.src = "data:image/svg+xml," + encodeURIComponent(
+          `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420"><rect width="720" height="420" fill="#101620"/><rect x="24" y="24" width="672" height="372" fill="none" stroke="#FFB300" stroke-width="2" stroke-dasharray="8 6"/><text x="360" y="195" text-anchor="middle" fill="#FFB300" font-family="monospace" font-size="22" font-weight="bold">${item.title.replace(/[<>&"]/g, "")}</text><text x="360" y="232" text-anchor="middle" fill="#B0BEC5" font-family="monospace" font-size="16">${dimText} · Loading Blueprint Preview...</text></svg>`
+        );
+        if (item.png_id && isConfigured()) {
+          fetchPreviewImage(item.png_id, null, item.title);
+        }
+      }
+
+      const dlBtn = document.getElementById("lightboxDlBtn");
+      dlBtn.onclick = () => {
+        closeLightbox();
+        handleDownloadClick(item.slug, null);
+      };
+      dlBtn.textContent = passState.verified
+        ? "⬇️ Download Production .ZIP"
+        : "🔒 Unlock .ZIP with Studio Pass";
+
+      document.getElementById("lightboxModal").classList.add("open");
+    }
+
+    function closeLightbox() {
+      currentLightboxSlug = null;
+      document.getElementById("lightboxModal").classList.remove("open");
+    }
+
+    function handleLightboxBackdrop(e) {
+      if (e.target.id === "lightboxModal") closeLightbox();
+    }
+
+    async function loadCatalog(forceRefresh) {
+      const stateBox = document.getElementById("vaultStateBox");
+      const grid = document.getElementById("vaultGrid");
+
+      if (!isConfigured()) {
+        document.getElementById("setupBanner").style.display = "block";
+        catalogItems = SAMPLE_ITEMS.slice();
+        renderCategoryPills();
+        renderCatalog();
+        return;
+      }
+
+      grid.style.display = "none";
+      stateBox.style.display = "block";
+      stateBox.innerHTML = `
+        <div class="spinner"></div>
+        <h3>${forceRefresh ? "Refreshing Approved CAD Vault..." : "Loading Approved CAD Vault..."}</h3>
+        <p>Syncing 1:1mm blueprints from Google Drive.</p>
+      `;
+
+      try {
+        const qs = forceRefresh ? "?action=list&refresh=1" : "?action=list";
+        const resp = await fetch(APPS_SCRIPT_URL + qs, { method: "GET", redirect: "follow" });
+        const data = await resp.json();
+        if (data.status !== "ok") {
+          throw new Error(data.message || "Catalog error");
+        }
+        catalogItems = Array.isArray(data.items) ? data.items : [];
+        renderCategoryPills();
+        renderCatalog();
+        if (forceRefresh) showToast("✅ Vault catalog refreshed (" + catalogItems.length + " packs).");
+      } catch (err) {
+        stateBox.innerHTML = `
+          <h3>⚠️ Could not load CAD Vault catalog</h3>
+          <p>Check that your Google Apps Script Web App is deployed with <strong>Who has access: Anyone</strong>, then click <strong>🔄 Refresh</strong>.</p>
+        `;
+      }
+    }
+
+    // Initialize URL ?key=... or saved Passcode + Event Listeners
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("searchInput").addEventListener("input", renderCatalog);
+      document.getElementById("sortSelect").addEventListener("change", renderCatalog);
+      document.getElementById("passcodeInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          verifyPasscode(false);
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      const urlKey = (params.get("key") || "").trim().toUpperCase();
+      const savedKey = (localStorage.getItem(STORAGE_KEY_PASS) || "").trim().toUpperCase();
+      const initKey = urlKey || savedKey;
+
+      loadCatalog(false).then(() => {
+        if (initKey && isConfigured()) {
+          document.getElementById("passcodeInput").value = initKey;
+          verifyPasscode(true);
+        } else if (initKey) {
+          document.getElementById("passcodeInput").value = initKey;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
