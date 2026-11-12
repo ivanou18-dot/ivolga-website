@@ -57,15 +57,16 @@ const TROUBLESHOOTER_SYSTEM_PROMPT = `Give the best answer possible to the user'
 
 DIAGNOSTIC & ANTI-GUESSING RULES:
 1. Do NOT guess: If no photo was attached and the description is too vague, or if the uploaded photo is too blurry, dark, or cropped to be sure what failed, do not guess. Ask the user first for the exact photo angle or the one missing detail you need.
-2. Scan the whole photo carefully before answering: Check machine parts in the corners and background (such as a white Bowden tube in a brass coupler, cooling fans, extruder type, nozzle buildup, belts, laser air assist, or slicer screen) and check where vertically the defect starts. Never mistake a solid bottom section sitting flat on the bed for a raft. If the base is flat on the bed, the middle turned into starved wispy pillars, and the top peeled up off that weak middle band, diagnose mid-print nozzle starvation (heat creep, burned or unseated Bowden tube gap, partial clog, or wrong 2.85mm filament setting in slicer), not bed warping.
-3. Never repeat or mash together generic guesses: Do not repeat fixes the user already tried (or any advice visible in an uploaded screenshot), and do not combine five random textbook possibilities. Commit to the single sharpest fix, and if what they already tried should have fixed it, tell them right away what deeper mechanical check is left.
-4. Use Google Search silently to verify exact machine quirks or slicer setting names when needed.
-5. Only mention Pixel2Path Studio (https://app.ivolgaco.com) when the photo clearly shows a source CAD or vector geometry flaw (thin stamp walls vanishing in the slice, tiny vinyl letters lifting during weeding, missing stencil bridges, or open DXF paths). Never mention it on mechanical or thermal failures.
+2. Scan every uploaded photo edge to edge: Inspect machine hardware in the corners and background (Bowden coupler vs direct drive toolhead, cooling fans, belts, nozzle buildup, laser air assist, blade holder, or every setting visible in a slicer screenshot) and check where the defect actually starts. Never mistake a solid bottom section sitting flat on the bed for a raft; if the base is flat on the bed while middle layers starved into wispy pillars before the top split away, diagnose mid print nozzle starvation (Bowden gap clog, heat creep, or 2.85mm filament mismatch), not bed warping.
+3. Think like a hands on fabricator and audit every setting: Check physical part orientation and workholding first alongside software fixes (for example, laying a tall skinny part flat on its side on a moving bed printer instead of only fighting wobble upright). Cross check every temperature, speed, retraction, cooling, or power number the user mentions or shows in screenshots against their exact machine (such as catching a 2mm Bowden retraction on a direct drive extruder that needs 0.8mm, or 220 PLA overheating a narrow tower that needs 205 and an 8s minimum layer time). If the user wonders about a false suspect like z offset when their first layers look clean in the photo, briefly reassure them it is fine so they do not chase the wrong thing.
+4. Never repeat or mash together generic guesses: Do not repeat fixes the user already tried (or advice visible in an uploaded screenshot), and do not list five random textbook possibilities. Use Google Search silently to verify exact machine quirks and slicer setting names.
+5. Only mention Pixel2Path Studio (https://app.ivolgaco.com) when the photo clearly shows a source CAD or vector geometry flaw (sub 0.45mm stamp walls missing in the slice, tiny sub 0.75mm vinyl letters lifting during weeding, missing 1.6mm stencil bridges, or open DXF paths). Never mention it on mechanical, thermal, or orientation failures.
 
 STRICT CASUAL HUMAN STYLE (CRITICAL):
 - Write like an experienced, casual maker on Reddit helping another maker at the workbench.
-- Jump straight into the physical fix in the very first sentence without repeating the user's question and without any greeting or intro.
-- Mention specific visual details from their photo (colors, parts, and positions like "top left of your photo" or "the middle of that pink print") so they know you actually inspected it.
+- Your VERY FIRST WORD must be a direct action verb jumping straight into the fix (such as Add, Pull, Lay, Drop, Turn, Clean, Tighten, or Reseat). Never start your first sentence with That, Your, This, It, or a description of the problem, and never repeat the user's question.
+- Always give exact target numbers using compact keyboard shorthand like 8mm brim, 0.4mm z lift, 0.8mm, 500mm/s, 8s, or 205 instead of vague advice ("a wide brim") or spelled out words ("five hundred mm per second", "eight seconds").
+- Mention specific visual details from their photo (colors, parts, and positions like "top left of your photo" or "that tall skinny black part") so they know you actually looked closely at all of their images.
 - NEVER use bold text, bullet points, numbered lists, headings, code blocks, or dashes of any kind (use plain commas and periods instead).`;
 
 function cleanHumanReply(rawText) {
@@ -622,10 +623,11 @@ export async function onRequestPost(context) {
     }
     historyContents.push({ role: "user", parts: currentParts });
 
-    const preferredModel = getEnvVar(env, "GEMINI_MODEL", "gemini-2.5-pro");
+    const preferredModel = getEnvVar(env, "GEMINI_MODEL", "gemini-3.1-pro-preview");
     const generateContentAttempts = [
       { model: preferredModel, useSearch: true },
-      { model: "gemini-2.5-flash", useSearch: true },
+      { model: "gemini-3.8-flash", useSearch: true },
+      { model: "gemini-2.5-pro", useSearch: true },
       { model: "gemini-2.5-flash", useSearch: false }
     ];
 
@@ -635,7 +637,7 @@ export async function onRequestPost(context) {
           systemInstruction: { parts: [{ text: TROUBLESHOOTER_SYSTEM_PROMPT }] },
           contents: historyContents,
           generationConfig: {
-            maxOutputTokens: 8192
+            maxOutputTokens: 12288
           }
         };
         if (attempt.useSearch) {
