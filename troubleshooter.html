@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Workshop Hardware Troubleshooter | 3D Print, Laser, Vinyl &amp; CNC Fixer | Ivolga Co.</title>
+  <meta name="description" content="Upload photos of failed 3D prints, laser burns, lifting vinyl cuts, clicker die tears, or CNC toolpaths. Get research-backed fixes in simple, plain English." />
+  <meta name="keywords" content="3D print troubleshooter, fix under extrusion, gaps around holes 3D print, wet filament popping, LightBurn kerf scorch fix, Cricut small letters lifting, CNC V-carve troubleshooting, Ivolga Co" />
+  <meta name="author" content="Ivolga Co." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://ivolgaco.com/troubleshooter.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ivolga Co. — Pixel2Path Studio" />
+  <meta property="og:title" content="AI Workshop Hardware Troubleshooter — Plain-English Fixes from Photos | Ivolga Co." />
+  <meta property="og:description" content="Upload 1–3 photos of your failed 3D print, laser cut, vinyl decal, or CNC job. AI researches your exact machine and slicer to give ranked fixes in simple words." />
+  <meta property="og:url" content="https://ivolgaco.com/troubleshooter.html" />
+  <meta property="og:image" content="https://ivolgaco.com/proof-bambu.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Workshop Hardware Troubleshooter | Ivolga Co." />
+  <meta name="twitter:description" content="Upload photos of failed 3D prints, laser cuts, vinyl decals, or CNC parts and get research-backed fixes in simple words." />
+  <meta name="twitter:image" content="https://ivolgaco.com/proof-bambu.jpg" />
+
+  <!-- Brand Amber SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121212' stroke='%23FFB300' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23FFB300'/%3E%3Cpath d='M22 34 L30 24 L42 38 Z' fill='%23121212'/%3E%3C/svg%3E" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://ivolgaco.com/troubleshooter.html#webapp",
+    "name": "Ivolga Co. AI Workshop Hardware Troubleshooter",
+    "url": "https://ivolgaco.com/troubleshooter.html",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All (Web Browser — Windows, macOS, Linux, iOS, Android)",
+    "description": "Interactive multimodal workshop troubleshooter for 3D printers, laser cutters, vinyl plotters, steel-rule clicker dies, and CNC routers. Diagnoses uploaded photos and explains fixes in plain English.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ivolga Co.",
+      "url": "https://ivolgaco.com/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #0D0D0D;
+      --bg-card: #151515;
+      --bg-elevated: #1D1D1D;
+      --amber: #FFB300;
+      --amber-hover: #FFC107;
+      --green: #81C784;
+      --text-main: #FFFFFF;
+      --text-muted: #BDBDBD;
+      --border-subtle: #2A2A2A;
+      --danger: #FF8A80;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      background-image:
+        linear-gradient(rgba(255, 179, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 179, 0, 0.03) 1px, transparent 1px);
+      background-size: 36px 36px;
+      color: var(--text-main);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    /* Sticky Top Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 13, 13, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 6px rgba(255, 179, 0, 0.28));
+    }
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-title { font-weight: 900; font-size: 1.06rem; letter-spacing: 0.4px; }
+    .brand-sub { font-size: 0.72rem; color: var(--amber); font-weight: 700; letter-spacing: 0.8px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #E0E0E0;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    .btn-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 179, 0, 0.10);
+      border: 1.5px solid rgba(255, 179, 0, 0.55);
+      color: #FFD54F !important;
+      padding: 6px 13px;
+      border-radius: 8px;
+      font-weight: 800 !important;
+      font-size: 0.84rem !important;
+    }
+    .btn-nav-pill:hover {
+      background: rgba(255, 179, 0, 0.22);
+      border-color: var(--amber);
+      color: #FFFFFF !important;
+    }
+    .btn-nav-active {
+      background: rgba(255, 179, 0, 0.22);
+      border-color: var(--amber);
+      color: #FFFFFF !important;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--amber);
+      color: #000000 !important;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid #FFD54F;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255, 179, 0, 0.28);
+      transition: all 0.16s ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--amber-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(255, 179, 0, 0.42);
+    }
+    .btn-primary:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .btn-header { padding: 7px 14px; font-size: 0.84rem; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: #1D1D1D;
+      color: #FFFFFF !important;
+      font-weight: 700;
+      font-size: 0.86rem;
+      padding: 9px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid #3D3D3D;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-secondary:hover:not(:disabled) {
+      border-color: var(--amber);
+      color: var(--amber) !important;
+      background-color: #232323;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero */
+    .ts-hero {
+      padding: 34px 0 18px;
+    }
+    .hero-kicker-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 179, 0, 0.14);
+      border: 1px solid var(--amber);
+      color: var(--amber);
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .hero-kicker-label {
+      color: #CCCCCC;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    .ts-hero h1 {
+      font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .txt-gold { color: var(--amber); }
+    .ts-hero p.lead {
+      color: #D4D4D4;
+      font-size: 0.96rem;
+      max-width: 850px;
+    }
+
+    /* Top Passcode Console */
+    .pass-console {
+      background: linear-gradient(180deg, rgba(25, 25, 25, 0.97) 0%, rgba(17, 17, 17, 0.97) 100%);
+      border: 1.5px solid #333333;
+      border-left: 4px solid var(--amber);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0 24px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
+    }
+    .pass-console.unlocked {
+      border-left-color: var(--green);
+      border-color: rgba(129, 199, 132, 0.45);
+    }
+    .pass-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .pass-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pass-input-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pass-input {
+      flex: 1;
+      min-width: 190px;
+      background: #0D0D0D;
+      border: 1.5px solid #3A3A3A;
+      color: #FFFFFF;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 9px 13px;
+      border-radius: 8px;
+      outline: none;
+    }
+    .pass-input:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 2px rgba(255, 179, 0, 0.2);
+    }
+    .pass-status-msg {
+      margin-top: 7px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .pass-status-msg.ok { color: var(--green); font-weight: 700; }
+    .pass-status-msg.err { color: var(--danger); font-weight: 700; }
+
+    .pass-buy-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: #111111;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .pass-buy-label {
+      font-size: 0.78rem;
+      color: #CCCCCC;
+      font-weight: 700;
+    }
+    .pass-buy-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .btn-buy-tier {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: #1A1A1A;
+      border: 1.5px solid #383838;
+      border-radius: 8px;
+      padding: 8px 11px;
+      text-decoration: none;
+      color: #FFFFFF;
+      transition: all 0.15s ease;
+    }
+    .btn-buy-tier:hover {
+      border-color: var(--amber);
+      background: #222222;
+    }
+    .btn-buy-tier strong { color: var(--amber); font-size: 0.85rem; }
+    .btn-buy-tier span { font-size: 0.72rem; color: #BDBDBD; }
+    .btn-buy-tier.featured {
+      border-color: rgba(255, 179, 0, 0.65);
+      background: rgba(255, 179, 0, 0.07);
+    }
+
+    /* Live Troubleshooter Workspace */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-head h2 {
+      font-size: 1.18rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .chat-shell {
+      background: rgba(20, 20, 20, 0.97);
+      border: 1.5px solid #2F2F2F;
+      border-top: 3px solid var(--amber);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.62);
+      margin-bottom: 34px;
+    }
+
+    /* Machine Context Strip */
+    .context-strip {
+      background: #121212;
+      border-bottom: 1px solid #292929;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .machine-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+    .machine-pill {
+      background: #1A1A1A;
+      border: 1.5px solid #333333;
+      color: #E0E0E0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .machine-pill:hover {
+      border-color: var(--amber);
+      color: #FFFFFF;
+    }
+    .machine-pill.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #000000;
+      font-weight: 900;
+    }
+    .setup-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .setup-input {
+      flex: 1;
+      min-width: 240px;
+      background: #0B0B0B;
+      border: 1.5px solid #323232;
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      outline: none;
+    }
+    .setup-input:focus { border-color: var(--amber); }
+
+    /* Chat Message Thread */
+    .chat-thread {
+      padding: 18px;
+      min-height: 290px;
+      max-height: 540px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #0F0F0F;
+    }
+    .msg-row {
+      display: flex;
+      flex-direction: column;
+      max-width: 88%;
+    }
+    .msg-row.user {
+      align-self: flex-end;
+      align-items: flex-end;
+    }
+    .msg-row.ai {
+      align-self: flex-start;
+      align-items: flex-start;
+    }
+    .msg-sender {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: #9E9E9E;
+      margin-bottom: 4px;
+    }
+    .msg-row.ai .msg-sender { color: var(--amber); }
+
+    .msg-bubble {
+      padding: 13px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      line-height: 1.58;
+      word-break: break-word;
+    }
+    .msg-row.user .msg-bubble {
+      background: rgba(255, 179, 0, 0.14);
+      border: 1.5px solid rgba(255, 179, 0, 0.5);
+      color: #FFFFFF;
+      border-bottom-right-radius: 4px;
+    }
+    .msg-row.ai .msg-bubble {
+      background: #181818;
+      border: 1.5px solid #2E2E2E;
+      border-left: 4px solid var(--amber);
+      color: #EDEDED;
+      border-bottom-left-radius: 4px;
+    }
+    .msg-bubble p { margin-bottom: 8px; }
+    .msg-bubble p:last-child { margin-bottom: 0; }
+    .msg-bubble ul, .msg-bubble ol { margin: 8px 0 8px 20px; }
+    .msg-bubble li { margin-bottom: 7px; }
+    .msg-bubble strong { color: #FFD54F; }
+    .msg-bubble code {
+      background: #0B0B0B;
+      border: 1px solid #333333;
+      color: var(--green);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.84em;
+    }
+    .msg-bubble a { color: var(--amber); font-weight: 700; }
+
+    .msg-thumbs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .msg-thumbs img {
+      width: 86px;
+      height: 86px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1.5px solid var(--amber);
+      background: #000;
+    }
+    .citation-strip {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #2A2A2A;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      font-size: 0.74rem;
+      color: #9E9E9E;
+    }
+    .citation-pill {
+      background: #111111;
+      border: 1px solid #333333;
+      color: #CCCCCC !important;
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600 !important;
+    }
+    .citation-pill:hover {
+      border-color: var(--amber);
+      color: var(--amber) !important;
+    }
+
+    /* Composer Area */
+    .composer-box {
+      background: #141414;
+      border-top: 1px solid #2B2B2B;
+      padding: 14px 18px;
+    }
+    .composer-box.drag-over {
+      background: rgba(255, 179, 0, 0.08);
+      outline: 2px dashed var(--amber);
+      outline-offset: -6px;
+    }
+    .photo-tray {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .photo-tray:empty { display: none; }
+    .tray-item {
+      position: relative;
+      width: 78px;
+      height: 78px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1.5px solid var(--amber);
+      background: #0A0A0A;
+    }
+    .tray-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .tray-remove {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, 0.85);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 900;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .tray-size {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--green);
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 1px 0;
+    }
+
+    .composer-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .composer-textarea {
+      flex: 1;
+      min-width: 240px;
+      min-height: 62px;
+      max-height: 160px;
+      resize: vertical;
+      background: #0B0B0B;
+      border: 1.5px solid #353535;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 0.9rem;
+      padding: 10px 13px;
+      border-radius: 10px;
+      outline: none;
+    }
+    .composer-textarea:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 2px rgba(255, 179, 0, 0.16);
+    }
+    .composer-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .composer-hint {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: #9E9E9E;
+    }
+
+    /* Interactive Solved Case Demos + Inline Conversion Bridge */
+    .demos-section {
+      margin-bottom: 36px;
+    }
+    .demo-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .demo-tab {
+      background: #161616;
+      border: 1.5px solid #303030;
+      color: #E0E0E0;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .demo-tab:hover {
+      border-color: var(--amber);
+      color: #FFFFFF;
+    }
+    .demo-tab.active {
+      background: rgba(255, 179, 0, 0.16);
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .demo-card {
+      background: #151515;
+      border: 1.5px solid #2E2E2E;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+    }
+    .demo-split {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .demo-visual-box {
+      background: #0C0C0C;
+      border: 1px solid #2C2C2C;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+    .demo-visual-box svg {
+      width: 100%;
+      height: auto;
+      max-height: 180px;
+      display: block;
+      margin: 0 auto 8px;
+    }
+    .demo-symptom-quote {
+      font-size: 0.8rem;
+      color: #CCCCCC;
+      text-align: left;
+      background: #141414;
+      border-left: 3px solid var(--amber);
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+    .demo-answer-box {
+      background: #101010;
+      border: 1px solid #292929;
+      border-left: 4px solid var(--green);
+      border-radius: 10px;
+      padding: 15px 18px;
+    }
+    .demo-answer-kicker {
+      font-size: 0.73rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+    .demo-answer-cause {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .demo-answer-list {
+      margin-left: 18px;
+      font-size: 0.87rem;
+      color: #E0E0E0;
+    }
+    .demo-answer-list li { margin-bottom: 7px; }
+    .demo-answer-list strong { color: #FFD54F; }
+    .demo-answer-list code {
+      background: #1B1B1B;
+      border: 1px solid #333;
+      color: var(--green);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 0.84em;
+    }
+
+    /* Safeguard #3: Inline Conversion Bridge Directly Below Each Demo */
+    .demo-conversion-bridge {
+      margin-top: 18px;
+      padding: 16px 18px;
+      background: linear-gradient(90deg, rgba(255, 179, 0, 0.10) 0%, rgba(22, 22, 22, 0.98) 100%);
+      border: 1.5px solid rgba(255, 179, 0, 0.65);
+      border-radius: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .demo-conversion-bridge.unlocked-bridge {
+      background: linear-gradient(90deg, rgba(129, 199, 132, 0.11) 0%, rgba(20, 20, 20, 0.98) 100%);
+      border-color: rgba(129, 199, 132, 0.6);
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .bridge-headline {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .bridge-headline span { color: var(--amber); }
+    .bridge-controls {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+    .bridge-key-form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .bridge-buy-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .bridge-buy-pill {
+      flex: 1;
+      min-width: 155px;
+      text-align: center;
+      background: #181818;
+      border: 1.5px solid #3D3D3D;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 8px 11px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      transition: all 0.15s ease;
+    }
+    .bridge-buy-pill strong { color: var(--amber); }
+    .bridge-buy-pill:hover {
+      border-color: var(--amber);
+      background: #222222;
+    }
+
+    /* Bottom Studio Cross-Sell */
+    .studio-cta-panel {
+      background: linear-gradient(180deg, rgba(24, 24, 24, 0.98) 0%, rgba(15, 15, 15, 0.98) 100%);
+      border: 2px solid var(--amber);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 8px 0 38px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .studio-cta-panel h2 { font-size: 1.2rem; font-weight: 900; margin-bottom: 4px; }
+    .studio-cta-panel h2 span { color: var(--amber); }
+    .studio-cta-panel p { color: #CCCCCC; font-size: 0.86rem; max-width: 680px; }
+
+    /* Toast */
+    .ts-toast {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 1000;
+      background: #1A1A1A;
+      border: 1.5px solid var(--amber);
+      color: #FFFFFF;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+    .ts-toast.show { opacity: 1; transform: translateY(0); }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 26px 20px;
+      text-align: center;
+      color: #888888;
+      font-size: 0.82rem;
+      background: rgba(13, 13, 13, 0.95);
+    }
+    footer a { color: var(--amber); text-decoration: none; margin: 0 6px; font-weight: 600; }
+
+    @keyframes pulseDot {
+      0%, 80%, 100% { opacity: 0.25; }
+      40% { opacity: 1; }
+    }
+    .typing-dots span {
+      display: inline-block;
+      animation: pulseDot 1.2s infinite;
+      margin: 0 1px;
+      color: var(--amber);
+      font-weight: 900;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @media (max-width: 920px) {
+      .pass-grid, .demo-split, .bridge-controls { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      header { padding: 10px 14px; gap: 8px; }
+      .nav-links { width: 100%; justify-content: flex-start; gap: 6px; }
+      .nav-links a.nav-item { display: none; }
+      .btn-nav-pill { padding: 5px 9px; font-size: 0.78rem !important; }
+      .btn-header { padding: 6px 11px; font-size: 0.79rem; }
+      .container { padding: 0 14px; }
+      .pass-buy-btns { grid-template-columns: 1fr; }
+      .msg-row { max-width: 96%; }
+      .composer-actions { width: 100%; }
+      .composer-actions .btn-primary,
+      .composer-actions .btn-secondary { flex: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header>
+    <a href="index.html" class="brand">
+      <svg class="brand-logo" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ivolga Co. Pixel2Path Studio Logo">
+        <defs>
+          <linearGradient id="hdrBodyGrad" x1="120" y1="175" x2="265" y2="265" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFF033"/>
+            <stop offset="55%" stop-color="#FFD000"/>
+            <stop offset="100%" stop-color="#E5A400"/>
+          </linearGradient>
+          <linearGradient id="hdrWingDark" x1="200" y1="95" x2="315" y2="245" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#2B241D"/>
+            <stop offset="100%" stop-color="#14110E"/>
+          </linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="186" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="6"/>
+        <circle cx="200" cy="200" r="180" fill="none" stroke="#FFB300" stroke-width="4"/>
+        <path d="M 168,224 C 138,236 95,256 62,268 C 72,272 84,271 96,266 C 80,275 68,280 58,281 C 70,285 85,283 98,277 C 86,286 76,290 68,291 C 98,298 135,292 175,278 L 214,256 Z" fill="url(#hdrWingDark)"/>
+        <path d="M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z" fill="url(#hdrWingDark)"/>
+        <path d="M 198,196 C 218,162 246,118 265,86 C 271,88 272,99 267,112 C 276,96 283,84 289,82 C 294,86 292,99 285,114 C 294,101 302,92 308,91 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="url(#hdrWingDark)"/>
+        <path d="M 195,196 C 212,175 232,155 248,145 C 254,154 252,166 246,176 C 254,172 258,180 252,191 C 258,190 259,198 251,208 C 255,210 254,218 245,224 C 230,226 210,215 195,196 Z" fill="url(#hdrBodyGrad)"/>
+        <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 272,256 286,268 296,274 C 278,274 258,266 242,256 C 222,258 196,248 178,233 C 164,222 156,210 144,204 C 134,200 126,197 122,193 Z" fill="url(#hdrBodyGrad)"/>
+        <path d="M 124,191 L 96,195 L 125,198 Z" fill="#9E7B56" stroke="#4A3828" stroke-width="1"/>
+        <circle cx="140" cy="192" r="4.8" fill="#14100C"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">IVOLGA CO.</span>
+        <span class="brand-sub">PIXEL2PATH STUDIO</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary Navigation">
+      <a href="index.html" class="nav-item">← Home</a>
+      <a href="troubleshooter.html" class="btn-nav-pill btn-nav-active">🛠️ Troubleshooter</a>
+      <a href="vault.html" class="btn-nav-pill">🗄️ CAD Vault</a>
+      <a href="guide.html" class="btn-nav-pill">📖 User Guide</a>
+      <a href="https://app.ivolgaco.com/" class="btn-primary btn-header">📤 Custom 3D/Vector Studio →</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="ts-hero">
+      <div class="hero-kicker-row">
+        <span class="hero-badge">🛠️ AI WORKSHOP TROUBLESHOOTER</span>
+        <span class="hero-kicker-label">PHOTO DIAGNOSIS · LIVE HARDWARE RESEARCH · SIMPLE WORDS</span>
+      </div>
+      <h1>Upload Your Failed Print or Cut. <span class="txt-gold">Get the Fix in Simple Words.</span></h1>
+      <p class="lead">
+        Attach <strong>1–3 photos</strong> and describe what went wrong on your <strong>3D Printer, Laser Cutter, Vinyl Plotter, Clicker Die, or CNC Router</strong>. Our workshop assistant researches your exact machine &amp; slicer and replies with short, ranked steps—zero jargon essays.
+      </p>
+    </section>
+
+    <!-- PASSCODE UNLOCK CONSOLE (Synced with CAD Vault localStorage) -->
+    <section id="passConsole" class="pass-console" aria-label="Studio Pass Unlock">
+      <div class="pass-grid">
+        <div>
+          <div class="pass-title">
+            <span id="passHeaderIcon">🔑</span>
+            <span id="passHeaderText">Unlock Live Photo Diagnostics with Your Pixel2Path Studio Key</span>
+          </div>
+          <div class="pass-input-row">
+            <input
+              id="passcodeInput"
+              type="text"
+              class="pass-input"
+              placeholder="TPS-XXXX-XXXX"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Enter your TPS-XXXX-XXXX Studio Access Key"
+            />
+            <button id="unlockBtn" type="button" class="btn-primary" onclick="verifyPasscode()">
+              Unlock Troubleshooter
+            </button>
+            <button id="clearKeyBtn" type="button" class="btn-secondary" style="display:none;" onclick="clearPasscode()">
+              Sign Out Key
+            </button>
+          </div>
+          <div id="passStatusMsg" class="pass-status-msg">
+            Explore the solved workshop cases below free, or enter your <code>TPS-XXXX-XXXX</code> key to diagnose your own photos (never deducts Studio CAD Vision credits or signs out <strong>app.ivolgaco.com</strong>).
+          </div>
+        </div>
+
+        <div class="pass-buy-col">
+          <div class="pass-buy-label">⚡ One Access Key Unlocks All 3 Tools (Studio + Vault + Troubleshooter):</div>
+          <div class="pass-buy-btns">
+            <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener" class="btn-buy-tier">
+              <strong>⚡ $8 · 24-Hr Pass</strong>
+              <span><strong>20 Troubleshooter Turns</strong> + 24h Studio &amp; 3 Vault Packs</span>
+            </a>
+            <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener" class="btn-buy-tier featured">
+              <strong>🏆 $25/mo · Studio Monthly</strong>
+              <span><strong>100 Turns/mo</strong> + Full Studio &amp; Unlimited Vault</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CASE DEMOS + INLINE CONVERSION BRIDGE (SAFEGUARD #3) -->
+    <section class="demos-section" aria-label="Interactive Hardware Troubleshooting Examples">
+      <div class="section-head">
+        <div>
+          <h2>🔍 Real Workshop Diagnosis Examples <span style="color:var(--amber);font-size:0.86rem;font-weight:700;">(Click Any Issue to Preview)</span></h2>
+          <div class="section-sub">See how uploaded hardware symptoms are researched and translated into short, plain-English action steps.</div>
+        </div>
+      </div>
+
+      <div id="demoTabs" class="demo-tabs" role="tablist"></div>
+      <div id="demoStage" class="demo-card"></div>
+    </section>
+
+    <!-- LIVE MULTI-TURN TROUBLESHOOTER WORKSPACE -->
+    <section id="liveConsole" aria-label="Live Workshop Troubleshooter Chat">
+      <div class="section-head">
+        <div>
+          <h2>💬 Live Workshop Diagnostic Console</h2>
+          <div class="section-sub">Multi-turn memory enabled — ask follow-up questions like <em>"Where is that setting in OrcaSlicer?"</em> or upload a closer nozzle photo.</div>
+        </div>
+        <button type="button" class="btn-secondary" onclick="resetConversation()">🔄 Start New Issue</button>
+      </div>
+
+      <div class="chat-shell">
+        <!-- Context Bar -->
+        <div class="context-strip">
+          <div class="machine-pills" id="machinePills">
+            <button type="button" class="machine-pill active" data-machine="3D Printer">🖨️ 3D Printer</button>
+            <button type="button" class="machine-pill" data-machine="Laser Engraver / Cutter">🔥 Laser Engraver</button>
+            <button type="button" class="machine-pill" data-machine="Vinyl Cutting Plotter">✂️ Vinyl Plotter</button>
+            <button type="button" class="machine-pill" data-machine="Steel-Rule Clicker Die">🗜️ Clicker Die</button>
+            <button type="button" class="machine-pill" data-machine="CNC Router / Brass Die">🔩 CNC / Brass Die</button>
+            <button type="button" class="machine-pill" data-machine="Other Workshop Hardware">🔧 Other Hardware</button>
+          </div>
+          <div class="setup-row">
+            <input
+              id="setupInput"
+              type="text"
+              class="setup-input"
+              placeholder="Optional setup: Machine model, slicer/software &amp; material (e.g., Anycubic Kobra 3 Max v2 · Cura · PLA)"
+              maxlength="200"
+            />
+          </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div id="chatThread" class="chat-thread" aria-live="polite">
+          <div class="msg-row ai">
+            <div class="msg-sender">🛠️ Ivolga Workshop Assistant</div>
+            <div class="msg-bubble">
+              <p><strong>Ready to inspect your part or machine.</strong></p>
+              <ul>
+                <li><strong>Attach 1–3 clear photos</strong> of the failed print, cut edge, slicer preview, or toolhead (auto-compressed in your browser).</li>
+                <li><strong>Mention what you already tried</strong> (like a cold pull or swapping spools) so I skip steps you already ruled out.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Composer -->
+        <div id="composerBox" class="composer-box">
+          <div id="photoTray" class="photo-tray"></div>
+
+          <input
+            id="photoFileInput"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            multiple
+            style="display:none;"
+          />
+
+          <div class="composer-row">
+            <textarea
+              id="messageInput"
+              class="composer-textarea"
+              placeholder="Describe what happened in plain words (e.g., 'Printer stops pushing enough plastic halfway up across 3 spools, cold pull didn't help')..."
+              maxlength="4000"
+            ></textarea>
+            <div class="composer-actions">
+              <button type="button" class="btn-secondary" onclick="document.getElementById('photoFileInput').click()">
+                📸 Add Photos (<span id="photoCountLabel">0/3</span>)
+              </button>
+              <button id="sendBtn" type="button" class="btn-primary" onclick="sendChatTurn()">
+                Diagnose Now →
+              </button>
+            </div>
+          </div>
+
+          <div class="composer-hint">
+            <span>💡 Tip: Drag &amp; drop photos here, paste a screenshot with <code>Ctrl+V</code>, or snap directly from your phone camera.</span>
+            <span>🔒 Photos resize locally to <code>≤1024px</code> in browser RAM and are never published.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CROSS-SELL TO STUDIO -->
+    <section class="studio-cta-panel">
+      <div>
+        <h2> Defect Caused by Thin Walls or Bad Source Vectors? <span>Fix the Geometry in 1 Click.</span></h2>
+        <p>
+          <strong>Pixel2Path Studio</strong> automatically widens sub-nozzle 3D stamp walls (<code>≥0.45mm</code>), reinforces vinyl weeding strokes (<code>≥0.75mm</code>), adds <code>1.6mm</code> laser stencil bridges, and locks outer millimeter dimensions to <code>±0.05mm</code>.
+        </p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://app.ivolgaco.com/" class="btn-primary">📤 Launch Pixel2Path Studio →</a>
+        <a href="vault.html" class="btn-secondary">🗄️ Browse CAD Vault</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="tsToast" class="ts-toast" role="status" aria-live="polite"></div>
+
+  <footer>
+    <div style="margin-bottom:8px;">
+      <a href="index.html">Ivolga Co. Home</a> ·
+      <a href="troubleshooter.html">Workshop Troubleshooter</a> ·
+      <a href="vault.html">CAD Vault</a> ·
+      <a href="guide.html">Official User Manual</a> ·
+      <a href="guide.html#privacy-terms">Privacy &amp; Terms</a> ·
+      <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> ·
+      <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
+    </div>
+    <div>© 2026 Ivolga Co. · Digital Fabrication Studio · California, USA.</div>
+  </footer>
+
+  <script>
+    const API_ENDPOINT = "/api/chat";
+    const STORAGE_KEY_PASS = "p2p_vault_passcode_v1"; // Shared seamlessly with vault.html
+    const MAX_PHOTOS = 3;
+    const MAX_IMG_DIM = 1024;
+    const JPEG_QUALITY = 0.82;
+
+    const CASE_DEMOS = [
+      {
+        id: "under_extrusion",
+        tab: "🖨️ Mid-Print Sponge / Under-Extrusion",
+        machine: "3D Printer",
+        setupHint: "Anycubic Vyper / Ender / Bambu · PLA · 0.4mm Nozzle",
+        svg: `<svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mid-print spongey under-extrusion diagram">
+          <rect width="280" height="150" rx="8" fill="#121212"/>
+          <line x1="25" y1="128" x2="255" y2="128" stroke="#444" stroke-width="3"/>
+          <rect x="65" y="92" width="150" height="34" rx="3" fill="#FFB300" opacity="0.92"/>
+          <g stroke="#FFB300" stroke-width="2.2" stroke-dasharray="5 6" opacity="0.65">
+            <line x1="68" y1="84" x2="212" y2="84"/>
+            <line x1="72" y1="75" x2="208" y2="75"/>
+            <line x1="66" y1="66" x2="214" y2="66"/>
+            <line x1="74" y1="57" x2="205" y2="57"/>
+          </g>
+          <polygon points="130,20 150,20 144,42 136,42" fill="#9E9E9E"/>
+          <text x="140" y="143" fill="#BDBDBD" font-size="10" text-anchor="middle" font-family="sans-serif">Solid base → spongey starved top layers</text>
+        </svg>`,
+        symptom: "“Printer starts fine, then suddenly stops pushing enough plastic—looks like a brittle sponge across 3 different spools, and a cold pull didn't fix it (sliced in Pikaslice / Cura).”",
+        cause: "Your printer is starving for melted plastic once the print gets going—either because the slicer thinks you loaded thicker filament, heat is creeping up the hotend, or the drive gear is slipping.",
+        steps: [
+          "<strong>Check Filament Diameter in Your Slicer First:</strong> Apps like Pikaslice and fresh Cura profiles often default to <code>2.85 mm</code> instead of <code>1.75 mm</code>, starving flow by more than 60%.",
+          "<strong>Swap the Brass Nozzle:</strong> If a cold pull didn't clear it, carbonized plastic or a worn tip is choking flow—screw in a fresh <code>0.4 mm</code> nozzle while hot.",
+          "<strong>Clean &amp; Tighten the Extruder Teeth:</strong> Brush out ground plastic dust packed in the drive gear grooves and tighten the tension thumbscrew.",
+          "<strong>Verify the Front Hotend Fan Spins 100%:</strong> If the heatsink cooling fan slows down, plastic softens too high up in the throat (heat creep) and jams 20–40 minutes into every print."
+        ]
+      },
+      {
+        id: "hole_gaps",
+        tab: "🕳️ Gaps Around Holes & Thin Stamp Walls",
+        machine: "3D Printer",
+        setupHint: "Anycubic Kobra 3 Max / Bambu Studio / OrcaSlicer · PLA",
+        svg: `<svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gaps around circular holes diagram">
+          <rect width="280" height="150" rx="8" fill="#121212"/>
+          <rect x="45" y="24" width="190" height="102" rx="8" fill="#1F1F1F" stroke="#FFB300" stroke-width="3"/>
+          <g stroke="#3A3A3A" stroke-width="2">
+            <line x1="55" y1="35" x2="225" y2="115"/><line x1="55" y1="65" x2="195" y2="122"/><line x1="85" y1="28" x2="225" y2="92"/>
+          </g>
+          <circle cx="140" cy="75" r="24" fill="#0D0D0D" stroke="#FFB300" stroke-width="2.5"/>
+          <circle cx="140" cy="75" r="31" fill="none" stroke="#FF8A80" stroke-width="2.5" stroke-dasharray="6 5"/>
+          <text x="140" y="142" fill="#FF8A80" font-size="10" text-anchor="middle" font-family="sans-serif">Gap ring between hole wall &amp; top infill</text>
+        </svg>`,
+        symptom: "“Small gaps keep appearing right around circular screw holes, and fine raised stamp details vanish in the slicer preview.”",
+        cause: "Top infill lines pull away slightly when reversing direction at a curved hole wall, and lines thinner than your 0.4mm nozzle get skipped by the slicer.",
+        steps: [
+          "<strong>Increase Wall Loops / Perimeters:</strong> Raise wall count from <code>2</code> to <code>3 or 4</code> so circular holes have a thick, rigid ring around them.",
+          "<strong>Raise Infill/Perimeter Overlap:</strong> Increase overlap from the stock 10% to <code>15%–25%</code> so top skin anchors firmly into the hole wall.",
+          "<strong>Turn On Arachne Wall Generator:</strong> Switch Wall Generator from Classic to <code>Arachne</code> in OrcaSlicer / Bambu Studio / Cura so variable-width strokes fill tight corners.",
+          "<strong>Widening Sub-Nozzle Stamp Artwork:</strong> If fine 3D stamp letters still drop out, run the logo through <a href='https://app.ivolgaco.com/?preset=stamp'>Pixel2Path Studio (3D Printer Preset)</a>, which enforces a <code>≥0.45 mm</code> physical wall guard automatically."
+        ]
+      },
+      {
+        id: "wet_popping_blobs",
+        tab: "🫧 Popping Bubbles & Curved Z-Seam Scars",
+        machine: "3D Printer",
+        setupHint: "Ender 3 Direct-Drive Upgrade · Cura · PLA / PETG",
+        svg: `<svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wet filament popping bubbles and seam blobs">
+          <rect width="280" height="150" rx="8" fill="#121212"/>
+          <rect x="65" y="26" width="150" height="94" rx="14" fill="#1E1E1E" stroke="#FFB300" stroke-width="2.5"/>
+          <circle cx="95" cy="52" r="4" fill="#FF8A80"/><circle cx="118" cy="84" r="3.5" fill="#FF8A80"/>
+          <circle cx="176" cy="48" r="4.5" fill="#FF8A80"/><circle cx="162" cy="92" r="3.5" fill="#FF8A80"/>
+          <line x1="96" y1="52" x2="175" y2="48" stroke="#FFD54F" stroke-width="2" stroke-dasharray="3 3"/>
+          <text x="140" y="139" fill="#BDBDBD" font-size="10" text-anchor="middle" font-family="sans-serif">Steam pits + travel scar across outer face</text>
+        </svg>`,
+        symptom: "“Hearing tiny popping sounds from the nozzle with rough zits and travel scars across curved faces after switching to a top-feed Direct Drive.”",
+        cause: "Moisture inside the plastic is flashing into steam bubbles in the hot nozzle, and old Bowden retraction settings are way too long for a Direct Drive extruder.",
+        steps: [
+          "<strong>Dry the Spool Before Re-Printing:</strong> Dry PLA at <code>50°C</code> (or PETG at <code>60°C</code>) for <code>4–6 hours</code> in a filament dryer, food dehydrator, or under a vented cardboard box on your heated bed.",
+          "<strong>Drop Direct-Drive Retraction Distance:</strong> Change Cura retraction from 5–6mm (Bowden) down to <code>0.5 mm – 1.5 mm</code> at <code>35–45 mm/s</code> so air isn't sucked into the melt zone.",
+          "<strong>Hide the Blobs on a Corner:</strong> Set <code>Z Seam Alignment</code> to <strong>Aligned</strong> or <strong>Sharpest Corner</strong> instead of Random.",
+          "<strong>Stop Surface Drag Scars:</strong> Turn on <strong>Avoid Crossing Perimeters / Combing (Not in Skin)</strong> and enable <code>0.2 mm – 0.4 mm</code> Z-Hop."
+        ]
+      },
+      {
+        id: "laser_kerf_scorch",
+        tab: "🔥 Laser Edge Scorch & Loose Tab Fit",
+        machine: "Laser Engraver / Cutter",
+        setupHint: "Diode / CO2 Laser · LightBurn · 3mm Birch Plywood & Veg-Tan Leather",
+        svg: `<svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Laser kerf scorch and loose slot joint">
+          <rect width="280" height="150" rx="8" fill="#121212"/>
+          <rect x="48" y="34" width="84" height="76" rx="4" fill="#2A2118" stroke="#FFB300" stroke-width="2"/>
+          <rect x="132" y="56" width="22" height="32" fill="#FFB300"/>
+          <rect x="156" y="34" width="76" height="76" rx="4" fill="#2A2118" stroke="#FF8A80" stroke-width="2.5"/>
+          <rect x="156" y="51" width="26" height="42" fill="#0D0D0D" stroke="#FF8A80" stroke-width="1.5"/>
+          <text x="140" y="136" fill="#FF8A80" font-size="10" text-anchor="middle" font-family="sans-serif">Sooty edge burn + oversized kerf gap in slot</text>
+        </svg>`,
+        symptom: "“Plywood and leather edges come out heavily charred with black soot, and press-fit slots wobble loosely instead of snapping together.”",
+        cause: "Moving too slowly without strong air blast cooks the wood/leather in its own smoke, while the laser beam width (kerf) melts away extra material on both sides of the slot.",
+        steps: [
+          "<strong>Turn Air Assist Full On &amp; Clean the Lens:</strong> Aim crisp air assist right into the cut trench to blow out flaming resin, and wipe smoke haze off the focus lens with isopropyl alcohol.",
+          "<strong>Use 2 Faster Passes Instead of 1 Slow Burn:</strong> Double your travel speed and run <code>2–3 passes</code> at <code>80%–85%</code> power instead of crawling at 100% power.",
+          "<strong>Add LightBurn Kerf Offset:</strong> In LightBurn Cut Settings, set <code>Kerf Offset</code> to <code>0.08 mm – 0.15 mm</code> outward so finger joints and inlays fit snug.",
+          "<strong>Re-Check Focus Ramp:</strong> An out-of-focus beam widens into a thick scorch line instead of a razor-thin cut."
+        ]
+      },
+      {
+        id: "vinyl_clicker_lift",
+        tab: "✂️ Small Vinyl Letters Lifting & Die Tears",
+        machine: "Vinyl Cutting Plotter",
+        setupHint: "Cricut / Silhouette Cameo & Leather Clicker Press",
+        svg: `<svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Small vinyl decal letters lifting off backing">
+          <rect width="280" height="150" rx="8" fill="#121212"/>
+          <rect x="42" y="32" width="196" height="84" rx="6" fill="#1C1C1C" stroke="#444" stroke-width="2"/>
+          <text x="72" y="85" fill="#81C784" font-size="28" font-weight="900" font-family="sans-serif">IVOL</text>
+          <path d="M 152,84 Q 168,62 186,46 L 198,58 Q 178,74 166,85 Z" fill="#FFB300"/>
+          <text x="140" y="138" fill="#FFB300" font-size="10" text-anchor="middle" font-family="sans-serif">Blade drags corners &amp; peels thin strokes</text>
+        </svg>`,
+        symptom: "“Tiny letters peel right off the backing paper during cut/weeding, and sharp corners look ragged instead of crisp.”",
+        cause: "Tiny vinyl adhesive islands inside thin strokes don't have enough grip to resist a dull or dirty swivel blade dragging around tight corners.",
+        steps: [
+          "<strong>Pop Out the Blade Housing &amp; Clear Vinyl Shards:</strong> Even a microscopic speck of vinyl trapped inside the cap stops the blade from swiveling smoothly around corners.",
+          "<strong>Lower Pressure &amp; Turn On Overcut (0.1 mm):</strong> Use only enough force to kiss-cut the vinyl (not gouge the paper liner), and enable <code>0.1 mm</code> Overcut in Silhouette Studio so corners release cleanly.",
+          "<strong>Verify Blade Offset:</strong> Standard 45° drag blades need <code>0.25 mm – 0.30 mm</code> offset (<code>0.45 mm</code> for deep-cut 60° blades).",
+          "<strong>Thicken Sub-0.75mm Strokes Before Cutting:</strong> Open your artwork in <a href='https://app.ivolgaco.com/?preset=vinyl'>Pixel2Path Studio (Vinyl Plotter Preset)</a> to enforce the <code>≥0.75 mm</code> weeding guard and auto-weld overlapping letters."
+        ]
+      }
+    ];
+
+    let activeDemoIdx = 0;
+    let selectedMachine = "3D Printer";
+    let queuedPhotos = []; // [{ dataUrl, base64, mimeType, kb }]
+    let previousInteractionId = "";
+    let isSending = false;
+
+    let passState = {
+      verified: false,
+      passcode: "",
+      is_master: false,
+      unlimited: false,
+      plan_label: "",
+      expires_at: null,
+      turns_used: 0,
+      turns_limit: null,
+      turns_remaining: null
+    };
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("tsToast");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => el.classList.remove("show"), 4200);
+    }
+
+    function formatTimeRemaining(isoStr) {
+      if (!isoStr) return "";
+      const expMs = Date.parse(isoStr);
+      if (Number.isNaN(expMs)) return "";
+      const diffMs = expMs - Date.now();
+      if (diffMs <= 0) return "Expired";
+      const mins = Math.floor(diffMs / 60000);
+      const days = Math.floor(mins / 1440);
+      const hrs = Math.floor((mins % 1440) / 60);
+      const remM = mins % 60;
+      if (days >= 1) return `${days}d ${hrs}h left`;
+      return `${hrs}h ${remM}m left`;
+    }
+
+    // Safe Markdown formatter (escapes all HTML first, then formats bold, code, links & lists)
+    function renderSafeMarkdown(rawText) {
+      const escaped = escapeHtml(rawText || "");
+      const lines = escaped.split(/\r?\n/);
+      let html = "";
+      let inUl = false;
+      let inOl = false;
+
+      const formatInline = (txt) => txt
+        .replace(/`([^`]+)`/g, "<code>$1</code>")
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(/\[(https?:\/\/[^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/\[([^\]]+)\]\((https?:\/\/ivolgaco\.com[^\s)]*|https?:\/\/app\.ivolgaco\.com[^\s)]*)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line) {
+          if (inUl) { html += "</ul>"; inUl = false; }
+          if (inOl) { html += "</ol>"; inOl = false; }
+          continue;
+        }
+
+        const ulMatch = line.match(/^[-*•]\s+(.*)$/);
+        const olMatch = line.match(/^\d+[.)]\s+(.*)$/);
+
+        if (ulMatch) {
+          if (inOl) { html += "</ol>"; inOl = false; }
+          if (!inUl) { html += "<ul>"; inUl = true; }
+          html += `<li>${formatInline(ulMatch[1])}</li>`;
+        } else if (olMatch) {
+          if (inUl) { html += "</ul>"; inUl = false; }
+          if (!inOl) { html += "<ol>"; inOl = true; }
+          html += `<li>${formatInline(olMatch[1])}</li>`;
+        } else {
+          if (inUl) { html += "</ul>"; inUl = false; }
+          if (inOl) { html += "</ol>"; inOl = false; }
+          html += `<p>${formatInline(line)}</p>`;
+        }
+      }
+      if (inUl) html += "</ul>";
+      if (inOl) html += "</ol>";
+      return html || `<p>${escaped}</p>`;
+    }
+
+    function renderDemos() {
+      const tabsEl = document.getElementById("demoTabs");
+      const stageEl = document.getElementById("demoStage");
+
+      tabsEl.innerHTML = CASE_DEMOS.map((d, idx) => `
+        <button
+          type="button"
+          class="demo-tab${idx === activeDemoIdx ? " active" : ""}"
+          onclick="selectDemo(${idx})"
+        >${escapeHtml(d.tab)}</button>
+      `).join("");
+
+      const d = CASE_DEMOS[activeDemoIdx];
+      const stepsHtml = d.steps.map((s) => `<li>${s}</li>`).join("");
+
+      // Safeguard #3: Inline Conversion Bridge directly underneath each interactive Case Demo
+      const bridgeHtml = passState.verified
+        ? `
+          <div class="demo-conversion-bridge unlocked-bridge">
+            <div class="bridge-headline">
+              ✅ <strong>${escapeHtml(passState.plan_label)} Unlocked:</strong> Have a similar <span>${escapeHtml(d.machine)}</span> issue right now?
+            </div>
+            <button type="button" class="btn-primary" onclick="jumpToLiveWithPreset('${escapeHtml(d.machine)}', '${escapeHtml(d.setupHint)}')">
+              📸 Load ${escapeHtml(d.machine)} Preset &amp; Upload My Photo →
+            </button>
+          </div>
+        `
+        : `
+          <div class="demo-conversion-bridge">
+            <div class="bridge-headline">
+              🛠️ Seeing a similar <span>${escapeHtml(d.machine)}</span> failure on your workbench? Unlock live photo upload below:
+            </div>
+            <div class="bridge-controls">
+              <div class="bridge-key-form">
+                <input
+                  id="demoBridgeKeyInput"
+                  type="text"
+                  class="pass-input"
+                  placeholder="Enter TPS-XXXX-XXXX Key"
+                  autocomplete="off"
+                  spellcheck="false"
+                  onkeydown="if(event.key==='Enter'){event.preventDefault();unlockFromDemoBridge('${escapeHtml(d.machine)}');}"
+                />
+                <button type="button" class="btn-primary" onclick="unlockFromDemoBridge('${escapeHtml(d.machine)}')">
+                  Unlock &amp; Upload Photo →
+                </button>
+              </div>
+              <div class="bridge-buy-links">
+                <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="noopener" class="bridge-buy-pill">
+                  <strong>⚡ $8 · 24-Hr Pass</strong><br/>20 Turns + Studio + Vault
+                </a>
+                <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="noopener" class="bridge-buy-pill">
+                  <strong>🏆 $25/mo · Monthly</strong><br/>100 Turns/mo + All Tools
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+
+      stageEl.innerHTML = `
+        <div class="demo-split">
+          <div class="demo-visual-box">
+            ${d.svg}
+            <div class="demo-symptom-quote">${escapeHtml(d.symptom)}</div>
+          </div>
+          <div class="demo-answer-box">
+            <div class="demo-answer-kicker">✅ Research-Backed Diagnosis (Plain Words)</div>
+            <div class="demo-answer-cause">${escapeHtml(d.cause)}</div>
+            <ul class="demo-answer-list">${stepsHtml}</ul>
+          </div>
+        </div>
+        ${bridgeHtml}
+      `;
+    }
+
+    function selectDemo(idx) {
+      activeDemoIdx = idx;
+      renderDemos();
+    }
+
+    function selectMachineCategory(machineName) {
+      selectedMachine = machineName;
+      document.querySelectorAll(".machine-pill").forEach((btn) => {
+        btn.classList.toggle("active", btn.getAttribute("data-machine") === machineName);
+      });
+    }
+
+    function jumpToLiveWithPreset(machineName, setupHint) {
+      selectMachineCategory(machineName);
+      const setupEl = document.getElementById("setupInput");
+      if (!setupEl.value.trim() && setupHint) {
+        setupEl.placeholder = "Optional setup: e.g., " + setupHint;
+      }
+      document.getElementById("liveConsole").scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => document.getElementById("photoFileInput").click(), 420);
+    }
+
+    async function unlockFromDemoBridge(machineName) {
+      const bridgeInput = document.getElementById("demoBridgeKeyInput");
+      const val = bridgeInput ? bridgeInput.value.trim() : "";
+      if (!val) {
+        showToast("Enter your TPS-XXXX-XXXX Access Key first, or choose a pass on the right.");
+        if (bridgeInput) bridgeInput.focus();
+        return;
+      }
+      document.getElementById("passcodeInput").value = val;
+      const ok = await verifyPasscode();
+      if (ok) {
+        selectMachineCategory(machineName);
+        document.getElementById("liveConsole").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function applyPassStateUI() {
+      const consoleEl = document.getElementById("passConsole");
+      const hdrIcon = document.getElementById("passHeaderIcon");
+      const hdrText = document.getElementById("passHeaderText");
+      const msgEl = document.getElementById("passStatusMsg");
+      const clearBtn = document.getElementById("clearKeyBtn");
+      const unlockBtn = document.getElementById("unlockBtn");
+
+      if (!passState.verified) {
+        consoleEl.classList.remove("unlocked");
+        hdrIcon.textContent = "🔑";
+        hdrText.textContent = "Unlock Live Photo Diagnostics with Your Pixel2Path Studio Key";
+        clearBtn.style.display = "none";
+        unlockBtn.textContent = "Unlock Troubleshooter";
+        renderDemos();
+        return;
+      }
+
+      consoleEl.classList.add("unlocked");
+      clearBtn.style.display = "inline-flex";
+      unlockBtn.textContent = "Refresh Quota";
+
+      if (passState.is_master || passState.unlimited) {
+        hdrIcon.textContent = "🛡️";
+        hdrText.textContent = `${passState.plan_label} Active — Unlimited Live Testing (0 DB Turns Consumed)`;
+        msgEl.className = "pass-status-msg ok";
+        msgEl.textContent = "✅ Master Key bypass enabled: live photo uploads and multi-turn research run without database quota deduction.";
+      } else {
+        const timeLeft = formatTimeRemaining(passState.expires_at);
+        hdrIcon.textContent = "⚡";
+        hdrText.textContent = `${passState.plan_label} Active — ${passState.turns_remaining} of ${passState.turns_limit} Troubleshooter Turns Remaining`;
+        msgEl.className = "pass-status-msg ok";
+        msgEl.textContent = `✅ Ready for live photo diagnostics${timeLeft ? " (" + timeLeft + ")" : ""}. Studio CAD credits & active session remain untouched.`;
+      }
+
+      renderDemos();
+    }
+
+    async function verifyPasscode(silentAuto = false) {
+      const inputEl = document.getElementById("passcodeInput");
+      const msgEl = document.getElementById("passStatusMsg");
+      const btn = document.getElementById("unlockBtn");
+      const rawKey = inputEl.value.trim();
+
+      if (!rawKey) {
+        if (!silentAuto) {
+          msgEl.className = "pass-status-msg err";
+          msgEl.textContent = "Please paste your TPS-XXXX-XXXX Access Key first.";
+        }
+        return false;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Checking...";
+
+      try {
+        const resp = await fetch(API_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "verify", passcode: rawKey })
+        });
+        const data = await resp.json();
+
+        if (!resp.ok || !data.ok) {
+          passState.verified = false;
+          applyPassStateUI();
+          msgEl.className = "pass-status-msg err";
+          msgEl.textContent = data.error || "Unable to verify Access Key.";
+          return false;
+        }
+
+        passState = {
+          verified: true,
+          passcode: rawKey.toUpperCase(),
+          is_master: Boolean(data.is_master),
+          unlimited: Boolean(data.unlimited),
+          plan_label: data.plan_label || "Active Studio Pass",
+          expires_at: data.expires_at || null,
+          turns_used: data.turns_used ?? 0,
+          turns_limit: data.turns_limit ?? null,
+          turns_remaining: data.turns_remaining ?? null
+        };
+
+        // Sync customer TPS- key with CAD Vault localStorage (never persist Master Key if user prefers, or clearable in 1 click)
+        if (!passState.is_master) {
+          localStorage.setItem(STORAGE_KEY_PASS, passState.passcode);
+        }
+
+        applyPassStateUI();
+        if (!silentAuto) {
+          showToast("✅ Access Key unlocked! Attach photos below to start diagnosing.");
+        }
+        return true;
+      } catch (err) {
+        msgEl.className = "pass-status-msg err";
+        msgEl.textContent = "⚠️ Network error reaching /api/chat. Check connection and try again.";
+        return false;
+      } finally {
+        btn.disabled = false;
+        if (!passState.verified) btn.textContent = "Unlock Troubleshooter";
+      }
+    }
+
+    function clearPasscode() {
+      localStorage.removeItem(STORAGE_KEY_PASS);
+      document.getElementById("passcodeInput").value = "";
+      passState = {
+        verified: false,
+        passcode: "",
+        is_master: false,
+        unlimited: false,
+        plan_label: "",
+        expires_at: null,
+        turns_used: 0,
+        turns_limit: null,
+        turns_remaining: null
+      };
+      const msgEl = document.getElementById("passStatusMsg");
+      msgEl.className = "pass-status-msg";
+      msgEl.textContent = "Access Key signed out on this browser.";
+      applyPassStateUI();
+    }
+
+    // Browser-side HTML5 Canvas image resizer & EXIF stripper (<= 1024px JPEG @ 0.82)
+    function compressImageFile(file) {
+      return new Promise((resolve, reject) => {
+        if (!file.type.startsWith("image/")) {
+          reject(new Error("Please select an image file (JPG, PNG, or WEBP)."));
+          return;
+        }
+        const reader = new FileReader();
+        reader.onerror = () => reject(new Error("Could not read image file."));
+        reader.onload = () => {
+          const img = new Image();
+          img.onerror = () => reject(new Error("Invalid or corrupted image file."));
+          img.onload = () => {
+            let w = img.naturalWidth || img.width;
+            let h = img.naturalHeight || img.height;
+            if (w > MAX_IMG_DIM || h > MAX_IMG_DIM) {
+              const scale = MAX_IMG_DIM / Math.max(w, h);
+              w = Math.max(1, Math.round(w * scale));
+              h = Math.max(1, Math.round(h * scale));
+            }
+            const canvas = document.createElement("canvas");
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, w, h);
+            ctx.drawImage(img, 0, 0, w, h);
+
+            const dataUrl = canvas.toDataURL("image/jpeg", JPEG_QUALITY);
+            const base64 = dataUrl.split(",")[1];
+            const kb = Math.max(1, Math.round((base64.length * 3) / 4 / 1024));
+            resolve({ dataUrl, base64, mimeType: "image/jpeg", kb });
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handleIncomingFiles(fileList) {
+      const files = Array.from(fileList || []);
+      if (!files.length) return;
+
+      for (const f of files) {
+        if (queuedPhotos.length >= MAX_PHOTOS) {
+          showToast(`Maximum ${MAX_PHOTOS} photos per message.`);
+          break;
+        }
+        try {
+          const compressed = await compressImageFile(f);
+          queuedPhotos.push(compressed);
+        } catch (err) {
+          showToast(err.message || "Could not process image.");
+        }
+      }
+      renderPhotoTray();
+    }
+
+    function removeQueuedPhoto(idx) {
+      queuedPhotos.splice(idx, 1);
+      renderPhotoTray();
+    }
+
+    function renderPhotoTray() {
+      const tray = document.getElementById("photoTray");
+      const countLbl = document.getElementById("photoCountLabel");
+      countLbl.textContent = `${queuedPhotos.length}/${MAX_PHOTOS}`;
+
+      tray.innerHTML = queuedPhotos.map((p, idx) => `
+        <div class="tray-item">
+          <img src="${p.dataUrl}" alt="Queued hardware photo ${idx + 1}" />
+          <button type="button" class="tray-remove" onclick="removeQueuedPhoto(${idx})" title="Remove photo">×</button>
+          <span class="tray-size">${p.kb} KB</span>
+        </div>
+      `).join("");
+    }
+
+    function appendUserBubble(text, photos) {
+      const thread = document.getElementById("chatThread");
+      const row = document.createElement("div");
+      row.className = "msg-row user";
+
+      const thumbsHtml = photos.length
+        ? `<div class="msg-thumbs">${photos.map((p) => `<img src="${p.dataUrl}" alt="Uploaded hardware symptom" />`).join("")}</div>`
+        : "";
+
+      row.innerHTML = `
+        <div class="msg-sender">👤 Your Workbench</div>
+        <div class="msg-bubble">
+          ${thumbsHtml}
+          ${text ? `<p>${escapeHtml(text)}</p>` : `<p><em>(Inspect attached photo)</em></p>`}
+        </div>
+      `;
+      thread.appendChild(row);
+      thread.scrollTop = thread.scrollHeight;
+    }
+
+    function appendLoadingBubble() {
+      const thread = document.getElementById("chatThread");
+      const row = document.createElement("div");
+      row.className = "msg-row ai";
+      row.id = "loadingBubbleRow";
+      row.innerHTML = `
+        <div class="msg-sender">🛠️ Ivolga Workshop Assistant</div>
+        <div class="msg-bubble">
+          🔍 Inspecting photo &amp; researching hardware settings<span class="typing-dots"><span>.</span><span>.</span><span>.</span></span>
+        </div>
+      `;
+      thread.appendChild(row);
+      thread.scrollTop = thread.scrollHeight;
+    }
+
+    function removeLoadingBubble() {
+      const el = document.getElementById("loadingBubbleRow");
+      if (el) el.remove();
+    }
+
+    function appendAiBubble(replyText, citations = []) {
+      const thread = document.getElementById("chatThread");
+      const row = document.createElement("div");
+      row.className = "msg-row ai";
+
+      let citeHtml = "";
+      if (Array.isArray(citations) && citations.length > 0) {
+        const pills = citations
+          .filter((c) => c && /^https?:\/\//i.test(c.url))
+          .map((c) => `<a class="citation-pill" href="${escapeHtml(c.url)}" target="_blank" rel="noopener noreferrer">🔗 ${escapeHtml(c.title)}</a>`)
+          .join("");
+        if (pills) {
+          citeHtml = `<div class="citation-strip"><span>Verified sources:</span>${pills}</div>`;
+        }
+      }
+
+      row.innerHTML = `
+        <div class="msg-sender">🛠️ Ivolga Workshop Assistant</div>
+        <div class="msg-bubble">
+          ${renderSafeMarkdown(replyText)}
+          ${citeHtml}
+        </div>
+      `;
+      thread.appendChild(row);
+      thread.scrollTop = thread.scrollHeight;
+    }
+
+    function resetConversation() {
+      previousInteractionId = "";
+      queuedPhotos = [];
+      renderPhotoTray();
+      document.getElementById("messageInput").value = "";
+      const thread = document.getElementById("chatThread");
+      thread.innerHTML = `
+        <div class="msg-row ai">
+          <div class="msg-sender">🛠️ Ivolga Workshop Assistant</div>
+          <div class="msg-bubble">
+            <p><strong>Started a fresh troubleshooting session.</strong> Attach 1–3 photos and tell me what happened on your machine.</p>
+          </div>
+        </div>
+      `;
+      showToast("🔄 Conversation reset for a new hardware issue.");
+    }
+
+    async function sendChatTurn() {
+      if (isSending) return;
+
+      const typedKey = document.getElementById("passcodeInput").value.trim();
+      const activeKey = passState.verified ? passState.passcode : typedKey;
+
+      if (!activeKey) {
+        showToast("🔑 Enter your TPS-XXXX-XXXX Access Key above to run live photo diagnostics.");
+        document.getElementById("passConsole").scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => document.getElementById("passcodeInput").focus(), 350);
+        return;
+      }
+
+      const msgEl = document.getElementById("messageInput");
+      const setupEl = document.getElementById("setupInput");
+      const messageText = msgEl.value.trim();
+
+      if (!messageText && queuedPhotos.length === 0) {
+        showToast("Describe the symptom or attach at least 1 photo first.");
+        msgEl.focus();
+        return;
+      }
+
+      const photosSnapshot = [...queuedPhotos];
+      const payloadImages = photosSnapshot.map((p) => ({
+        data: p.base64,
+        mime_type: p.mimeType
+      }));
+
+      isSending = true;
+      const sendBtn = document.getElementById("sendBtn");
+      sendBtn.disabled = true;
+      sendBtn.textContent = "Researching...";
+
+      appendUserBubble(messageText, photosSnapshot);
+      msgEl.value = "";
+      queuedPhotos = [];
+      renderPhotoTray();
+      appendLoadingBubble();
+
+      try {
+        const resp = await fetch(API_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "chat",
+            passcode: activeKey,
+            machine: selectedMachine,
+            setup: setupEl.value.trim(),
+            message: messageText,
+            previous_interaction_id: previousInteractionId,
+            images: payloadImages
+          })
+        });
+
+        const data = await resp.json();
+        removeLoadingBubble();
+
+        if (!resp.ok || !data.ok) {
+          // Restore text & photos so the user never loses their typed symptom on an expired key or network hiccup
+          msgEl.value = messageText;
+          queuedPhotos = photosSnapshot;
+          renderPhotoTray();
+
+          const errMsg = data.error || "Unable to complete diagnosis.";
+          showToast(errMsg);
+          const statusEl = document.getElementById("passStatusMsg");
+          statusEl.className = "pass-status-msg err";
+          statusEl.textContent = errMsg;
+          if (data.requires_pass) {
+            document.getElementById("passConsole").scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          return;
+        }
+
+        if (data.interaction_id) {
+          previousInteractionId = data.interaction_id;
+        }
+
+        if (data.is_master) {
+          passState.verified = true;
+          passState.passcode = activeKey.toUpperCase();
+          passState.is_master = true;
+          passState.unlimited = true;
+          passState.plan_label = "Studio Master Key";
+        } else if (typeof data.turns_remaining === "number") {
+          passState.verified = true;
+          passState.passcode = activeKey.toUpperCase();
+          passState.turns_used = data.turns_used;
+          passState.turns_limit = data.turns_limit;
+          passState.turns_remaining = data.turns_remaining;
+          if (!passState.plan_label) passState.plan_label = "Active Studio Pass";
+          localStorage.setItem(STORAGE_KEY_PASS, passState.passcode);
+        }
+        applyPassStateUI();
+
+        appendAiBubble(data.reply, data.citations || []);
+      } catch (err) {
+        removeLoadingBubble();
+        msgEl.value = messageText;
+        queuedPhotos = photosSnapshot;
+        renderPhotoTray();
+        showToast("⚠️ Network error reaching /api/chat. Your turn was not deducted.");
+      } finally {
+        isSending = false;
+        sendBtn.disabled = false;
+        sendBtn.textContent = "Diagnose Now →";
+      }
+    }
+
+    // Wire events on load
+    document.addEventListener("DOMContentLoaded", () => {
+      renderDemos();
+
+      document.querySelectorAll(".machine-pill").forEach((btn) => {
+        btn.addEventListener("click", () => selectMachineCategory(btn.getAttribute("data-machine")));
+      });
+
+      document.getElementById("photoFileInput").addEventListener("change", (e) => {
+        handleIncomingFiles(e.target.files);
+        e.target.value = "";
+      });
+
+      // Drag & Drop onto Composer
+      const composer = document.getElementById("composerBox");
+      ["dragenter", "dragover"].forEach((ev) => {
+        composer.addEventListener(ev, (e) => {
+          e.preventDefault();
+          composer.classList.add("drag-over");
+        });
+      });
+      ["dragleave", "drop"].forEach((ev) => {
+        composer.addEventListener(ev, (e) => {
+          e.preventDefault();
+          composer.classList.remove("drag-over");
+        });
+      });
+      composer.addEventListener("drop", (e) => {
+        if (e.dataTransfer?.files?.length) {
+          handleIncomingFiles(e.dataTransfer.files);
+        }
+      });
+
+      // Clipboard Paste (Ctrl+V screenshot support)
+      document.addEventListener("paste", (e) => {
+        const items = Array.from(e.clipboardData?.items || []);
+        const imgFiles = items
+          .filter((it) => it.type.startsWith("image/"))
+          .map((it) => it.getAsFile())
+          .filter(Boolean);
+        if (imgFiles.length) {
+          handleIncomingFiles(imgFiles);
+        }
+      });
+
+      // Enter to submit in Passcode box, Ctrl+Enter in textarea
+      document.getElementById("passcodeInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          verifyPasscode();
+        }
+      });
+      document.getElementById("messageInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+          e.preventDefault();
+          sendChatTurn();
+        }
+      });
+
+      // Auto-load ?key=TPS-XXXX-XXXX or shared CAD Vault localStorage key
+      const qp = new URLSearchParams(window.location.search);
+      const urlKey = (qp.get("key") || "").trim();
+      const savedKey = urlKey || (localStorage.getItem(STORAGE_KEY_PASS) || "").trim();
+      if (savedKey) {
+        document.getElementById("passcodeInput").value = savedKey;
+        verifyPasscode(true);
+      }
+    });
+  </script>
+</body>
+</html>
