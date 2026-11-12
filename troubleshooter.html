@@ -1247,6 +1247,7 @@
     let selectedMachine = "3D Printer";
     let queuedPhotos = []; // [{ dataUrl, base64, mimeType, kb }]
     let previousInteractionId = "";
+    let chatHistory = []; // [{ role: "user" | "model", text: string }]
     let isSending = false;
 
     let passState = {
@@ -1504,13 +1505,31 @@
       btn.disabled = true;
       btn.textContent = "Checking...";
 
+      if (window.location.protocol === "file:" && API_ENDPOINT.startsWith("/")) {
+        btn.disabled = false;
+        btn.textContent = "Unlock Troubleshooter";
+        msgEl.className = "pass-status-msg err";
+        msgEl.textContent = "⚠️ You opened troubleshooter.html as a local file (file://). Open https://ivolgaco.com/troubleshooter.html in your browser to reach /api/chat.";
+        return false;
+      }
+
       try {
         const resp = await fetch(API_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ action: "verify", passcode: rawKey })
         });
-        const data = await resp.json();
+        const rawText = await resp.text();
+        let data = null;
+        try {
+          data = JSON.parse(rawText);
+        } catch {
+          passState.verified = false;
+          applyPassStateUI();
+          msgEl.className = "pass-status-msg err";
+          msgEl.textContent = `⚠️ /api/chat returned HTTP ${resp.status} (HTML instead of JSON). Make sure functions/api/chat.js is deployed at the root of ivolga-website on Cloudflare Pages.`;
+          return false;
+        }
 
         if (!resp.ok || !data.ok) {
           passState.verified = false;
@@ -1667,6 +1686,7 @@
       `;
       thread.appendChild(row);
       thread.scrollTop = thread.scrollHeight;
+      return row;
     }
 
     function appendLoadingBubble() {
@@ -1716,8 +1736,23 @@
       thread.scrollTop = thread.scrollHeight;
     }
 
+    function appendErrorBubble(errMsg) {
+      const thread = document.getElementById("chatThread");
+      const row = document.createElement("div");
+      row.className = "msg-row ai";
+      row.innerHTML = `
+        <div class="msg-sender">🛠️ Ivolga Workshop Assistant</div>
+        <div class="msg-bubble" style="border-color: rgba(255, 82, 82, 0.55); border-left-color: #FF5252; background: rgba(255, 82, 82, 0.08);">
+          <p><strong style="color: #FF8A80;">⚠️ Could not complete diagnosis:</strong> ${escapeHtml(errMsg)}</p>
+        </div>
+      `;
+      thread.appendChild(row);
+      thread.scrollTop = thread.scrollHeight;
+    }
+
     function resetConversation() {
       previousInteractionId = "";
+      chatHistory = [];
       queuedPhotos = [];
       renderPhotoTray();
       document.getElementById("messageInput").value = "";
@@ -1767,7 +1802,7 @@
       sendBtn.disabled = true;
       sendBtn.textContent = "Researching...";
 
-      appendUserBubble(messageText, photosSnapshot);
+      const userBubbleEl = appendUserBubble(messageText, photosSnapshot);
       msgEl.value = "";
       queuedPhotos = [];
       renderPhotoTray();
@@ -1784,20 +1819,36 @@
             setup: setupEl.value.trim(),
             message: messageText,
             previous_interaction_id: previousInteractionId,
+            history: chatHistory,
             images: payloadImages
           })
         });
 
-        const data = await resp.json();
+        const rawText = await resp.text();
         removeLoadingBubble();
+        let data = null;
+        try {
+          data = JSON.parse(rawText);
+        } catch {
+          if (userBubbleEl) userBubbleEl.remove();
+          msgEl.value = messageText;
+          queuedPhotos = photosSnapshot;
+          renderPhotoTray();
+          const statusMsg = `⚠️ /api/chat returned HTTP ${resp.status} (non-JSON response).`;
+          appendErrorBubble(statusMsg);
+          showToast(statusMsg);
+          return;
+        }
 
         if (!resp.ok || !data.ok) {
-          // Restore text & photos so the user never loses their typed symptom on an expired key or network hiccup
+          // Remove pending user bubble and restore text & photos to composer so retry doesn't duplicate bubbles
+          if (userBubbleEl) userBubbleEl.remove();
           msgEl.value = messageText;
           queuedPhotos = photosSnapshot;
           renderPhotoTray();
 
           const errMsg = data.error || "Unable to complete diagnosis.";
+          appendErrorBubble(errMsg);
           showToast(errMsg);
           const statusEl = document.getElementById("passStatusMsg");
           statusEl.className = "pass-status-msg err";
@@ -1811,6 +1862,10 @@
         if (data.interaction_id) {
           previousInteractionId = data.interaction_id;
         }
+        chatHistory.push(
+          { role: "user", text: messageText || "(Attached hardware photo)" },
+          { role: "model", text: data.reply || "" }
+        );
 
         if (data.is_master) {
           passState.verified = true;
@@ -1832,10 +1887,13 @@
         appendAiBubble(data.reply, data.citations || []);
       } catch (err) {
         removeLoadingBubble();
+        if (userBubbleEl) userBubbleEl.remove();
         msgEl.value = messageText;
         queuedPhotos = photosSnapshot;
         renderPhotoTray();
-        showToast("⚠️ Network error reaching /api/chat. Your turn was not deducted.");
+        const netMsg = "Network error reaching /api/chat. Your turn was not deducted.";
+        appendErrorBubble(netMsg);
+        showToast("⚠️ " + netMsg);
       } finally {
         isSending = false;
         sendBtn.disabled = false;
