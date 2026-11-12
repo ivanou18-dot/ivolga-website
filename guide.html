@@ -392,6 +392,7 @@
 
   <div class="print-bar">
     <a href="https://ivolgaco.com/" class="btn-dark">← Return to Ivolga Co. Home</a>
+    <a href="troubleshooter.html" class="btn-dark">🛠️ Workshop Troubleshooter</a>
     <a href="vault.html" class="btn-dark">🗄️ Ready-to-Cut CAD Vault</a>
     <button type="button" class="btn-gold" onclick="window.print()">🖨️ Save / Print Official PDF Manual</button>
     <a href="https://app.ivolgaco.com/" class="btn-gold">Launch Pixel2Path Studio 🚀</a>
@@ -433,7 +434,7 @@
     <div class="grid-2">
       <div class="card-box">
         <strong class="title">🖼️ Mode 1: Logo / Photo (📤 Universal Image &amp; SVG Upload)</strong>
-        Step 1 accepts your upload (with a collapsible <strong>💡 What Images Are Best to Upload:</strong> guide) and waits cleanly until you pick your target workshop machine in Step 2, running a <strong>7-Gate Input Shield</strong> (catching UI screenshots, multi-item sheets, heavy halftone/fabric grain via 1-click <strong>🪄 Smooth Specks / Descreen Texture (0 Credits)</strong>, True Coin/Seal recessed-table retention vs. blank stone medallion rim stripping, and crisp QR/1D barcodes). Simple graphics and logos run instantaneously at <strong>0 credits</strong> via the internal mathematical engine (with automatic color-halo &amp; chromatic-tier separation plus a <strong>Universal Line-Art Scanner</strong>). Complex photos, 3D busts, portraits, and shaded scenes engage the <strong>Autonomous Multi-Stage Advanced Vision Pipeline</strong>—paired with mode-aware controls: <strong>✨ Apply Advanced Vision Enhancement (1 Credit / 0 Credits)</strong> &amp; <strong>🔄 Clear Advanced Vision Enhancement (0 Credits)</strong> in Smart Auto-Trace, or <strong>✨ Apply Banknote Engraving</strong> &amp; <strong>🔄 Clear Banknote Engraving (0 Credits)</strong> in Banknote mode, plus <strong>🗑️ Clear Uploaded Image</strong>.
+        Step 1 accepts your upload and waits cleanly until you pick your target workshop machine in Step 2, running a <strong>7-Gate Input Shield</strong> (catching UI screenshots, multi-item sheets, heavy halftone/fabric grain via 1-click <strong>🪄 Smooth Specks / Descreen Texture (0 Credits)</strong>, True Coin/Seal recessed-table retention vs. blank stone medallion rim stripping, and crisp QR/1D barcodes). Simple graphics and logos run instantaneously at <strong>0 credits</strong> via the internal mathematical engine (with automatic color-halo &amp; chromatic-tier separation plus a <strong>Universal Line-Art Scanner</strong>). Complex photos, 3D busts, portraits, and shaded scenes engage the <strong>Autonomous Multi-Stage Advanced Vision Pipeline</strong>—paired with mode-aware controls: <strong>✨ Apply Advanced Vision Enhancement (1 Credit / 0 Credits)</strong> &amp; <strong>🔄 Clear Advanced Vision Enhancement (0 Credits)</strong> in Smart Auto-Trace, or the dedicated <strong>✨ Transform into Banknote Engraving</strong> control in Banknote mode, plus <strong>🗑️ Clear Uploaded Image</strong>.
       </div>
       <div class="card-box">
         <strong class="title">✍️ Mode 2: Custom Text &amp; 🔀 Mode 3: Logo + Text Combo</strong>
@@ -443,60 +444,60 @@
 
     <h2 id="hardware-presets">3. Workshop Hardware Presets &amp; Machine Assumptions (Step 2)</h2>
     <div class="table-scroll-wrap" role="region" aria-label="Workshop Hardware Presets Specifications" tabindex="0">
-      <table>
-        <thead>
-          <tr>
-            <th>Machine Preset</th>
-            <th>Export Formats</th>
-            <th>Default Specs</th>
-            <th>Built-In Machine Assumptions &amp; Geometry Guards</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>🧊 3D Printer</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Slicer Amber/Green)</span></td>
-            <td><code>.STL</code> (Default)</td>
-            <td>50 mm Width<br />3.0 mm Base<br />2.5 mm Relief</td>
-            <td>Includes <strong>3 native <code>.STL</code> Surface Modes</strong>: <strong>🔼 Raised Relief Stamp</strong> (ink, leather &amp; clay debossing), <strong>🔽 Recessed Cavity Seal</strong> (wax seals, raised clay embossers &amp; soap molds with a <code>≥1.5 mm</code> solid floor guard), and <strong>🗿 Sculpted 3D Bas-Relief</strong> (continuous Z-heightmap plaques &amp; busts). Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong>, <strong>≥0.38 mm 3D groove guard</strong>, <code>5.0 mm</code> base margin per side, and a <strong>2D Build Plate Fit Guard</strong>.</td>
-          </tr>
-          <tr>
-            <td><strong>⚡ Laser Engraver</strong><br /><span style="color:#FF5252;font-size:0.74rem;">(Vector Hairline Red)</span></td>
-            <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
-            <td>60 mm Width<br />2D Closed Loops</td>
-            <td>Calibrated for <code>0.10 mm</code> laser kerf resolution (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps. SVG exports use a 1:1 mm <code>viewBox</code>, unified <code>&lt;Compound Path&gt;</code> (<code>fill-rule="evenodd"</code>), and an exact <code>0.0882mm (0.25pt)</code> mathematical hairline stroke, with optional <strong>🌉 Stencil Holding Bridges (<code>1.6 mm</code>)</strong> to anchor inner letter islands.</td>
-          </tr>
-          <tr>
-            <td><strong>✂️ Vinyl Plotter</strong><br /><span style="color:#E040FB;font-size:0.74rem;">(Contour Cut Magenta)</span></td>
-            <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
-            <td>80 mm Width<br />Drag-Knife Safe</td>
-            <td>Defaults to unified <code>.SVG</code> Compound Paths (for Cricut/Illustrator) with <code>.DXF</code> for free Silhouette Studio Basic. Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on drag-knife blades, plus optional <strong>🌉 Stencil Holding Bridges (<code>1.6 mm</code>)</strong> for spray-paint &amp; mylar stencils.</td>
-          </tr>
-          <tr>
-            <td><strong>🗜️ Clicker Die</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Die-Board Cut Paths)</span></td>
-            <td><code>.DXF</code> (Default) • <code>.SVG</code></td>
-            <td>100 mm Width<br />Die-Board Cut Paths</td>
-            <td>Suppresses table shadows and generates continuous, closed vector cut paths (<code>STEEL_RULE_CUT</code> layer) preserving internal cutouts, slits, and multi-part forms for laser-cut steel-rule die boards, with an optional <strong>Outer Blade Offset (0.0–6.0 mm)</strong>.</td>
-          </tr>
-          <tr>
-            <td><strong>🔩 CNC / Brass Die</strong><br /><span style="color:#448AFF;font-size:0.74rem;">(CAD/CAM Toolpath Blue)</span></td>
-            <td><code>.DXF</code> (Default) • <code>.STL</code> • <code>.SVG</code></td>
-            <td>50 mm Width<br />8.0 mm Base<br />3.0 mm Relief</td>
-            <td>Defaults to layer-separated 2D CAD vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code> in <code>.DXF</code>) for V-carving/pocketing, plus heavy-duty 3D stock solids (<code>.STL</code> in Raised, Recessed Cavity, or Sculpted 3D Bas-Relief modes) and <code>.SVG</code>. Preserves hairline intaglio paths on 2D Banknote exports while enforcing <code>≥0.38 mm</code> feature &amp; groove guards on 3D <code>.STL</code> brass/embossing meshes.</td>
-          </tr>
-        </tbody>
-      </table>
+    <table>
+      <thead>
+        <tr>
+          <th>Machine Preset</th>
+          <th>Export Formats</th>
+          <th>Default Specs</th>
+          <th>Built-In Machine Assumptions &amp; Geometry Guards</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>🧊 3D Printer</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Slicer Amber/Green)</span></td>
+          <td><code>.STL</code> (Default)</td>
+          <td>50 mm Width<br />3.0 mm Base<br />2.5 mm Relief</td>
+          <td>Includes <strong>3 native <code>.STL</code> Surface Modes</strong>: <strong>🔼 Raised Relief Stamp</strong> (ink, leather &amp; clay debossing), <strong>🔽 Recessed Cavity Seal</strong> (wax seals, raised clay embossers &amp; soap molds with a <code>≥1.5 mm</code> solid floor guard), and <strong>🗿 Sculpted 3D Bas-Relief</strong> (continuous Z-heightmap plaques &amp; busts). Enforces a <strong>≥0.45 mm sub-nozzle wall guard</strong>, <strong>≥0.38 mm 3D groove guard</strong>, <code>5.0 mm</code> base margin per side, and a <strong>2D Build Plate Fit Guard</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>⚡ Laser Engraver</strong><br /><span style="color:#FF5252;font-size:0.74rem;">(Vector Hairline Red)</span></td>
+          <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
+          <td>60 mm Width<br />2D Closed Loops</td>
+          <td>Calibrated for <code>0.10 mm</code> laser kerf resolution (<code>LASER_OR_CUT_PATHS</code> layer) for LightBurn, xTool, Glowforge, and laser rubber stamps. SVG exports use a 1:1 mm <code>viewBox</code>, unified <code>&lt;Compound Path&gt;</code> (<code>fill-rule="evenodd"</code>), and an exact <code>0.0882mm (0.25pt)</code> mathematical hairline stroke, with optional <strong>🌉 Stencil Holding Bridges (<code>1.6 mm</code>)</strong> to anchor inner letter islands.</td>
+        </tr>
+        <tr>
+          <td><strong>✂️ Vinyl Plotter</strong><br /><span style="color:#E040FB;font-size:0.74rem;">(Contour Cut Magenta)</span></td>
+          <td><code>.SVG</code> (Default) • <code>.DXF</code></td>
+          <td>80 mm Width<br />Drag-Knife Safe</td>
+          <td>Defaults to unified <code>.SVG</code> Compound Paths (for Cricut/Illustrator) with <code>.DXF</code> for free Silhouette Studio Basic. Enforces a <code>≥0.75 mm</code> weeding guard and <code>0.35 mm²</code> dust filter to prevent vinyl lifting on drag-knife blades, plus optional <strong>🌉 Stencil Holding Bridges (<code>1.6 mm</code>)</strong> for spray-paint &amp; mylar stencils.</td>
+        </tr>
+        <tr>
+          <td><strong>🗜️ Clicker Die</strong><br /><span style="color:#FFB300;font-size:0.74rem;">(Die-Board Cut Paths)</span></td>
+          <td><code>.DXF</code> (Default) • <code>.SVG</code></td>
+          <td>100 mm Width<br />Die-Board Cut Paths</td>
+          <td>Suppresses table shadows and generates continuous, closed vector cut paths (<code>STEEL_RULE_CUT</code> layer) preserving internal cutouts, slits, and multi-part forms for laser-cut steel-rule die boards, with an optional <strong>Outer Blade Offset (0.0–6.0 mm)</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>🔩 CNC / Brass Die</strong><br /><span style="color:#448AFF;font-size:0.74rem;">(CAD/CAM Toolpath Blue)</span></td>
+          <td><code>.DXF</code> (Default) • <code>.STL</code> • <code>.SVG</code></td>
+          <td>50 mm Width<br />8.0 mm Base<br />3.0 mm Relief</td>
+          <td>Defaults to layer-separated 2D CAD vectors (<code>RAISED_RELIEF</code> &amp; <code>BASEPLATE_CUT</code> in <code>.DXF</code>) for V-carving/pocketing, plus heavy-duty 3D stock solids (<code>.STL</code> in Raised, Recessed Cavity, or Sculpted 3D Bas-Relief modes) and <code>.SVG</code>. Preserves hairline intaglio paths on 2D Banknote exports while enforcing <code>≥0.38 mm</code> feature &amp; groove guards on 3D <code>.STL</code> brass/embossing meshes.</td>
+        </tr>
+      </tbody>
+    </table>
     </div>
 
     <h2 id="tracing-styles">4. Tracing Styles, Universal Line-Art Scanner &amp; Advanced Vision</h2>
     <ul>
       <li><strong>⚡ Smart Auto-Trace (Recommended):</strong> Separates dark structural ink outlines and isoluminant multi-color tiers using CIE LAB Di Zenzo chromatic valley carving so touching colors (such as red, yellow, and blue plumage) never fuse into a solid blob. Preserves internal feather slits, delights uneven lighting shadows, and extracts sculpted 3D facial contours.</li>
       <li><strong>🏛️ Classical Banknote Hatching (3D Shading Lines — 0 Credits on Clean White or Dark Studio Reliefs):</strong> Isolates smooth grayscale sculptures, busts, and medallions on clean white <em>or</em> uniform dark studio backdrops with LAB shadow delighting and an unbroken enclosing contour rim, converting shading gradients into variable-width engraving lines with full fine-tuning: <strong>Midtone Hatch Density (40–160)</strong>, <strong>Solid Highlight Fill (1–10)</strong>, <strong>Hatch Pattern</strong> (<em>Diagonal 45°, Cross-Hatch 45° Mesh, Concentric Circles Seal, Horizontal 0°, Vertical 90°</em>), <strong>3D Contour Wave Curvature (0–10)</strong>, <strong>Fine-Line Detail / Tone Balance (-80 to +80)</strong>, <strong>Extra Line Thickness Boost (0–8)</strong>, and <strong>Invert Hatching</strong> (plus 1-click <strong>🔄 Switch to Mathematical 3D Hatching Sliders (0 Credits)</strong>).</li>
-      <li><strong>✨ Autonomous &amp; 1-Click Banknote Intaglio Engraving:</strong> Uploading a flat 2D graphic or cluttered photo/portrait while Banknote mode is active automatically transforms it in a single pass into authentic 19th-century steel-plate intaglio line-art (or tap <strong>✨ Apply Banknote Engraving</strong> / <strong>🔄 Re-Generate Banknote Engraving</strong> anytime), verified by an autonomous Intaglio Self-Critique Gate and a <code>45°</code> Anti-Blotch separator.</li>
+      <li><strong>✨ Autonomous &amp; 1-Click Banknote Intaglio Engraving:</strong> Uploading a flat 2D graphic or cluttered photo/portrait while Banknote mode is active automatically transforms it in a single pass into authentic 19th-century steel-plate intaglio line-art (or tap <strong>✨ Transform into Banknote Engraving</strong> / <strong>🔄 Re-Generate Banknote Engraving</strong> anytime), verified by an autonomous Intaglio Self-Critique Gate and a <code>45°</code> Anti-Blotch separator.</li>
       <li><strong>🔍 Universal Line-Art &amp; Preprocessed Vector Scanner:</strong> Automatically detects pre-drawn intaglio engravings, crisp line-art, native <code>.SVG</code> files, and QR/1D barcodes on upload, preserving open white troughs between fine parallel etching lines so delicate strokes trace 1:1 with zero loss.</li>
     </ul>
 
     <h3>📜 In-App Prompt Generator (ChatGPT, Gemini, Claude, Grok, etc.)</h3>
-    <p>Open the <strong>📜 AI Prompt Generator (ChatGPT, Gemini, Claude, Grok, etc.) — Tailored to Your Machine</strong> expander in Step 1, choose from <strong>4 Target Machine Style presets</strong> (<em>🛡️ Strict-Fidelity 3D Stamp &amp; CNC Cleanup</em> with even front-lighting &amp; zero shadow blotches, <em>🏛️ Classic 3D Banknote &amp; Intaglio Engraving</em>, <em>✂️ Vinyl Plotter &amp; Drag-Knife Stencil</em>, or <em>🗜️ Clicker Die Cut Template</em>), enter your subject in <strong>Add details about your image:</strong>, tap <strong>Enter</strong>, and click <strong>📋 Copy Prompt to Clipboard</strong>—or copy this master Banknote template:</p>
+    <p>Open the <strong>📜 Prompt Generator (ChatGPT, Gemini, Claude, Grok, etc.) — Tailored to Your Machine</strong> expander in Step 1, choose from <strong>4 Target Machine Style presets</strong> (<em>🛡️ Strict-Fidelity 3D Stamp &amp; CNC Cleanup</em> with even front-lighting &amp; zero shadow blotches, <em>🏛️ Classic 3D Banknote &amp; Intaglio Engraving</em>, <em>✂️ Vinyl Plotter &amp; Drag-Knife Stencil</em>, or <em>🗜️ Clicker Die Cut Template</em>), enter your subject in <strong>Add details about your image:</strong>, tap <strong>Enter</strong>, and click <strong>📋 Copy Prompt to Clipboard</strong>—or copy this master Banknote template:</p>
     <div class="prompt-box">Create a high-resolution, square 1:1 aspect ratio classic 3D banknote engraving and Intaglio-style artwork of [your subject, pose, and description], centered on a solid, seamless, pure white (#FFFFFF) background.
 
 COMPOSITION &amp; ZERO GROUND SHADOW: The entire subject is prominently centered in a square 1:1 frame with ample, generous white space (margins) on all four sides, ensuring no part of the artwork touches the edges. The subject is 100% isolated in mid-air on the pure white background: strictly NO ground shadow, NO cast shadow, NO floor dust, NO grass/ground lines beneath the feet/hooves, and NO borders or frames.
@@ -509,7 +510,7 @@ CLASSICAL INTAGLIO RULES (TAPERED ENDS, 90-DEGREE MOIRE AVOIDANCE &amp; SECOND S
       <li><strong>Choose Workshop Machine &amp; Tracing Style:</strong> Click your color-coded hardware preset (<code>🧊 3D Printer</code>, <code>⚡ Laser Engraver</code>, <code>✂️ Vinyl Plotter</code>, <code>🗜️ Clicker Die</code>, or <code>🔩 CNC / Brass Die</code>) to activate toolhead-calibrated processing, and select <em>⚡ Smart Auto-Trace</em> or <em>🏛️ Classical Banknote Hatching</em> (on Laser &amp; CNC).</li>
       <li><strong>📐 Set Graphic Width (mm), 3D Surface Mode &amp; Orientation:</strong> Enter your exact target width in millimeters (<code>5–350 mm</code>)—height scales automatically to lock your 1:1 aspect ratio. On <code>.STL</code> exports, choose <strong>🔼 Raised Relief Stamp</strong>, <strong>🔽 Recessed Cavity Seal</strong>, or <strong>🗿 Sculpted 3D Bas-Relief</strong>. Check <strong>🔄 Mirror Horizontally</strong> for face-down stamps/seals or HTV iron-on (custom text stamps show a 1-click <strong>🪞 Mirror Stamp Text Now</strong> reminder if left unmirrored). On Laser/Vinyl, optionally check <strong>🌉 Add Stencil Holding Bridges (<code>1.6 mm</code>)</strong> or <strong>📏 Include 50×50 mm Scale Calibration Box (.SVG / .DXF)</strong>.</li>
       <li><strong>Optional Fine-Tuning:</strong> Expand <em>🎛️ Optional Fine-Tuning</em> only if you wish to customize 3D Base Thickness (<code>0–15 mm</code>), 3D Relief Height (<code>0.5–15 mm</code>), Detail / Edge or Tone Balance (<code>-80 to +80</code>), Extra Line Thickness Boost (<code>0–8</code>), Outer Blade Offset (<code>0–6 mm</code>), or Banknote Hatch Density (<code>40–160</code>), Highlight Fill (<code>1–10</code>), and Wave Curvature (<code>0–10</code>).</li>
-      <li><strong>Verify, Auto-Fix &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Geometry Verified</strong> (or <strong>✅ 3D Bas-Relief Mesh Verified</strong>)—including automatic <strong>2D (<code>Width × Height</code>) Build Plate Overhang checks</strong> for <code>256×256 mm</code> &amp; <code>220×220 mm</code> beds (with <code>45°</code> diagonal fit detection &amp; 1-click <strong>📐 Auto-Fit Straight to Bed</strong>), plus 1-click recovery buttons (<strong>🗿 Switch to Sculpted 3D Bas-Relief</strong>, <strong>🎚️ Auto-Separate Lines</strong>, <strong>🔄 Re-Generate Advanced Vision Pass (0 Credits)</strong>, or <strong>🔄 Reset Fine-Tuning</strong>). Click <strong>🧪 Generate Free 25mm Graphic Width Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
+      <li><strong>Verify, Auto-Fix &amp; Export (Step 3):</strong> Confirm the readiness badge shows <strong>✅ Geometry Verified</strong>—including automatic <strong>2D (<code>Width × Height</code>) Build Plate Overhang checks</strong> for <code>256×256 mm</code> &amp; <code>220×220 mm</code> beds (with <code>45°</code> diagonal fit detection &amp; 1-click <strong>📐 Auto-Fit Straight to Bed</strong>), plus 1-click recovery buttons (<strong>🗿 Switch to Sculpted 3D Bas-Relief</strong>, <strong>🎚️ Auto-Separate Lines</strong>, <strong>🔄 Re-Generate Advanced Vision Pass (0 Credits)</strong>, or <strong>🔄 Reset Fine-Tuning</strong>). Click <strong>🧪 Download Free 25mm graphic width Sample</strong> to verify scaling in your slicer/CAD software for free, or enter your Access Key to click <strong>⚡ Generate Full Production File</strong>.</li>
     </ol>
 
     <h2 id="slicer-cad-import">6. Slicer, Laser &amp; CAD Import Guidelines</h2>
@@ -569,14 +570,13 @@ CLASSICAL INTAGLIO RULES (TAPERED ENDS, 90-DEGREE MOIRE AVOIDANCE &amp; SECOND S
 
     <h2 id="privacy-terms">9. Privacy, Data Processors, Upload Safeguards &amp; Billing Terms</h2>
     <ul>
-      <li><strong>🔒 Volatile RAM-Only Artwork Retention &amp; Deletion:</strong> Uploaded raster/vector files and generated <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> toolpaths are processed exclusively in volatile server memory (<code>RAM</code>) during your active browser session, bounded by automatic session-cache eviction, and purged automatically when your session closes or rotates. Client artwork is never written to permanent object storage, published, sold, or used to train external or public models.</li>
-      <li><strong>🛡️ Server-Side Upload Safeguards:</strong> Uploads are capped at <strong><code>25 MB</code> maximum</strong> (<code>2 MB</code> maximum for vector files) with strict file-header signature verification, pixel-dimension ceilings, automated vector/XML sanitization prior to parsing, and passcode brute-force rate limiting.</li>
+      <li><strong>🔒 Volatile RAM-Only Artwork Retention &amp; Deletion:</strong> Uploaded raster/vector files and generated <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> toolpaths are processed exclusively in volatile server memory (<code>RAM</code>) during your active browser session, bounded by automatic LRU session eviction (<code>MAX_IMAGE_SESSION_VAULT_SIZE = 16</code>), and purged automatically when your session closes or rotates. Client artwork is never written to permanent object storage, published, sold, or used to train external or public models.</li>
+      <li><strong>🛡️ Server-Side Upload Safeguards:</strong> Uploads are capped at <strong><code>25 MB</code> maximum</strong> (<code>2 MB</code> maximum for raw <code>.SVG</code> XML) with file-header signature verification, a <strong><code>64 MP</code> decompression-bomb pixel ceiling</strong>, and strict XML entity/script sanitization (blocking <code>&lt;!ENTITY</code>, <code>&lt;script&gt;</code>, and <code>&lt;foreignObject&gt;</code> payloads prior to vector parsing), alongside passcode brute-force rate limiting.</li>
       <li><strong>🌐 Sub-Processors &amp; Data Flows:</strong>
         <strong>(1) Stripe, Inc.</strong> — PCI-DSS Level 1 checkout, subscription billing, receipt delivery, and Customer Billing Portal (Ivolga Co. never receives or stores payment card numbers);
-        <strong>(2) Managed Cloud Database Infrastructure</strong> — Encrypted pass registry storing only anonymous <code>TPS-XXXX-XXXX</code> passcodes, expiration/reset timestamps, single-device session identifiers, credit balances, and Vault claim slugs (zero user artwork stored);
-        <strong>(3) Enterprise Cloud Vision Infrastructure</strong> — Encrypted TLS optical/vision processing invoked <em>only</em> when Advanced Vision cleanup or Banknote intaglio transformation is requested (processed in-memory and excluded from public AI model training);
-        <strong>(4) Cloud Content Delivery</strong> — Read-only delivery of pre-verified Ready-to-Cut CAD Vault <code>.ZIP</code> bundles on <code>vault.html</code>.
-        <em>(A formal list of sub-processors is available upon verifiable request at <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:underline;">contact@ivolgaco.com</a>.)</em>
+        <strong>(2) Supabase, Inc.</strong> — Encrypted pass registry storing only anonymous <code>TPS-XXXX-XXXX</code> passcodes, expiration/reset timestamps, single-device session identifiers, credit balances, and Vault claim slugs (zero user artwork stored);
+        <strong>(3) Google Cloud / Gemini Enterprise API</strong> — Encrypted TLS vision processing invoked <em>only</em> when Advanced Vision cleanup or Banknote intaglio transformation is requested (excluded from public model training);
+        <strong>(4) Google Workspace / Drive</strong> — Read-only delivery of pre-verified Ready-to-Cut CAD Vault <code>.ZIP</code> bundles on <code>vault.html</code>.
       </li>
       <li><strong>💳 Billing, Renewal &amp; Cancellation Policy:</strong> The <strong>$8 24-Hr Craftsman Pass</strong> is a one-time, non-recurring 24-hour unlock starting at checkout. <strong>Studio Monthly ($25/mo)</strong> renews every 30 days (resetting Advanced Vision credits to <code>150</code> without rollover) and may be cancelled anytime prior to the next billing cycle via the <strong>💳 Manage / Cancel Subscription</strong> button inside an unlocked Pixel2Path Studio Monthly session, via your <strong>Stripe email receipt</strong> management link, or by emailing <a href="mailto:contact@ivolgaco.com" style="color:#FFB300;text-decoration:underline;">contact@ivolgaco.com</a>.</li>
       <li><strong>📜 Commercial Physical-Goods License:</strong> All exported custom files and CAD Vault templates include a royalty-free commercial license to fabricate and sell physical goods; reselling or redistributing raw digital Vault <code>.ZIP</code>/<code>.DXF</code>/<code>.SVG</code> packs as standalone digital files is prohibited. Always test material settings, press tonnage, and laser kerf with the free <code>25mm</code> sample before production runs.</li>
@@ -586,6 +586,7 @@ CLASSICAL INTAGLIO RULES (TAPERED ENDS, 90-DEGREE MOIRE AVOIDANCE &amp; SECOND S
       <span>© 2026 Ivolga Co. • Digital Fabrication Studio • California, USA</span>
       <span>
         <a href="https://ivolgaco.com/" style="color:#FFB300;text-decoration:none;font-weight:700;">Ivolga Co. Home</a> •
+        <a href="troubleshooter.html" style="color:#FFB300;text-decoration:none;font-weight:700;">Troubleshooter</a> •
         <a href="vault.html" style="color:#FFB300;text-decoration:none;font-weight:700;">CAD Vault</a> •
         <a href="#cad-vault" style="color:#FFB300;text-decoration:none;font-weight:700;">Vault Manual</a> •
         <a href="#privacy-terms" style="color:#FFB300;text-decoration:none;font-weight:700;">Privacy &amp; Terms</a> •
