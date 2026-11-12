@@ -1081,7 +1081,7 @@
 
           <div class="composer-hint">
             <span>💡 Tip: Drag &amp; drop photos here, paste a screenshot with <code>Ctrl+V</code>, or snap directly from your phone camera.</span>
-            <span>🔒 Photos resize locally to <code>≤1024px</code> in browser RAM and are never published.</span>
+            <span>🔒 Photos resize locally to <code>≤1600px</code> in browser RAM and are never published.</span>
           </div>
         </div>
       </div>
@@ -1125,8 +1125,8 @@
     ];
     const STORAGE_KEY_PASS = "p2p_vault_passcode_v1"; // Shared seamlessly with vault.html
     const MAX_PHOTOS = 3;
-    const MAX_IMG_DIM = 1024;
-    const JPEG_QUALITY = 0.82;
+    const MAX_IMG_DIM = 1600;
+    const JPEG_QUALITY = 0.88;
 
     async function callTroubleshooterApi(payloadObj) {
       const bodyStr = JSON.stringify(payloadObj);
@@ -1355,9 +1355,17 @@
 
       for (const rawLine of lines) {
         const line = rawLine.trim();
-        if (!line) {
+        if (!line || /^---+$/.test(line)) {
           if (inUl) { html += "</ul>"; inUl = false; }
           if (inOl) { html += "</ol>"; inOl = false; }
+          continue;
+        }
+
+        const headingMatch = line.match(/^#{1,6}\s+(.*)$/);
+        if (headingMatch) {
+          if (inUl) { html += "</ul>"; inUl = false; }
+          if (inOl) { html += "</ol>"; inOl = false; }
+          html += `<p><strong>${formatInline(headingMatch[1])}</strong></p>`;
           continue;
         }
 
