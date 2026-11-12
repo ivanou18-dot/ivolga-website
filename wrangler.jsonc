@@ -1,7 +1,10 @@
 {
   "name": "ivolga-website",
-  "compatibility_date": "2026-10-01",
+  "main": "functions/api/chat.js",
+  "compatibility_date": "2026-05-01",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
   }
 }

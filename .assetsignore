@@ -1,0 +1,15 @@
+.git
+.git/
+.wrangler
+.wrangler/
+.streamlit
+.streamlit/
+__pycache__
+__pycache__/
+functions
+functions/
+wrangler.jsonc
+*.sql
+*.py
+*.txt
+!robots.txt
