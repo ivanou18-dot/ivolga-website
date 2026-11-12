@@ -29,6 +29,17 @@
 // SHA-256 hex digest of owner master key (matches `_OWNER_KEY_HASH` in `app.py` — no plaintext in repo)
 const OWNER_KEY_SHA256_HEX = "7d74a55ff1abe977e6d19033efba0565b5e98e841f1eb499d8d08b03efe65105";
 
+// Automatically populated during Cloudflare's GitHub build step from `Settings → Builds → Variables and secrets` via `package.json`
+const BUILD_ENV = /*__BUILD_ENV_START__*/{}/*__BUILD_ENV_END__*/;
+
+function getEnvVar(env, key, fallback = "") {
+  const fromRuntime = env && env[key] !== undefined && env[key] !== null ? String(env[key]).trim() : "";
+  if (fromRuntime) return fromRuntime;
+  const fromBuild = BUILD_ENV && BUILD_ENV[key] !== undefined && BUILD_ENV[key] !== null ? String(BUILD_ENV[key]).trim() : "";
+  if (fromBuild) return fromBuild;
+  return fallback;
+}
+
 const MAX_BODY_BYTES = 4_500_000; // ~4.5 MB JSON cap (client compresses photos to ~120 KB @ 1024px)
 const MAX_IMAGES_PER_TURN = 3;
 const MAX_TEXT_CHARS = 4000;
@@ -64,23 +75,12 @@ STRICT "SIMPLE WORDS" OUTPUT FORMAT:
 4. At Most 1 Clarifying Question: Only ask ONE short question at the very end if a missing detail (like which slicer app or printer model they use) would change the fix.
 5. Smart Geometry Cross-Check (ONLY when caused by source file geometry): Mention Pixel2Path Studio (https://app.ivolgaco.com) or the Official User Guide (https://ivolgaco.com/guide.html) ONLY when the visible defect comes from sub-spec artwork/CAD geometry (such as 3D stamp walls thinner than 0.45mm vanishing in the slicer, small vinyl letters under 0.75mm lifting during weeding, missing 1.6mm stencil holding bridges, open DXF paths, or unmirrored stamp text). Do NOT pitch software when the problem is purely mechanical or slicer-related.`;
 
-function getCorsHeaders(request) {
-  const origin = request.headers.get("Origin") || "";
-  let allowOrigin = "https://ivolgaco.com";
-  if (
-    origin === "https://ivolgaco.com" ||
-    origin === "https://www.ivolgaco.com" ||
-    /^https:\/\/[a-z0-9-]+\.ivolga-website\.pages\.dev$/i.test(origin) ||
-    /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin)
-  ) {
-    allowOrigin = origin;
-  }
+function getCorsHeaders() {
   return {
-    "Access-Control-Allow-Origin": allowOrigin,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Max-Age": "86400",
-    "Vary": "Origin"
+    "Access-Control-Max-Age": "86400"
   };
 }
 
@@ -119,7 +119,7 @@ async function isMasterAdminKey(rawKey, env) {
   const upper = rawKey.trim().toUpperCase();
   if (!upper) return false;
 
-  const envLicense = String(env.LICENSE_KEY || "").trim().toUpperCase();
+  const envLicense = getEnvVar(env, "LICENSE_KEY").toUpperCase();
   if (envLicense && timingSafeEqualStr(upper, envLicense)) {
     return true;
   }
@@ -176,13 +176,13 @@ async function patchChatQuotaFields(supabaseUrl, supabaseKey, upperKey, fieldsOb
  * WITHOUT reading or mutating `active_session_id` or `ai_credits_remaining`.
  */
 async function verifyTpsPasscode(rawKey, env) {
-  const supabaseUrl = String(env.SUPABASE_URL || "").trim().replace(/\/+$/, "");
-  const supabaseKey = String(env.SUPABASE_KEY || "").trim();
+  const supabaseUrl = getEnvVar(env, "SUPABASE_URL", "https://mwcqgoasmqjtgofernpn.supabase.co").replace(/\/+$/, "");
+  const supabaseKey = getEnvVar(env, "SUPABASE_KEY");
   if (!supabaseUrl || !supabaseKey) {
     return {
       ok: false,
       status: 500,
-      error: "Server configuration missing SUPABASE_URL or SUPABASE_KEY in Cloudflare Pages settings."
+      error: "⚙️ Missing SUPABASE_KEY in Cloudflare Settings! Add SUPABASE_KEY under Settings → Builds → Variables and secrets, then click Save and trigger a New Deployment."
     };
   }
 
@@ -219,8 +219,8 @@ async function verifyTpsPasscode(rawKey, env) {
   const row = rows[0];
   const planLabel = String(row.plan_type || "Active Studio Pass");
   const isMonthly = planLabel.toLowerCase().includes("month");
-  const daypassLimit = Math.max(1, parseInt(env.DAYPASS_CHAT_LIMIT || "20", 10) || 20);
-  const monthlyLimit = Math.max(1, parseInt(env.MONTHLY_CHAT_LIMIT || "100", 10) || 100);
+  const daypassLimit = Math.max(1, parseInt(getEnvVar(env, "DAYPASS_CHAT_LIMIT", "20"), 10) || 20);
+  const monthlyLimit = Math.max(1, parseInt(getEnvVar(env, "MONTHLY_CHAT_LIMIT", "100"), 10) || 100);
   const turnsLimit = isMonthly ? monthlyLimit : daypassLimit;
 
   const nowMs = Date.now();
@@ -229,7 +229,7 @@ async function verifyTpsPasscode(rawKey, env) {
   if (!Number.isNaN(expMs) && nowMs > expMs) {
     // Optional seamless check if STRIPE_SECRET_KEY is configured in Cloudflare for Monthly subscribers
     const subId = String(row.stripe_sub_id || "").trim();
-    const stripeKey = String(env.STRIPE_SECRET_KEY || "").trim();
+    const stripeKey = getEnvVar(env, "STRIPE_SECRET_KEY");
     const stillActiveSub = isMonthly && subId && stripeKey
       ? await checkStripeSubscriptionActive(subId, stripeKey)
       : false;
@@ -340,9 +340,26 @@ export async function onRequestOptions(context) {
 }
 
 export async function onRequestGet(context) {
+  const env = context.env || {};
+  const hasGeminiKey = Boolean(getEnvVar(env, "GEMINI_API_KEY") || getEnvVar(env, "GOOGLE_API_KEY"));
+  const hasSupabaseUrl = Boolean(getEnvVar(env, "SUPABASE_URL", "https://mwcqgoasmqjtgofernpn.supabase.co"));
+  const hasSupabaseKey = Boolean(getEnvVar(env, "SUPABASE_KEY"));
+
   return jsonResponse(
-    { ok: false, error: "Method Not Allowed. Send POST requests from ivolgaco.com/troubleshooter.html." },
-    405,
+    {
+      ok: true,
+      endpoint: "/api/chat",
+      status: hasGeminiKey ? "ready" : "missing_gemini_key",
+      runtime_secrets_configured: {
+        GEMINI_API_KEY: hasGeminiKey,
+        SUPABASE_URL: hasSupabaseUrl,
+        SUPABASE_KEY: hasSupabaseKey
+      },
+      how_to_fix_if_false: hasGeminiKey
+        ? "All set! Open https://ivolgaco.com/troubleshooter.html to run live photo diagnostics."
+        : "Upload package.json, wrangler.jsonc, troubleshooter.html, and functions/api/chat.js to GitHub, and make sure GEMINI_API_KEY is saved under Cloudflare Settings → Builds → Variables and secrets."
+    },
+    200,
     getCorsHeaders(context.request)
   );
 }
@@ -440,12 +457,12 @@ export async function onRequestPost(context) {
     // =========================================================================
     // ACTION 2: MULTIMODAL HARDWARE TROUBLESHOOTING TURN (`action: "chat"`)
     // =========================================================================
-    const geminiApiKey = String(env.GEMINI_API_KEY || env.GOOGLE_API_KEY || "").trim();
+    const geminiApiKey = getEnvVar(env, "GEMINI_API_KEY") || getEnvVar(env, "GOOGLE_API_KEY");
     if (!geminiApiKey) {
       return jsonResponse(
         {
           ok: false,
-          error: "⚙️ Missing GEMINI_API_KEY in Cloudflare! Go to Cloudflare Dashboard → Workers & Pages → ivolga-website → Settings → Variables and Secrets, add GEMINI_API_KEY, and redeploy."
+          error: "⚙️ Missing GEMINI_API_KEY! Make sure package.json is uploaded to the root of your GitHub repo and GEMINI_API_KEY is saved under Cloudflare Settings → Builds → Variables and secrets."
         },
         500,
         corsHeaders
@@ -467,7 +484,7 @@ export async function onRequestPost(context) {
         if (check.turns_remaining <= 0) {
           const limitMsg = check.is_monthly
             ? `⚠️ You have used all ${check.turns_limit} monthly Troubleshooter turns for this billing cycle.`
-            : `⚠️ You have used all ${check.turns_limit} Troubleshooter turns on this 24-Hr Pass. Upgrade to Studio Monthly ($25/mo) for ${env.MONTHLY_CHAT_LIMIT || 100} turns/month + Unlimited CAD Vault!`;
+            : `⚠️ You have used all ${check.turns_limit} Troubleshooter turns on this 24-Hr Pass. Upgrade to Studio Monthly ($25/mo) for ${getEnvVar(env, "MONTHLY_CHAT_LIMIT", "100")} turns/month + Unlimited CAD Vault!`;
           return jsonResponse(
             {
               ok: false,
@@ -490,7 +507,7 @@ export async function onRequestPost(context) {
         );
       }
     } else {
-      const freeTrialTurns = Math.max(0, parseInt(env.FREE_TRIAL_TURNS || "0", 10) || 0);
+      const freeTrialTurns = Math.max(0, parseInt(getEnvVar(env, "FREE_TRIAL_TURNS", "0"), 10) || 0);
       if (freeTrialTurns <= 0) {
         return jsonResponse(
           {
@@ -568,149 +585,150 @@ export async function onRequestPost(context) {
       }
     }
 
-    // 3. Call Gemini API (Primary: Interactions API `gemini-3.8-flash` + automatic fallback to `:generateContent`)
+    // 3. Call Gemini API
+    // Fast-path `:generateContent?key=...` (`gemini-2.5-flash` / `gemini-2.0-flash`, matching `app.py` line 4179 for `AQ.Ab8RN...` keys)
     let interactionId = null;
     let replyText = "";
     let citations = [];
     let lastApiErrStatus = 0;
     let lastApiErrSnippet = "";
 
-    // 3A. Primary Interactions API attempt (`/v1beta/interactions`)
-    const primaryModel = String(env.GEMINI_MODEL || "gemini-3.8-flash").trim();
-    const interactionPayload = {
-      model: primaryModel,
-      system_instruction: TROUBLESHOOTER_SYSTEM_PROMPT,
-      tools: [{ type: "google_search" }],
-      generation_config: {
-        max_output_tokens: 1100
-      },
-      input: contentBlocks
-    };
-
-    if (previousInteractionId && /^[a-zA-Z0-9._:-]{6,200}$/.test(previousInteractionId)) {
-      interactionPayload.previous_interaction_id = previousInteractionId;
-    }
-
-    try {
-      const geminiResp = await fetch("https://generativelanguage.googleapis.com/v1beta/interactions", {
-        method: "POST",
-        headers: {
-          "x-goog-api-key": geminiApiKey,
-          "Content-Type": "application/json",
-          "Api-Revision": "2026-05-20"
-        },
-        body: JSON.stringify(interactionPayload)
+    const historyContents = [];
+    for (const h of rawHistory) {
+      if (!h || typeof h.text !== "string" || !h.text.trim()) continue;
+      historyContents.push({
+        role: h.role === "model" ? "model" : "user",
+        parts: [{ text: h.text.trim().slice(0, MAX_TEXT_CHARS) }]
       });
-
-      if (geminiResp.ok) {
-        const geminiData = await geminiResp.json();
-        const extracted = extractInteractionReply(geminiData);
-        interactionId = extracted.interactionId;
-        replyText = extracted.replyText;
-        citations = extracted.citations;
-      } else {
-        lastApiErrStatus = geminiResp.status;
-        lastApiErrSnippet = (await geminiResp.text().catch(() => "")).slice(0, 240);
-      }
-    } catch (e) {
-      lastApiErrSnippet = String(e?.message || e);
     }
 
-    // 3B. Automatic Fallback to `:generateContent` (same endpoint used by `app.py`) if `/v1beta/interactions` is unavailable on this key
-    if (!replyText) {
-      const historyContents = [];
-      for (const h of rawHistory) {
-        if (!h || typeof h.text !== "string" || !h.text.trim()) continue;
-        historyContents.push({
-          role: h.role === "model" ? "model" : "user",
-          parts: [{ text: h.text.trim().slice(0, MAX_TEXT_CHARS) }]
-        });
-      }
-
-      const currentParts = [{ text: composedPrompt }];
-      for (const img of normalizedImages) {
-        currentParts.push({
-          inlineData: {
-            mimeType: img.mimeType,
-            data: img.data
-          }
-        });
-      }
-      historyContents.push({ role: "user", parts: currentParts });
-
-      const fallbackAttempts = [
-        { model: "gemini-2.5-flash", useSearch: true },
-        { model: "gemini-2.5-flash", useSearch: false },
-        { model: "gemini-2.0-flash", useSearch: false }
-      ];
-
-      for (const attempt of fallbackAttempts) {
-        try {
-          const gcPayload = {
-            systemInstruction: { parts: [{ text: TROUBLESHOOTER_SYSTEM_PROMPT }] },
-            contents: historyContents,
-            generationConfig: {
-              maxOutputTokens: 1100
-            }
-          };
-          if (attempt.useSearch) {
-            gcPayload.tools = [{ google_search: {} }];
-          }
-
-          const gcUrl = `https://generativelanguage.googleapis.com/v1beta/models/${attempt.model}:generateContent`;
-          const gcResp = await fetch(gcUrl, {
-            method: "POST",
-            headers: {
-              "x-goog-api-key": geminiApiKey,
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(gcPayload)
-          });
-
-          if (!gcResp.ok) {
-            lastApiErrStatus = gcResp.status;
-            lastApiErrSnippet = (await gcResp.text().catch(() => "")).slice(0, 240);
-            continue;
-          }
-
-          const gcData = await gcResp.json();
-          const cand = gcData?.candidates?.[0];
-          const textParts = (cand?.content?.parts || [])
-            .map((p) => (typeof p?.text === "string" ? p.text : ""))
-            .filter(Boolean);
-
-          if (textParts.length > 0) {
-            replyText = textParts.join("\n\n").trim();
-            const groundingChunks = cand?.groundingMetadata?.groundingChunks || [];
-            const seen = new Set();
-            for (const ch of groundingChunks) {
-              const webUrl = ch?.web?.uri;
-              const webTitle = ch?.web?.title;
-              if (webUrl && !seen.has(webUrl)) {
-                seen.add(webUrl);
-                citations.push({
-                  title: String(webTitle || "Reference").slice(0, 80),
-                  url: String(webUrl)
-                });
-              }
-            }
-            citations = citations.slice(0, 4);
-            break;
-          }
-        } catch (e) {
-          lastApiErrSnippet = String(e?.message || e);
+    const currentParts = [{ text: composedPrompt }];
+    for (const img of normalizedImages) {
+      currentParts.push({
+        inlineData: {
+          mimeType: img.mimeType,
+          data: img.data
         }
+      });
+    }
+    historyContents.push({ role: "user", parts: currentParts });
+
+    const generateContentAttempts = [
+      { model: "gemini-2.5-flash", useSearch: true },
+      { model: "gemini-2.5-flash", useSearch: false },
+      { model: "gemini-2.0-flash", useSearch: false }
+    ];
+
+    for (const attempt of generateContentAttempts) {
+      try {
+        const gcPayload = {
+          systemInstruction: { parts: [{ text: TROUBLESHOOTER_SYSTEM_PROMPT }] },
+          contents: historyContents,
+          generationConfig: {
+            maxOutputTokens: 4096,
+            temperature: 0.25
+          }
+        };
+        if (attempt.useSearch) {
+          gcPayload.tools = [{ google_search: {} }];
+        }
+
+        const gcUrl = `https://generativelanguage.googleapis.com/v1beta/models/${attempt.model}:generateContent?key=${encodeURIComponent(geminiApiKey)}`;
+        const gcResp = await fetch(gcUrl, {
+          method: "POST",
+          headers: {
+            "x-goog-api-key": geminiApiKey,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(gcPayload)
+        });
+
+        if (!gcResp.ok) {
+          lastApiErrStatus = gcResp.status;
+          lastApiErrSnippet = (await gcResp.text().catch(() => "")).slice(0, 240);
+          continue;
+        }
+
+        const gcData = await gcResp.json();
+        const cand = gcData?.candidates?.[0];
+        const textParts = (cand?.content?.parts || [])
+          .filter((p) => !p?.thought && typeof p?.text === "string" && p.text.trim())
+          .map((p) => p.text);
+
+        if (textParts.length > 0) {
+          replyText = textParts.join("\n\n").trim();
+          const groundingChunks = cand?.groundingMetadata?.groundingChunks || [];
+          const seen = new Set();
+          for (const ch of groundingChunks) {
+            const webUrl = ch?.web?.uri;
+            const webTitle = ch?.web?.title;
+            if (webUrl && !seen.has(webUrl)) {
+              seen.add(webUrl);
+              citations.push({
+                title: String(webTitle || "Reference").slice(0, 80),
+                url: String(webUrl)
+              });
+            }
+          }
+          citations = citations.slice(0, 4);
+          break;
+        }
+      } catch (e) {
+        lastApiErrSnippet = String(e?.message || e);
+      }
+    }
+
+    // Secondary attempt via `/v1beta/interactions` if needed
+    if (!replyText) {
+      const primaryModel = getEnvVar(env, "GEMINI_MODEL", "gemini-3.8-flash");
+      const interactionPayload = {
+        model: primaryModel,
+        system_instruction: TROUBLESHOOTER_SYSTEM_PROMPT,
+        tools: [{ type: "google_search" }],
+        generation_config: {
+          max_output_tokens: 2048
+        },
+        input: contentBlocks
+      };
+
+      if (previousInteractionId && /^[a-zA-Z0-9._:-]{6,200}$/.test(previousInteractionId)) {
+        interactionPayload.previous_interaction_id = previousInteractionId;
+      }
+
+      try {
+        const geminiResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/interactions?key=${encodeURIComponent(geminiApiKey)}`, {
+          method: "POST",
+          headers: {
+            "x-goog-api-key": geminiApiKey,
+            "Content-Type": "application/json",
+            "Api-Revision": "2026-05-20"
+          },
+          body: JSON.stringify(interactionPayload)
+        });
+
+        if (geminiResp.ok) {
+          const geminiData = await geminiResp.json();
+          const extracted = extractInteractionReply(geminiData);
+          interactionId = extracted.interactionId;
+          replyText = extracted.replyText;
+          citations = extracted.citations;
+        } else if (!lastApiErrStatus) {
+          lastApiErrStatus = geminiResp.status;
+          lastApiErrSnippet = (await geminiResp.text().catch(() => "")).slice(0, 240);
+        }
+      } catch (e) {
+        if (!lastApiErrSnippet) lastApiErrSnippet = String(e?.message || e);
       }
     }
 
     if (!replyText) {
       let friendlyErr = "⚠️ AI diagnostic service returned an error. Your turn was NOT deducted.";
       if (lastApiErrStatus === 400 && lastApiErrSnippet.toLowerCase().includes("api_key_invalid")) {
-        friendlyErr = "⚠️ Invalid GEMINI_API_KEY in Cloudflare Settings → Variables and Secrets. Please verify the key and redeploy.";
+        friendlyErr = "⚠️ Invalid GEMINI_API_KEY in Cloudflare Settings. Please verify the key and redeploy.";
       } else if (lastApiErrStatus === 429) {
         friendlyErr = "⏳ Gemini API rate limit reached on your API key. Wait 30 seconds and try again (turn NOT deducted).";
       } else if (lastApiErrStatus) {
-        friendlyErr = `⚠️ Gemini API HTTP ${lastApiErrStatus}. Verify GEMINI_API_KEY in Cloudflare Settings (turn NOT deducted).`;
+        friendlyErr = `⚠️ Gemini API HTTP ${lastApiErrStatus}: ${lastApiErrSnippet.slice(0, 140)} (turn NOT deducted).`;
       }
       return jsonResponse(
         {
@@ -784,6 +802,17 @@ export default {
         return onRequestPost(context);
       }
       return onRequestGet(context);
+    }
+
+    // Block public access to config or backend source files even if .assetsignore is omitted
+    const lowerPath = cleanPath.toLowerCase();
+    if (
+      lowerPath.startsWith("/functions/") ||
+      lowerPath === "/wrangler.jsonc" ||
+      lowerPath === "/package.json" ||
+      lowerPath.endsWith(".sql")
+    ) {
+      return new Response("Not Found", { status: 404 });
     }
 
     // Serve static files via Cloudflare Workers Static Assets binding if request ever reaches Worker
