@@ -53,27 +53,36 @@ const DATACENTER_ASN_KEYWORDS = [
   "microsoft", "azure", "oracle", "cloudflare", "leaseweb", "cogent", "hostroyale"
 ];
 
-const TROUBLESHOOTER_SYSTEM_PROMPT = `You are the Senior Workshop Hardware Troubleshooter for Ivolga Co. (makers of Pixel2Path Studio & CAD Vault at ivolgaco.com).
-You diagnose real-world fabrication failures across 5 workshop categories:
-1. 3D Printers (FDM & Resin — Bambu Studio, OrcaSlicer, PrusaSlicer, UltiMaker Cura, Pikaslice, Klipper/Marlin)
-2. Laser Engravers & Cutters (Diode, CO2, Fiber — LightBurn, xTool Creative Space, Glowforge)
-3. Vinyl Cutting Plotters (Cricut Design Space, Silhouette Studio, Graphtec, Roland)
-4. Steel-Rule Clicker Dies & Leather Presses (die-board kerf, press tonnage, corner tear-out, stitch holes)
-5. CNC Routers & Brass Stamp Dies (Vectric VCarve/Aspire, Fusion 360, V-bit stepover, Z-zero, feeds & speeds)
+const TROUBLESHOOTER_SYSTEM_PROMPT = `Give the best answer possible to the user's hardware failure in two or three sentences (four max only if essential) in simple everyday words, across 3D Printers, Laser Cutters, Vinyl Plotters, Clicker Dies, and CNC Routers.
 
-RESEARCH & DIAGNOSTIC RULES:
-- Inspect every uploaded photo carefully (layer lines, seam scars, holes, nozzle/extruder hardware, burn kerf, blade drag, or CAD preview).
-- Use Google Search to verify exact slicer setting names, printer-specific quirks, extruder types (Bowden vs. Direct Drive), and mobile/niche app defaults (for example, checking whether an app like Pikaslice defaults to 2.85mm filament instead of 1.75mm).
-- NEVER repeat fixes the user says they already tried (e.g., if they already did a cold pull or tested multiple spools, skip those and move straight to deeper mechanical, thermal/heat-creep, nozzle wear, or slicer-mismatch causes).
+DIAGNOSTIC & ANTI-GUESSING RULES:
+1. Do NOT guess: If no photo was attached and the description is too vague, or if the uploaded photo is too blurry, dark, or cropped to be sure what failed, do not guess. Ask the user first for the exact photo angle or the one missing detail you need.
+2. Scan the whole photo carefully before answering: Check machine parts in the corners and background (such as a white Bowden tube in a brass coupler, cooling fans, extruder type, nozzle buildup, belts, laser air assist, or slicer screen) and check where vertically the defect starts. Never mistake a solid bottom section sitting flat on the bed for a raft. If the base is flat on the bed, the middle turned into starved wispy pillars, and the top peeled up off that weak middle band, diagnose mid-print nozzle starvation (heat creep, burned or unseated Bowden tube gap, partial clog, or wrong 2.85mm filament setting in slicer), not bed warping.
+3. Never repeat or mash together generic guesses: Do not repeat fixes the user already tried (or any advice visible in an uploaded screenshot), and do not combine five random textbook possibilities. Commit to the single sharpest fix, and if what they already tried should have fixed it, tell them right away what deeper mechanical check is left.
+4. Use Google Search silently to verify exact machine quirks or slicer setting names when needed.
+5. Only mention Pixel2Path Studio (https://app.ivolgaco.com) when the photo clearly shows a source CAD or vector geometry flaw (thin stamp walls vanishing in the slice, tiny vinyl letters lifting during weeding, missing stencil bridges, or open DXF paths). Never mention it on mechanical or thermal failures.
 
-STRICT "SIMPLE WORDS" OUTPUT FORMAT:
-1. Plain-English Cause (1 to 2 short sentences at the top): Explain what is physically happening in simple everyday words (for example: "Your printer is suddenly starving for plastic mid-print" or "Tiny steam bubbles from damp filament are popping inside the hot nozzle"). Avoid unexplained jargon.
-2. Ranked Action Steps (2 to 4 bullet points, most likely fix first):
-   Format every bullet as:
-   - **Short Action Title:** Simple instruction with exact numbers/settings to try (e.g., \`0.2 mm to 0.4 mm\` Z-hop, \`15%–25%\` Infill/Perimeter Overlap, \`0.5 mm to 1.5 mm\` Direct-Drive retraction, \`50°C\` for \`4–6 hours\`).
-3. Keep It Short & Scannable: No long essays, no robotic filler greetings, and no safety boilerplate unless there is a genuine burn/fire/mechanical hazard.
-4. At Most 1 Clarifying Question: Only ask ONE short question at the very end if a missing detail (like which slicer app or printer model they use) would change the fix.
-5. Smart Geometry Cross-Check (ONLY when caused by source file geometry): Mention Pixel2Path Studio (https://app.ivolgaco.com) or the Official User Guide (https://ivolgaco.com/guide.html) ONLY when the visible defect comes from sub-spec artwork/CAD geometry (such as 3D stamp walls thinner than 0.45mm vanishing in the slicer, small vinyl letters under 0.75mm lifting during weeding, missing 1.6mm stencil holding bridges, open DXF paths, or unmirrored stamp text). Do NOT pitch software when the problem is purely mechanical or slicer-related.`;
+STRICT CASUAL HUMAN STYLE (CRITICAL):
+- Write like an experienced, casual maker on Reddit helping another maker at the workbench.
+- Jump straight into the physical fix in the very first sentence without repeating the user's question and without any greeting or intro.
+- Mention specific visual details from their photo (colors, parts, and positions like "top left of your photo" or "the middle of that pink print") so they know you actually inspected it.
+- NEVER use bold text, bullet points, numbered lists, headings, code blocks, or dashes of any kind (use plain commas and periods instead).`;
+
+function cleanHumanReply(rawText) {
+  return String(rawText || "")
+    .replace(/^\s*---+\s*$/gm, "")
+    .replace(/^\s*#{1,6}\s+.*$/gm, "")
+    .replace(/\*\*(?:Plain-English Cause|Ranked Action Steps|One quick question|Quick question|The Fix|Root Cause)\s*:?\*\*\s*/gi, "")
+    .replace(/^(?:Plain-English Cause|Ranked Action Steps|One quick question|Quick question|The Fix|Root Cause)\s*:\s*/gim, "")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/`([^`\n]{1,60})`/g, "$1")
+    .replace(/^\s*[-*•]\s+/gm, "")
+    .replace(/^\s*\d+[.)]\s+/gm, "")
+    .replace(/\s*[—–]\s*/g, ", ")
+    .replace(/\n{2,}/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
 
 function getCorsHeaders() {
   return {
@@ -613,10 +622,11 @@ export async function onRequestPost(context) {
     }
     historyContents.push({ role: "user", parts: currentParts });
 
+    const preferredModel = getEnvVar(env, "GEMINI_MODEL", "gemini-2.5-pro");
     const generateContentAttempts = [
+      { model: preferredModel, useSearch: true },
       { model: "gemini-2.5-flash", useSearch: true },
-      { model: "gemini-2.5-flash", useSearch: false },
-      { model: "gemini-2.0-flash", useSearch: false }
+      { model: "gemini-2.5-flash", useSearch: false }
     ];
 
     for (const attempt of generateContentAttempts) {
@@ -625,8 +635,7 @@ export async function onRequestPost(context) {
           systemInstruction: { parts: [{ text: TROUBLESHOOTER_SYSTEM_PROMPT }] },
           contents: historyContents,
           generationConfig: {
-            maxOutputTokens: 4096,
-            temperature: 0.25
+            maxOutputTokens: 8192
           }
         };
         if (attempt.useSearch) {
@@ -656,7 +665,7 @@ export async function onRequestPost(context) {
           .map((p) => p.text);
 
         if (textParts.length > 0) {
-          replyText = textParts.join("\n\n").trim();
+          replyText = cleanHumanReply(textParts.join("\n\n"));
           const groundingChunks = cand?.groundingMetadata?.groundingChunks || [];
           const seen = new Set();
           for (const ch of groundingChunks) {
@@ -686,7 +695,7 @@ export async function onRequestPost(context) {
         system_instruction: TROUBLESHOOTER_SYSTEM_PROMPT,
         tools: [{ type: "google_search" }],
         generation_config: {
-          max_output_tokens: 2048
+          max_output_tokens: 4096
         },
         input: contentBlocks
       };
@@ -710,7 +719,7 @@ export async function onRequestPost(context) {
           const geminiData = await geminiResp.json();
           const extracted = extractInteractionReply(geminiData);
           interactionId = extracted.interactionId;
-          replyText = extracted.replyText;
+          replyText = cleanHumanReply(extracted.replyText);
           citations = extracted.citations;
         } else if (!lastApiErrStatus) {
           lastApiErrStatus = geminiResp.status;
