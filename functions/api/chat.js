@@ -658,3 +658,33 @@ export async function onRequestPost(context) {
     );
   }
 }
+
+/**
+ * Standard Cloudflare Workers Entry Point (`wrangler.jsonc` -> `"main": "functions/api/chat.js"`)
+ * Works with Cloudflare Workers Static Assets (`ivolga-website` Worker) as well as Cloudflare Pages.
+ */
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const cleanPath = url.pathname.replace(/\/+$/, "") || "/";
+
+    if (cleanPath === "/api/chat") {
+      const context = { request, env, ctx };
+      if (request.method === "OPTIONS") {
+        return onRequestOptions(context);
+      }
+      if (request.method === "POST") {
+        return onRequestPost(context);
+      }
+      return onRequestGet(context);
+    }
+
+    // Serve static files via Cloudflare Workers Static Assets binding if request ever reaches Worker
+    if (env && env.ASSETS && typeof env.ASSETS.fetch === "function") {
+      return env.ASSETS.fetch(request);
+    }
+
+    return new Response("Not Found", { status: 404 });
+  }
+};
+
