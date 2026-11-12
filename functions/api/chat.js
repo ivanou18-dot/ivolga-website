@@ -443,7 +443,10 @@ export async function onRequestPost(context) {
     const geminiApiKey = String(env.GEMINI_API_KEY || env.GOOGLE_API_KEY || "").trim();
     if (!geminiApiKey) {
       return jsonResponse(
-        { ok: false, error: "Server missing GEMINI_API_KEY in Cloudflare Pages environment variables." },
+        {
+          ok: false,
+          error: "⚙️ Missing GEMINI_API_KEY in Cloudflare! Go to Cloudflare Dashboard → Workers & Pages → ivolga-website → Settings → Variables and Secrets, add GEMINI_API_KEY, and redeploy."
+        },
         500,
         corsHeaders
       );
@@ -517,6 +520,7 @@ export async function onRequestPost(context) {
     const machineCategory = String(body.machine || "").trim().slice(0, 80);
     const setupDetails = String(body.setup || "").trim().slice(0, 220);
     const previousInteractionId = String(body.previous_interaction_id || "").trim();
+    const rawHistory = Array.isArray(body.history) ? body.history.slice(-8) : [];
     const rawImages = Array.isArray(body.images) ? body.images.slice(0, MAX_IMAGES_PER_TURN) : [];
 
     if (!userMessage && rawImages.length === 0) {
@@ -528,10 +532,10 @@ export async function onRequestPost(context) {
     }
 
     const contextHeaderParts = [];
-    if (machineCategory && !previousInteractionId) {
+    if (machineCategory && !previousInteractionId && rawHistory.length === 0) {
       contextHeaderParts.push(`Workshop Machine Category: ${machineCategory}`);
     }
-    if (setupDetails && !previousInteractionId) {
+    if (setupDetails && !previousInteractionId && rawHistory.length === 0) {
       contextHeaderParts.push(`Hardware / Slicer / Material Setup: ${setupDetails}`);
     }
 
@@ -541,6 +545,7 @@ export async function onRequestPost(context) {
     ].join("\n");
 
     const contentBlocks = [{ type: "text", text: composedPrompt }];
+    const normalizedImages = [];
 
     for (const img of rawImages) {
       if (!img || typeof img.data !== "string") continue;
@@ -554,6 +559,7 @@ export async function onRequestPost(context) {
       }
       const cleanBase64 = img.data.includes(",") ? img.data.split(",")[1].trim() : img.data.trim();
       if (cleanBase64) {
+        normalizedImages.push({ data: cleanBase64, mimeType });
         contentBlocks.push({
           type: "image",
           data: cleanBase64,
@@ -562,10 +568,17 @@ export async function onRequestPost(context) {
       }
     }
 
-    // 3. Call Current Gemini Interactions API (`gemini-3.8-flash` + `google_search` grounding)
-    const modelName = String(env.GEMINI_MODEL || "gemini-3.8-flash").trim();
+    // 3. Call Gemini API (Primary: Interactions API `gemini-3.8-flash` + automatic fallback to `:generateContent`)
+    let interactionId = null;
+    let replyText = "";
+    let citations = [];
+    let lastApiErrStatus = 0;
+    let lastApiErrSnippet = "";
+
+    // 3A. Primary Interactions API attempt (`/v1beta/interactions`)
+    const primaryModel = String(env.GEMINI_MODEL || "gemini-3.8-flash").trim();
     const interactionPayload = {
-      model: modelName,
+      model: primaryModel,
       system_instruction: TROUBLESHOOTER_SYSTEM_PROMPT,
       tools: [{ type: "google_search" }],
       generation_config: {
@@ -578,37 +591,131 @@ export async function onRequestPost(context) {
       interactionPayload.previous_interaction_id = previousInteractionId;
     }
 
-    const geminiResp = await fetch("https://generativelanguage.googleapis.com/v1beta/interactions", {
-      method: "POST",
-      headers: {
-        "x-goog-api-key": geminiApiKey,
-        "Content-Type": "application/json",
-        "Api-Revision": "2026-05-20"
-      },
-      body: JSON.stringify(interactionPayload)
-    });
-
-    if (!geminiResp.ok) {
-      const errBody = await geminiResp.text().catch(() => "");
-      console.error("Gemini Interactions API error:", geminiResp.status, errBody.slice(0, 400));
-      return jsonResponse(
-        {
-          ok: false,
-          error: "⚠️ AI diagnostic service encountered a temporary upstream error. Your turn was NOT deducted—please try again."
+    try {
+      const geminiResp = await fetch("https://generativelanguage.googleapis.com/v1beta/interactions", {
+        method: "POST",
+        headers: {
+          "x-goog-api-key": geminiApiKey,
+          "Content-Type": "application/json",
+          "Api-Revision": "2026-05-20"
         },
-        502,
-        corsHeaders
-      );
+        body: JSON.stringify(interactionPayload)
+      });
+
+      if (geminiResp.ok) {
+        const geminiData = await geminiResp.json();
+        const extracted = extractInteractionReply(geminiData);
+        interactionId = extracted.interactionId;
+        replyText = extracted.replyText;
+        citations = extracted.citations;
+      } else {
+        lastApiErrStatus = geminiResp.status;
+        lastApiErrSnippet = (await geminiResp.text().catch(() => "")).slice(0, 240);
+      }
+    } catch (e) {
+      lastApiErrSnippet = String(e?.message || e);
     }
 
-    const geminiData = await geminiResp.json();
-    const { interactionId, replyText, citations } = extractInteractionReply(geminiData);
+    // 3B. Automatic Fallback to `:generateContent` (same endpoint used by `app.py`) if `/v1beta/interactions` is unavailable on this key
+    if (!replyText) {
+      const historyContents = [];
+      for (const h of rawHistory) {
+        if (!h || typeof h.text !== "string" || !h.text.trim()) continue;
+        historyContents.push({
+          role: h.role === "model" ? "model" : "user",
+          parts: [{ text: h.text.trim().slice(0, MAX_TEXT_CHARS) }]
+        });
+      }
+
+      const currentParts = [{ text: composedPrompt }];
+      for (const img of normalizedImages) {
+        currentParts.push({
+          inlineData: {
+            mimeType: img.mimeType,
+            data: img.data
+          }
+        });
+      }
+      historyContents.push({ role: "user", parts: currentParts });
+
+      const fallbackAttempts = [
+        { model: "gemini-2.5-flash", useSearch: true },
+        { model: "gemini-2.5-flash", useSearch: false },
+        { model: "gemini-2.0-flash", useSearch: false }
+      ];
+
+      for (const attempt of fallbackAttempts) {
+        try {
+          const gcPayload = {
+            systemInstruction: { parts: [{ text: TROUBLESHOOTER_SYSTEM_PROMPT }] },
+            contents: historyContents,
+            generationConfig: {
+              maxOutputTokens: 1100
+            }
+          };
+          if (attempt.useSearch) {
+            gcPayload.tools = [{ google_search: {} }];
+          }
+
+          const gcUrl = `https://generativelanguage.googleapis.com/v1beta/models/${attempt.model}:generateContent`;
+          const gcResp = await fetch(gcUrl, {
+            method: "POST",
+            headers: {
+              "x-goog-api-key": geminiApiKey,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(gcPayload)
+          });
+
+          if (!gcResp.ok) {
+            lastApiErrStatus = gcResp.status;
+            lastApiErrSnippet = (await gcResp.text().catch(() => "")).slice(0, 240);
+            continue;
+          }
+
+          const gcData = await gcResp.json();
+          const cand = gcData?.candidates?.[0];
+          const textParts = (cand?.content?.parts || [])
+            .map((p) => (typeof p?.text === "string" ? p.text : ""))
+            .filter(Boolean);
+
+          if (textParts.length > 0) {
+            replyText = textParts.join("\n\n").trim();
+            const groundingChunks = cand?.groundingMetadata?.groundingChunks || [];
+            const seen = new Set();
+            for (const ch of groundingChunks) {
+              const webUrl = ch?.web?.uri;
+              const webTitle = ch?.web?.title;
+              if (webUrl && !seen.has(webUrl)) {
+                seen.add(webUrl);
+                citations.push({
+                  title: String(webTitle || "Reference").slice(0, 80),
+                  url: String(webUrl)
+                });
+              }
+            }
+            citations = citations.slice(0, 4);
+            break;
+          }
+        } catch (e) {
+          lastApiErrSnippet = String(e?.message || e);
+        }
+      }
+    }
 
     if (!replyText) {
+      let friendlyErr = "⚠️ AI diagnostic service returned an error. Your turn was NOT deducted.";
+      if (lastApiErrStatus === 400 && lastApiErrSnippet.toLowerCase().includes("api_key_invalid")) {
+        friendlyErr = "⚠️ Invalid GEMINI_API_KEY in Cloudflare Settings → Variables and Secrets. Please verify the key and redeploy.";
+      } else if (lastApiErrStatus === 429) {
+        friendlyErr = "⏳ Gemini API rate limit reached on your API key. Wait 30 seconds and try again (turn NOT deducted).";
+      } else if (lastApiErrStatus) {
+        friendlyErr = `⚠️ Gemini API HTTP ${lastApiErrStatus}. Verify GEMINI_API_KEY in Cloudflare Settings (turn NOT deducted).`;
+      }
       return jsonResponse(
         {
           ok: false,
-          error: "⚠️ Could not read a clear answer for that input. Your turn was NOT deducted—try adding a brief description or clearer photo."
+          error: friendlyErr
         },
         502,
         corsHeaders
