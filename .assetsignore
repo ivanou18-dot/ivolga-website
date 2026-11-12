@@ -9,6 +9,10 @@ __pycache__/
 functions
 functions/
 wrangler.jsonc
+package.json
+package-lock.json
+node_modules
+node_modules/
 *.sql
 *.py
 *.txt

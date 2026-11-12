@@ -1,10 +1,20 @@
 {
   "name": "ivolga-website",
   "main": "functions/api/chat.js",
-  "compatibility_date": "2026-05-01",
+  "compatibility_date": "2025-02-01",
+  "keep_vars": true,
+  "vars": {
+    "SUPABASE_URL": "https://mwcqgoasmqjtgofernpn.supabase.co"
+  },
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": [
+      "/api/*",
+      "/functions/*",
+      "/wrangler.jsonc",
+      "/package.json",
+      "/*.sql"
+    ]
   }
 }

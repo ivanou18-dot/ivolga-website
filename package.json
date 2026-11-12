@@ -1,0 +1,11 @@
+{
+  "name": "ivolga-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "inject-env": "node -e \"const fs=require('fs');const env={GEMINI_API_KEY:process.env.GEMINI_API_KEY||process.env.GOOGLE_API_KEY||'',SUPABASE_URL:process.env.SUPABASE_URL||'https://mwcqgoasmqjtgofernpn.supabase.co',SUPABASE_KEY:process.env.SUPABASE_KEY||'',STRIPE_SECRET_KEY:process.env.STRIPE_SECRET_KEY||'',LICENSE_KEY:process.env.LICENSE_KEY||''};const p='functions/api/chat.js';if(fs.existsSync(p)){let c=fs.readFileSync(p,'utf8');c=c.replace('/*__BUILD_ENV_START__*/{}/*__BUILD_ENV_END__*/','/*__BUILD_ENV_START__*/'+JSON.stringify(env)+'/*__BUILD_ENV_END__*/');fs.writeFileSync(p,c);}const w='wrangler.jsonc';if(fs.existsSync(w)){try{const cfg=JSON.parse(fs.readFileSync(w,'utf8'));cfg.vars=Object.assign({},cfg.vars||{},Object.fromEntries(Object.entries(env).filter(([,v])=>Boolean(v))));fs.writeFileSync(w,JSON.stringify(cfg,null,2));}catch(e){}}console.log('Cloudflare Build Env Injected:',Object.keys(env).filter(k=>Boolean(env[k])));\"",
+    "postinstall": "npm run inject-env",
+    "prepare": "npm run inject-env",
+    "build": "npm run inject-env"
+  }
+}

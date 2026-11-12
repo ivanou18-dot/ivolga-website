@@ -1119,10 +1119,56 @@
 
   <script>
     const API_ENDPOINT = "/api/chat";
+    const API_FALLBACK_ENDPOINTS = [
+      "https://ivolgaco.com/api/chat",
+      "https://ivolga-website.ivanou18.workers.dev/api/chat"
+    ];
     const STORAGE_KEY_PASS = "p2p_vault_passcode_v1"; // Shared seamlessly with vault.html
     const MAX_PHOTOS = 3;
     const MAX_IMG_DIM = 1024;
     const JPEG_QUALITY = 0.82;
+
+    async function callTroubleshooterApi(payloadObj) {
+      const bodyStr = JSON.stringify(payloadObj);
+      const candidates = [];
+      if (window.location.protocol === "https:" || window.location.protocol === "http:") {
+        candidates.push(API_ENDPOINT);
+      }
+      for (const u of API_FALLBACK_ENDPOINTS) {
+        if (!candidates.includes(u)) candidates.push(u);
+      }
+
+      let lastResp = null;
+      let lastRawText = "";
+      let lastErr = null;
+
+      for (const endpoint of candidates) {
+        try {
+          const resp = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: bodyStr
+          });
+          const rawText = await resp.text();
+          lastResp = resp;
+          lastRawText = rawText;
+          try {
+            const parsed = JSON.parse(rawText);
+            return { resp, data: parsed, rawText };
+          } catch {
+            // Non-JSON response (e.g. 404 HTML on one origin) — try next fallback endpoint
+            continue;
+          }
+        } catch (err) {
+          lastErr = err;
+        }
+      }
+
+      if (lastResp) {
+        return { resp: lastResp, data: null, rawText: lastRawText };
+      }
+      throw lastErr || new Error("Network error reaching /api/chat");
+    }
 
     const CASE_DEMOS = [
       {
@@ -1505,29 +1551,13 @@
       btn.disabled = true;
       btn.textContent = "Checking...";
 
-      if (window.location.protocol === "file:" && API_ENDPOINT.startsWith("/")) {
-        btn.disabled = false;
-        btn.textContent = "Unlock Troubleshooter";
-        msgEl.className = "pass-status-msg err";
-        msgEl.textContent = "⚠️ You opened troubleshooter.html as a local file (file://). Open https://ivolgaco.com/troubleshooter.html in your browser to reach /api/chat.";
-        return false;
-      }
-
       try {
-        const resp = await fetch(API_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: "verify", passcode: rawKey })
-        });
-        const rawText = await resp.text();
-        let data = null;
-        try {
-          data = JSON.parse(rawText);
-        } catch {
+        const { resp, data } = await callTroubleshooterApi({ action: "verify", passcode: rawKey });
+        if (!data) {
           passState.verified = false;
           applyPassStateUI();
           msgEl.className = "pass-status-msg err";
-          msgEl.textContent = `⚠️ /api/chat returned HTTP ${resp.status} (HTML instead of JSON). Make sure functions/api/chat.js is deployed at the root of ivolga-website on Cloudflare Pages.`;
+          msgEl.textContent = `⚠️ /api/chat returned HTTP ${resp ? resp.status : "?"} (HTML instead of JSON). Make sure functions/api/chat.js is deployed on Cloudflare.`;
           return false;
         }
 
@@ -1809,32 +1839,24 @@
       appendLoadingBubble();
 
       try {
-        const resp = await fetch(API_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "chat",
-            passcode: activeKey,
-            machine: selectedMachine,
-            setup: setupEl.value.trim(),
-            message: messageText,
-            previous_interaction_id: previousInteractionId,
-            history: chatHistory,
-            images: payloadImages
-          })
+        const { resp, data } = await callTroubleshooterApi({
+          action: "chat",
+          passcode: activeKey,
+          machine: selectedMachine,
+          setup: setupEl.value.trim(),
+          message: messageText,
+          previous_interaction_id: previousInteractionId,
+          history: chatHistory,
+          images: payloadImages
         });
 
-        const rawText = await resp.text();
         removeLoadingBubble();
-        let data = null;
-        try {
-          data = JSON.parse(rawText);
-        } catch {
+        if (!data) {
           if (userBubbleEl) userBubbleEl.remove();
           msgEl.value = messageText;
           queuedPhotos = photosSnapshot;
           renderPhotoTray();
-          const statusMsg = `⚠️ /api/chat returned HTTP ${resp.status} (non-JSON response).`;
+          const statusMsg = `⚠️ /api/chat returned HTTP ${resp ? resp.status : "?"} (non-JSON response).`;
           appendErrorBubble(statusMsg);
           showToast(statusMsg);
           return;
