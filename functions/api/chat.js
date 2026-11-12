@@ -8,9 +8,9 @@
  *    so `app.ivolgaco.com` (`stamp_app.py`) sessions and CAD Vision credits stay 100% untouched.
  * 2. Master Key Bypass: Cryptographic SHA-256 constant-time check for owner admin key
  *    (plus optional `env.LICENSE_KEY`) enabling unlimited live photo testing with 0 DB writes.
- * 3. Current Gemini Interactions API (`/v1beta/interactions`, `Api-Revision: 2026-05-20`):
- *    Uses `gemini-3.8-flash` with Thinking + `google_search` grounding and server-side
- *    multi-turn chaining via `previous_interaction_id`.
+ * 3. Current Gemini 4 Frontier Reasoning Chain:
+ *    Routes primary diagnostics to `gemini-4-carbon` → `gemini-4-argon` → `gemini-3.8-flash`
+ *    with Thinking (`medium` / `32768` token ceiling) + `google_search` grounding and multi-turn chaining.
  *
  * Required Cloudflare Pages Environment Variables:
  *   - GEMINI_API_KEY   : Google Gemini API key
@@ -18,7 +18,7 @@
  *   - SUPABASE_KEY     : Supabase service_role or API key (same as Render)
  *
  * Optional Cloudflare Pages Environment Variables:
- *   - GEMINI_MODEL         : Default "gemini-3.8-flash" (can set "gemini-4-argon")
+ *   - GEMINI_MODEL         : Default "gemini-4-carbon" (falls back to "gemini-4-argon" → "gemini-3.8-flash")
  *   - DAYPASS_CHAT_LIMIT   : Default "20"  (turns per $8 24-Hr Craftsman Pass)
  *   - MONTHLY_CHAT_LIMIT   : Default "100" (turns per 30-day cycle on $25/mo Studio Monthly)
  *   - FREE_TRIAL_TURNS     : Default "0"   (0 = strictly TPS-XXXX-XXXX / Master Key only)
@@ -360,6 +360,11 @@ export async function onRequestGet(context) {
       ok: true,
       endpoint: "/api/chat",
       status: hasGeminiKey ? "ready" : "missing_gemini_key",
+      model_chain: [
+        getEnvVar(env, "GEMINI_MODEL", "gemini-4-carbon"),
+        "gemini-4-argon",
+        "gemini-3.8-flash"
+      ],
       runtime_secrets_configured: {
         GEMINI_API_KEY: hasGeminiKey,
         SUPABASE_URL: hasSupabaseUrl,
@@ -595,21 +600,25 @@ export async function onRequestPost(context) {
       }
     }
 
-    // 3. Call Gemini API
-    // Fast-path `:generateContent?key=...` (`gemini-2.5-flash` / `gemini-2.0-flash`, matching `app.py` line 4179 for `AQ.Ab8RN...` keys)
+    // 3. Call Gemini API (`gemini-4-carbon` → `gemini-4-argon` → `gemini-3.8-flash`)
     let interactionId = null;
     let replyText = "";
     let citations = [];
+    let modelUsed = "";
     let lastApiErrStatus = 0;
     let lastApiErrSnippet = "";
 
     const historyContents = [];
+    const priorTranscriptLines = [];
     for (const h of rawHistory) {
       if (!h || typeof h.text !== "string" || !h.text.trim()) continue;
+      const role = h.role === "model" ? "model" : "user";
+      const cleanTurnText = h.text.trim().slice(0, MAX_TEXT_CHARS);
       historyContents.push({
-        role: h.role === "model" ? "model" : "user",
-        parts: [{ text: h.text.trim().slice(0, MAX_TEXT_CHARS) }]
+        role,
+        parts: [{ text: cleanTurnText }]
       });
+      priorTranscriptLines.push(`${role === "model" ? "Assistant" : "User"}: ${cleanTurnText}`);
     }
 
     const currentParts = [{ text: composedPrompt }];
@@ -623,21 +632,108 @@ export async function onRequestPost(context) {
     }
     historyContents.push({ role: "user", parts: currentParts });
 
-    const preferredModel = getEnvVar(env, "GEMINI_MODEL", "gemini-3.1-pro-preview");
-    const generateContentAttempts = [
-      { model: preferredModel, useSearch: true },
-      { model: "gemini-3.8-flash", useSearch: true },
-      { model: "gemini-2.5-pro", useSearch: true },
-      { model: "gemini-2.5-flash", useSearch: false }
-    ];
+    const validPrevInteractionId =
+      previousInteractionId && /^[a-zA-Z0-9._:-]{6,200}$/.test(previousInteractionId)
+        ? previousInteractionId
+        : null;
 
-    for (const attempt of generateContentAttempts) {
+    const interactionInputBlocks =
+      !validPrevInteractionId && priorTranscriptLines.length > 0
+        ? [
+            {
+              type: "text",
+              text: `Prior conversation context:\n${priorTranscriptLines.join("\n")}\n\nCurrent user message:\n${composedPrompt}`
+            },
+            ...contentBlocks.slice(1)
+          ]
+        : contentBlocks;
+
+    const preferredModel = getEnvVar(env, "GEMINI_MODEL", "gemini-4-carbon");
+    const rawAttempts = [
+      { model: preferredModel, useSearch: true },
+      { model: "gemini-4-argon", useSearch: true },
+      { model: "gemini-3.8-flash", useSearch: true },
+      { model: "gemini-3.8-flash", useSearch: false }
+    ];
+    const seenAttemptKeys = new Set();
+    const modelAttempts = [];
+    for (const item of rawAttempts) {
+      const key = `${item.model}::${item.useSearch ? "search" : "nosearch"}`;
+      if (!seenAttemptKeys.has(key)) {
+        seenAttemptKeys.add(key);
+        modelAttempts.push(item);
+      }
+    }
+
+    let interactionsEndpointSupported = true;
+
+    for (const attempt of modelAttempts) {
+      // 3A. Try current `/v1beta/interactions` endpoint first (native for `gemini-4-carbon` & `gemini-4-argon`)
+      if (interactionsEndpointSupported) {
+        try {
+          const interactionPayload = {
+            model: attempt.model,
+            system_instruction: TROUBLESHOOTER_SYSTEM_PROMPT,
+            generation_config: {
+              max_output_tokens: 32768,
+              thinking_level: "medium"
+            },
+            input: interactionInputBlocks
+          };
+          if (attempt.useSearch) {
+            interactionPayload.tools = [{ type: "google_search" }];
+          }
+          if (validPrevInteractionId) {
+            interactionPayload.previous_interaction_id = validPrevInteractionId;
+          }
+
+          const iaResp = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/interactions?key=${encodeURIComponent(geminiApiKey)}`,
+            {
+              method: "POST",
+              headers: {
+                "x-goog-api-key": geminiApiKey,
+                "Content-Type": "application/json",
+                "Api-Revision": "2026-05-20"
+              },
+              body: JSON.stringify(interactionPayload)
+            }
+          );
+
+          if (iaResp.ok) {
+            const iaData = await iaResp.json();
+            const extracted = extractInteractionReply(iaData);
+            const cleaned = cleanHumanReply(extracted.replyText);
+            if (cleaned) {
+              interactionId = extracted.interactionId;
+              replyText = cleaned;
+              citations = extracted.citations;
+              modelUsed = attempt.model;
+              break;
+            }
+          } else {
+            const errBody = (await iaResp.text().catch(() => "")).slice(0, 240);
+            lastApiErrStatus = iaResp.status;
+            lastApiErrSnippet = errBody;
+            if (iaResp.status === 401 || (iaResp.status === 400 && errBody.toLowerCase().includes("api_key"))) {
+              interactionsEndpointSupported = false;
+            }
+          }
+        } catch (e) {
+          lastApiErrSnippet = String(e?.message || e);
+        }
+      }
+
+      // 3B. Try `:generateContent` on the exact same model before falling back to the next model
       try {
         const gcPayload = {
           systemInstruction: { parts: [{ text: TROUBLESHOOTER_SYSTEM_PROMPT }] },
           contents: historyContents,
           generationConfig: {
-            maxOutputTokens: 12288
+            maxOutputTokens: 32768,
+            thinkingConfig: {
+              thinkingLevel: "MEDIUM"
+            }
           }
         };
         if (attempt.useSearch) {
@@ -667,68 +763,29 @@ export async function onRequestPost(context) {
           .map((p) => p.text);
 
         if (textParts.length > 0) {
-          replyText = cleanHumanReply(textParts.join("\n\n"));
-          const groundingChunks = cand?.groundingMetadata?.groundingChunks || [];
-          const seen = new Set();
-          for (const ch of groundingChunks) {
-            const webUrl = ch?.web?.uri;
-            const webTitle = ch?.web?.title;
-            if (webUrl && !seen.has(webUrl)) {
-              seen.add(webUrl);
-              citations.push({
-                title: String(webTitle || "Reference").slice(0, 80),
-                url: String(webUrl)
-              });
+          const cleaned = cleanHumanReply(textParts.join("\n\n"));
+          if (cleaned) {
+            replyText = cleaned;
+            modelUsed = attempt.model;
+            const groundingChunks = cand?.groundingMetadata?.groundingChunks || [];
+            const seen = new Set();
+            for (const ch of groundingChunks) {
+              const webUrl = ch?.web?.uri;
+              const webTitle = ch?.web?.title;
+              if (webUrl && !seen.has(webUrl)) {
+                seen.add(webUrl);
+                citations.push({
+                  title: String(webTitle || "Reference").slice(0, 80),
+                  url: String(webUrl)
+                });
+              }
             }
+            citations = citations.slice(0, 4);
+            break;
           }
-          citations = citations.slice(0, 4);
-          break;
         }
       } catch (e) {
         lastApiErrSnippet = String(e?.message || e);
-      }
-    }
-
-    // Secondary attempt via `/v1beta/interactions` if needed
-    if (!replyText) {
-      const primaryModel = getEnvVar(env, "GEMINI_MODEL", "gemini-3.8-flash");
-      const interactionPayload = {
-        model: primaryModel,
-        system_instruction: TROUBLESHOOTER_SYSTEM_PROMPT,
-        tools: [{ type: "google_search" }],
-        generation_config: {
-          max_output_tokens: 4096
-        },
-        input: contentBlocks
-      };
-
-      if (previousInteractionId && /^[a-zA-Z0-9._:-]{6,200}$/.test(previousInteractionId)) {
-        interactionPayload.previous_interaction_id = previousInteractionId;
-      }
-
-      try {
-        const geminiResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/interactions?key=${encodeURIComponent(geminiApiKey)}`, {
-          method: "POST",
-          headers: {
-            "x-goog-api-key": geminiApiKey,
-            "Content-Type": "application/json",
-            "Api-Revision": "2026-05-20"
-          },
-          body: JSON.stringify(interactionPayload)
-        });
-
-        if (geminiResp.ok) {
-          const geminiData = await geminiResp.json();
-          const extracted = extractInteractionReply(geminiData);
-          interactionId = extracted.interactionId;
-          replyText = cleanHumanReply(extracted.replyText);
-          citations = extracted.citations;
-        } else if (!lastApiErrStatus) {
-          lastApiErrStatus = geminiResp.status;
-          lastApiErrSnippet = (await geminiResp.text().catch(() => "")).slice(0, 240);
-        }
-      } catch (e) {
-        if (!lastApiErrSnippet) lastApiErrSnippet = String(e?.message || e);
       }
     }
 
@@ -775,6 +832,7 @@ export async function onRequestPost(context) {
       {
         ok: true,
         reply: replyText,
+        model_used: modelUsed || null,
         interaction_id: interactionId,
         citations,
         is_master: isMaster,
