@@ -420,24 +420,98 @@
  box-shadow: 0 0 16px rgba(255, 179, 0, 0.14);
  }
  .stage-img-box {
- background: #FFFFFF;
- border: 1px solid #2A2A2A;
- border-radius: 8px;
- height: 150px;
- display: flex;
- align-items: center;
- justify-content: center;
+ aspect-ratio: 1 / 1;
+ width: 100%;
+ height: auto;
+ padding: 0;
  overflow: hidden;
+ position: relative;
+ cursor: zoom-in;
+ border-radius: 8px;
+ border: 1px solid #2A2A2A;
+ background: #FFFFFF;
  margin-bottom: 10px;
+ transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
  }
  .stage-img-box.dark-box {
- background: #090909;
+ background: #FFFFFF;
+ }
+ .stage-img-box.stage-box-trace {
+ background: #F7F5F0;
+ }
+ .stage-img-box.stage-box-cad {
+ background-color: #FDFDFD;
+ background-image:
+ repeating-linear-gradient(
+ to bottom,
+ transparent 0%,
+ transparent calc(6.37% - 1px),
+ rgba(116, 116, 116, 0.55) calc(6.37% - 1px),
+ rgba(116, 116, 116, 0.55) 6.37%
+ ),
+ linear-gradient(90deg, #4A4A4A 0%, #4A4A4A 51.1%, #FDFDFD 51.1%, #FDFDFD 100%);
+ background-size: 51.1% 100%, 100% 100%;
+ background-position: 0 5.26%, 0 0;
+ background-repeat: repeat-y, no-repeat;
  }
  .stage-img-box img {
  width: 100%;
  height: 100%;
+ object-fit: cover;
+ object-position: center;
+ padding: 0;
+ display: block;
+ }
+ .stage-img-box img.pos-luna-trace {
+ position: absolute;
+ top: 2%;
+ left: 50%;
+ transform: translateX(-50%);
+ height: 96%;
+ width: auto;
+ max-width: none;
  object-fit: contain;
- padding: 4px;
+ clip-path: inset(1.2% 1.6% round 8px);
+ }
+ .stage-img-box img.pos-luna-cad {
+ position: absolute;
+ top: 1.25%;
+ left: 50%;
+ transform: translateX(-50%);
+ height: 93.5%;
+ width: auto;
+ max-width: none;
+ object-fit: contain;
+ }
+ .stage-img-box:hover,
+ .stage-img-box:focus-visible {
+ border-color: var(--amber);
+ transform: translateY(-2px);
+ box-shadow: 0 6px 18px rgba(255, 179, 0, 0.22);
+ outline: none;
+ }
+ .stage-img-box::after {
+ content: "🔍 Zoom";
+ position: absolute;
+ right: 5px;
+ bottom: 5px;
+ z-index: 2;
+ background: rgba(13, 13, 13, 0.88);
+ color: var(--amber);
+ border: 1px solid rgba(255, 179, 0, 0.55);
+ border-radius: 6px;
+ padding: 2px 6px;
+ font-size: 0.65rem;
+ font-weight: 800;
+ line-height: 1.3;
+ pointer-events: none;
+ transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+ }
+ .stage-img-box:hover::after,
+ .stage-img-box:focus-visible::after {
+ background: var(--amber);
+ color: #000000;
+ border-color: var(--amber);
  }
  .stage-title {
  font-size: 0.94rem;
@@ -630,6 +704,114 @@
  }
  footer a { color: var(--amber); text-decoration: none; margin: 0 6px; font-weight: 600; }
 
+ /* Full-Screen Stage Zoom Lightbox (#p2pLightbox) */
+ .p2p-lightbox {
+ position: fixed;
+ inset: 0;
+ z-index: 9999;
+ background: rgba(7, 7, 7, 0.92);
+ backdrop-filter: blur(8px);
+ display: none;
+ align-items: center;
+ justify-content: center;
+ padding: 18px;
+ }
+ .p2p-lightbox.is-open {
+ display: flex;
+ }
+ .p2p-lb-dialog {
+ background: #141414;
+ border: 1.5px solid var(--amber);
+ border-radius: 14px;
+ width: 100%;
+ max-width: 920px;
+ max-height: 94vh;
+ display: flex;
+ flex-direction: column;
+ overflow: hidden;
+ box-shadow: 0 20px 60px rgba(0, 0, 0, 0.88);
+ }
+ .p2p-lb-header {
+ display: flex;
+ align-items: flex-start;
+ justify-content: space-between;
+ gap: 14px;
+ padding: 14px 18px;
+ border-bottom: 1px solid #282828;
+ background: #101010;
+ }
+ .p2p-lb-title {
+ font-size: 1.05rem;
+ font-weight: 900;
+ color: #FFFFFF;
+ line-height: 1.25;
+ }
+ .p2p-lb-sub {
+ font-size: 0.84rem;
+ color: #BDBDBD;
+ margin-top: 2px;
+ line-height: 1.35;
+ }
+ .p2p-lb-btn {
+ background: #1C1C1C;
+ color: #FFFFFF;
+ border: 1px solid #3A3A3A;
+ border-radius: 8px;
+ padding: 7px 13px;
+ font-size: 0.82rem;
+ font-weight: 800;
+ cursor: pointer;
+ transition: all 0.15s ease;
+ white-space: nowrap;
+ }
+ .p2p-lb-btn:hover,
+ .p2p-lb-btn:focus-visible {
+ border-color: var(--amber);
+ color: var(--amber);
+ background: #241E10;
+ outline: none;
+ }
+ .p2p-lb-btn.p2p-lb-close:hover,
+ .p2p-lb-btn.p2p-lb-close:focus-visible {
+ background: var(--amber);
+ color: #000000;
+ border-color: var(--amber);
+ }
+ .p2p-lb-viewport {
+ background: #0B0B0B;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 14px;
+ min-height: 220px;
+ overflow: hidden;
+ }
+ .p2p-lb-viewport img {
+ max-width: 100%;
+ max-height: 75vh;
+ width: auto;
+ height: auto;
+ object-fit: contain;
+ border-radius: 8px;
+ display: block;
+ box-shadow: 0 8px 28px rgba(0, 0, 0, 0.65);
+ }
+ .p2p-lb-footer {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 10px;
+ padding: 12px 18px;
+ border-top: 1px solid #282828;
+ background: #101010;
+ }
+ .p2p-lb-nav {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+
  @media (max-width: 920px) {
  .hero-split { grid-template-columns: 1fr; }
  .hero-cta-stack { max-width: 100%; }
@@ -640,6 +822,10 @@
  @media (max-width: 600px) {
  .showcase-grid { grid-template-columns: 1fr; }
  .hero-cta-stack-row { grid-template-columns: 1fr; }
+ .p2p-lightbox { padding: 10px; }
+ .p2p-lb-header, .p2p-lb-footer { padding: 10px 12px; }
+ .p2p-lb-viewport img { max-height: 66vh; }
+ .p2p-lb-nav { width: 100%; justify-content: space-between; }
  }
  </style>
 </head>
@@ -723,15 +909,18 @@
  <div class="hero-showcase" id="real-work">
  <div class="showcase-header">
  <span>📐 ONE REAL EXAMPLE ACROSS ALL THREE STAGES</span>
+ <span style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;">
+ <span style="color:var(--amber);font-size:0.74rem;font-weight:700;">🔍 Click any stage to zoom</span>
  <span style="color:var(--green);">✅ 1:1 MM CALIBRATED</span>
+ </span>
  </div>
 
  <div class="showcase-grid">
  <!-- Stage 1: Artwork -->
  <div class="stage-card">
  <div>
- <div class="stage-img-box">
- <img src="proof-raw.jpg" alt="Source multi-color logo artwork uploaded to Pixel2Path Studio before 1:1mm vector and 3D stamp conversion" width="480" height="360" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+ <div class="stage-img-box" role="button" tabindex="0" data-stage-index="0" aria-label="Zoom Stage 1: Artwork full-resolution image">
+ <img src="proof-raw.jpg" alt="Source multi-color logo artwork uploaded to Pixel2Path Studio before 1:1mm vector and 3D stamp conversion" width="2048" height="2048" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
  <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
  <svg width="105" height="105" viewBox="0 0 400 400" role="img" aria-label="Source multi-color Oriole logo input">
  <circle cx="200" cy="200" r="165" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="8"/>
@@ -751,8 +940,8 @@
  <!-- Stage 2: Geometry -->
  <div class="stage-card active-stage">
  <div>
- <div class="stage-img-box dark-box">
- <img src="proof-processed.jpg" alt="1:1 millimeter calibrated vector and 3D stamp geometry preview with Step 2B silhouette and 0.45mm nozzle wall guard in Pixel2Path Studio" width="480" height="360" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+ <div class="stage-img-box dark-box stage-box-trace" role="button" tabindex="0" data-stage-index="1" aria-label="Zoom Stage 2: Tool and Shape full-resolution image">
+ <img src="proof-processed.jpg" class="pos-luna-trace" alt="1:1 millimeter calibrated vector and 3D stamp geometry preview with Step 2B silhouette and 0.45mm nozzle wall guard in Pixel2Path Studio" width="1632" height="2592" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
  <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
  <svg width="105" height="105" viewBox="0 0 400 400" role="img" aria-label="1:1 millimeter calibrated vector mask preview">
  <circle cx="200" cy="200" r="165" fill="none" stroke="#FFFFFF" stroke-width="12"/>
@@ -771,8 +960,8 @@
  <!-- Stage 3: Make it -->
  <div class="stage-card">
  <div>
- <div class="stage-img-box dark-box">
- <img src="proof-bambu.jpg" alt="Watertight 3D printable stamp STL mesh on solid baseplate sliced at 1:1 millimeter scale in Bambu Studio" width="480" height="360" loading="eager" fetchpriority="high" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+ <div class="stage-img-box dark-box stage-box-cad" role="button" tabindex="0" data-stage-index="2" aria-label="Zoom Stage 3: Make it full-resolution image">
+ <img src="proof-bambu.jpg" class="pos-luna-cad" alt="Watertight 3D printable stamp STL mesh on solid baseplate sliced at 1:1 millimeter scale in Bambu Studio" width="1792" height="2400" loading="eager" fetchpriority="high" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
  <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
  <svg width="115" height="92" viewBox="0 0 160 125" role="img" aria-label="3D stamp solid mesh on baseplate">
  <polygon points="80,76 142,96 80,116 18,96" fill="#262626" stroke="#81C784" stroke-width="1.5"/>
@@ -1021,7 +1210,7 @@
  </div>
  <div>
  <strong>📐 Outer Bounding-Box Tolerance &amp; Machine Guards</strong>
- External bounding-box width and height are calibrated after morphological filtering to within <strong>±0.05mm</strong> of your requested target width. To prevent physical toolhead failure, sub-spec internal strokes and grooves are automatically conditioned for your machine profile (<strong>≥0.45mm</strong> walls &amp; <strong>≥0.52mm</strong> grooves for 0.4mm FDM nozzles, <strong>≥0.75mm</strong> for vinyl weeding, and <strong>≥0.38mm</strong> for CNC 3D meshes). Always verify material settings, press tonnage, and laser kerf using a free 25mm sample.
+ External bounding-box width and height are calibrated after morphological filtering to within <strong>±0.05mm</strong> of your requested target width. To prevent physical toolhead failure, sub-spec internal strokes and grooves are automatically conditioned for your machine profile (<strong>≥0.45mm</strong> walls &amp; <strong>≥0.52mm</strong> grooves for 0.4mm FDM nozzles, <strong>≥0.75mm</strong> for vinyl weeding, and <strong>≥0.38mm</strong> for CNC 3D meshes). Always verify material settings, press tonnage, and laser kerf using a free 25mm 75% cutaway proof.
  </div>
  <div>
  <strong>🛡️ Support &amp; Subscription Cancellation</strong>
@@ -1063,6 +1252,130 @@
  <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
  </p>
  </footer>
+
+ <!-- Full-Screen Stage Zoom Lightbox Modal -->
+ <div id="p2pLightbox" class="p2p-lightbox" role="dialog" aria-modal="true" aria-labelledby="p2pLbTitle" aria-hidden="true">
+ <div class="p2p-lb-dialog">
+ <div class="p2p-lb-header">
+ <div>
+ <div id="p2pLbTitle" class="p2p-lb-title"></div>
+ <div id="p2pLbSub" class="p2p-lb-sub"></div>
+ </div>
+ <button type="button" id="p2pLbClose" class="p2p-lb-btn p2p-lb-close" aria-label="Close zoom preview">✕ Close (Esc)</button>
+ </div>
+ <div class="p2p-lb-viewport">
+ <img id="p2pLbImg" src="" alt="" />
+ </div>
+ <div class="p2p-lb-footer">
+ <div id="p2pLbCaption" class="stage-caption"></div>
+ <div class="p2p-lb-nav">
+ <button type="button" id="p2pLbPrev" class="p2p-lb-btn">← Prev Stage</button>
+ <button type="button" id="p2pLbNext" class="p2p-lb-btn">Next Stage →</button>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <script>
+ (function () {
+ var stageBoxes = Array.prototype.slice.call(document.querySelectorAll('#real-work .stage-img-box'));
+ var lb = document.getElementById('p2pLightbox');
+ if (!lb || !stageBoxes.length) return;
+
+ var lbImg = document.getElementById('p2pLbImg');
+ var lbTitle = document.getElementById('p2pLbTitle');
+ var lbSub = document.getElementById('p2pLbSub');
+ var lbCaption = document.getElementById('p2pLbCaption');
+ var btnClose = document.getElementById('p2pLbClose');
+ var btnPrev = document.getElementById('p2pLbPrev');
+ var btnNext = document.getElementById('p2pLbNext');
+ var activeIndex = 0;
+ var returnFocusEl = null;
+
+ var stages = stageBoxes.map(function (box) {
+ var card = box.closest('.stage-card');
+ var img = box.querySelector('img');
+ var titleEl = card ? card.querySelector('.stage-title') : null;
+ var subEl = card ? card.querySelector('.stage-sub') : null;
+ var capEl = card ? card.querySelector('.stage-caption') : null;
+ return {
+ box: box,
+ src: img ? img.getAttribute('src') : '',
+ alt: img ? img.getAttribute('alt') : '',
+ title: titleEl ? titleEl.textContent.trim() : '',
+ sub: subEl ? subEl.textContent.trim() : '',
+ caption: capEl ? capEl.textContent.trim() : '',
+ accentColor: (capEl && capEl.style.borderLeftColor) ? capEl.style.borderLeftColor : 'var(--amber)'
+ };
+ });
+
+ function renderStage(idx) {
+ activeIndex = (idx + stages.length) % stages.length;
+ var item = stages[activeIndex];
+ lbImg.src = item.src;
+ lbImg.alt = item.alt;
+ lbTitle.textContent = item.title;
+ lbSub.textContent = item.sub;
+ lbCaption.textContent = item.caption;
+ lbCaption.style.borderLeftColor = item.accentColor;
+ }
+
+ function openLightbox(idx, triggerEl) {
+ returnFocusEl = triggerEl || stages[idx].box;
+ renderStage(idx);
+ lb.classList.add('is-open');
+ lb.setAttribute('aria-hidden', 'false');
+ document.body.style.overflow = 'hidden';
+ btnClose.focus();
+ }
+
+ function closeLightbox() {
+ if (!lb.classList.contains('is-open')) return;
+ lb.classList.remove('is-open');
+ lb.setAttribute('aria-hidden', 'true');
+ document.body.style.overflow = '';
+ if (returnFocusEl && typeof returnFocusEl.focus === 'function') {
+ returnFocusEl.focus();
+ }
+ }
+
+ stageBoxes.forEach(function (box, idx) {
+ box.addEventListener('click', function () {
+ openLightbox(idx, box);
+ });
+ box.addEventListener('keydown', function (e) {
+ if (e.key === 'Enter' || e.key === ' ') {
+ e.preventDefault();
+ openLightbox(idx, box);
+ }
+ });
+ });
+
+ btnClose.addEventListener('click', closeLightbox);
+ btnPrev.addEventListener('click', function () { renderStage(activeIndex - 1); });
+ btnNext.addEventListener('click', function () { renderStage(activeIndex + 1); });
+
+ lb.addEventListener('click', function (e) {
+ if (e.target === lb) {
+ closeLightbox();
+ }
+ });
+
+ document.addEventListener('keydown', function (e) {
+ if (!lb.classList.contains('is-open')) return;
+ if (e.key === 'Escape') {
+ e.preventDefault();
+ closeLightbox();
+ } else if (e.key === 'ArrowLeft') {
+ e.preventDefault();
+ renderStage(activeIndex - 1);
+ } else if (e.key === 'ArrowRight') {
+ e.preventDefault();
+ renderStage(activeIndex + 1);
+ }
+ });
+ })();
+ </script>
 
 </body>
 </html>
