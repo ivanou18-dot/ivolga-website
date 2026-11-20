@@ -15,5 +15,13 @@ node_modules
 node_modules/
 *.sql
 *.py
+*.toml
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+PRD.md
+GEMINI.md
 *.txt
 !robots.txt
+!llms.txt

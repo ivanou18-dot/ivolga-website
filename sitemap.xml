@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ivolgaco.com/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -23,21 +23,39 @@
     </image:image>
   </url>
   <url>
+    <loc>https://ivolgaco.com/clay-cutter-stl-generator.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.96</priority>
+  </url>
+  <url>
+    <loc>https://ivolgaco.com/laser-leather-patch-svg.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.96</priority>
+  </url>
+  <url>
     <loc>https://ivolgaco.com/vault.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/troubleshooter.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/guide.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://ivolgaco.com/llms.txt</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
   </url>
 </urlset>

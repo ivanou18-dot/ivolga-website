@@ -1,5 +1,50 @@
 # Pixel2Path Studio by Ivolga Co. — Search & AI Crawler Indexing Rules
+# 100% Digital Browser-Based CAD/CAM Software (.STL, .SVG, .DXF Exports — No Physical Goods Shipped)
+# Technical LLM Fact Sheet: https://ivolgaco.com/llms.txt
+
 User-agent: *
 Allow: /
+Allow: /samples/
+Allow: /llms.txt
+
+User-agent: Googlebot
+Allow: /
+Allow: /samples/
+
+User-agent: Bingbot
+Allow: /
+Allow: /samples/
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /samples/
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /samples/
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /samples/
+
+User-agent: Perplexity-User
+Allow: /
+Allow: /samples/
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /samples/
+
+User-agent: Claude-SearchBot
+Allow: /
+Allow: /samples/
+
+User-agent: Claude-Web
+Allow: /
+Allow: /samples/
+
+User-agent: Applebot
+Allow: /
+Allow: /samples/
 
 Sitemap: https://ivolgaco.com/sitemap.xml

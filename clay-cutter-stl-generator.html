@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+ <!-- High-Intent Digital CAD Title & Meta Description -->
+ <title>Polymer Clay Cutter &amp; 2-Part Stamp .STL Generator | Pixel2Path Studio</title>
+ <meta name="description" content="Browser-based digital CAD generator for 1:1mm polymer clay micro-cutters (0.42mm stepped Arachne lip), 2-part cutter + stamp .STL sets (0.70mm clearance), and pottery chops. Free 25mm cutaway proof." />
+ <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+ <link rel="canonical" href="https://ivolgaco.com/clay-cutter-stl-generator.html" />
+ <meta name="author" content="Ivolga Co." />
+ <meta name="theme-color" content="#FFB300" />
+ <meta name="keywords" content="polymer clay cutter STL generator, custom clay cutter maker software, 2 part clay cutter and stamp STL, PNG to clay cutter STL, SVG to polymer clay cutter 3D print, 0.4mm Arachne clay cutter blade STL, Bambu Studio clay cutter settings, pottery chop stamp STL generator, Pixel2Path Studio" />
+
+ <!-- Golden Oriole Favicon -->
+ <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='186' fill='%23FFFFFF' stroke='%234A4A4A' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='178' fill='none' stroke='%23FFB300' stroke-width='6'/%3E%3Cpath d='M 168,224 C 138,236 95,256 62,268 C 72,272 84,271 96,266 C 80,275 68,280 58,281 C 70,285 85,283 98,277 C 86,286 76,290 68,291 C 98,298 135,292 175,278 L 214,256 Z' fill='%231C1814'/%3E%3Cpath d='M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z' fill='%231C1814'/%3E%3Cpath d='M 198,196 C 218,162 246,118 265,86 C 271,88 272,99 267,112 C 276,96 283,84 289,82 C 294,86 292,99 285,114 C 294,101 302,92 308,91 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z' fill='%231C1814'/%3E%3Cpath d='M 195,196 C 212,175 232,155 248,145 C 258,168 256,202 245,224 C 230,226 210,215 195,196 Z' fill='%23FFD000'/%3E%3Cpath d='M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 272,256 286,268 296,274 C 278,274 258,266 242,256 C 222,258 196,248 178,233 C 164,222 156,210 144,204 C 134,200 126,197 122,193 Z' fill='%23FFD000'/%3E%3Cpath d='M 124,191 L 96,195 L 125,198 Z' fill='%238D6E4E'/%3E%3Ccircle cx='140' cy='192' r='6' fill='%2314100C'/%3E%3C/svg%3E" />
+
+ <!-- Open Graph / Social Sharing -->
+ <meta property="og:type" content="website" />
+ <meta property="og:locale" content="en_US" />
+ <meta property="og:site_name" content="Pixel2Path Studio — Ivolga Co." />
+ <meta property="og:url" content="https://ivolgaco.com/clay-cutter-stl-generator.html" />
+ <meta property="og:title" content="Polymer Clay Cutter &amp; 2-Part Stamp .STL Generator | Pixel2Path Studio" />
+ <meta property="og:description" content="100% digital CAD software: convert PNG, JPG, SVG, or custom text into stepped 0.42mm polymer clay micro-cutters and 0.70mm-clearance 2-part cutter + stamp .STL meshes." />
+ <meta property="og:image" content="https://ivolgaco.com/proof-bambu.jpg" />
+
+ <!-- Twitter / X Card -->
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Polymer Clay Cutter &amp; 2-Part Stamp .STL Generator | Pixel2Path Studio" />
+ <meta name="twitter:description" content="Instant 1:1mm watertight .STL files with 0.42mm Arachne cutting lips, 3.2mm grip flanges, and 0.70mm 2-part stamp clearances for Bambu Studio, OrcaSlicer &amp; PrusaSlicer." />
+ <meta name="twitter:image" content="https://ivolgaco.com/proof-bambu.jpg" />
+
+ <!-- Structured Data: Organization + BreadcrumbList + SoftwareApplication + FAQPage -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@graph": [
+ {
+ "@type": "Organization",
+ "@id": "https://ivolgaco.com/#organization",
+ "name": "Ivolga Co.",
+ "url": "https://ivolgaco.com/",
+ "logo": "https://ivolgaco.com/proof-raw.jpg",
+ "email": "contact@ivolgaco.com",
+ "address": {
+ "@type": "PostalAddress",
+ "addressRegion": "CA",
+ "addressCountry": "US"
+ },
+ "sameAs": [
+ "https://github.com/ivanou18-dot/pixel2path-benchmarks",
+ "https://www.youtube.com/@IvolgaCo",
+ "https://www.facebook.com/profile.php?id=61596717840858"
+ ]
+ },
+ {
+ "@type": "BreadcrumbList",
+ "@id": "https://ivolgaco.com/clay-cutter-stl-generator.html#breadcrumb",
+ "itemListElement": [
+ {
+ "@type": "ListItem",
+ "position": 1,
+ "name": "Pixel2Path Studio",
+ "item": "https://ivolgaco.com/"
+ },
+ {
+ "@type": "ListItem",
+ "position": 2,
+ "name": "Polymer Clay Cutter & 2-Part Stamp .STL Generator",
+ "item": "https://ivolgaco.com/clay-cutter-stl-generator.html"
+ }
+ ]
+ },
+ {
+ "@type": "SoftwareApplication",
+ "@id": "https://ivolgaco.com/clay-cutter-stl-generator.html#software",
+ "name": "Pixel2Path Studio — Polymer Clay Cutter & 2-Part Stamp .STL Generator",
+ "applicationCategory": "DesignApplication",
+ "applicationSubCategory": "3D Printable Polymer Clay Cutter, 2-Part Embossing Stamp & Pottery Chop .STL CAD Software",
+ "operatingSystem": "Web Browser (Windows, macOS, iOS, Android)",
+ "url": "https://app.ivolgaco.com/?preset=stamp",
+ "publisher": { "@id": "https://ivolgaco.com/#organization" },
+ "description": "100% browser-based digital CAD software that converts PNG, JPG, WEBP, SVG, HEIC artwork or custom typography into 1:1 millimeter (±0.05mm) watertight 2-manifold .STL meshes for polymer clay micro-cutters (stepped 0.42mm razor lip + 1.2mm wall + 3.2mm grip flange), 2-part cutter + embossing stamp sets (0.70mm radial clearance), raised ceramic stamps, and support-free handled pottery chops. Digital CAD downloads only; no physical goods shipped.",
+ "featureList": [
+ "Stepped 0.42mm Polymer Clay Micro-Cutter profile (0.42mm Arachne cutting lip + 1.2mm structural wall + 3.2mm top grip flange, 10.5mm Z height)",
+ "Matched 2-Part Cutter + Stamp Pair in a single .STL with calibrated 0.70mm radial clay-release clearance",
+ "Watertight 2-manifold (3F = 2E) triangulation with >=0.45mm wall and >=0.52mm groove guards for 0.4mm FDM nozzles",
+ "Post-filter 1:1 millimeter bounding-box calibration within ±0.05mm plus 256mm / 220mm 2D Build Plate Auto-Fit",
+ "Up to 3 free 25mm 75% Cutaway Slicer Proofs (.STL) with no login required"
+ ],
+ "offers": [
+ {
+ "@type": "Offer",
+ "name": "Free 25mm 75% Cutaway Slicer Proof (.STL)",
+ "price": "0.00",
+ "priceCurrency": "USD",
+ "availability": "https://schema.org/InStock",
+ "url": "https://app.ivolgaco.com/?preset=stamp"
+ },
+ {
+ "@type": "Offer",
+ "name": "24-Hr Craftsman Pass ($8 — Unlimited 1:1 Uncut CAD Exports)",
+ "price": "8.00",
+ "priceCurrency": "USD",
+ "availability": "https://schema.org/InStock",
+ "url": "https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00"
+ },
+ {
+ "@type": "Offer",
+ "name": "Studio Monthly Subscription ($25/mo — Unlimited CAD Exports + 150 Vision Credits)",
+ "price": "25.00",
+ "priceCurrency": "USD",
+ "availability": "https://schema.org/InStock",
+ "url": "https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01"
+ }
+ ]
+ },
+ {
+ "@type": "FAQPage",
+ "@id": "https://ivolgaco.com/clay-cutter-stl-generator.html#faq",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Does Pixel2Path Studio ship physical clay cutters or generate digital .STL files?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Pixel2Path Studio is 100% browser-based digital CAD software. You download instant 1:1 millimeter .STL, .SVG, and .DXF files to slice and print on your own 3D printer (such as Bambu Lab, Prusa, Creality, or Anycubic). No physical cutters, stamps, or tools are manufactured or shipped."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "How is the 0.42mm stepped polymer clay micro-cutter blade engineered for 0.4mm FDM nozzles?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Instead of a fragile single-wall extrusion that snaps or vanishes in standard slicers, Pixel2Path Studio builds a 3-tier stepped cross-section totaling 10.5mm in Z height: a 3.2mm wide top finger-grip flange, a rigid 1.2mm structural mid-wall, and a tapered 0.42mm top cutting lip calibrated specifically for single-perimeter Arachne wall generation on a standard 0.4mm nozzle."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "How does the 2-Part Cutter + Stamp Pair .STL maintain registration without binding in polymer clay?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Selecting the 2-Part Cutter + Stamp Pair preset in Step 2B exports both pieces side-by-side in one watertight 1:1mm .STL file: the outer stepped 0.42mm Contour Offset cutter and a matched inner raised-relief embossing stamp inset by an exact 0.70mm radial clearance gap so you can press crisp details before or after cutting without dragging clay edges."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "What Bambu Studio, OrcaSlicer, or PrusaSlicer settings should I use for 0.42mm clay cutters?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Import the .STL in millimeters (1:1 scale), set Quality -> Wall Generator -> Arachne, slice at 0.16mm layer height with a 0.4mm (or 0.2mm) nozzle, use 4 to 5 top/bottom shells, 25%–40% gyroid/grid infill for cutters (80%–100% for heavy press stamps), and disable supports—every cutter flange, stamp baseplate, and pottery chop grip prints flat on the bed with zero supports."
+ }
+ }
+ ]
+ }
+ ]
+ }
+ </script>
+
+ <style>
+ :root {
+ --bg-dark: #0B0D13;
+ --bg-card: #151923;
+ --bg-panel: #10131C;
+ --amber: #FFB300;
+ --amber-hover: #E09D00;
+ --green: #81C784;
+ --text-main: #F8FAFC;
+ --text-muted: #B0B8C4;
+ --border-subtle: #262C3A;
+ }
+
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+ html { scroll-behavior: smooth; background-color: var(--bg-dark); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+ body {
+ background-color: var(--bg-dark);
+ background-image:
+ linear-gradient(rgba(255, 179, 0, 0.025) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(255, 179, 0, 0.025) 1px, transparent 1px);
+ background-size: 28px 28px;
+ line-height: 1.6;
+ overflow-x: hidden;
+ }
+
+ header {
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ background: rgba(11, 13, 19, 0.95);
+ backdrop-filter: blur(10px);
+ border-bottom: 1px solid var(--border-subtle);
+ padding: 12px 24px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 12px;
+ }
+ .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+ .brand-logo { width: 44px; height: 44px; flex-shrink: 0; }
+ .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+ .brand-title { color: var(--amber); font-weight: 900; font-size: 1.12rem; letter-spacing: 1.5px; }
+ .brand-sub { color: var(--text-muted); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+
+ .nav-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+ .nav-links a.nav-item { color: #E2E8F0; text-decoration: none; font-size: 0.86rem; font-weight: 600; }
+ .nav-links a.nav-item:hover { color: var(--amber); }
+ .btn-guide-nav {
+ display: inline-flex; align-items: center; gap: 6px;
+ background-color: #161B26; color: var(--amber); font-weight: 700; font-size: 0.84rem;
+ padding: 8px 13px; border-radius: 8px; text-decoration: none; border: 1.5px solid var(--amber);
+ transition: all 0.15s ease;
+ }
+ .btn-guide-nav:hover { background-color: #262012; color: #FFFFFF; }
+
+ .btn-primary {
+ display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+ background: linear-gradient(135deg, #FFB300 0%, #FFA000 100%);
+ color: #000000; font-weight: 900; font-size: 1rem;
+ padding: 13px 24px; border-radius: 8px; text-decoration: none; border: 2px solid #FFFFFF;
+ box-shadow: 0 4px 18px rgba(255, 179, 0, 0.35); transition: all 0.15s ease;
+ }
+ .btn-primary:hover { background: var(--amber-hover); transform: translateY(-1px); }
+ .btn-header { padding: 9px 16px; font-size: 0.86rem; }
+
+ .btn-secondary {
+ display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+ background-color: var(--bg-card); color: var(--text-main); font-weight: 700; font-size: 0.92rem;
+ padding: 12px 18px; border-radius: 8px; text-decoration: none; border: 1.5px solid #353E52;
+ transition: all 0.15s ease;
+ }
+ .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+
+ .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+ .digital-banner {
+ margin-top: 20px;
+ background: rgba(21, 25, 35, 0.96);
+ border: 1px solid #2E384D;
+ border-left: 4px solid var(--green);
+ border-radius: 8px;
+ padding: 10px 16px;
+ font-size: 0.84rem;
+ color: #E2E8F0;
+ }
+ .digital-banner strong { color: var(--amber); }
+
+ .hero { padding: 30px 0 36px; }
+ .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 28px; align-items: center; }
+ .badge-pill {
+ display: inline-block; background: rgba(255, 179, 0, 0.14); color: var(--amber);
+ border: 1px solid rgba(255, 179, 0, 0.45); font-size: 0.74rem; font-weight: 800;
+ text-transform: uppercase; letter-spacing: 1.2px; padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
+ }
+ h1 { font-size: clamp(1.9rem, 3.5vw, 2.65rem); font-weight: 900; line-height: 1.15; margin-bottom: 12px; }
+ h1 span { color: var(--amber); }
+ .lead { color: #CBD5E1; font-size: 0.98rem; margin-bottom: 18px; line-height: 1.58; }
+ .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+ .micro-note { font-size: 0.81rem; color: var(--text-muted); font-weight: 600; }
+ .micro-note strong { color: var(--amber); }
+
+ .cad-diagram-card {
+ background: var(--bg-card);
+ border: 1.5px solid var(--border-subtle);
+ border-top: 3px solid var(--amber);
+ border-radius: 12px;
+ padding: 18px;
+ box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+ }
+ .cad-diagram-title { font-size: 0.82rem; font-weight: 800; color: var(--amber); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+
+ section { padding: 34px 0; border-top: 1px solid #1C2230; }
+ h2 { font-size: 1.55rem; font-weight: 900; margin-bottom: 8px; color: #FFFFFF; }
+ h2 span { color: var(--amber); }
+ .sec-sub { color: var(--text-muted); font-size: 0.93rem; margin-bottom: 20px; max-width: 780px; }
+
+ .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+ .spec-card {
+ background: var(--bg-card);
+ border: 1px solid var(--border-subtle);
+ border-radius: 10px;
+ padding: 18px;
+ }
+ .spec-card h3 { font-size: 1rem; font-weight: 800; color: var(--amber); margin-bottom: 6px; }
+ .spec-card p { font-size: 0.86rem; color: #CBD5E1; line-height: 1.52; }
+ code { background: #0B0D13; color: var(--amber); padding: 1px 6px; border-radius: 4px; font-family: monospace; font-size: 0.8rem; border: 1px solid #262C3A; }
+
+ .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border-subtle); }
+ table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.83rem; background: var(--bg-panel); }
+ th, td { padding: 10px 13px; border-bottom: 1px solid #1E2534; vertical-align: top; }
+ th { background: #0B0D13; color: var(--amber); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.4px; }
+ td { color: #E2E8F0; }
+
+ .faq-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+ details.faq-item { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 14px 18px; }
+ details.faq-item[open] { border-color: var(--amber); }
+ details.faq-item summary { font-weight: 800; font-size: 0.93rem; color: #FFFFFF; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+ details.faq-item summary::-webkit-details-marker { display: none; }
+ details.faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.2rem; font-weight: 900; }
+ details.faq-item[open] summary::after { content: "−"; }
+ .faq-body { margin-top: 10px; padding-top: 10px; border-top: 1px solid #262C3A; color: #CBD5E1; font-size: 0.86rem; line-height: 1.55; }
+
+ footer {
+ border-top: 1px solid var(--border-subtle);
+ padding: 28px 20px;
+ text-align: center;
+ color: #94A3B8;
+ font-size: 0.82rem;
+ background: #090B10;
+ margin-top: 24px;
+ }
+ footer a { color: var(--amber); text-decoration: none; margin: 0 6px; font-weight: 600; }
+
+ @media (max-width: 900px) {
+ .hero-grid, .spec-grid { grid-template-columns: 1fr; }
+ .nav-links a.nav-item { display: none; }
+ }
+ </style>
+</head>
+<body>
+
+ <header>
+ <a href="https://ivolgaco.com/" class="brand">
+ <svg class="brand-logo" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ivolga Co. Pixel2Path Studio Logo">
+ <circle cx="200" cy="200" r="186" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="6"/>
+ <circle cx="200" cy="200" r="180" fill="none" stroke="#FFB300" stroke-width="4"/>
+ <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
+ <path d="M 255,244 C 282,255 318,268 338,278 C 342,288 325,308 295,314 C 272,302 252,274 244,256 Z" fill="#1C1814"/>
+ <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
+ <path d="M 195,196 C 212,175 232,155 248,145 C 258,168 256,202 245,224 C 230,226 210,215 195,196 Z" fill="#FFD000"/>
+ <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 C 164,222 156,210 144,204 Z" fill="#FFD000"/>
+ <path d="M 124,191 L 96,195 L 125,198 Z" fill="#8D6E4E"/>
+ <circle cx="140" cy="192" r="5" fill="#14100C"/>
+ </svg>
+ <div class="brand-text">
+ <span class="brand-title">IVOLGA CO.</span>
+ <span class="brand-sub">PIXEL2PATH STUDIO</span>
+ </div>
+ </a>
+
+ <nav class="nav-links" aria-label="Primary Navigation">
+ <a href="index.html" class="nav-item">Overview</a>
+ <a href="laser-leather-patch-svg.html" class="nav-item">Leather Patch .SVG</a>
+ <a href="vault.html" class="btn-guide-nav">🗄️ CAD Vault</a>
+ <a href="troubleshooter.html" class="btn-guide-nav">🛠️ Troubleshooter</a>
+ <a href="guide.html" class="btn-guide-nav">📖 User Guide</a>
+ <a href="https://app.ivolgaco.com/?preset=stamp" class="btn-primary btn-header">Open 3D Cutter Studio →</a>
+ </nav>
+ </header>
+
+ <main class="container">
+ <div class="digital-banner" role="note">
+ <strong>100% Digital CAD Software Notice:</strong> Pixel2Path Studio generates instant, slicer-ready <code>.STL</code>, <code>.SVG</code>, and <code>.DXF</code> digital CAD downloads for your own 3D printer or workshop machine. <strong>No physical clay cutters, stamps, or tools are sold or shipped.</strong>
+ </div>
+
+ <section class="hero">
+ <div class="hero-grid">
+ <div>
+ <span class="badge-pill">STEP 2B 3D PRINTER CAD PRESET · WATERTIGHT .STL</span>
+ <h1>Polymer Clay Micro-Cutter &amp; <span>2-Part Stamp .STL Generator</span></h1>
+ <p class="lead">
+ Convert any PNG, JPG, WEBP, SVG, or custom text design into true 1:1 millimeter (<strong>±0.05 mm</strong>) watertight 2-manifold <code>.STL</code> files engineered for polymer clay makers, ceramicists, and cookie/fondant studios — featuring a stepped <strong><code>0.42 mm</code> Arachne cutting lip</strong> and matched <strong><code>0.70 mm</code>-clearance 2-part cutter + embossing stamp sets</strong>.
+ </p>
+ <div class="cta-row">
+ <a href="https://app.ivolgaco.com/?preset=stamp" class="btn-primary">🔪 Launch Clay Cutter .STL Studio Free →</a>
+ <a href="/samples/luna-3d-stamp.stl" download class="btn-secondary">📥 Inspect Raw LUNA .STL (2.27 MB)</a>
+ </div>
+ <div class="micro-note">
+ 🟢 <strong>3 Free 25 mm 75% Cutaway Slicer Proofs</strong> (0 Login / 0 Account) &nbsp;·&nbsp; <strong>$8 24-Hr Pass</strong> or <strong>$25/mo Studio Monthly</strong> for unlimited uncut exports
+ </div>
+ </div>
+
+ <!-- Pure Technical CAD Cross-Section Schematic (Zero Physical Product Photos) -->
+ <div class="cad-diagram-card">
+ <div class="cad-diagram-title">📐 Stepped 3-Tier Clay Cutter + 0.70mm Stamp CAD Cross-Section (mm)</div>
+ <svg viewBox="0 0 460 220" width="100%" height="auto" role="img" aria-label="Technical CAD cross-section of Pixel2Path Studio stepped 0.42mm polymer clay micro-cutter blade and 0.70mm clearance embossing stamp">
+ <rect x="0" y="0" width="460" height="220" rx="8" fill="#0B0D13" stroke="#262C3A" />
+ <!-- Build plate baseline -->
+ <line x1="20" y1="186" x2="440" y2="186" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,4" />
+ <text x="26" y="203" fill="#94A3B8" font-size="11" font-family="monospace">Z = 0.00 mm (Flat Slicer Build Plate — Zero Supports Required)</text>
+
+ <!-- Left: Stepped Clay Cutter Wall -->
+ <polygon points="55,186 125,186 125,160 88,160 88,92 72,52 63,52 63,160 55,160" fill="#FFB300" fill-opacity="0.22" stroke="#FFB300" stroke-width="2" />
+ <text x="44" y="42" fill="#FFB300" font-size="11" font-weight="bold" font-family="monospace">0.42 mm Razor Lip</text>
+ <text x="95" y="118" fill="#E2E8F0" font-size="10.5" font-family="monospace">1.20 mm Structural Wall</text>
+ <text x="132" y="177" fill="#E2E8F0" font-size="10.5" font-family="monospace">3.20 mm Grip Flange</text>
+ <text x="24" y="122" fill="#81C784" font-size="10.5" font-family="monospace">10.5 mm Z</text>
+
+ <!-- Right: 2-Part Embossing Stamp Insert -->
+ <rect x="258" y="148" width="166" height="38" fill="#81C784" fill-opacity="0.18" stroke="#81C784" stroke-width="2" />
+ <rect x="278" y="114" width="38" height="34" fill="#81C784" fill-opacity="0.32" stroke="#81C784" stroke-width="2" />
+ <rect x="342" y="114" width="54" height="34" fill="#81C784" fill-opacity="0.32" stroke="#81C784" stroke-width="2" />
+ <text x="264" y="98" fill="#81C784" font-size="11" font-weight="bold" font-family="monospace">Matched 2-Part Stamp (.STL)</text>
+ <text x="264" y="135" fill="#F8FAFC" font-size="10" font-family="monospace">≥0.45mm Walls / ≥0.52mm Grooves</text>
+ <text x="270" y="171" fill="#E2E8F0" font-size="10.5" font-family="monospace">3.00 mm Solid Baseplate + 0.70 mm Radial Clearance</text>
+ </svg>
+ </div>
+ </div>
+ </section>
+
+ <section id="presets">
+ <h2>Step 2B 3D Clay &amp; Ceramic <span>CAD Presets</span></h2>
+ <p class="sec-sub">Every preset enforces post-filter 1:1 millimeter coordinate scaling (<code>±0.05 mm</code>), automatic face-down horizontal mirroring where required, and watertight 2-manifold (<code>3F = 2E</code>) mesh generation.</p>
+
+ <div class="spec-grid">
+ <div class="spec-card">
+ <h3>🔪 Polymer Clay Micro-Cutter</h3>
+ <p>Automatically traces your outer artwork silhouette in <code>🌊 Contour Offset</code> mode and extrudes a <code>10.5 mm</code> tall 3-stage profile: <code>3.2 mm</code> ergonomic finger flange, <code>1.2 mm</code> rigid body wall, and a sharp <code>0.42 mm</code> Arachne cutting edge for clean earring and slab cuts.</p>
+ </div>
+ <div class="spec-card">
+ <h3>🧁 2-Part Cutter + Stamp Pair</h3>
+ <p>Generates both components side-by-side in a single <code>.STL</code> file: the outer stepped <code>0.42 mm</code> cutter plus a separate inner embossing stamp inset by an exact <code>0.70 mm</code> radial clearance gap so clay never binds inside the cutter wall.</p>
+ </div>
+ <div class="spec-card">
+ <h3>🕹️ Pottery Chops &amp; Cavity Seals</h3>
+ <p>Also includes <strong>Handled Stamps / Pottery Chops</strong> with an integrated <code>20–26 mm</code> support-free ergonomic handle, <strong>Recessed Cavity Wax/Clay Molds</strong> (<code>≥ 1.5 mm</code> floor guard), and variable-Z <strong>Sculpted 3D Bas-Relief Plaques</strong> across 17 silhouettes.</p>
+ </div>
+ </div>
+ </section>
+
+ <section id="slicer-specs">
+ <h2>Bambu Studio, OrcaSlicer &amp; PrusaSlicer <span>Import Checklist</span></h2>
+ <p class="sec-sub">Use these verified FDM slicer parameters on a standard <code>0.4 mm</code> (or fine <code>0.2 mm</code>) nozzle to resolve the <code>0.42 mm</code> cutting lip cleanly.</p>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Slicer Parameter</th>
+ <th>Polymer Clay Micro-Cutter (.STL)</th>
+ <th>2-Part Embossing Stamp / Pottery Chop (.STL)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Import Scale &amp; Orientation</strong></td>
+ <td><code>1 Unit = 1.00 mm</code> • Flange flat on bed (<code>Z = 0</code>), zero supports</td>
+ <td><code>1 Unit = 1.00 mm</code> • Baseplate flat on bed (<code>Z = 0</code>), pre-mirrored</td>
+ </tr>
+ <tr>
+ <td><strong>Wall Generator (Critical)</strong></td>
+ <td><strong><code>Arachne</code></strong> (Bambu Studio / OrcaSlicer / PrusaSlicer / Cura 5+)</td>
+ <td><strong><code>Arachne</code></strong> (preserves tapered serifs down to <code>0.45 mm</code>)</td>
+ </tr>
+ <tr>
+ <td><strong>Layer Height</strong></td>
+ <td><code>0.16 mm</code> recommended (<code>0.12 mm</code> for ultra-smooth tapered bevels)</td>
+ <td><code>0.16 mm – 0.20 mm</code> (enable Ironing on top relief surface if desired)</td>
+ </tr>
+ <tr>
+ <td><strong>Top / Bottom Shells &amp; Infill</strong></td>
+ <td><code>4</code> top/bottom shells • <code>25% – 40%</code> Gyroid or Grid infill</td>
+ <td><code>4 – 5</code> top shells • <code>80% – 100%</code> infill for rigid hand/arbor pressing</td>
+ </tr>
+ <tr>
+ <td><strong>Build Plate Fit Verification</strong></td>
+ <td>Built-in 2D footprint check for <code>256 × 256 mm</code> &amp; <code>220 × 220 mm</code> beds</td>
+ <td>Accounts automatically for combined side-by-side 2-Part Cutter + Stamp width</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <section id="benchmarks">
+ <h2>Ungated Raw 1:1 mm <span>CAD Benchmark Downloads</span></h2>
+ <p class="sec-sub">Inspect Pixel2Path Studio's raw exported mesh topology and millimeter calibration in your own slicer or CAD viewer before uploading artwork — 0 login and 0 passcode required.</p>
+
+ <div class="cta-row" style="margin-bottom: 14px;">
+ <a href="/samples/luna-3d-stamp.stl" download class="btn-secondary">🧊 Download LUNA 3D Stamp <code>.STL</code> (47,704 Tris · <code>3F = 2E</code>)</a>
+ <a href="/samples/luna-laser-patch.svg" download class="btn-secondary">⚡ Download LUNA Bezier <code>.SVG</code> (237 KB)</a>
+ <a href="/samples/luna-cad-vectors.dxf" download class="btn-secondary">📐 Download LUNA R2010 <code>.DXF</code> (155 KB)</a>
+ <a href="https://github.com/ivanou18-dot/pixel2path-benchmarks" target="_blank" rel="noopener noreferrer" class="btn-secondary">🔬 GitHub Benchmark Repo →</a>
+ </div>
+ <p style="font-size:0.83rem;color:var(--text-muted);">
+ Verified <code>luna-3d-stamp.stl</code> telemetry: <code>2,385,284</code> bytes, <code>47,704</code> triangles (<code>3F = 143,112</code>), <code>71,556</code> unique undirected edges (<code>2E = 143,112</code>, <code>0</code> open boundary edges), <code>58.00 × 107.07 mm</code> mirrored relief BBox (<code>103</code> islands / <code>58</code> inner holes) on a <code>78.88 × 127.95 × 5.50 mm</code> solid Octagon baseplate.
+ </p>
+ </section>
+
+ <section id="faq">
+ <h2>Frequently Asked <span>Clay Cutter CAD Questions</span></h2>
+ <div class="faq-list">
+ <details class="faq-item" open>
+ <summary>Does Pixel2Path Studio ship physical clay cutters or generate digital .STL files?</summary>
+ <div class="faq-body">
+ <strong>Pixel2Path Studio is 100% browser-based digital CAD software.</strong> You download instant 1:1 millimeter <code>.STL</code>, <code>.SVG</code>, and <code>.DXF</code> files to slice and print on your own 3D printer (such as Bambu Lab, Prusa, Creality, or Anycubic). No physical cutters, stamps, or tools are manufactured or shipped.
+ </div>
+ </details>
+ <details class="faq-item">
+ <summary>How is the 0.42mm stepped polymer clay micro-cutter blade engineered for 0.4mm FDM nozzles?</summary>
+ <div class="faq-body">
+ Instead of a fragile single-wall extrusion that snaps or disappears in standard slicers, Pixel2Path Studio generates a 3-tier stepped cross-section totaling <code>10.5 mm</code> in Z height: a <code>3.2 mm</code> wide top finger-grip flange, a rigid <code>1.2 mm</code> structural mid-wall, and a tapered <code>0.42 mm</code> top cutting lip calibrated specifically for single-perimeter <strong>Arachne</strong> wall generation on a standard <code>0.4 mm</code> nozzle.
+ </div>
+ </details>
+ <details class="faq-item">
+ <summary>How does the 2-Part Cutter + Stamp Pair .STL maintain registration without binding in polymer clay?</summary>
+ <div class="faq-body">
+ Selecting <strong>🧁 2-Part Cutter + Stamp Pair</strong> in Step 2B exports both pieces side-by-side in one watertight 1:1 mm <code>.STL</code> file: the outer stepped <code>0.42 mm</code> Contour Offset cutter and a matched inner raised-relief embossing stamp inset by an exact <code>0.70 mm</code> radial clearance gap so you can press crisp details without dragging clay edges.
+ </div>
+ </details>
+ <details class="faq-item">
+ <summary>What Bambu Studio, OrcaSlicer, or PrusaSlicer settings should I use for 0.42mm clay cutters?</summary>
+ <div class="faq-body">
+ Import the <code>.STL</code> in millimeters (1:1 scale), set <strong>Quality → Wall Generator → Arachne</strong>, slice at <code>0.16 mm</code> layer height with a <code>0.4 mm</code> (or <code>0.2 mm</code>) nozzle, use 4–5 top/bottom shells, <code>25%–40%</code> gyroid/grid infill for cutters (<code>80%–100%</code> for heavy press stamps), and disable supports—every cutter flange, stamp baseplate, and pottery chop grip prints flat on the bed.
+ </div>
+ </details>
+ </div>
+
+ <div style="margin-top: 28px; text-align: center;">
+ <a href="https://app.ivolgaco.com/?preset=stamp" class="btn-primary">🔪 Try Free 25mm 75% Cutaway Clay Cutter Proof →</a>
+ </div>
+ </section>
+ </main>
+
+ <footer>
+ <p><strong>© 2026 Ivolga Co. • 100% Digital CAD/CAM Fabrication Software • California, USA (No Physical Goods Shipped).</strong></p>
+ <p style="margin-top: 8px;">
+ <a href="index.html">Pixel2Path Home</a> •
+ <a href="https://app.ivolgaco.com/?preset=stamp">Launch 3D Cutter Studio</a> •
+ <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
+ <a href="vault.html">Ready-to-Cut CAD Vault</a> •
+ <a href="troubleshooter.html">AI Troubleshooter</a> •
+ <a href="guide.html">Official User Guide</a> •
+ <a href="llms.txt">LLMs Technical Spec</a> •
+ <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
+ </p>
+ </footer>
+
+</body>
+</html>

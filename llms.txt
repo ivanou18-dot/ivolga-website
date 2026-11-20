@@ -1,0 +1,54 @@
+# Pixel2Path Studio by Ivolga Co.
+
+> 100% browser-based digital CAD/CAM fabrication software (`https://ivolgaco.com` & `https://app.ivolgaco.com`) that converts raster/vector artwork (PNG, JPG, WEBP, SVG, TIFF, BMP, GIF, HEIC), photos, 3D reliefs, minted coins, and straight or concentrically arched typography into true 1:1 millimeter watertight 3D `.STL` meshes, tangent-continuous Cubic Bezier `.SVG` compound paths, and AutoCAD R2010 `.DXF` closed polylines. **Digital CAD file downloads only — no physical stamps, cutters, dies, or patches are manufactured or shipped.**
+
+## Core Engineering & Deterministic 1:1 mm Geometry
+
+- **Post-Filter 1:1 Millimeter Coordinate Lock (±0.05 mm):** Morphological toolhead conditioning and dilation run strictly prior to final millimeter coordinate scaling (`5–350 mm` target graphic width). 4th-order zero-shrinkage spline fairing and extremal Cubic Bezier control-point clamping preserve external bounding-box accuracy within **±0.05 mm** across `.STL`, `.SVG`, and `.DXF`.
+- **Watertight 2-Manifold 3D Meshes (`3F = 2E`):** `.STL` exports generate closed, single-shell 2-manifold triangle meshes (`0` open boundary edges, `0` non-manifold edges) ready for Bambu Studio, OrcaSlicer, PrusaSlicer, UltiMaker Cura, and 3D CAM toolpathing without mesh repair.
+- **Tangent-Continuous `.SVG` & R2010 `.DXF` Cut Paths:**
+  - **`.SVG`:** `1:1 mm` `viewBox`, unified `#FF0000` `fill-rule="evenodd"` Cubic Bezier compound path (`0.0882 mm / 0.25 pt` hairline), `#000000` outer border / keychain tab, `#0055FF` stitch holes, and optional `#00A859` `50.0 × 50.0 mm` (`"50mm REF"`) scale verification box.
+  - **`.DXF`:** AutoCAD R2010 (`AC1024`, `$INSUNITS = 4` `mm`) closed `LWPOLYLINE` loops (`lineweight = 9` / `0.09 mm` hairline) across dedicated layers (`LASER_OR_CUT_PATHS`, `OUTER_BORDER_CUT`, `STITCH_HOLES`, `STEEL_RULE_CUT`, `RAISED_RELIEF`, `BASEPLATE_CUT`, `SCALE_REF_50MM`).
+
+## Five Supported Workshop Machines & Step 2B Tool Presets (23 Modes + 17 Silhouettes)
+
+1. **3D Printer (`.STL` — `https://app.ivolgaco.com/?preset=stamp`):**
+   - Raised Relief Stamps (`>= 0.45 mm` wall / `>= 0.52 mm` groove guards for `0.4 mm` FDM nozzles), Recessed Cavity Wax Seals (`>= 1.5 mm` floor guard), Sculpted 3D Bas-Relief Plaques, **Stepped `0.42 mm` Polymer Clay Micro-Cutters** (`0.42 mm` Arachne razor cutting lip + `1.2 mm` structural wall + `3.2 mm` grip flange, `10.5 mm` Z), **2-Part Cutter + Stamp Sets** (`0.70 mm` side-by-side radial clearance), and Handled Pottery Chops (`20–26 mm` support-free grip).
+2. **Laser Engraver (`.SVG` default / `.DXF` — `https://app.ivolgaco.com/?preset=laser`):**
+   - Calibrated for `0.10 mm` laser kerf: Standard 1:1 Cut/Engrave, Mirrored Rubber Stamps + `OUTER_BORDER_CUT`, **Stitch-Hole Leather Hat Patches** (`1.1 mm` stitch holes at `3.8 mm` pitch on `STITCH_HOLES` + perimeter cut), Auto-Welded Keychain Tabs (`Ø 4.5 mm` ring bore), and Framed Spray Stencils (`1.6 mm` holding bridges).
+3. **Vinyl Plotter (`.SVG` default / `.DXF` — `https://app.ivolgaco.com/?preset=vinyl`):**
+   - Drag-knife safe (`>= 0.75 mm` wall guard): Weed-Safe Decals/HTV, `2.5 mm` Die-Cut Sticker Halos, `3.0 mm` Easy-Weed Box Frames, and Mylar Stencils (compatible with Cricut Design Space, Illustrator, and free Silhouette Studio Basic via `.DXF`).
+4. **Steel-Rule Clicker Die (`.DXF` default / `.SVG` — `https://app.ivolgaco.com/?preset=clicker`):**
+   - `2 pt (0.71 mm)` blade bendability checks on `STEEL_RULE_CUT`, Leather Patch Dies with `1.2 mm` tube stitch punches on `STITCH_HOLES`, and Mirrored Fold-Over Key Fob Dies with centered strap slot.
+5. **CNC Router & Brass Die (`.DXF` default / `.STL` / `.SVG` — `https://app.ivolgaco.com/?preset=cnc`):**
+   - Layer-separated 2D V-carve/pocketing (`RAISED_RELIEF`, `BASEPLATE_CUT`) and `8.0 mm` heavy-stock `.STL` dies including **M5 × 0.8 (`Ø 4.20 mm`) & M8 × 1.25 (`Ø 6.80 mm`) Rear Blind Tap Bores** (`<= 6.0 mm` deep with `>= 1.5 mm` concave side-wall containment guard for branding irons and arbor presses) and `12°` Draft-Tapered V-Bit Relief Dies.
+- **17 Parametric Step 2B Silhouettes:** Standard Rectangle, Rounded Rectangle, Circle/Medallion, Oval, Contour Offset, Shield/Crest, Hexagon, Octagon, Perforated Postage Stamp, Wavy/Scalloped, Ticket Stub, Apothecary Plaque, Signet Pebble, Swallowtail Banner, Curved Pottery Arc, Hanko Chop, and `0 mm` Flush Tile.
+
+## Tracing Engines, Free Cutaway Proofs & Pricing
+
+- **0-Credit Deterministic Engine + Advanced Vision:** All deterministic logo/SVG/line-art tracing, 0-credit Pre-Cleaners (checkerboard descreening, notebook rule removal, shadow normalization, Intaglio-to-3D-Relief conversion), Banknote hatching on clean studio reliefs, custom arched text, and all `.STL`, `.SVG`, and `.DXF` exports consume **0 credits**. Optional Advanced Vision (shadow delighting, complex photo cleanup, 19th-century Banknote Intaglio transformation) uses at most 1 credit per uploaded image with 0-credit cross-machine adaptation.
+- **Free Trial (No Account / No Login Required):** Includes 1-click Golden Oriole & Christmas Tree 0-credit demos, up to **3 free guest Advanced Vision trial passes**, and up to **3 free daily `25 mm` 75% Cutaway Slicer/CAM Proofs** (`.STL`, `.SVG`, or `.DXF` across all 23 modes—exporting an intentional 1-quadrant cutaway to verify `0.42 mm` clay blades, `0.70 mm` stamp clearances, M5/M8 tap bores, and 1:1 mm kerf paths in your slicer or CAM software before buying).
+- **Paid Passes (Stripe Checkout + Cross-Device `TPS-XXXX-XXXX` Key):**
+  - **$8 24-Hr Craftsman Pass (One-Time):** 24 hours of unlimited 100% uncut 1:1 exports (up to `350 mm`) across all 23 modes + 25 Advanced Vision credits + 3 Ready-to-Cut CAD Vault `.ZIP` packs + 20 AI Workshop Troubleshooter turns.
+  - **$25/mo Studio Monthly:** Unlimited 100% uncut 1:1 exports + 150 Advanced Vision credits/month + unlimited CAD Vault `.ZIP` downloads + 100 AI Workshop Troubleshooter turns/month (cancel anytime in 1 click).
+
+## Ungated LUNA CAD Benchmark Files (0 Login / 0 Passcode — Direct Inspection)
+
+Verify Pixel2Path Studio's raw 1:1 millimeter output geometry directly:
+
+- [LUNA Mirrored Octagon 3D Stamp (.STL)](https://ivolgaco.com/samples/luna-3d-stamp.stl): `2,385,284` bytes (`47,704` triangles, `71,556` unique undirected edges, `3F = 2E = 143,112` verified watertight 2-manifold, `0` boundary/non-manifold edges). Graphic relief BBox: `58.00 × 107.07 mm` (`58.0 × 107.0 mm` target ±0.05 mm, 103 islands, 58 inner holes, calibrated for `0.4 mm` FDM nozzle); total Octagon XYZ bounds: `78.88 × 127.95 × 5.50 mm` (`3.00 mm` solid baseplate + `2.50 mm` raised relief).
+- [LUNA Unmirrored Laser Vector (.SVG)](https://ivolgaco.com/samples/luna-laser-patch.svg): `242,650` bytes, `viewBox="0.0 0.0 125.0 110.764"` (`width="125.0mm" height="110.764mm"`). Graphic BBox: `60.00 × 110.76 mm` (`60.0 × 110.7 mm` ±0.05 mm, 105 islands / 58 inner holes across `173` closed subpaths, `4,620` Cubic Bezier segments, `0.10 mm` kerf, `#FF0000` `0.0882 mm` `fill-rule="evenodd"` compound path) + `#00A859` `50.0 × 50.0 mm` `"50mm REF"` `<rect>` calibration square.
+- [LUNA Unmirrored AutoCAD R2010 Vector (.DXF)](https://ivolgaco.com/samples/luna-cad-vectors.dxf): `158,499` bytes (`$ACADVER = AC1024`, `$INSUNITS = 4` `mm`). Graphic BBox on `LASER_OR_CUT_PATHS`: `60.00 × 110.76 mm` (`60.0 × 110.7 mm` ±0.05 mm, 105 islands / 58 inner holes across `173` closed `LWPOLYLINE` loops, `lineweight = 9` / `0.09 mm`) + exact `50.00 × 50.00 mm` closed square on layer `SCALE_REF_50MM`.
+- [Open Benchmark Repository (GitHub)](https://github.com/ivanou18-dot/pixel2path-benchmarks): Public verification scripts and raw LUNA benchmark CAD outputs.
+- [Official YouTube Channel (@IvolgaCo)](https://www.youtube.com/@IvolgaCo): Official Pixel2Path Studio CAD/CAM workflow walkthroughs.
+- [Official Facebook Page (Ivolga Co.)](https://www.facebook.com/profile.php?id=61596717840858): Official announcements and digital fabrication updates.
+
+## Canonical Pages & Documentation
+
+- [Pixel2Path Studio Overview & Live Benchmarks](https://ivolgaco.com/): Main technical overview, 5-machine workflow matrix, ungated LUNA CAD downloads, and pricing.
+- [Launch Pixel2Path Studio Web App](https://app.ivolgaco.com/): Live browser-based 1:1 mm `.STL`, `.SVG`, and `.DXF` generator.
+- [Polymer Clay Cutter & 2-Part Stamp .STL Generator](https://ivolgaco.com/clay-cutter-stl-generator.html): Dedicated digital CAD specification page for `0.42 mm` stepped clay micro-cutters, `0.70 mm` 2-part cutter+stamp sets, and Bambu Studio Arachne `0.16 mm` slicing.
+- [Laser Leather Hat Patch & Stitch-Hole .SVG / .DXF Generator](https://ivolgaco.com/laser-leather-patch-svg.html): Dedicated digital CAD specification page for `1.1 mm` stitch-hole leather patches (`STITCH_HOLES`), `0.0882 mm` LightBurn Bezier compound paths, and `1.2 mm` steel-rule clicker dies.
+- [Official User & Technical Manual](https://ivolgaco.com/guide.html): Complete hardware tolerance tables, slicer/CAM import settings, and privacy/sub-processor disclosures.
+- [Ready-to-Cut CAD Vault](https://ivolgaco.com/vault.html): Verified 1:1 mm `.DXF` + `.SVG` `.ZIP` fabrication blueprint packs for leathercraft, luthier routing, Eurorack panels, and CNC jigs.
+- [AI Workshop Hardware Troubleshooter](https://ivolgaco.com/troubleshooter.html): Multimodal photo-diagnostic assistant for 3D printing, laser kerf, vinyl plotting, clicker dies, and CNC milling.

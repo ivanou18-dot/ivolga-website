@@ -51,7 +51,12 @@
  "@type": "PostalAddress",
  "addressRegion": "CA",
  "addressCountry": "US"
- }
+ },
+ "sameAs": [
+ "https://github.com/ivanou18-dot/pixel2path-benchmarks",
+ "https://www.youtube.com/@IvolgaCo",
+ "https://www.facebook.com/profile.php?id=61596717840858"
+ ]
  },
  {
  "@type": "WebSite",
@@ -536,6 +541,90 @@
  border-left: 2px solid var(--amber);
  }
 
+ /* Ungated LUNA Sample Bar & CAD Verification Table */
+ .luna-sample-bar {
+ margin-top: 12px;
+ padding-top: 11px;
+ border-top: 1px solid #282828;
+ }
+ .luna-sample-head {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 6px;
+ font-size: 0.76rem;
+ font-weight: 800;
+ color: var(--amber);
+ margin-bottom: 8px;
+ letter-spacing: 0.2px;
+ }
+ .luna-sample-links {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 8px;
+ margin-bottom: 8px;
+ }
+ a.luna-dl-btn {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 5px;
+ background: #141414;
+ color: #FFFFFF;
+ border: 1px solid #3A3A3A;
+ border-radius: 7px;
+ padding: 7px 8px;
+ font-size: 0.74rem;
+ font-weight: 800;
+ text-decoration: none;
+ text-align: center;
+ transition: all 0.15s ease;
+ }
+ a.luna-dl-btn code {
+ color: var(--amber);
+ font-size: 0.72rem;
+ }
+ a.luna-dl-btn:hover {
+ border-color: var(--amber);
+ background: #221C10;
+ color: var(--amber);
+ }
+ .luna-digital-notice {
+ font-size: 0.72rem;
+ color: #CCCCCC;
+ background: #111111;
+ border: 1px solid #262626;
+ border-left: 2.5px solid var(--green);
+ border-radius: 5px;
+ padding: 5px 8px;
+ line-height: 1.38;
+ }
+ .luna-verify-panel {
+ margin-top: 20px;
+ background: rgba(18, 18, 18, 0.96);
+ border: 1px solid #2B2B2B;
+ border-radius: 12px;
+ padding: 14px 16px;
+ }
+ .luna-verify-header {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin-bottom: 8px;
+ font-size: 0.82rem;
+ color: #E0E0E0;
+ }
+ .luna-verify-header strong { color: var(--amber); }
+ .luna-verify-header a { color: var(--amber); font-weight: 700; text-decoration: underline; font-size: 0.78rem; }
+ table.luna-spec-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.77rem; }
+ table.luna-spec-table th, table.luna-spec-table td { padding: 8px 10px; border-bottom: 1px solid #242424; vertical-align: top; }
+ table.luna-spec-table th { background: #101010; color: var(--amber); font-weight: 800; font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.3px; }
+ table.luna-spec-table td { color: #D4D4D4; line-height: 1.42; }
+ table.luna-spec-table code { background: #1E1E1E; color: var(--amber); padding: 1px 5px; border-radius: 4px; font-size: 0.73rem; }
+
  section { padding: 38px 0; border-top: 1px solid #1F1F1F; }
  .section-header { text-align: center; max-width: 740px; margin: 0 auto 24px; }
  .section-header h2 { font-size: 1.72rem; font-weight: 900; margin-bottom: 6px; color: #FFFFFF; }
@@ -821,6 +910,7 @@
  }
  @media (max-width: 600px) {
  .showcase-grid { grid-template-columns: 1fr; }
+ .luna-sample-links { grid-template-columns: 1fr; }
  .hero-cta-stack-row { grid-template-columns: 1fr; }
  .p2p-lightbox { padding: 10px; }
  .p2p-lb-header, .p2p-lb-footer { padding: 10px 12px; }
@@ -975,6 +1065,61 @@
  <div class="stage-caption">Watertight .STL, Bezier .SVG &amp; .DXF</div>
  </div>
  </div>
+
+ <!-- Ungated LUNA Raw CAD Sample Downloads (0 Login / 0 Passcode) -->
+ <div class="luna-sample-bar" id="luna-samples">
+ <div class="luna-sample-head">
+ <span>📥 Inspect Raw 1:1 mm LUNA Digital CAD Outputs (0 Login / 0 Passcode)</span>
+ </div>
+ <div class="luna-sample-links">
+ <a href="/samples/luna-3d-stamp.stl" download class="luna-dl-btn">🧊 3D Stamp <code>.STL</code> (2.27 MB)</a>
+ <a href="/samples/luna-laser-patch.svg" download class="luna-dl-btn">⚡ Laser Vector <code>.SVG</code> (237 KB)</a>
+ <a href="/samples/luna-cad-vectors.dxf" download class="luna-dl-btn">📐 R2010 CAD <code>.DXF</code> (155 KB)</a>
+ </div>
+ <div class="luna-digital-notice">
+ 100% Digital CAD Software — Instant .STL, .SVG &amp; .DXF File Exports for Your Own 3D Printer, Laser, Plotter, Die Board, or CNC (No Physical Tools Shipped).
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Plain-HTML LUNA Benchmark CAD Geometry Verification Table -->
+ <div class="luna-verify-panel" aria-label="LUNA CAD Geometry Verification Benchmarks">
+ <div class="luna-verify-header">
+ <span><strong>🔬 Verified LUNA Benchmark CAD Geometry Specs</strong> — Direct Slicer, Laser &amp; CAM Inspection</span>
+ <a href="https://github.com/ivanou18-dot/pixel2path-benchmarks" target="_blank" rel="noopener noreferrer">Open Benchmark Repo on GitHub →</a>
+ </div>
+ <div class="comp-table-wrap" style="margin-top:0;">
+ <table class="luna-spec-table">
+ <thead>
+ <tr>
+ <th>Raw Digital CAD File</th>
+ <th>Preset &amp; Calibration Profile</th>
+ <th>Measured 1:1 mm Bounding Box (±0.05 mm)</th>
+ <th>Verified Topology, Layers &amp; Scale Reference</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><a href="/samples/luna-3d-stamp.stl" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-3d-stamp.stl</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">2,385,284 bytes (Binary STL)</span></td>
+ <td>Mirrored Octagon 3D Stamp<br /><code>0.4 mm</code> FDM nozzle guard • <code>3.0 mm</code> solid baseplate + <code>2.5 mm</code> relief</td>
+ <td><strong>Graphic BBox:</strong> <code>58.0 × 107.0 mm</code> (<code>58.00 × 107.07 mm</code>)<br /><strong>Octagon XYZ Mesh:</strong> <code>78.88 × 127.95 × 5.50 mm</code> (<code>X: -10.44..68.44</code>, <code>Y: -10.44..117.51</code>, <code>Z: 0.00..5.50</code>)</td>
+ <td><code>103</code> islands / <code>58</code> inner holes • <strong>Watertight 2-Manifold (<code>3F = 2E</code>):</strong> <code>47,704</code> triangles (<code>3F = 143,112</code>) &amp; <code>71,556</code> undirected edges (<code>2E = 143,112</code>; <code>0</code> open boundary edges)</td>
+ </tr>
+ <tr>
+ <td><a href="/samples/luna-laser-patch.svg" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-laser-patch.svg</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">242,650 bytes (1:1 mm XML)</span></td>
+ <td>Unmirrored Laser Vector<br /><code>0.10 mm</code> kerf • Cubic Bezier <code>fill-rule="evenodd"</code> compound path</td>
+ <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.00 × 110.76 mm</code>)<br /><strong>SVG Root:</strong> <code>viewBox="0.0 0.0 125.0 110.764"</code> (<code>125.0mm × 110.764mm</code>)</td>
+ <td><code>105</code> islands / <code>58</code> inner holes (<code>173</code> closed subpaths, <code>4,620</code> Bezier segments) • <code>#FF0000</code> <code>0.0882 mm</code> hairline + <code>#00A859</code> <code>50.0 × 50.0 mm</code> <code>"50mm REF"</code> calibration <code>&lt;rect x="70.0" y="0" width="50" height="50"&gt;</code></td>
+ </tr>
+ <tr>
+ <td><a href="/samples/luna-cad-vectors.dxf" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-cad-vectors.dxf</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">158,499 bytes (ASCII DXF)</span></td>
+ <td>Unmirrored AutoCAD R2010<br /><code>$ACADVER = AC1024</code> • <code>$INSUNITS = 4</code> (<code>units.MM</code>)</td>
+ <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.00 × 110.76 mm</code>)<br /><strong>Scale Square:</strong> <code>50.00 × 50.00 mm</code> (<code>X: 70.0..120.0</code>, <code>Y: 0.0..50.0</code>)</td>
+ <td><code>105</code> islands / <code>58</code> inner holes (<code>173</code> closed <code>LWPOLYLINE</code> loops, <code>lineweight=9</code> / <code>0.09 mm</code>) • Layers: <code>LASER_OR_CUT_PATHS</code>, <code>SCALE_REF_50MM</code>, <code>0</code>, <code>Defpoints</code></td>
+ </tr>
+ </tbody>
+ </table>
  </div>
  </div>
  </section>
@@ -1243,6 +1388,8 @@
  </p>
  <p style="margin-top: 8px;">
  <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> •
+ <a href="clay-cutter-stl-generator.html">Clay Cutter .STL Generator</a> •
+ <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
  <a href="vault.html">Ready-to-Cut CAD Vault</a> •
  <a href="troubleshooter.html">AI Troubleshooter</a> •
  <a href="guide.html">Official User Guide</a> •
