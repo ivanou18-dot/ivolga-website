@@ -15,6 +15,7 @@ node_modules
 node_modules/
 *.sql
 *.py
+!samples/audit_benchmarks.py
 *.toml
 .env
 .env.*
@@ -25,3 +26,5 @@ GEMINI.md
 *.txt
 !robots.txt
 !llms.txt
+!samples/*.txt
+!samples/*.md

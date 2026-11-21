@@ -1,0 +1,14 @@
+/samples/*.txt
+  Content-Type: text/plain; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
+
+/samples/*.md
+  Content-Type: text/plain; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
+
+/samples/*.py
+  Content-Type: text/plain; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *

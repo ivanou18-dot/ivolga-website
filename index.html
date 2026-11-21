@@ -103,7 +103,8 @@
  "CNC Router & Brass Die preset (.DXF default for CAM V-carving/pocketing, 8mm heavy stock .STL in Raised, Recessed Cavity, Sculpted Bas-Relief, M5/M8 Rear Tap Bore for Branding Irons & 12-degree Draft-Tapered V-Bit Die modes)",
  "0-Credit Input Cleaners (Fake checkerboard descreener, lined notebook rule eraser, phone shadow normalizer, screen moire shield & 0-credit Pre-Drawn Intaglio-to-3D-Relief converter) plus Autonomous Multi-Stage Advanced Vision Pipeline",
  "Unified 23-Mode Free 25mm 75% Cutaway Proof validator (.STL, .DXF, .SVG — up to 3 free guest cutaway proofs across all 5 machines & 3 free guest Advanced Vision trial passes) plus 1-click Golden Oriole & Christmas Tree 0-credit demos",
- "Included Ready-to-Cut CAD Vault (.ZIP 1:1mm DXF/SVG packs) and AI Workshop Hardware Troubleshooter (20 live photo-diagnostic turns on $8 24-Hr Pass; 100 turns/month on $25/mo Studio Monthly)"
+ "Included Ready-to-Cut CAD Vault (.ZIP 1:1mm DXF/SVG packs) and AI Workshop Hardware Troubleshooter (20 live photo-diagnostic turns on $8 24-Hr Pass; 100 turns/month on $25/mo Studio Monthly)",
+ "Automated 6-Gate Manufacturing Preflight & Independent Plain-Text CAD Topology Audit (<=4,800 closed subpaths / <=12,000 nodes, duplicate STEEL_RULE_CUT lock, post-filter 1 SVG unit = 1.000mm +/-0.05mm + 50.0x50.0mm calibration square, SVG live-text/bitmap/XXE preflight, watertight 3F = 2E 2-manifold .STL solids, and machine-backwards FDM/laser/vinyl/clicker/M5-M8 tap-bore guards)"
  ],
  "offers": [
  {
@@ -619,11 +620,161 @@
  }
  .luna-verify-header strong { color: var(--amber); }
  .luna-verify-header a { color: var(--amber); font-weight: 700; text-decoration: underline; font-size: 0.78rem; }
+ .luna-proof-links {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 8px;
+ margin-bottom: 8px;
+ }
+ a.luna-proof-btn {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 5px;
+ background: #0B0D13;
+ color: #E8ECF4;
+ border: 1px solid rgba(255, 179, 0, 0.38);
+ border-radius: 7px;
+ padding: 6px 8px;
+ font-size: 0.72rem;
+ font-weight: 800;
+ text-decoration: none;
+ text-align: center;
+ transition: all 0.15s ease;
+ }
+ a.luna-proof-btn code {
+ color: var(--amber);
+ font-size: 0.7rem;
+ }
+ a.luna-proof-btn:hover {
+ border-color: var(--amber);
+ background: #1A170D;
+ color: var(--amber);
+ }
+ .luna-verify-actions {
+ display: inline-flex;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 10px;
+ }
  table.luna-spec-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.77rem; }
  table.luna-spec-table th, table.luna-spec-table td { padding: 8px 10px; border-bottom: 1px solid #242424; vertical-align: top; }
  table.luna-spec-table th { background: #101010; color: var(--amber); font-weight: 800; font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.3px; }
  table.luna-spec-table td { color: #D4D4D4; line-height: 1.42; }
  table.luna-spec-table code { background: #1E1E1E; color: var(--amber); padding: 1px 5px; border-radius: 4px; font-size: 0.73rem; }
+
+ /* Automated Manufacturing Preflight & CAD Validation (#0B0D13 / #FFB300) */
+ .preflight-shell {
+ background: #0B0D13;
+ border: 1.5px solid rgba(255, 179, 0, 0.38);
+ border-top: 3px solid #FFB300;
+ border-radius: 14px;
+ padding: 26px 24px;
+ box-shadow: 0 12px 34px rgba(0, 0, 0, 0.62);
+ }
+ .preflight-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 14px;
+ margin-bottom: 18px;
+ }
+ .preflight-card {
+ background: #121621;
+ border: 1px solid #252B3B;
+ border-radius: 10px;
+ padding: 16px;
+ display: flex;
+ flex-direction: column;
+ gap: 7px;
+ transition: border-color 0.15s ease, transform 0.15s ease;
+ }
+ .preflight-card:hover {
+ border-color: #FFB300;
+ transform: translateY(-1px);
+ }
+ .preflight-card-head {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+ .preflight-num {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ background: rgba(255, 179, 0, 0.15);
+ color: #FFB300;
+ border: 1px solid rgba(255, 179, 0, 0.5);
+ border-radius: 6px;
+ font-size: 0.72rem;
+ font-weight: 900;
+ padding: 2px 7px;
+ font-family: monospace;
+ flex-shrink: 0;
+ }
+ .preflight-card h3 {
+ font-size: 0.92rem;
+ font-weight: 800;
+ color: #FFFFFF;
+ line-height: 1.28;
+ }
+ .preflight-card p {
+ font-size: 0.8rem;
+ color: #CBD5E1;
+ line-height: 1.48;
+ }
+ .preflight-card code {
+ background: #0B0D13;
+ color: #FFB300;
+ border: 1px solid #262E40;
+ padding: 1px 5px;
+ border-radius: 4px;
+ font-size: 0.74rem;
+ }
+ .preflight-proof-bar {
+ background: #10141F;
+ border: 1px solid #283044;
+ border-left: 3px solid #FFB300;
+ border-radius: 10px;
+ padding: 14px 16px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ }
+ .preflight-proof-top {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 8px;
+ font-size: 0.82rem;
+ color: #E2E8F0;
+ }
+ .preflight-proof-top strong { color: #FFB300; }
+ .preflight-link-row {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ }
+ a.preflight-chip {
+ display: inline-flex;
+ align-items: center;
+ gap: 5px;
+ background: #0B0D13;
+ color: #FFFFFF;
+ border: 1px solid #353E54;
+ border-radius: 7px;
+ padding: 6px 11px;
+ font-size: 0.75rem;
+ font-weight: 800;
+ text-decoration: none;
+ transition: all 0.15s ease;
+ }
+ a.preflight-chip code { color: #FFB300; font-size: 0.72rem; }
+ a.preflight-chip:hover {
+ border-color: #FFB300;
+ color: #FFB300;
+ background: #1A1810;
+ }
 
  section { padding: 38px 0; border-top: 1px solid #1F1F1F; }
  .section-header { text-align: center; max-width: 740px; margin: 0 auto 24px; }
@@ -905,12 +1056,14 @@
  .hero-split { grid-template-columns: 1fr; }
  .hero-cta-stack { max-width: 100%; }
  .pricing-grid, .trust-bar { grid-template-columns: 1fr; }
+ .preflight-grid { grid-template-columns: repeat(2, 1fr); }
  .hw-strip { grid-template-columns: repeat(2, 1fr); }
  .nav-links a.nav-item { display: none; }
  }
  @media (max-width: 600px) {
  .showcase-grid { grid-template-columns: 1fr; }
- .luna-sample-links { grid-template-columns: 1fr; }
+ .luna-sample-links, .luna-proof-links, .preflight-grid { grid-template-columns: 1fr; }
+ .preflight-shell { padding: 18px 14px; }
  .hero-cta-stack-row { grid-template-columns: 1fr; }
  .p2p-lightbox { padding: 10px; }
  .p2p-lb-header, .p2p-lb-footer { padding: 10px 12px; }
@@ -954,6 +1107,7 @@
 
  <nav class="nav-links" aria-label="Primary Navigation">
  <a href="#workflow" class="nav-item">How it works</a>
+ <a href="#preflight" class="nav-item">CAD Preflight</a>
  <a href="#pricing" class="nav-item">Pricing</a>
  <a href="#faq" class="nav-item">FAQ</a>
  <a href="vault.html" class="btn-guide-nav">🗄️ CAD Vault</a>
@@ -1069,12 +1223,17 @@
  <!-- Ungated LUNA Raw CAD Sample Downloads (0 Login / 0 Passcode) -->
  <div class="luna-sample-bar" id="luna-samples">
  <div class="luna-sample-head">
- <span>📥 Inspect Raw 1:1 mm LUNA Digital CAD Outputs (0 Login / 0 Passcode)</span>
+ <span>📥 Inspect Raw 1:1 mm LUNA Digital CAD Outputs &amp; Plain-Text Proofs (0 Login / 0 Passcode)</span>
  </div>
  <div class="luna-sample-links">
  <a href="/samples/luna-3d-stamp.stl" download class="luna-dl-btn">🧊 3D Stamp <code>.STL</code> (2.27 MB)</a>
  <a href="/samples/luna-laser-patch.svg" download class="luna-dl-btn">⚡ Laser Vector <code>.SVG</code> (237 KB)</a>
- <a href="/samples/luna-cad-vectors.dxf" download class="luna-dl-btn">📐 R2010 CAD <code>.DXF</code> (155 KB)</a>
+ <a href="/samples/luna-cad-vectors.dxf" download class="luna-dl-btn">📐 R2010 CAD <code>.DXF</code> (182 KB)</a>
+ </div>
+ <div class="luna-proof-links" aria-label="Plain-Text CAD Topology Proofs for Engineers and AI Crawlers">
+ <a href="/samples/CAD_AUDIT_REPORT.md" class="luna-proof-btn">📄 CAD Audit <code>.MD</code></a>
+ <a href="/samples/audit_benchmarks.py" class="luna-proof-btn">🐍 Audit Script <code>.PY</code></a>
+ <a href="/samples/luna-laser-patch.svg.txt" class="luna-proof-btn">📝 Raw SVG XML <code>.TXT</code></a>
  </div>
  <div class="luna-digital-notice">
  100% Digital CAD Software — Instant .STL, .SVG &amp; .DXF File Exports for Your Own 3D Printer, Laser, Plotter, Die Board, or CNC (No Physical Tools Shipped).
@@ -1087,7 +1246,12 @@
  <div class="luna-verify-panel" aria-label="LUNA CAD Geometry Verification Benchmarks">
  <div class="luna-verify-header">
  <span><strong>🔬 Verified LUNA Benchmark CAD Geometry Specs</strong> — Direct Slicer, Laser &amp; CAM Inspection</span>
+ <span class="luna-verify-actions">
+ <a href="/samples/CAD_AUDIT_REPORT.md">Full Audit Report (.MD)</a>
+ <a href="/samples/audit_benchmarks.py">Audit Script (.PY)</a>
+ <a href="/samples/luna-laser-patch.svg.txt">Plain-Text SVG (.TXT)</a>
  <a href="https://github.com/ivanou18-dot/pixel2path-benchmarks" target="_blank" rel="noopener noreferrer">Open Benchmark Repo on GitHub →</a>
+ </span>
  </div>
  <div class="comp-table-wrap" style="margin-top:0;">
  <table class="luna-spec-table">
@@ -1103,20 +1267,20 @@
  <tr>
  <td><a href="/samples/luna-3d-stamp.stl" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-3d-stamp.stl</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">2,385,284 bytes (Binary STL)</span></td>
  <td>Mirrored Octagon 3D Stamp<br /><code>0.4 mm</code> FDM nozzle guard • <code>3.0 mm</code> solid baseplate + <code>2.5 mm</code> relief</td>
- <td><strong>Graphic BBox:</strong> <code>58.0 × 107.0 mm</code> (<code>58.00 × 107.07 mm</code>)<br /><strong>Octagon XYZ Mesh:</strong> <code>78.88 × 127.95 × 5.50 mm</code> (<code>X: -10.44..68.44</code>, <code>Y: -10.44..117.51</code>, <code>Z: 0.00..5.50</code>)</td>
- <td><code>103</code> islands / <code>58</code> inner holes • <strong>Watertight 2-Manifold (<code>3F = 2E</code>):</strong> <code>47,704</code> triangles (<code>3F = 143,112</code>) &amp; <code>71,556</code> undirected edges (<code>2E = 143,112</code>; <code>0</code> open boundary edges)</td>
+ <td><strong>Graphic BBox:</strong> <code>58.0 × 107.0 mm</code> (<code>58.00 × 107.07 mm</code>)<br /><strong>Octagon XYZ Mesh:</strong> <code>78.88 × 127.95 × 5.50 mm</code> (<code>+33,129.80 mm³</code> solid)</td>
+ <td><code>103</code> islands / <code>58</code> inner holes • <strong>Watertight 2-Manifold (<code>3F = 2E</code>):</strong> <code>47,704</code> triangles (<code>3F = 143,112</code>) &amp; <code>71,556</code> undirected edges (<code>2E = 143,112</code>; <code>0</code> open boundary / non-manifold edges)</td>
  </tr>
  <tr>
- <td><a href="/samples/luna-laser-patch.svg" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-laser-patch.svg</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">242,650 bytes (1:1 mm XML)</span></td>
+ <td><a href="/samples/luna-laser-patch.svg" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-laser-patch.svg</a> · <a href="/samples/luna-laser-patch.svg.txt" style="color:var(--green);font-weight:700;text-decoration:underline;font-size:0.72rem;">.svg.txt</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">242,655 bytes (1:1 mm XML)</span></td>
  <td>Unmirrored Laser Vector<br /><code>0.10 mm</code> kerf • Cubic Bezier <code>fill-rule="evenodd"</code> compound path</td>
- <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.00 × 110.76 mm</code>)<br /><strong>SVG Root:</strong> <code>viewBox="0.0 0.0 125.0 110.764"</code> (<code>125.0mm × 110.764mm</code>)</td>
- <td><code>105</code> islands / <code>58</code> inner holes (<code>173</code> closed subpaths, <code>4,620</code> Bezier segments) • <code>#FF0000</code> <code>0.0882 mm</code> hairline + <code>#00A859</code> <code>50.0 × 50.0 mm</code> <code>"50mm REF"</code> calibration <code>&lt;rect x="70.0" y="0" width="50" height="50"&gt;</code></td>
+ <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.0000 × 110.7638 mm</code>)<br /><strong>SVG Root:</strong> <code>viewBox="0.0 0.0 125.0 110.764"</code> (<code>125.0mm × 110.764mm</code>)</td>
+ <td><code>173 / 173</code> closed <code>'Z'</code> subpaths (<code>0</code> open, <code>0</code> duplicates, <code>4,620</code> Bezier segments) • <code>#FF0000</code> <code>0.0882 mm</code> hairline + <code>#00A859</code> <code>50.000 × 50.000 mm</code> <code>"50mm REF"</code> calibration <code>&lt;rect&gt;</code></td>
  </tr>
  <tr>
- <td><a href="/samples/luna-cad-vectors.dxf" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-cad-vectors.dxf</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">158,499 bytes (ASCII DXF)</span></td>
+ <td><a href="/samples/luna-cad-vectors.dxf" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-cad-vectors.dxf</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">185,919 bytes (ASCII DXF)</span></td>
  <td>Unmirrored AutoCAD R2010<br /><code>$ACADVER = AC1024</code> • <code>$INSUNITS = 4</code> (<code>units.MM</code>)</td>
- <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.00 × 110.76 mm</code>)<br /><strong>Scale Square:</strong> <code>50.00 × 50.00 mm</code> (<code>X: 70.0..120.0</code>, <code>Y: 0.0..50.0</code>)</td>
- <td><code>105</code> islands / <code>58</code> inner holes (<code>173</code> closed <code>LWPOLYLINE</code> loops, <code>lineweight=9</code> / <code>0.09 mm</code>) • Layers: <code>LASER_OR_CUT_PATHS</code>, <code>SCALE_REF_50MM</code>, <code>0</code>, <code>Defpoints</code></td>
+ <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.0000 × 110.7638 mm</code>)<br /><strong>Scale Square:</strong> <code>50.000 × 50.000 mm</code> (<code>X: 70.0..120.0</code>, <code>Y: 0.0..50.0</code>)</td>
+ <td><code>174 / 174</code> closed <code>LWPOLYLINE</code> loops (<code>flag 70 &amp; 1 == 1</code>, <code>0</code> open, <code>0</code> duplicates, <code>lineweight=9</code> / <code>0.09 mm</code>) • Layers: <code>LASER_OR_CUT_PATHS</code> (<code>173</code>), <code>SCALE_REF_50MM</code> (<code>1</code>), <code>0</code>, <code>Defpoints</code></td>
  </tr>
  </tbody>
  </table>
@@ -1247,6 +1411,80 @@
  </ul>
  </div>
  </details>
+ </div>
+ </section>
+
+ <!-- 02B · AUTOMATED MANUFACTURING PREFLIGHT & CAD VALIDATION (#0B0D13 / #FFB300) -->
+ <section id="preflight" aria-labelledby="preflight-heading">
+ <div class="section-header">
+ <h2 id="preflight-heading">🛡️ Automated Manufacturing <span>Preflight &amp; Validation</span></h2>
+ <p>Every <code>.STL</code>, <code>.SVG</code>, and <code>.DXF</code> export passes six deterministic CAD geometry and physical toolhead checks before download — independently audited in plain text below.</p>
+ </div>
+
+ <div class="preflight-shell">
+ <div class="preflight-grid">
+ <article class="preflight-card">
+ <div class="preflight-card-head">
+ <span class="preflight-num">01</span>
+ <h3>Closed-Loop Compound Paths</h3>
+ </div>
+ <p>Enforces 100% closed <code>'Z'/'z'</code> <code>fill-rule="evenodd"</code> Cubic Bezier subpaths in <code>.SVG</code> and closed AutoCAD R2010 <code>LWPOLYLINE</code> bitflags (<code>group 70 &amp; 1 == 1</code>) in <code>.DXF</code>, capped at <code>≤ 4,800</code> subpaths and <code>≤ 12,000</code> spline-faired nodes (<code>0</code> open paths).</p>
+ </article>
+
+ <article class="preflight-card">
+ <div class="preflight-card-head">
+ <span class="preflight-num">02</span>
+ <h3>Duplicate <code>STEEL_RULE_CUT</code> Lock</h3>
+ </div>
+ <p>Automatically locks <code>clicker_offset_mm = 0.0</code> whenever any Step 2B outer Clicker Die silhouette is active and unifies compound cut borders (<code>#000000</code> / <code>OUTER_BORDER_CUT</code>) so diemakers and lasers never receive overlapping double-cut loops.</p>
+ </article>
+
+ <article class="preflight-card">
+ <div class="preflight-card-head">
+ <span class="preflight-num">03</span>
+ <h3>1:1 mm Post-Filter Lock (±0.05 mm)</h3>
+ </div>
+ <p>Computes <code>1 SVG unit = 1.000 mm</code> (<code>$INSUNITS = 4</code> in <code>.DXF</code>) strictly <em>after</em> morphological stroke conditioning and dilation, with zero-shrinkage fairing and clamped Bezier handles holding outer bounds within <code>±0.05 mm</code> + optional <code>50.0 × 50.0 mm</code> calibration square.</p>
+ </article>
+
+ <article class="preflight-card">
+ <div class="preflight-card-head">
+ <span class="preflight-num">04</span>
+ <h3>SVG Live-<code>&lt;text&gt;</code>, Bitmap &amp; XML Preflight</h3>
+ </div>
+ <p>Sanitizes XML declarations (<code>0</code> external <code>&lt;!DOCTYPE</code> / <code>&lt;!ENTITY</code> XXE vectors), rejects or traces embedded <code>&lt;image&gt;</code> bitmaps instead of wrapping pixels inside fake SVGs, and guarantees <code>0</code> unconverted live <code>&lt;text&gt;</code> font dependencies on cut layers.</p>
+ </article>
+
+ <article class="preflight-card">
+ <div class="preflight-card-head">
+ <span class="preflight-num">05</span>
+ <h3>Watertight <code>3F = 2E</code> 2-Manifold <code>.STL</code></h3>
+ </div>
+ <p>Builds closed, consistently oriented 2-manifold triangle meshes satisfying <code>3F = 2E</code> (<code>0</code> boundary edges, <code>0</code> non-manifold edges, <code>0</code> collapsed vertex faces, <code>0.02 mm</code> relief-to-baseplate Z-overlap) for zero-repair slicing in Bambu Studio, PrusaSlicer, OrcaSlicer &amp; Cura.</p>
+ </article>
+
+ <article class="preflight-card">
+ <div class="preflight-card-head">
+ <span class="preflight-num">06</span>
+ <h3>Machine-Backwards Toolhead Guards</h3>
+ </div>
+ <p>Conditions geometry backwards from real toolheads: <code>≥ 0.45 mm</code> FDM walls (<code>0.42 mm</code> stepped clay blades, <code>0.70 mm</code> 2-part clearance), <code>0.10 mm</code> laser kerf with <code>0.0882 mm</code> CAD hairline output, <code>≥ 0.75 mm</code> vinyl strokes, <code>2 pt</code> clicker bend radii, and un-shrunk M5/M8 tap-bore <code>1.5 mm</code> wall clearance.</p>
+ </article>
+ </div>
+
+ <div class="preflight-proof-bar">
+ <div class="preflight-proof-top">
+ <span><strong>✅ Reproducible Plain-Text &amp; Raw CAD Proofs (22 / 22 Invariants Verified)</strong> — Served as <code>text/plain; charset=utf-8</code> so engineers &amp; AI crawlers can audit every coordinate directly:</span>
+ </div>
+ <div class="preflight-link-row">
+ <a href="/samples/CAD_AUDIT_REPORT.md" class="preflight-chip">📄 Audit Report <code>CAD_AUDIT_REPORT.md</code></a>
+ <a href="/samples/audit_benchmarks.py" class="preflight-chip">🐍 Verification Script <code>audit_benchmarks.py</code></a>
+ <a href="/samples/luna-laser-patch.svg.txt" class="preflight-chip">📝 Plain-Text SVG XML <code>luna-laser-patch.svg.txt</code></a>
+ <a href="/samples/luna-3d-stamp.stl" download class="preflight-chip">🧊 <code>luna-3d-stamp.stl</code></a>
+ <a href="/samples/luna-laser-patch.svg" download class="preflight-chip">⚡ <code>luna-laser-patch.svg</code></a>
+ <a href="/samples/luna-cad-vectors.dxf" download class="preflight-chip">📐 <code>luna-cad-vectors.dxf</code></a>
+ </div>
+ </div>
  </div>
  </section>
 
@@ -1388,6 +1626,8 @@
  </p>
  <p style="margin-top: 8px;">
  <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> •
+ <a href="#preflight">CAD Preflight &amp; Validation</a> •
+ <a href="/samples/CAD_AUDIT_REPORT.md">LUNA CAD Audit (.MD)</a> •
  <a href="clay-cutter-stl-generator.html">Clay Cutter .STL Generator</a> •
  <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
  <a href="vault.html">Ready-to-Cut CAD Vault</a> •
