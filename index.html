@@ -185,14 +185,15 @@
 
  <style>
  :root {
- --bg-dark: #0D0D0D;
- --bg-card: #151515;
+ --bg-dark: #0B0D13;
+ --bg-card: #121621;
  --amber: #FFB300;
- --amber-hover: #E09D00;
+ --amber-hover: #FFA000;
  --green: #81C784;
+ --red-soft: #FF6B6B;
  --text-main: #FFFFFF;
- --text-muted: #B0B0B0;
- --border-subtle: #2A2A2A;
+ --text-muted: #B4BCD0;
+ --border-subtle: #252B3B;
  }
 
  * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -205,14 +206,14 @@
  }
 
  body {
- background-color: #0D0D0D;
+ background-color: #0B0D13;
  background-image:
- linear-gradient(27deg, #141414 5px, transparent 5px),
- linear-gradient(207deg, #141414 5px, transparent 5px),
- linear-gradient(27deg, #1C1C1C 5px, transparent 5px),
- linear-gradient(207deg, #1C1C1C 5px, transparent 5px),
- linear-gradient(90deg, #111111 10px, transparent 10px),
- linear-gradient(#161616 25%, #121212 25%, #121212 50%, transparent 50%, transparent 75%, #191919 75%, #191919);
+ linear-gradient(27deg, #10131C 5px, transparent 5px),
+ linear-gradient(207deg, #10131C 5px, transparent 5px),
+ linear-gradient(27deg, #151925 5px, transparent 5px),
+ linear-gradient(207deg, #151925 5px, transparent 5px),
+ linear-gradient(90deg, #0D1018 10px, transparent 10px),
+ linear-gradient(#121620 25%, #0E111A 25%, #0E111A 50%, transparent 50%, transparent 75%, #141824 75%, #141824);
  background-position: 0 5px, 10px 0, 0 10px, 10px 5px, 0 0, 0 0;
  background-size: 20px 20px;
  line-height: 1.6;
@@ -223,8 +224,8 @@
  position: sticky;
  top: 0;
  z-index: 1000;
- background: rgba(13, 13, 13, 0.95);
- backdrop-filter: blur(10px);
+ background: rgba(11, 13, 19, 0.94);
+ backdrop-filter: blur(12px);
  border-bottom: 1px solid var(--border-subtle);
  padding: 12px 24px;
  display: flex;
@@ -240,9 +241,9 @@
  .brand-title { color: var(--amber); font-weight: 900; font-size: 1.12rem; letter-spacing: 1.5px; }
  .brand-sub { color: var(--text-muted); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
 
- .nav-links { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+ .nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
  .nav-links a.nav-item {
- color: #E0E0E0;
+ color: #E2E8F0;
  text-decoration: none;
  font-size: 0.88rem;
  font-weight: 600;
@@ -250,57 +251,79 @@
  }
  .nav-links a.nav-item:hover { color: var(--amber); }
 
+ /* Contour-Bias Shape Hierarchy: Soft Squircles (12px) for Secondary Utility Controls */
  .btn-guide-nav {
  display: inline-flex;
  align-items: center;
  gap: 6px;
- background-color: #1A1A1A;
+ background-color: #141824;
  color: var(--amber);
  font-weight: 700;
  font-size: 0.85rem;
- padding: 8px 13px;
- border-radius: 8px;
+ padding: 8px 14px;
+ border-radius: 12px;
  text-decoration: none;
- border: 1.5px solid var(--amber);
- transition: all 0.15s ease;
+ border: 1.5px solid rgba(255, 179, 0, 0.45);
+ transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
  }
- .btn-guide-nav:hover { background-color: #2A2210; color: #FFFFFF; }
+ .btn-guide-nav:hover,
+ .btn-guide-nav:focus-visible {
+ background-color: #241E12;
+ border-color: var(--amber);
+ color: #FFFFFF;
+ transform: translateY(-1px);
+ outline: none;
+ }
 
+ /* Primary Conversion CTAs: Stadium Pill Capsules (999px) — 100% Static at Rest */
  .btn-primary {
  display: inline-flex;
  align-items: center;
  justify-content: center;
  gap: 8px;
- background: linear-gradient(135deg, #FFB300 0%, #FFA000 100%);
- color: #000000;
+ background: linear-gradient(135deg, #FFC024 0%, #FFB300 55%, #FFA000 100%);
+ color: #0B0D13;
  font-weight: 900;
  font-size: 1.02rem;
- padding: 14px 26px;
- border-radius: 8px;
+ padding: 14px 28px;
+ border-radius: 999px;
  text-decoration: none;
- border: 2px solid #FFFFFF;
- box-shadow: 0 4px 18px rgba(255, 179, 0, 0.38);
- transition: all 0.15s ease;
+ border: none !important;
+ box-shadow: 0 6px 20px rgba(255, 179, 0, 0.30);
+ transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.18s ease, background 0.18s ease;
  }
- .btn-primary:hover { background: var(--amber-hover); transform: translateY(-1px); }
- .btn-header { padding: 9px 16px; font-size: 0.88rem; }
+ .btn-primary:hover,
+ .btn-primary:focus-visible {
+ background: linear-gradient(135deg, #FFCA3A 0%, #FFB300 100%);
+ transform: translateY(-2px);
+ box-shadow: 0 10px 26px rgba(255, 179, 0, 0.48);
+ outline: none;
+ }
+ .btn-header { padding: 9px 18px; font-size: 0.88rem; border: none !important; }
 
  .btn-secondary {
  display: inline-flex;
  align-items: center;
  justify-content: center;
  gap: 8px;
- background-color: #181818;
+ background-color: #141824;
  color: var(--text-main);
  font-weight: 700;
- font-size: 0.95rem;
- padding: 13px 20px;
- border-radius: 8px;
+ font-size: 0.93rem;
+ padding: 12px 18px;
+ border-radius: 12px;
  text-decoration: none;
- border: 1.5px solid #3A3A3A;
- transition: all 0.15s ease;
+ border: 1.5px solid #2E364B;
+ transition: all 0.16s ease;
  }
- .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+ .btn-secondary:hover,
+ .btn-secondary:focus-visible {
+ border-color: var(--amber);
+ color: var(--amber);
+ background-color: #1B1E28;
+ transform: translateY(-1px);
+ outline: none;
+ }
 
  .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
@@ -311,8 +334,8 @@
  }
  .hero-split {
  display: grid;
- grid-template-columns: 1fr 1.22fr;
- gap: 32px;
+ grid-template-columns: 0.94fr 1.28fr;
+ gap: 28px;
  align-items: center;
  }
  .hero-kicker-row {
@@ -369,30 +392,60 @@
  display: flex;
  flex-direction: column;
  gap: 10px;
- max-width: 460px;
- margin-bottom: 12px;
+ max-width: 472px;
+ margin-bottom: 14px;
+ }
+ .hero-zero-risk {
+ color: #E2E8F0;
+ font-size: 0.83rem;
+ font-weight: 700;
+ text-align: center;
+ letter-spacing: 0.1px;
+ padding: 2px 6px;
  }
  .hero-cta-stack-row {
  display: grid;
  grid-template-columns: 1fr 1fr;
  gap: 10px;
  }
+ .hero-cta-stack-row .btn-secondary {
+ white-space: nowrap;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ min-height: 46px;
+ padding: 11px 14px;
+ font-size: 0.9rem;
+ }
  .hero-micro-trust {
- color: #BDBDBD;
- font-size: 0.82rem;
+ color: #B4BCD0;
+ font-size: 0.8rem;
  font-weight: 600;
  margin-top: 4px;
  }
  .hero-micro-trust strong { color: var(--amber); }
 
- /* Right Hero Visual Showcase (1. Artwork -> 2. Geometry -> 3. Make it) */
+ /* Ambient Hero Warmth + 3-Stage Simultaneous Portrait Showcase */
+ .hero-showcase-ambient {
+ position: relative;
+ z-index: 1;
+ }
+ .hero-showcase-ambient::before {
+ content: "";
+ position: absolute;
+ inset: -30px -24px;
+ z-index: -1;
+ background: radial-gradient(circle at 52% 44%, rgba(255, 179, 0, 0.22) 0%, rgba(255, 152, 0, 0.08) 44%, rgba(11, 13, 19, 0) 74%);
+ filter: blur(22px);
+ pointer-events: none;
+ }
  .hero-showcase {
- background: rgba(20, 20, 20, 0.96);
- border: 1.5px solid #2E2E2E;
+ background: rgba(16, 20, 30, 0.96);
+ border: 1.5px solid rgba(255, 179, 0, 0.34);
  border-top: 3px solid var(--amber);
- border-radius: 14px;
- padding: 18px;
- box-shadow: 0 12px 34px rgba(0, 0, 0, 0.65);
+ border-radius: 16px;
+ padding: 16px;
+ box-shadow: 0 16px 40px rgba(0, 0, 0, 0.68), 0 0 36px rgba(255, 179, 0, 0.07);
  }
  .showcase-header {
  display: flex;
@@ -402,44 +455,101 @@
  gap: 8px;
  margin-bottom: 12px;
  padding-bottom: 8px;
- border-bottom: 1px solid #262626;
- font-size: 0.8rem;
+ border-bottom: 1px solid #242B3D;
+ font-size: 0.78rem;
  font-weight: 800;
- color: #E0E0E0;
+ color: #E2E8F0;
  }
  .showcase-grid {
  display: grid;
- grid-template-columns: repeat(3, 1fr);
+ grid-template-columns: repeat(3, minmax(0, 1fr));
  gap: 12px;
+ position: relative;
+ padding-top: 4px;
  }
+
+ /* Sleek #FFB300 Connector Badges Between Card 1->2 and Card 2->3 */
+ .showcase-arrow {
+ position: absolute;
+ top: 38%;
+ width: 26px;
+ height: 26px;
+ border-radius: 50%;
+ transform: translate(-50%, -50%);
+ background: #0E121B;
+ color: var(--amber);
+ border: 1.5px solid var(--amber);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 0.78rem;
+ font-weight: 900;
+ line-height: 1;
+ z-index: 6;
+ pointer-events: none;
+ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
+ transition: background-color 0.28s ease, color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+ }
+ .showcase-arrow.arrow-1 { left: 33.333%; }
+ .showcase-arrow.arrow-2 { left: 66.667%; }
+ .showcase-arrow.is-lit {
+ background: var(--amber);
+ color: #0B0D13;
+ border-color: #FFFFFF;
+ box-shadow: 0 3px 12px rgba(0, 0, 0, 0.75), 0 0 14px rgba(255, 179, 0, 0.55);
+ transform: translate(-50%, -50%) scale(1.12);
+ }
+
+ /* 3 Portrait Stage Cards + Automatic 1 -> 2 -> 3 Spotlight Wave */
  .stage-card {
- background: #111111;
- border: 1px solid #2B2B2B;
- border-radius: 10px;
- padding: 10px;
+ background: #0E121B;
+ border: 1.5px solid #262E42;
+ border-radius: 12px;
+ padding: 9px;
  display: flex;
  flex-direction: column;
  justify-content: space-between;
+ position: relative;
+ z-index: 1;
+ will-change: transform;
+ transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.32s ease, box-shadow 0.32s ease, background-color 0.32s ease;
  }
  .stage-card.active-stage {
- border-color: var(--amber);
- box-shadow: 0 0 16px rgba(255, 179, 0, 0.14);
+ transform: translateY(-4px) scale(1.025);
+ border-color: #FFB300;
+ background: #141926;
+ box-shadow: 0 10px 26px rgba(255, 179, 0, 0.24);
+ z-index: 3;
  }
+ .stage-card.is-hovered,
+ .stage-card:hover {
+ transform: translateY(-5px) scale(1.035);
+ border-color: #FFB300;
+ background: #161C2B;
+ box-shadow: 0 14px 32px rgba(255, 179, 0, 0.34);
+ z-index: 4;
+ }
+
+ /* Taller Portrait-Proportioned Image Frames (3 / 3.9 — Zero Side Bars, Zero Cropping) */
  .stage-img-box {
- aspect-ratio: 1 / 1;
+ aspect-ratio: 3 / 3.9;
  width: 100%;
- height: auto;
- padding: 0;
- overflow: hidden;
  position: relative;
- cursor: zoom-in;
- border-radius: 8px;
- border: 1px solid #2A2A2A;
+ overflow: hidden;
+ border-radius: 9px;
+ border: 1px solid #283044;
  background: #FFFFFF;
- margin-bottom: 10px;
- transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+ margin-bottom: 8px;
+ cursor: zoom-in;
+ transition: border-color 0.2s ease;
  }
- .stage-img-box.dark-box {
+ .stage-card.active-stage .stage-img-box,
+ .stage-img-box:hover,
+ .stage-img-box:focus-visible {
+ border-color: rgba(255, 179, 0, 0.72);
+ outline: none;
+ }
+ .stage-img-box.stage-box-raw {
  background: #FFFFFF;
  }
  .stage-img-box.stage-box-trace {
@@ -451,102 +561,134 @@
  repeating-linear-gradient(
  to bottom,
  transparent 0%,
- transparent calc(6.37% - 1px),
- rgba(116, 116, 116, 0.55) calc(6.37% - 1px),
- rgba(116, 116, 116, 0.55) 6.37%
+ transparent calc(6.8% - 1px),
+ rgba(116, 116, 116, 0.52) calc(6.8% - 1px),
+ rgba(116, 116, 116, 0.52) 6.8%
  ),
- linear-gradient(90deg, #4A4A4A 0%, #4A4A4A 51.1%, #FDFDFD 51.1%, #FDFDFD 100%);
- background-size: 51.1% 100%, 100% 100%;
- background-position: 0 5.26%, 0 0;
+ linear-gradient(90deg, #4B4B4B 0%, #4B4B4B 51.4%, #FDFDFD 51.4%, #FDFDFD 100%);
+ background-size: 51.4% 100%, 100% 100%;
+ background-position: 0 4%, 0 0;
  background-repeat: repeat-y, no-repeat;
  }
- .stage-img-box img {
+ .stage-img-box img.pos-luna-raw {
  width: 100%;
  height: 100%;
- object-fit: cover;
+ object-fit: contain;
  object-position: center;
- padding: 0;
  display: block;
  }
  .stage-img-box img.pos-luna-trace {
  position: absolute;
- top: 2%;
+ top: 1.5%;
  left: 50%;
  transform: translateX(-50%);
- height: 96%;
+ height: 97%;
  width: auto;
  max-width: none;
  object-fit: contain;
  clip-path: inset(1.2% 1.6% round 8px);
  }
  .stage-img-box img.pos-luna-cad {
- position: absolute;
- top: 1.25%;
- left: 50%;
- transform: translateX(-50%);
- height: 93.5%;
- width: auto;
- max-width: none;
+ width: 100%;
+ height: 100%;
  object-fit: contain;
+ object-position: center;
+ display: block;
  }
- .stage-img-box:hover,
- .stage-img-box:focus-visible {
- border-color: var(--amber);
- transform: translateY(-2px);
- box-shadow: 0 6px 18px rgba(255, 179, 0, 0.22);
- outline: none;
- }
- .stage-img-box::after {
- content: "🔍 Zoom";
+
+ /* Top-Right True-Circle Zoom Badge (Never Covers Bottom Image Captions) */
+ .stage-zoom-badge {
  position: absolute;
- right: 5px;
- bottom: 5px;
- z-index: 2;
- background: rgba(13, 13, 13, 0.88);
+ top: 6px;
+ right: 6px;
+ width: 28px;
+ height: 28px;
+ border-radius: 50%;
+ background: rgba(11, 13, 19, 0.86);
  color: var(--amber);
- border: 1px solid rgba(255, 179, 0, 0.55);
- border-radius: 6px;
- padding: 2px 6px;
- font-size: 0.65rem;
- font-weight: 800;
- line-height: 1.3;
+ border: 1.5px solid rgba(255, 179, 0, 0.65);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 0.74rem;
+ line-height: 1;
+ z-index: 3;
  pointer-events: none;
- transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+ transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
  }
- .stage-img-box:hover::after,
- .stage-img-box:focus-visible::after {
+ .stage-img-box:hover .stage-zoom-badge,
+ .stage-img-box:focus-visible .stage-zoom-badge,
+ .stage-card.active-stage .stage-zoom-badge {
  background: var(--amber);
- color: #000000;
- border-color: var(--amber);
+ color: #0B0D13;
+ border-color: #FFFFFF;
+ transform: scale(1.06);
+ }
+
+ .stage-head-row {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ margin-bottom: 3px;
+ }
+ .stage-step-badge {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ background: rgba(255, 179, 0, 0.14);
+ color: var(--amber);
+ border: 1px solid rgba(255, 179, 0, 0.48);
+ font-size: 0.7rem;
+ font-weight: 900;
+ flex-shrink: 0;
+ transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+ }
+ .stage-card.active-stage .stage-step-badge {
+ background: var(--amber);
+ color: #0B0D13;
+ border-color: #FFFFFF;
+ box-shadow: 0 0 12px rgba(255, 179, 0, 0.6);
  }
  .stage-title {
- font-size: 0.94rem;
+ font-size: 0.82rem;
  font-weight: 900;
  color: #FFFFFF;
- margin-bottom: 2px;
+ line-height: 1.2;
+ transition: color 0.25s ease;
+ }
+ .stage-card.active-stage .stage-title {
+ color: var(--amber);
  }
  .stage-sub {
- font-size: 0.8rem;
- color: #B8B8B8;
- line-height: 1.35;
- margin-bottom: 8px;
+ font-size: 0.73rem;
+ color: #B4BCD0;
+ line-height: 1.32;
+ margin-bottom: 6px;
  }
  .stage-caption {
- font-size: 0.71rem;
- color: #D0D0D0;
- line-height: 1.35;
+ font-size: 0.68rem;
+ color: #D8E0EE;
+ line-height: 1.3;
  font-family: monospace;
- background: #181818;
- padding: 5px 7px;
- border-radius: 4px;
+ background: #141824;
+ padding: 4px 6px;
+ border-radius: 6px;
  border-left: 2px solid var(--amber);
  }
 
- /* Ungated LUNA Sample Bar & CAD Verification Table */
+ @media (prefers-reduced-motion: reduce) {
+ .stage-card.active-stage { transform: none; }
+ }
+
+ /* Clean 3-File LUNA Maker Sample Bar (Soft Squircles 12px) */
  .luna-sample-bar {
- margin-top: 12px;
+ margin-top: 13px;
  padding-top: 11px;
- border-top: 1px solid #282828;
+ border-top: 1px solid #242B3D;
  }
  .luna-sample-head {
  display: flex;
@@ -554,11 +696,11 @@
  justify-content: space-between;
  flex-wrap: wrap;
  gap: 6px;
- font-size: 0.76rem;
+ font-size: 0.77rem;
  font-weight: 800;
  color: var(--amber);
  margin-bottom: 8px;
- letter-spacing: 0.2px;
+ letter-spacing: 0.15px;
  }
  .luna-sample-links {
  display: grid;
@@ -571,16 +713,16 @@
  align-items: center;
  justify-content: center;
  gap: 5px;
- background: #141414;
+ background: #121622;
  color: #FFFFFF;
- border: 1px solid #3A3A3A;
- border-radius: 7px;
- padding: 7px 8px;
- font-size: 0.74rem;
+ border: 1.5px solid #2E364B;
+ border-radius: 12px;
+ padding: 8px 9px;
+ font-size: 0.75rem;
  font-weight: 800;
  text-decoration: none;
  text-align: center;
- transition: all 0.15s ease;
+ transition: all 0.16s ease;
  }
  a.luna-dl-btn code {
  color: var(--amber);
@@ -588,43 +730,27 @@
  }
  a.luna-dl-btn:hover {
  border-color: var(--amber);
- background: #221C10;
+ background: #201B10;
  color: var(--amber);
+ transform: translateY(-1px);
  }
  .luna-digital-notice {
  font-size: 0.72rem;
- color: #CCCCCC;
- background: #111111;
- border: 1px solid #262626;
+ color: #CBD5E1;
+ background: #0E121B;
+ border: 1px solid #22293A;
  border-left: 2.5px solid var(--green);
- border-radius: 5px;
- padding: 5px 8px;
+ border-radius: 8px;
+ padding: 5px 9px;
  line-height: 1.38;
  }
- .luna-verify-panel {
- margin-top: 20px;
- background: rgba(18, 18, 18, 0.96);
- border: 1px solid #2B2B2B;
- border-radius: 12px;
- padding: 14px 16px;
- }
- .luna-verify-header {
+
+ /* Audit Drawer Table & Verification Links (Inside Closed Bottom #faq Drawer) */
+ .luna-audit-links {
  display: flex;
- align-items: center;
- justify-content: space-between;
  flex-wrap: wrap;
  gap: 8px;
- margin-bottom: 8px;
- font-size: 0.82rem;
- color: #E0E0E0;
- }
- .luna-verify-header strong { color: var(--amber); }
- .luna-verify-header a { color: var(--amber); font-weight: 700; text-decoration: underline; font-size: 0.78rem; }
- .luna-proof-links {
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 8px;
- margin-bottom: 8px;
+ margin-bottom: 12px;
  }
  a.luna-proof-btn {
  display: inline-flex;
@@ -633,35 +759,28 @@
  gap: 5px;
  background: #0B0D13;
  color: #E8ECF4;
- border: 1px solid rgba(255, 179, 0, 0.38);
- border-radius: 7px;
- padding: 6px 8px;
- font-size: 0.72rem;
+ border: 1px solid rgba(255, 179, 0, 0.42);
+ border-radius: 12px;
+ padding: 7px 12px;
+ font-size: 0.75rem;
  font-weight: 800;
  text-decoration: none;
- text-align: center;
  transition: all 0.15s ease;
  }
  a.luna-proof-btn code {
  color: var(--amber);
- font-size: 0.7rem;
+ font-size: 0.72rem;
  }
  a.luna-proof-btn:hover {
  border-color: var(--amber);
- background: #1A170D;
+ background: #1E1910;
  color: var(--amber);
  }
- .luna-verify-actions {
- display: inline-flex;
- align-items: center;
- flex-wrap: wrap;
- gap: 10px;
- }
  table.luna-spec-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.77rem; }
- table.luna-spec-table th, table.luna-spec-table td { padding: 8px 10px; border-bottom: 1px solid #242424; vertical-align: top; }
- table.luna-spec-table th { background: #101010; color: var(--amber); font-weight: 800; font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.3px; }
- table.luna-spec-table td { color: #D4D4D4; line-height: 1.42; }
- table.luna-spec-table code { background: #1E1E1E; color: var(--amber); padding: 1px 5px; border-radius: 4px; font-size: 0.73rem; }
+ table.luna-spec-table th, table.luna-spec-table td { padding: 8px 10px; border-bottom: 1px solid #242B3D; vertical-align: top; }
+ table.luna-spec-table th { background: #0E121B; color: var(--amber); font-weight: 800; font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.3px; }
+ table.luna-spec-table td { color: #D4DCE8; line-height: 1.42; }
+ table.luna-spec-table code { background: #171C29; color: var(--amber); padding: 1px 5px; border-radius: 4px; font-size: 0.73rem; }
 
  /* Automated Manufacturing Preflight & CAD Validation (#0B0D13 / #FFB300) */
  .preflight-shell {
@@ -681,7 +800,7 @@
  .preflight-card {
  background: #121621;
  border: 1px solid #252B3B;
- border-radius: 10px;
+ border-radius: 12px;
  padding: 16px;
  display: flex;
  flex-direction: column;
@@ -734,7 +853,7 @@
  background: #10141F;
  border: 1px solid #283044;
  border-left: 3px solid #FFB300;
- border-radius: 10px;
+ border-radius: 12px;
  padding: 14px 16px;
  display: flex;
  flex-direction: column;
@@ -762,8 +881,8 @@
  background: #0B0D13;
  color: #FFFFFF;
  border: 1px solid #353E54;
- border-radius: 7px;
- padding: 6px 11px;
+ border-radius: 12px;
+ padding: 7px 12px;
  font-size: 0.75rem;
  font-weight: 800;
  text-decoration: none;
@@ -774,9 +893,10 @@
  border-color: #FFB300;
  color: #FFB300;
  background: #1A1810;
+ transform: translateY(-1px);
  }
 
- section { padding: 38px 0; border-top: 1px solid #1F1F1F; }
+ section { padding: 40px 0; border-top: 1px solid #1C2232; }
  .section-header { text-align: center; max-width: 740px; margin: 0 auto 24px; }
  .section-header h2 { font-size: 1.72rem; font-weight: 900; margin-bottom: 6px; color: #FFFFFF; }
  .section-header h2 span { color: var(--amber); }
@@ -795,24 +915,179 @@
  align-items: center;
  text-align: center;
  text-decoration: none;
- background: rgba(21, 21, 21, 0.95);
- border: 1.5px solid #333;
+ background: rgba(18, 22, 33, 0.95);
+ border: 1.5px solid #2A3144;
  border-top: 3px solid var(--amber);
- border-radius: 10px;
+ border-radius: 12px;
  padding: 15px 10px;
- transition: all 0.15s ease;
+ transition: all 0.16s ease;
  }
- a.hw-pill:hover { transform: translateY(-2px); border-color: var(--amber); background: #1D1A12; }
+ a.hw-pill:hover { transform: translateY(-2px); border-color: var(--amber); background: #1E1A12; box-shadow: 0 6px 18px rgba(255, 179, 0, 0.14); }
  .hw-pill strong { color: #FFF; font-size: 0.92rem; margin-bottom: 4px; }
  .hw-pill span { color: var(--text-muted); font-size: 0.76rem; line-height: 1.35; }
  .hw-pill code {
  margin-top: 7px;
  font-size: 0.69rem;
  color: var(--amber);
- background: #0D0D0D;
+ background: #0B0D13;
  padding: 2px 7px;
- border-radius: 4px;
- border: 1px solid #2E2E2E;
+ border-radius: 6px;
+ border: 1px solid #283044;
+ }
+
+ /* Visual Hook 1: Interactive Boutique Stamp Silhouettes Strip (8 SVG Shapes + Caption) */
+ .silhouette-showcase {
+ background: rgba(16, 20, 30, 0.92);
+ border: 1px solid rgba(255, 179, 0, 0.26);
+ border-radius: 14px;
+ padding: 14px 16px;
+ margin: 16px 0 18px;
+ }
+ .silhouette-head {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin-bottom: 11px;
+ }
+ .silhouette-title {
+ font-size: 0.84rem;
+ font-weight: 800;
+ color: #F8FAFC;
+ }
+ .silhouette-title span { color: var(--amber); }
+ .silhouette-caption {
+ font-size: 0.78rem;
+ font-weight: 700;
+ color: var(--amber);
+ background: rgba(255, 179, 0, 0.10);
+ border: 1px solid rgba(255, 179, 0, 0.32);
+ border-radius: 999px;
+ padding: 3px 11px;
+ }
+ .silhouette-track {
+ display: grid;
+ grid-template-columns: repeat(8, minmax(104px, 1fr));
+ gap: 10px;
+ overflow-x: auto;
+ padding: 4px 2px 6px;
+ scrollbar-width: thin;
+ scrollbar-color: rgba(255, 179, 0, 0.45) #0E121B;
+ }
+ a.silhouette-tile {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 6px;
+ background: #0E121B;
+ border: 1px solid #283044;
+ border-radius: 12px;
+ padding: 10px 8px 9px;
+ text-decoration: none;
+ color: #E2E8F0;
+ font-size: 0.75rem;
+ font-weight: 800;
+ white-space: nowrap;
+ transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+ }
+ a.silhouette-tile svg {
+ width: 46px;
+ height: 46px;
+ stroke: #CBD5E1;
+ fill: rgba(255, 179, 0, 0.04);
+ transition: stroke 0.18s ease, fill 0.18s ease, transform 0.18s ease, filter 0.18s ease;
+ }
+ a.silhouette-tile:hover,
+ a.silhouette-tile:focus-visible {
+ transform: translateY(-3px) scale(1.04);
+ border-color: var(--amber);
+ background: #1B170F;
+ color: var(--amber);
+ box-shadow: 0 8px 20px rgba(255, 179, 0, 0.22);
+ outline: none;
+ }
+ a.silhouette-tile:hover svg,
+ a.silhouette-tile:focus-visible svg {
+ stroke: var(--amber);
+ fill: rgba(255, 179, 0, 0.15);
+ transform: scale(1.08);
+ filter: drop-shadow(0 0 7px rgba(255, 179, 0, 0.55));
+ }
+
+ /* Visual Hook 2: 3-Tile "Maker Headaches Eliminated" Dark Bento Row */
+ .headache-bento-wrap {
+ margin: 18px 0 16px;
+ }
+ .headache-bento-kicker {
+ text-align: center;
+ font-size: 0.78rem;
+ font-weight: 800;
+ text-transform: uppercase;
+ letter-spacing: 1.1px;
+ color: #CBD5E1;
+ margin-bottom: 10px;
+ }
+ .headache-bento-kicker span { color: var(--amber); }
+ .headache-bento-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 12px;
+ }
+ .headache-card {
+ background: linear-gradient(180deg, #131825 0%, #0E121C 100%);
+ border: 1px solid #283044;
+ border-radius: 14px;
+ padding: 15px 16px;
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+ }
+ .headache-card:hover {
+ border-color: rgba(255, 179, 0, 0.65);
+ transform: translateY(-2px);
+ box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+ }
+ .headache-before {
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ background: rgba(255, 107, 107, 0.11);
+ color: #FF9494;
+ border: 1px solid rgba(255, 107, 107, 0.32);
+ border-radius: 8px;
+ padding: 5px 9px;
+ font-size: 0.77rem;
+ font-weight: 800;
+ line-height: 1.3;
+ }
+ .headache-arrow {
+ font-size: 0.72rem;
+ font-weight: 900;
+ color: var(--amber);
+ letter-spacing: 0.6px;
+ text-transform: uppercase;
+ padding-left: 4px;
+ }
+ .headache-after {
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ background: rgba(129, 199, 132, 0.13);
+ color: #A5E8A8;
+ border: 1px solid rgba(129, 199, 132, 0.42);
+ border-radius: 8px;
+ padding: 6px 10px;
+ font-size: 0.8rem;
+ font-weight: 800;
+ line-height: 1.32;
+ }
+ .headache-note {
+ font-size: 0.77rem;
+ color: #B4BCD0;
+ line-height: 1.42;
  }
 
  .seo-pill-strip {
@@ -824,30 +1099,72 @@
  margin: 14px auto 6px;
  }
  .seo-pill {
- background: #151515;
- border: 1px solid #2F2F2F;
+ background: #121621;
+ border: 1px solid #283044;
  border-radius: 999px;
  padding: 5px 13px;
  font-size: 0.78rem;
- color: #D8D8D8;
+ color: #DCE3F0;
  font-weight: 600;
  }
  .seo-pill strong { color: var(--amber); }
 
- /* Pricing Cards — Strict Option B Black, White & Gold Hierarchy */
- .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+ /* Pricing Cards — Progressive Uninterrupted 18px Frames (Thin 1px -> Thicker 3px -> Thickest 6px) */
+ .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
  .price-card {
- background: rgba(21, 21, 21, 0.96);
- border: 1.5px solid #333333;
- border-radius: 12px;
- padding: 22px;
+ position: relative;
+ background: rgba(18, 22, 33, 0.96);
+ border-radius: 18px;
+ padding: 26px 22px 22px;
  display: flex;
  flex-direction: column;
  justify-content: space-between;
  }
- .price-card.card-featured {
- border: 2px solid var(--amber);
- box-shadow: 0 6px 24px rgba(255, 179, 0, 0.14);
+ .price-card.tier-free {
+ border: 1px solid rgba(255, 179, 0, 0.35) !important;
+ box-shadow: none !important;
+ }
+ .price-card.tier-pass {
+ background: radial-gradient(circle at 50% 0%, rgba(255, 179, 0, 0.11) 0%, rgba(18, 22, 33, 0.98) 58%);
+ border: 3px solid #FFB300 !important;
+ box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35) !important;
+ padding-top: 30px;
+ }
+ .price-card.tier-monthly {
+ background: radial-gradient(circle at 50% 0%, rgba(255, 179, 0, 0.15) 0%, rgba(18, 22, 33, 0.99) 62%);
+ border: 6px solid #FFB300 !important;
+ box-shadow: 0 14px 36px rgba(255, 179, 0, 0.18) !important;
+ }
+ .craft-pill-ribbon {
+ position: absolute;
+ top: -14px;
+ left: 50%;
+ transform: translateX(-50%);
+ background: linear-gradient(135deg, #FFC636 0%, #FFB300 100%);
+ color: #0B0D13;
+ font-size: 0.69rem;
+ font-weight: 900;
+ letter-spacing: 0.8px;
+ text-transform: uppercase;
+ padding: 4px 14px;
+ border-radius: 999px;
+ border: none;
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+ white-space: nowrap;
+ }
+ .pricing-grid .price-cta-btn {
+ width: 100%;
+ min-height: 48px;
+ white-space: nowrap;
+ font-size: 0.92rem;
+ padding: 13px 18px;
+ line-height: 1.2;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ }
+ .pricing-grid .price-cta-btn.btn-primary {
+ border: none !important;
  }
  .card-kicker {
  color: var(--amber);
@@ -859,15 +1176,15 @@
  }
  .price-amount { font-size: 1.95rem; font-weight: 900; color: #FFF; margin: 6px 0 4px; }
  .price-amount span { font-size: 0.86rem; color: var(--text-muted); font-weight: 600; }
- .price-list { list-style: none; margin: 12px 0 18px; font-size: 0.85rem; color: #D0D0D0; }
+ .price-list { list-style: none; margin: 12px 0 18px; font-size: 0.85rem; color: #D4DCE8; }
  .price-list li { margin-bottom: 7px; }
 
  /* Expandable Drawers */
- .faq-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+ .faq-list { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
  details.faq-item {
- background: rgba(21, 21, 21, 0.95);
+ background: rgba(18, 22, 33, 0.95);
  border: 1px solid var(--border-subtle);
- border-radius: 10px;
+ border-radius: 12px;
  padding: 14px 18px;
  }
  details.faq-item[open] { border-color: var(--amber); }
@@ -883,48 +1200,33 @@
  gap: 12px;
  }
  details.faq-item summary::-webkit-details-marker { display: none; }
- details.faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.2rem; font-weight: 900; }
+ details.faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.2rem; font-weight: 900; flex-shrink: 0; }
  details.faq-item[open] summary::after { content: "−"; }
  details.faq-item .faq-body {
  margin-top: 10px;
  padding-top: 10px;
- border-top: 1px solid #262626;
- color: #CCCCCC;
+ border-top: 1px solid #242B3D;
+ color: #CBD5E1;
  font-size: 0.87rem;
  line-height: 1.54;
  }
 
  .comp-table-wrap { overflow-x: auto; margin-top: 10px; }
  table.comp-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.82rem; }
- table.comp-table th, table.comp-table td { padding: 10px 12px; border-bottom: 1px solid #262626; }
- table.comp-table th { background: #111; color: #FFF; font-weight: 800; }
+ table.comp-table th, table.comp-table td { padding: 10px 12px; border-bottom: 1px solid #242B3D; }
+ table.comp-table th { background: #0E121B; color: #FFF; font-weight: 800; }
  table.comp-table th.highlight-col { color: var(--amber); border-bottom: 2px solid var(--amber); }
- table.comp-table td.highlight-col { background: rgba(255, 179, 0, 0.06); color: #FFF; font-weight: 600; }
-
- /* Trust & Privacy Bar */
- .trust-bar {
- background: rgba(20, 20, 20, 0.96);
- border: 1px solid #2A2A2A;
- border-radius: 12px;
- padding: 20px;
- margin: 24px 0 10px;
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 16px;
- font-size: 0.82rem;
- color: #C8C8C8;
- }
- .trust-bar strong { color: var(--amber); display: block; margin-bottom: 4px; font-size: 0.88rem; }
+ table.comp-table td.highlight-col { background: rgba(255, 179, 0, 0.07); color: #FFF; font-weight: 600; }
 
  /* Bottom CTA Panel */
  .cta-panel {
  text-align: center;
- background: linear-gradient(180deg, rgba(24, 24, 24, 0.98) 0%, rgba(16, 16, 16, 0.98) 100%);
+ background: radial-gradient(circle at 50% 0%, rgba(255, 179, 0, 0.11) 0%, rgba(16, 20, 30, 0.98) 65%);
  border: 2px solid var(--amber);
- border-radius: 14px;
+ border-radius: 16px;
  padding: 36px 24px;
  margin: 28px 0 40px;
- box-shadow: 0 6px 24px rgba(255, 179, 0, 0.14);
+ box-shadow: 0 8px 28px rgba(255, 179, 0, 0.16);
  }
  .cta-buttons {
  display: flex;
@@ -936,20 +1238,53 @@
 
  footer {
  border-top: 1px solid var(--border-subtle);
- padding: 28px 20px;
+ padding: 28px 20px 24px;
  text-align: center;
- color: #888888;
+ color: #94A3B8;
  font-size: 0.82rem;
- background: rgba(13, 13, 13, 0.95);
+ background: rgba(11, 13, 19, 0.96);
  }
  footer a { color: var(--amber); text-decoration: none; margin: 0 6px; font-weight: 600; }
+
+ /* Quiet Muted Technical CAD & Audit Footer Toggle */
+ details.footer-tech-audit {
+ max-width: 1060px;
+ margin: 16px auto 0;
+ padding: 0;
+ border: none;
+ background: transparent;
+ text-align: center;
+ }
+ details.footer-tech-audit > summary {
+ display: inline-block;
+ font-size: 0.76rem;
+ color: #777;
+ border: none;
+ background: transparent;
+ cursor: pointer;
+ list-style: none;
+ font-weight: 500;
+ padding: 4px 8px;
+ transition: color 0.15s ease;
+ }
+ details.footer-tech-audit > summary::-webkit-details-marker { display: none; }
+ details.footer-tech-audit > summary:hover,
+ details.footer-tech-audit > summary:focus-visible {
+ color: #A0AEC0;
+ outline: none;
+ }
+ details.footer-tech-audit .footer-tech-body {
+ margin-top: 14px;
+ text-align: left;
+ }
+ details.footer-tech-audit a { margin: 0; }
 
  /* Full-Screen Stage Zoom Lightbox (#p2pLightbox) */
  .p2p-lightbox {
  position: fixed;
  inset: 0;
  z-index: 9999;
- background: rgba(7, 7, 7, 0.92);
+ background: rgba(7, 9, 14, 0.92);
  backdrop-filter: blur(8px);
  display: none;
  align-items: center;
@@ -960,9 +1295,9 @@
  display: flex;
  }
  .p2p-lb-dialog {
- background: #141414;
+ background: #121621;
  border: 1.5px solid var(--amber);
- border-radius: 14px;
+ border-radius: 16px;
  width: 100%;
  max-width: 920px;
  max-height: 94vh;
@@ -977,8 +1312,8 @@
  justify-content: space-between;
  gap: 14px;
  padding: 14px 18px;
- border-bottom: 1px solid #282828;
- background: #101010;
+ border-bottom: 1px solid #242B3D;
+ background: #0E121B;
  }
  .p2p-lb-title {
  font-size: 1.05rem;
@@ -988,16 +1323,16 @@
  }
  .p2p-lb-sub {
  font-size: 0.84rem;
- color: #BDBDBD;
+ color: #B4BCD0;
  margin-top: 2px;
  line-height: 1.35;
  }
  .p2p-lb-btn {
- background: #1C1C1C;
+ background: #171C29;
  color: #FFFFFF;
- border: 1px solid #3A3A3A;
- border-radius: 8px;
- padding: 7px 13px;
+ border: 1px solid #353E54;
+ border-radius: 12px;
+ padding: 7px 14px;
  font-size: 0.82rem;
  font-weight: 800;
  cursor: pointer;
@@ -1014,11 +1349,11 @@
  .p2p-lb-btn.p2p-lb-close:hover,
  .p2p-lb-btn.p2p-lb-close:focus-visible {
  background: var(--amber);
- color: #000000;
+ color: #0B0D13;
  border-color: var(--amber);
  }
  .p2p-lb-viewport {
- background: #0B0B0B;
+ background: #0B0D13;
  display: flex;
  align-items: center;
  justify-content: center;
@@ -1043,8 +1378,8 @@
  flex-wrap: wrap;
  gap: 10px;
  padding: 12px 18px;
- border-top: 1px solid #282828;
- background: #101010;
+ border-top: 1px solid #242B3D;
+ background: #0E121B;
  }
  .p2p-lb-nav {
  display: flex;
@@ -1052,17 +1387,69 @@
  gap: 8px;
  }
 
+ /* Manage Subscription Modal (#manageSubModal) */
+ .p2p-sub-dialog {
+ background: #121621;
+ border: 2px solid var(--amber);
+ border-radius: 18px;
+ width: 100%;
+ max-width: 560px;
+ overflow: hidden;
+ box-shadow: 0 22px 64px rgba(0, 0, 0, 0.88);
+ }
+ .p2p-sub-body {
+ padding: 18px 20px 20px;
+ color: #DCE3F0;
+ font-size: 0.87rem;
+ line-height: 1.52;
+ display: flex;
+ flex-direction: column;
+ gap: 12px;
+ }
+ .p2p-sub-step {
+ background: #0E121B;
+ border: 1px solid #262E42;
+ border-left: 3px solid var(--amber);
+ border-radius: 10px;
+ padding: 11px 13px;
+ }
+ .p2p-sub-step strong {
+ color: #FFFFFF;
+ display: block;
+ margin-bottom: 3px;
+ font-size: 0.88rem;
+ }
+ .p2p-sub-actions {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ padding: 14px 20px;
+ border-top: 1px solid #242B3D;
+ background: #0E121B;
+ justify-content: flex-end;
+ }
+
  @media (max-width: 920px) {
  .hero-split { grid-template-columns: 1fr; }
  .hero-cta-stack { max-width: 100%; }
- .pricing-grid, .trust-bar { grid-template-columns: 1fr; }
+ .pricing-grid, .headache-bento-grid { grid-template-columns: 1fr; }
  .preflight-grid { grid-template-columns: repeat(2, 1fr); }
  .hw-strip { grid-template-columns: repeat(2, 1fr); }
  .nav-links a.nav-item { display: none; }
  }
  @media (max-width: 600px) {
- .showcase-grid { grid-template-columns: 1fr; }
- .luna-sample-links, .luna-proof-links, .preflight-grid { grid-template-columns: 1fr; }
+ .hero-showcase { padding: 11px 10px; }
+ .showcase-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+ .stage-card { padding: 6px 5px; border-radius: 10px; }
+ .stage-img-box { margin-bottom: 6px; border-radius: 7px; }
+ .stage-zoom-badge { width: 22px; height: 22px; top: 4px; right: 4px; font-size: 0.62rem; }
+ .showcase-arrow { width: 20px; height: 20px; font-size: 0.64rem; top: 36%; }
+ .stage-head-row { gap: 4px; }
+ .stage-step-badge { width: 17px; height: 17px; font-size: 0.62rem; }
+ .stage-title { font-size: 0.68rem; }
+ .stage-sub { display: none; }
+ .stage-caption { font-size: 0.58rem; padding: 3px 4px; }
+ .luna-sample-links, .preflight-grid { grid-template-columns: 1fr; }
  .preflight-shell { padding: 18px 14px; }
  .hero-cta-stack-row { grid-template-columns: 1fr; }
  .p2p-lightbox { padding: 10px; }
@@ -1107,7 +1494,6 @@
 
  <nav class="nav-links" aria-label="Primary Navigation">
  <a href="#workflow" class="nav-item">How it works</a>
- <a href="#preflight" class="nav-item">CAD Preflight</a>
  <a href="#pricing" class="nav-item">Pricing</a>
  <a href="#faq" class="nav-item">FAQ</a>
  <a href="vault.html" class="btn-guide-nav">🗄️ CAD Vault</a>
@@ -1118,10 +1504,10 @@
  </header>
 
  <main class="container">
- <!-- 01 · TWO-COLUMN HERO (Option B: Pure White + Amber Gold #FFB300) -->
+ <!-- 01 · TWO-COLUMN HERO (Dark-Carbon #0B0D13 + Warm Amber Gold #FFB300) -->
  <section class="hero">
  <div class="hero-split">
- <!-- Left Column: Benefit-First Headline, Slogan & Action -->
+ <!-- Left Column: Benefit-First Headline, Zero-Risk Hook & 1-Click Starter Pills -->
  <div>
  <h1>
  <span class="hero-kicker-row">
@@ -1138,6 +1524,7 @@
 
  <div class="hero-cta-stack">
  <a href="https://app.ivolgaco.com/" class="btn-primary" style="width:100%;">📤 Try Your Artwork Free →</a>
+ <div class="hero-zero-risk">✨ No login · No credit card · Free 25mm cutaway proof in 15 sec</div>
  <div class="hero-cta-stack-row">
  <a href="https://app.ivolgaco.com/" class="btn-secondary">Explore Pixel2Path Studio</a>
  <a href="guide.html" class="btn-secondary">📖 Official User Guide</a>
@@ -1145,26 +1532,31 @@
  </div>
 
  <div class="hero-micro-trust">
- 🟢 <strong>Free 25mm 75% cutaway proof</strong> &nbsp;·&nbsp; <strong>All 23 Tool Modes</strong> &nbsp;·&nbsp; <strong>SVG, DXF &amp; STL</strong> &nbsp;·&nbsp; Oriole &amp; Christmas Tree Demos
+ 🟢 <strong>All 23 Tool Modes</strong> &nbsp;·&nbsp; <strong>SVG, DXF &amp; STL</strong> &nbsp;·&nbsp; 1-Click Oriole &amp; Christmas Tree Demos
  </div>
  </div>
 
- <!-- Right Column: 3-Stage Visual Demonstration (1. Artwork -> 2. Geometry -> 3. Make it) -->
+ <!-- Right Column: 3-Stage Simultaneous Portrait Showcase + Automatic 1 -> 2 -> 3 Spotlight Wave -->
+ <div class="hero-showcase-ambient">
  <div class="hero-showcase" id="real-work">
  <div class="showcase-header">
- <span>📐 ONE REAL EXAMPLE ACROSS ALL THREE STAGES</span>
- <span style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;">
- <span style="color:var(--amber);font-size:0.74rem;font-weight:700;">🔍 Click any stage to zoom</span>
+ <span>📐 REAL LUNA EXAMPLE · ALL 3 STAGES AT A GLANCE</span>
+ <span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;">
+ <span style="color:var(--amber);font-size:0.73rem;font-weight:700;">🔍 Click any stage to zoom</span>
  <span style="color:var(--green);">✅ 1:1 MM CALIBRATED</span>
  </span>
  </div>
 
  <div class="showcase-grid">
- <!-- Stage 1: Artwork -->
- <div class="stage-card">
+ <!-- Animated #FFB300 Flow Connector Badges -->
+ <div class="showcase-arrow arrow-1" id="showcaseArrow1" aria-hidden="true">➔</div>
+ <div class="showcase-arrow arrow-2" id="showcaseArrow2" aria-hidden="true">➔</div>
+
+ <!-- Card 1: 1. Raw Photo -->
+ <div class="stage-card active-stage" data-stage-card="0">
  <div>
- <div class="stage-img-box" role="button" tabindex="0" data-stage-index="0" aria-label="Zoom Stage 1: Artwork full-resolution image">
- <img src="proof-raw.jpg" alt="Source multi-color logo artwork uploaded to Pixel2Path Studio before 1:1mm vector and 3D stamp conversion" width="2048" height="2048" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+ <div class="stage-img-box stage-box-raw" role="button" tabindex="0" data-stage-index="0" aria-label="Zoom Stage 1: Raw Photo full-resolution image">
+ <img src="proof-raw.jpg" class="pos-luna-raw" alt="Source multi-color portrait photo uploaded to Pixel2Path Studio before 1:1mm vector and 3D stamp conversion" width="2048" height="2048" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
  <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">
  <svg width="105" height="105" viewBox="0 0 400 400" role="img" aria-label="Source multi-color Oriole logo input">
  <circle cx="200" cy="200" r="165" fill="#FFFFFF" stroke="#4A4A4A" stroke-width="8"/>
@@ -1174,116 +1566,79 @@
  <circle cx="140" cy="192" r="7" fill="#14100C"/>
  </svg>
  </div>
+ <span class="stage-zoom-badge" aria-hidden="true">🔍</span>
  </div>
- <div class="stage-title">1. Artwork</div>
- <div class="stage-sub">Upload design, custom text, or 1-click Oriole / Christmas Tree demo</div>
+ <div class="stage-head-row">
+ <span class="stage-step-badge">1</span>
+ <span class="stage-title">Raw Photo</span>
  </div>
- <div class="stage-caption">PNG, JPG, WEBP, SVG, HEIC or Text</div>
+ <div class="stage-sub">Upload photo, logo, text, or 1-click demo</div>
+ </div>
+ <div class="stage-caption">PNG, JPG, WEBP, SVG, HEIC</div>
  </div>
 
- <!-- Stage 2: Geometry -->
- <div class="stage-card active-stage">
+ <!-- Card 2: 2. Trace & Shape -->
+ <div class="stage-card" data-stage-card="1">
  <div>
- <div class="stage-img-box dark-box stage-box-trace" role="button" tabindex="0" data-stage-index="1" aria-label="Zoom Stage 2: Tool and Shape full-resolution image">
- <img src="proof-processed.jpg" class="pos-luna-trace" alt="1:1 millimeter calibrated vector and 3D stamp geometry preview with Step 2B silhouette and 0.45mm nozzle wall guard in Pixel2Path Studio" width="1632" height="2592" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+ <div class="stage-img-box stage-box-trace" role="button" tabindex="0" data-stage-index="1" aria-label="Zoom Stage 2: Trace and Shape full-resolution image">
+ <img src="proof-processed.jpg" class="pos-luna-trace" alt="1:1 millimeter calibrated vector and 3D stamp geometry preview with Step 2B Octagon silhouette and arched LUNA text in Pixel2Path Studio" width="1632" height="2592" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
  <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
  <svg width="105" height="105" viewBox="0 0 400 400" role="img" aria-label="1:1 millimeter calibrated vector mask preview">
- <circle cx="200" cy="200" r="165" fill="none" stroke="#FFFFFF" stroke-width="12"/>
- <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#FFFFFF"/>
- <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#FFFFFF"/>
- <path d="M 122,193 C 132,184 150,182 168,187 C 184,191 196,190 212,180 C 228,196 245,218 262,246 C 222,258 196,248 178,233 Z" fill="#FFFFFF" stroke="#000" stroke-width="10"/>
+ <circle cx="200" cy="200" r="165" fill="none" stroke="#1C1814" stroke-width="12"/>
+ <path d="M 168,224 C 138,236 95,256 62,268 C 98,298 135,292 175,278 L 214,256 Z" fill="#1C1814"/>
+ <path d="M 198,196 C 218,162 246,118 265,86 C 328,118 328,185 293,238 C 282,244 265,245 246,240 Z" fill="#1C1814"/>
  </svg>
  </div>
+ <span class="stage-zoom-badge" aria-hidden="true">🔍</span>
  </div>
- <div class="stage-title">2. Tool &amp; Shape</div>
- <div class="stage-sub">Pick machine, tool function &amp; outer silhouette</div>
+ <div class="stage-head-row">
+ <span class="stage-step-badge">2</span>
+ <span class="stage-title">Trace &amp; Shape</span>
  </div>
- <div class="stage-caption" style="border-left-color:var(--green);">1:1 mm (±0.05mm) + 17 Boutique Forms</div>
+ <div class="stage-sub">Auto-trace + arched text &amp; 17 silhouettes</div>
+ </div>
+ <div class="stage-caption" style="border-left-color:var(--green);">1:1 mm (±0.05mm) + Plaque</div>
  </div>
 
- <!-- Stage 3: Make it -->
- <div class="stage-card">
+ <!-- Card 3: 3. Make It (.STL + .SVG) -->
+ <div class="stage-card" data-stage-card="2">
  <div>
- <div class="stage-img-box dark-box stage-box-cad" role="button" tabindex="0" data-stage-index="2" aria-label="Zoom Stage 3: Make it full-resolution image">
- <img src="proof-bambu.jpg" class="pos-luna-cad" alt="Watertight 3D printable stamp STL mesh on solid baseplate sliced at 1:1 millimeter scale in Bambu Studio" width="1792" height="2400" loading="eager" fetchpriority="high" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+ <div class="stage-img-box stage-box-cad" role="button" tabindex="0" data-stage-index="2" aria-label="Zoom Stage 3: Make It 3D STL and SVG full-resolution image">
+ <img src="proof-bambu.jpg" class="pos-luna-cad" alt="Watertight 3D printable stamp STL mesh on solid baseplate sliced at 1:1 millimeter scale in Bambu Studio alongside hairline LightBurn SVG vectors" width="1792" height="2400" loading="eager" fetchpriority="high" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
  <div style="display:none;align-items:center;justify-content:center;width:100%;height:100%;flex-direction:column;">
  <svg width="115" height="92" viewBox="0 0 160 125" role="img" aria-label="3D stamp solid mesh on baseplate">
  <polygon points="80,76 142,96 80,116 18,96" fill="#262626" stroke="#81C784" stroke-width="1.5"/>
  <ellipse cx="80" cy="72" rx="42" ry="18" fill="#FFB300" stroke="#FFFFFF" stroke-width="1.2"/>
  </svg>
  </div>
+ <span class="stage-zoom-badge" aria-hidden="true">🔍</span>
  </div>
- <div class="stage-title">3. Make it</div>
- <div class="stage-sub">Export and produce at 1:1 scale</div>
+ <div class="stage-head-row">
+ <span class="stage-step-badge">3</span>
+ <span class="stage-title">Make It (.STL + .SVG)</span>
  </div>
- <div class="stage-caption">Watertight .STL, Bezier .SVG &amp; .DXF</div>
+ <div class="stage-sub">Slice 3D stamp or cut hairline vectors</div>
+ </div>
+ <div class="stage-caption">Watertight .STL, .SVG &amp; .DXF</div>
  </div>
  </div>
 
- <!-- Ungated LUNA Raw CAD Sample Downloads (0 Login / 0 Passcode) -->
+ <!-- Friendly 3-File Maker CAD Sample Footer (0 Login) -->
  <div class="luna-sample-bar" id="luna-samples">
  <div class="luna-sample-head">
- <span>📥 Inspect Raw 1:1 mm LUNA Digital CAD Outputs &amp; Plain-Text Proofs (0 Login / 0 Passcode)</span>
+ <span>📥 Inspect Real 1:1 mm LUNA CAD Outputs (0 Login):</span>
+ <span style="color:var(--green);font-size:0.73rem;">✅ ±0.05 mm Calibrated</span>
  </div>
  <div class="luna-sample-links">
- <a href="/samples/luna-3d-stamp.stl" download class="luna-dl-btn">🧊 3D Stamp <code>.STL</code> (2.27 MB)</a>
- <a href="/samples/luna-laser-patch.svg" download class="luna-dl-btn">⚡ Laser Vector <code>.SVG</code> (237 KB)</a>
- <a href="/samples/luna-cad-vectors.dxf" download class="luna-dl-btn">📐 R2010 CAD <code>.DXF</code> (182 KB)</a>
- </div>
- <div class="luna-proof-links" aria-label="Plain-Text CAD Topology Proofs for Engineers and AI Crawlers">
- <a href="/samples/CAD_AUDIT_REPORT.md" class="luna-proof-btn">📄 CAD Audit <code>.MD</code></a>
- <a href="/samples/audit_benchmarks.py" class="luna-proof-btn">🐍 Audit Script <code>.PY</code></a>
- <a href="/samples/luna-laser-patch.svg.txt" class="luna-proof-btn">📝 Raw SVG XML <code>.TXT</code></a>
+ <a href="/samples/luna-3d-stamp.stl" download class="luna-dl-btn">🧊 3D Stamp <code>.STL</code></a>
+ <a href="/samples/luna-laser-patch.svg" download class="luna-dl-btn">⚡ Laser Patch <code>.SVG</code></a>
+ <a href="/samples/luna-cad-vectors.dxf" download class="luna-dl-btn">📐 CAD Vectors <code>.DXF</code></a>
  </div>
  <div class="luna-digital-notice">
- 100% Digital CAD Software — Instant .STL, .SVG &amp; .DXF File Exports for Your Own 3D Printer, Laser, Plotter, Die Board, or CNC (No Physical Tools Shipped).
+ 100% Digital CAD Software (No Physical Tools Shipped) — Instant <code>.STL</code>, <code>.SVG</code> &amp; <code>.DXF</code> files for your own 3D printer, laser, plotter, die board, or CNC.
  </div>
  </div>
  </div>
- </div>
-
- <!-- Plain-HTML LUNA Benchmark CAD Geometry Verification Table -->
- <div class="luna-verify-panel" aria-label="LUNA CAD Geometry Verification Benchmarks">
- <div class="luna-verify-header">
- <span><strong>🔬 Verified LUNA Benchmark CAD Geometry Specs</strong> — Direct Slicer, Laser &amp; CAM Inspection</span>
- <span class="luna-verify-actions">
- <a href="/samples/CAD_AUDIT_REPORT.md">Full Audit Report (.MD)</a>
- <a href="/samples/audit_benchmarks.py">Audit Script (.PY)</a>
- <a href="/samples/luna-laser-patch.svg.txt">Plain-Text SVG (.TXT)</a>
- <a href="https://github.com/ivanou18-dot/pixel2path-benchmarks" target="_blank" rel="noopener noreferrer">Open Benchmark Repo on GitHub →</a>
- </span>
- </div>
- <div class="comp-table-wrap" style="margin-top:0;">
- <table class="luna-spec-table">
- <thead>
- <tr>
- <th>Raw Digital CAD File</th>
- <th>Preset &amp; Calibration Profile</th>
- <th>Measured 1:1 mm Bounding Box (±0.05 mm)</th>
- <th>Verified Topology, Layers &amp; Scale Reference</th>
- </tr>
- </thead>
- <tbody>
- <tr>
- <td><a href="/samples/luna-3d-stamp.stl" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-3d-stamp.stl</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">2,385,284 bytes (Binary STL)</span></td>
- <td>Mirrored Octagon 3D Stamp<br /><code>0.4 mm</code> FDM nozzle guard • <code>3.0 mm</code> solid baseplate + <code>2.5 mm</code> relief</td>
- <td><strong>Graphic BBox:</strong> <code>58.0 × 107.0 mm</code> (<code>58.00 × 107.07 mm</code>)<br /><strong>Octagon XYZ Mesh:</strong> <code>78.88 × 127.95 × 5.50 mm</code> (<code>+33,129.80 mm³</code> solid)</td>
- <td><code>103</code> islands / <code>58</code> inner holes • <strong>Watertight 2-Manifold (<code>3F = 2E</code>):</strong> <code>47,704</code> triangles (<code>3F = 143,112</code>) &amp; <code>71,556</code> undirected edges (<code>2E = 143,112</code>; <code>0</code> open boundary / non-manifold edges)</td>
- </tr>
- <tr>
- <td><a href="/samples/luna-laser-patch.svg" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-laser-patch.svg</a> · <a href="/samples/luna-laser-patch.svg.txt" style="color:var(--green);font-weight:700;text-decoration:underline;font-size:0.72rem;">.svg.txt</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">242,655 bytes (1:1 mm XML)</span></td>
- <td>Unmirrored Laser Vector<br /><code>0.10 mm</code> kerf • Cubic Bezier <code>fill-rule="evenodd"</code> compound path</td>
- <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.0000 × 110.7638 mm</code>)<br /><strong>SVG Root:</strong> <code>viewBox="0.0 0.0 125.0 110.764"</code> (<code>125.0mm × 110.764mm</code>)</td>
- <td><code>173 / 173</code> closed <code>'Z'</code> subpaths (<code>0</code> open, <code>0</code> duplicates, <code>4,620</code> Bezier segments) • <code>#FF0000</code> <code>0.0882 mm</code> hairline + <code>#00A859</code> <code>50.000 × 50.000 mm</code> <code>"50mm REF"</code> calibration <code>&lt;rect&gt;</code></td>
- </tr>
- <tr>
- <td><a href="/samples/luna-cad-vectors.dxf" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-cad-vectors.dxf</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">185,919 bytes (ASCII DXF)</span></td>
- <td>Unmirrored AutoCAD R2010<br /><code>$ACADVER = AC1024</code> • <code>$INSUNITS = 4</code> (<code>units.MM</code>)</td>
- <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.0000 × 110.7638 mm</code>)<br /><strong>Scale Square:</strong> <code>50.000 × 50.000 mm</code> (<code>X: 70.0..120.0</code>, <code>Y: 0.0..50.0</code>)</td>
- <td><code>174 / 174</code> closed <code>LWPOLYLINE</code> loops (<code>flag 70 &amp; 1 == 1</code>, <code>0</code> open, <code>0</code> duplicates, <code>lineweight=9</code> / <code>0.09 mm</code>) • Layers: <code>LASER_OR_CUT_PATHS</code> (<code>173</code>), <code>SCALE_REF_50MM</code> (<code>1</code>), <code>0</code>, <code>Defpoints</code></td>
- </tr>
- </tbody>
- </table>
  </div>
  </div>
  </section>
@@ -1321,6 +1676,100 @@
  <span>V-Carve Vectors, M5/M8 Tap Bores &amp; 12° Draft 3D Solids</span>
  <code>.DXF (Default) • .STL • .SVG</code>
  </a>
+ </div>
+
+ <!-- Visual Hook 1: Interactive Boutique Stamp Silhouettes Strip -->
+ <div class="silhouette-showcase" aria-label="Step 2B Boutique Stamp and Cut Silhouettes">
+ <div class="silhouette-head">
+ <div class="silhouette-title">✨ <span>Step 2B Boutique Stamp &amp; Cut Silhouettes</span> — Click any form to preview live:</div>
+ <div class="silhouette-caption">+ 9 more parametric shapes built in — zero Illustrator round-trips</div>
+ </div>
+ <div class="silhouette-track">
+ <a href="https://app.ivolgaco.com/?preset=stamp" rel="nofollow" class="silhouette-tile" title="Launch Circle / Medallion silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <circle cx="32" cy="32" r="23" stroke-width="2.3" />
+ <circle cx="32" cy="32" r="17.5" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.65" fill="none" />
+ </svg>
+ <span>⚪ Circle</span>
+ </a>
+ <a href="https://app.ivolgaco.com/?preset=stamp" rel="nofollow" class="silhouette-tile" title="Launch Rounded Rectangle silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <rect x="8" y="13" width="48" height="38" rx="10" stroke-width="2.3" />
+ <rect x="13.5" y="18.5" width="37" height="27" rx="6" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.65" fill="none" />
+ </svg>
+ <span>🔲 Rounded</span>
+ </a>
+ <a href="https://app.ivolgaco.com/?preset=laser" rel="nofollow" class="silhouette-tile" title="Launch Shield / Crest silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <path d="M32 8 L53 15 V30 C53 43.5 43.5 52 32 57 C20.5 52 11 43.5 11 30 V15 Z" stroke-width="2.3" stroke-linejoin="round" />
+ <path d="M32 14 L47.5 19.2 V29.5 C47.5 39.8 40.2 46.5 32 50.8 C23.8 46.5 16.5 39.8 16.5 29.5 V19.2 Z" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.65" fill="none" />
+ </svg>
+ <span>🛡️ Shield</span>
+ </a>
+ <a href="https://app.ivolgaco.com/?preset=stamp" rel="nofollow" class="silhouette-tile" title="Launch Perforated Postage Stamp silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <path d="M 10,10 H 15 A 3,3 0 0 0 21,10 H 24.5 A 3,3 0 0 0 30.5,10 H 33.5 A 3,3 0 0 0 39.5,10 H 43 A 3,3 0 0 0 49,10 H 54 V 15 A 3,3 0 0 0 54,21 V 24.5 A 3,3 0 0 0 54,30.5 V 33.5 A 3,3 0 0 0 54,39.5 V 43 A 3,3 0 0 0 54,49 V 54 H 49 A 3,3 0 0 0 43,54 H 39.5 A 3,3 0 0 0 33.5,54 H 30.5 A 3,3 0 0 0 24.5,54 H 21 A 3,3 0 0 0 15,54 H 10 V 49 A 3,3 0 0 0 10,43 V 39.5 A 3,3 0 0 0 10,33.5 V 30.5 A 3,3 0 0 0 10,24.5 V 21 A 3,3 0 0 0 10,15 Z" stroke-width="2.1" stroke-linejoin="round" />
+ <rect x="17" y="17" width="30" height="30" rx="2" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.65" fill="none" />
+ </svg>
+ <span>📮 Postage</span>
+ </a>
+ <a href="https://app.ivolgaco.com/?preset=stamp" rel="nofollow" class="silhouette-tile" title="Launch Wavy / Scalloped Medallion silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <path d="M 52.5,32.0 A 6.2,6.2 0 0 1 49.8,42.3 A 6.2,6.2 0 0 1 42.3,49.8 A 6.2,6.2 0 0 1 32.0,52.5 A 6.2,6.2 0 0 1 21.8,49.8 A 6.2,6.2 0 0 1 14.2,42.3 A 6.2,6.2 0 0 1 11.5,32.0 A 6.2,6.2 0 0 1 14.2,21.8 A 6.2,6.2 0 0 1 21.8,14.2 A 6.2,6.2 0 0 1 32.0,11.5 A 6.2,6.2 0 0 1 42.3,14.2 A 6.2,6.2 0 0 1 49.8,21.8 A 6.2,6.2 0 0 1 52.5,32.0 Z" stroke-width="2.1" stroke-linejoin="round" />
+ <circle cx="32" cy="32" r="15.5" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.65" fill="none" />
+ </svg>
+ <span>☁️ Scalloped</span>
+ </a>
+ <a href="https://app.ivolgaco.com/?preset=laser" rel="nofollow" class="silhouette-tile" title="Launch Ticket Stub silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <path d="M 14,15 H 50 A 6,6 0 0 0 56,21 V 43 A 6,6 0 0 0 50,49 H 14 A 6,6 0 0 0 8,43 V 21 A 6,6 0 0 0 14,15 Z" stroke-width="2.3" stroke-linejoin="round" />
+ <rect x="15" y="20.5" width="34" height="23" rx="2" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.65" fill="none" />
+ </svg>
+ <span>🎟️ Ticket Stub</span>
+ </a>
+ <a href="https://app.ivolgaco.com/?preset=clicker" rel="nofollow" class="silhouette-tile" title="Launch Hexagon silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <polygon points="32,8 52.8,20 52.8,44 32,56 11.2,44 11.2,20" stroke-width="2.3" stroke-linejoin="round" />
+ <polygon points="32,14 47.6,23 47.6,41 32,50 16.4,41 16.4,23" stroke-width="1.1" stroke-dasharray="3 2.5" opacity="0.65" fill="none" />
+ </svg>
+ <span>⬡ Hexagon</span>
+ </a>
+ <a href="https://app.ivolgaco.com/?preset=cnc" rel="nofollow" class="silhouette-tile" title="Launch Hanko Chop silhouette in Studio">
+ <svg viewBox="0 0 64 64" aria-hidden="true">
+ <rect x="19" y="8" width="26" height="48" rx="13" stroke-width="2.3" />
+ <rect x="23.5" y="12.5" width="17" height="39" rx="8.5" stroke-width="1.1" opacity="0.7" fill="none" />
+ <path d="M32 18 V46 M27.5 26 H36.5 M27.5 36 H36.5" stroke-width="1.2" stroke-linecap="round" opacity="0.6" />
+ </svg>
+ <span>🎋 Hanko</span>
+ </a>
+ </div>
+ </div>
+
+ <!-- Visual Hook 2: 3-Tile "Maker Headaches Eliminated" Dark Bento Row -->
+ <div class="headache-bento-wrap" aria-label="Common Maker CAD Headaches Eliminated Automatically">
+ <div class="headache-bento-kicker">🛠️ Three Classic <span>Maker CAD Headaches</span> — Eliminated Automatically</div>
+ <div class="headache-bento-grid">
+ <article class="headache-card">
+ <div class="headache-before">❌ Vanished 0.4mm Slicer Walls</div>
+ <div class="headache-arrow">↓ 1-Click Fix</div>
+ <div class="headache-after">✅ Stepped 0.42mm Clay Blade &amp; FDM Nozzle Guard</div>
+ <p class="headache-note">Conditions thin walls (≥0.45mm) and builds stepped 0.42mm Arachne cutting lips so fine lines never disappear in Bambu or PrusaSlicer.</p>
+ </article>
+
+ <article class="headache-card">
+ <div class="headache-before">❌ Hand-Placing 80 Stitch Holes</div>
+ <div class="headache-arrow">↓ 1-Click Fix</div>
+ <div class="headache-after">✅ 1-Click 1.1mm LightBurn &amp; Clicker Die Layers</div>
+ <p class="headache-note">Generates evenly spaced 1.1mm laser &amp; 1.2mm punch loops along any patch silhouette on dedicated <code>STITCH_HOLES</code> and cut layers.</p>
+ </article>
+
+ <article class="headache-card">
+ <div class="headache-before">❌ Backwards Stamp Letters</div>
+ <div class="headache-arrow">↓ 1-Click Fix</div>
+ <div class="headache-after">✅ Auto-Mirror Face-Down Stamp &amp; Cutter Guard</div>
+ <p class="headache-note">Automatically mirrors rubber stamps, wax seals, brass dies, and 2-part stamp faces so every pressed impression reads forward on the first try.</p>
+ </article>
+ </div>
  </div>
 
  <div class="seo-pill-strip">
@@ -1414,15 +1863,194 @@
  </div>
  </section>
 
- <!-- 02B · AUTOMATED MANUFACTURING PREFLIGHT & CAD VALIDATION (#0B0D13 / #FFB300) -->
- <section id="preflight" aria-labelledby="preflight-heading">
+ <!-- 03 · SIMPLE, TRANSPARENT MAKER PRICING -->
+ <section id="pricing">
  <div class="section-header">
- <h2 id="preflight-heading">🛡️ Automated Manufacturing <span>Preflight &amp; Validation</span></h2>
- <p>Every <code>.STL</code>, <code>.SVG</code>, and <code>.DXF</code> export passes six deterministic CAD geometry and physical toolhead checks before download — independently audited in plain text below.</p>
+ <h2>Simple, Transparent <span>Maker Pricing</span></h2>
+ <p>Test any of the 23 machine modes free with a 25mm 75% Cutaway Proof first. All deterministic 100% uncut .STL, .DXF, and .SVG exports use 0 credits and are unlimited on paid passes.</p>
  </div>
 
+ <div class="pricing-grid">
+ <div class="price-card tier-free">
+ <div>
+ <div class="card-kicker">FREE SLICER &amp; CAD PROOF</div>
+ <h3>25mm 75% Cutaway Proof</h3>
+ <div class="price-amount">$0 <span>/ forever</span></div>
+ <ul class="price-list">
+ <li>✓ Upload PNG, JPG, WEBP, SVG, HEIC or load <strong>Oriole / Christmas Tree Demo</strong></li>
+ <li>✓ Preview &amp; test <strong>all 5 machines, 23 tools &amp; 17 silhouettes</strong></li>
+ <li>✓ Up to <strong>3 free Advanced Vision trial passes</strong> per session</li>
+ <li>✓ Up to <strong>3 free 25mm 75% Cutaway Proofs</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>)</li>
+ <li>✓ Inspect <code>0.42mm</code> Arachne blades, <code>0.70mm</code> clearance, tap bores &amp; 1:1 mm scale</li>
+ </ul>
+ </div>
+ <a href="https://app.ivolgaco.com/" class="btn-secondary price-cta-btn">Try Free 25mm Proof →</a>
+ </div>
+
+ <div class="price-card tier-pass">
+ <span class="craft-pill-ribbon">🎟️ Most Popular · Weekend Pass</span>
+ <div>
+ <div class="card-kicker">SINGLE PROJECT / WEEKEND RUN</div>
+ <h3>24-Hr Craftsman Pass</h3>
+ <div class="price-amount">$8 <span>/ 24 hours (one-time)</span></div>
+ <ul class="price-list">
+ <li>✓ <strong>Unlimited 100% uncut 1:1 full-scale exports</strong> (up to 350mm in <code>.STL</code>, <code>.DXF</code> &amp; <code>.SVG</code>)</li>
+ <li>✓ Full uncut production for all <strong>23 Tool Modes</strong> (<em>Wax Seals, Clay Cutters, 2-Part Sets &amp; M5/M8 Dies</em>)</li>
+ <li>✓ Includes <strong>3 <a href="vault.html" style="color:var(--amber);text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP Packs</strong></li>
+ <li>✓ Includes <strong>25 Advanced Vision Credits</strong> (shadow delighting, cleanup &amp; banknote intaglio)</li>
+ <li>✓ Includes <strong>20 <a href="troubleshooter.html" style="color:var(--amber);text-decoration:underline;">AI Workshop Troubleshooter</a> Turns</strong> (live photo diagnosis)</li>
+ <li>✓ Instant cross-device key (<code>TPS-XXXX-XXXX</code>, 1 active device; 24-hr clock starts at checkout)</li>
+ </ul>
+ </div>
+ <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="nofollow noopener noreferrer" class="btn-primary price-cta-btn">Get 24-Hr Pass ($8) ⚡</a>
+ </div>
+
+ <div class="price-card tier-monthly">
+ <div>
+ <div class="card-kicker">REPEAT MAKERS &amp; WORKSHOPS</div>
+ <h3>Studio Monthly</h3>
+ <div class="price-amount">$25 <span>/ month</span></div>
+ <ul class="price-list">
+ <li>✓ <strong>Always-on studio access</strong> for repeat client &amp; shop orders</li>
+ <li>✓ <strong>Unlimited 1:1 .STL, .DXF &amp; .SVG exports</strong> + all <strong>Step 2B Pro Tool Presets</strong></li>
+ <li>✓ <strong>Unlimited <a href="vault.html" style="color:var(--amber);text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP Downloads</strong></li>
+ <li>✓ Includes <strong>150 Advanced Vision Credits / mo</strong> (resets to 150 every 30 days; no rollover)</li>
+ <li>✓ Includes <strong>100 <a href="troubleshooter.html" style="color:var(--amber);text-decoration:underline;">AI Workshop Troubleshooter</a> Turns / mo</strong> (0 Studio credits used)</li>
+ <li>✓ Cancel anytime — <a href="#manage-subscription" data-open-sub-modal style="color:var(--amber);font-weight:700;text-decoration:underline;">Manage or cancel →</a></li>
+ </ul>
+ </div>
+ <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer" class="btn-primary price-cta-btn">Start Studio Monthly ($25/mo) 🏆</a>
+ </div>
+ </div>
+
+ <!-- Concise 5-Question Maker FAQ (1:1 Synced with JSON-LD FAQPage) -->
+ <div class="faq-list" id="faq" style="margin-top: 28px;">
+ <details class="faq-item">
+ <summary>How do I convert text, a logo, or arched text + logo to .SVG, .DXF, or a custom-shaped 3D stamp?</summary>
+ <div class="faq-body">
+ In <strong>Pixel2Path Studio</strong>, choose <em>🖼️ Logo / Photo</em> (PNG, JPG, WEBP, SVG, TIFF, BMP, GIF, or HEIC — or load the built-in <strong>🐦 Golden Oriole</strong> or <strong>🎄 Christmas Tree</strong> 0-credit demo), <em>✍️ Custom Text</em>, or <em>🔀 Logo + Text Combo</em> (straight or concentrically arched). Select your machine in Step 2, pick your <strong>Tool Function</strong> and any of the <strong>17 Boutique Stamp / Cut Silhouettes</strong> (such as <em>Circle, Shield, Postage Stamp, Scalloped, Contour Offset, Stitch-Hole Hat Patch, Keychain Tab, or Polymer Clay Micro-Cutter</em>) in Step 2B, set your millimeter width, and export a 1:1 mm <code>.STL</code>, Cubic Bezier Compound Path <code>.SVG</code> (<code>0.0882mm / 0.25pt</code> hairline), or R2010 <code>.DXF</code> (<code>0.09mm</code> hairline).
+ </div>
+ </details>
+
+ <details class="faq-item">
+ <summary>Should I choose .SVG or .DXF for Laser Engravers, Clicker Dies, CNC, and Vinyl Plotters?</summary>
+ <div class="faq-body">
+ Both formats are included. <strong><code>.SVG</code></strong> is the default for <strong>Laser Engravers</strong> and <strong>Vinyl Plotters</strong> (Cricut Design Space, Adobe Illustrator, LightBurn, Glowforge)—it exports tangent-continuous Cubic Bezier curves as a unified <code>&lt;Compound Path&gt;</code> with inner holes pre-grouped (<code>fill-rule="evenodd"</code>) in a 1:1 millimeter <code>viewBox</code> with an exact <code>0.0882mm (0.25pt)</code> hairline stroke, plus dedicated paths for outer borders and stitch holes. <strong><code>.DXF</code></strong> is the default for <strong>Clicker Dies</strong> and <strong>CNC / Brass Dies</strong> (AutoCAD, SolidWorks, Fusion 360, Vectric VCarve, die-board lasers) and for free <strong>Silhouette Studio Basic Edition</strong>, exporting closed R2010 <code>LWPOLYLINE</code> loops (<code>lineweight=9</code> / <code>0.09 mm</code> hairline) across dedicated layers (<code>LASER_OR_CUT_PATHS</code>, <code>OUTER_BORDER_CUT</code>, <code>STITCH_HOLES</code>, <code>STEEL_RULE_CUT</code>, <code>RAISED_RELIEF</code>, <code>BASEPLATE_CUT</code>).
+ </div>
+ </details>
+
+ <details class="faq-item">
+ <summary>What uses Advanced Vision Credits vs. Unlimited CAD Exports (and what is included in the Free 25mm 75% Cutaway Proof)?</summary>
+ <div class="faq-body">
+ Uploading artwork (or testing the 1-click <strong>Golden Oriole</strong> or <strong>Christmas Tree</strong> 0-credit demos), live previewing all 23 Step 2B tool functions and 17 silhouettes, up to <strong>3 free guest Advanced Vision trial passes per session</strong>, and up to <strong>3 free 25mm 75% Cutaway Proof downloads</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>) are <strong>100% free across all 23 modes</strong>—including <em>Polymer Clay Micro-Cutters, 2-Part Cutter + Stamp pairs, Recessed Cavity Seals, and M5/M8 Threaded Brass Dies</em> (<em>each free proof exports an intentional 1-quadrant cross-section cutaway so you can verify <code>0.42mm</code> Arachne blades, <code>0.70mm</code> stamp clearance, tap-bore depth, and closed 2D kerf paths before unlocking a pass, while ultra-dense graphics verified at larger widths are protected from 25mm shrink fusion</em>). On paid passes (<strong>$8 24-Hr Craftsman Pass</strong> with 25 credits, or <strong>$25/mo Studio Monthly</strong> with 150 credits/month resetting every 30 days with no rollover), all deterministic tracing, <strong>0-credit Intaglio-to-3D-Relief conversion</strong>, Banknote hatching, custom arched text, all Step 2B tool presets &amp; silhouettes, and <strong>100% uncut 1:1 mm <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads</strong> use <strong>0 credits</strong> and are <strong>100% unlimited</strong>. Only using the <strong>Advanced Vision Pipeline</strong> for shadow delighting / background cleanup or Banknote Intaglio transformation uses <strong>1 credit at most once per uploaded image</strong>.
+ </div>
+ </details>
+
+ <details class="faq-item">
+ <summary>How do I switch from my phone to my desktop computer after purchasing a pass?</summary>
+ <div class="faq-body">
+ Immediately after Stripe checkout, your screen displays your personal <strong>Cross-Device Access Key</strong> (<code>TPS-XXXX-XXXX</code>). Paste that key into the app on your Windows PC or Mac to transfer your unlocked session and remaining credit balance instantly. Passes include <strong>Single-Device Active Session Lock</strong> protection (1 active device at a time—entering your key on a second device seamlessly transfers your session and signs out the previous device, while verifying on the <a href="vault.html" style="color:var(--amber);font-weight:700;">CAD Vault</a> or <a href="troubleshooter.html" style="color:var(--amber);font-weight:700;">AI Troubleshooter</a> never logs out your studio session).
+ </div>
+ </details>
+
+ <details class="faq-item">
+ <summary>Are my uploaded client logos and artwork kept private?</summary>
+ <div class="faq-body">
+ Yes. Uploaded images (capped at <code>25 MB</code> raster / <code>2 MB</code> SVG with magic-header &amp; XML sanitization) and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. Payments run via <strong>Stripe</strong>, pass counters via <strong>Supabase</strong>, and <strong>Advanced Vision</strong> via an encrypted enterprise vision endpoint that strictly never trains public models. See <a href="guide.html#privacy-terms" style="color:var(--amber);font-weight:700;">Privacy, Data Processors &amp; Billing Terms</a> for full details.
+ </div>
+ </details>
+ </div>
+
+ <!-- Prominent Bottom Launch App & Manual CTA Panel -->
+ <div class="cta-panel">
+ <h2 style="font-size: 1.75rem; margin-bottom: 8px;">Ready to Generate Your Custom Stamp or Cut File?</h2>
+ <p style="color: var(--text-muted); max-width: 660px; margin: 0 auto;">
+ Upload your graphic in <strong>Pixel2Path Studio</strong> (or load the 1-click Golden Oriole or Christmas Tree demo) to preview all 23 tool functions &amp; 17 silhouettes and download a <strong>Free 25mm 75% Cutaway Proof</strong>. Unlock 100% uncut full-scale 1:1 production anytime.
+ </p>
+ <div class="cta-buttons">
+ <a href="https://app.ivolgaco.com/" class="btn-primary">📤 Try Your Artwork Free →</a>
+ <a href="vault.html" class="btn-secondary">🗄️ Ready-to-Cut CAD Vault</a>
+ <a href="troubleshooter.html" class="btn-secondary">🛠️ Workshop Troubleshooter</a>
+ <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="nofollow noopener noreferrer" class="btn-secondary">⚡ 24-Hr Craftsman Pass ($8)</a>
+ <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer" class="btn-secondary">🏆 Studio Monthly ($25/mo)</a>
+ <a href="guide.html" class="btn-secondary">📖 Official User Guide</a>
+ </div>
+ </div>
+ </section>
+ </main>
+
+ <footer>
+ <p><strong>© 2026 Ivolga Co. • Digital Fabrication Studio • California, USA.</strong></p>
+ <p style="margin: 6px auto; max-width: 800px; color: #9E9E9E; font-size: 0.8rem;">
+ Compatible Slicer, Laser &amp; CAD Software: Exports standard 1:1 millimeter <code>.STL</code>, R2010 <code>.DXF</code>, and Cubic Bezier Compound Path <code>.SVG</code> files compatible with Bambu Studio, OrcaSlicer, PrusaSlicer, UltiMaker Cura, LightBurn, Adobe Illustrator, AutoCAD, Fusion 360, Vectric VCarve / Aspire, Cricut Design Space, and Silhouette Studio.
+ </p>
+ <p style="margin-top: 8px;">
+ <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> •
+ <a href="clay-cutter-stl-generator.html">Clay Cutter .STL Generator</a> •
+ <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
+ <a href="vault.html">Ready-to-Cut CAD Vault</a> •
+ <a href="troubleshooter.html">AI Troubleshooter</a> •
+ <a href="guide.html">Official User Guide</a> •
+ <a href="guide.html#privacy-terms">Privacy &amp; Terms</a> •
+ <a href="#manage-subscription" data-open-sub-modal>Manage Subscription</a> •
+ <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="nofollow noopener noreferrer">24-Hr Pass ($8)</a> •
+ <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer">Studio Monthly ($25/mo)</a> •
+ <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
+ </p>
+
+ <!-- Quiet Low-Contrast Technical CAD Specifications & Plain-Text Crawler Audit -->
+ <details id="preflight" class="footer-tech-audit">
+ <summary>Technical CAD Specifications &amp; Plain-Text Audit ▾</summary>
+ <div class="footer-tech-body">
  <div class="preflight-shell">
- <div class="preflight-grid">
+ <div class="preflight-proof-top" style="margin-bottom: 12px;">
+ <span><strong>🔬 Verified 1:1 mm LUNA CAD Geometry Benchmarks &amp; 6-Gate Manufacturing Preflight</strong> — Served as <code>text/plain; charset=utf-8</code> for reproducible slicer, laser, CAM &amp; AI audit inspection:</span>
+ </div>
+
+ <div class="luna-audit-links" aria-label="Plain-Text CAD Topology Proofs and Benchmark Repository">
+ <a href="/samples/CAD_AUDIT_REPORT.md" class="luna-proof-btn">📄 Full Audit Report <code>CAD_AUDIT_REPORT.md</code></a>
+ <a href="/samples/audit_benchmarks.py" class="luna-proof-btn">🐍 Audit Script <code>audit_benchmarks.py</code></a>
+ <a href="/samples/luna-laser-patch.svg.txt" class="luna-proof-btn">📝 Raw SVG XML <code>luna-laser-patch.svg.txt</code></a>
+ <a href="https://github.com/ivanou18-dot/pixel2path-benchmarks" target="_blank" rel="noopener noreferrer" class="luna-proof-btn">🐙 Open Benchmark Repo on GitHub →</a>
+ <a href="/samples/luna-3d-stamp.stl" download class="luna-proof-btn">🧊 <code>luna-3d-stamp.stl</code></a>
+ <a href="/samples/luna-laser-patch.svg" download class="luna-proof-btn">⚡ <code>luna-laser-patch.svg</code></a>
+ <a href="/samples/luna-cad-vectors.dxf" download class="luna-proof-btn">📐 <code>luna-cad-vectors.dxf</code></a>
+ </div>
+
+ <div class="comp-table-wrap" style="margin-top:0; margin-bottom:16px;">
+ <table class="luna-spec-table">
+ <thead>
+ <tr>
+ <th>Raw Digital CAD File</th>
+ <th>Preset &amp; Calibration Profile</th>
+ <th>Measured 1:1 mm Bounding Box (±0.05 mm)</th>
+ <th>Verified Topology, Layers &amp; Scale Reference</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><a href="/samples/luna-3d-stamp.stl" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-3d-stamp.stl</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">2,385,284 bytes (Binary STL)</span></td>
+ <td>Mirrored Octagon 3D Stamp<br /><code>0.4 mm</code> FDM nozzle guard • <code>3.0 mm</code> solid baseplate + <code>2.5 mm</code> relief</td>
+ <td><strong>Graphic BBox:</strong> <code>58.0 × 107.0 mm</code> (<code>58.00 × 107.07 mm</code>)<br /><strong>Octagon XYZ Mesh:</strong> <code>78.88 × 127.95 × 5.50 mm</code> (<code>+33,129.80 mm³</code> solid)</td>
+ <td><code>103</code> islands / <code>58</code> inner holes • <strong>Watertight 2-Manifold (<code>3F = 2E</code>):</strong> <code>47,704</code> triangles (<code>3F = 143,112</code>) &amp; <code>71,556</code> undirected edges (<code>2E = 143,112</code>; <code>0</code> open boundary / non-manifold edges)</td>
+ </tr>
+ <tr>
+ <td><a href="/samples/luna-laser-patch.svg" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-laser-patch.svg</a> · <a href="/samples/luna-laser-patch.svg.txt" style="color:var(--green);font-weight:700;text-decoration:underline;font-size:0.72rem;">.svg.txt</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">242,655 bytes (1:1 mm XML)</span></td>
+ <td>Unmirrored Laser Vector<br /><code>0.10 mm</code> kerf • Cubic Bezier <code>fill-rule="evenodd"</code> compound path</td>
+ <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.0000 × 110.7638 mm</code>)<br /><strong>SVG Root:</strong> <code>viewBox="0.0 0.0 125.0 110.764"</code> (<code>125.0mm × 110.764mm</code>)</td>
+ <td><code>173 / 173</code> closed <code>'Z'</code> subpaths (<code>0</code> open, <code>0</code> duplicates, <code>4,620</code> Bezier segments) • <code>#FF0000</code> <code>0.0882 mm</code> hairline + <code>#00A859</code> <code>50.000 × 50.000 mm</code> (<code>50.0 × 50.0 mm</code>) <code>"50mm REF"</code> calibration <code>&lt;rect&gt;</code></td>
+ </tr>
+ <tr>
+ <td><a href="/samples/luna-cad-vectors.dxf" download style="color:var(--amber);font-weight:800;text-decoration:underline;">luna-cad-vectors.dxf</a><br /><span style="color:#9E9E9E;font-size:0.72rem;">185,919 bytes (ASCII DXF)</span></td>
+ <td>Unmirrored AutoCAD R2010<br /><code>$ACADVER = AC1024</code> • <code>$INSUNITS = 4</code> (<code>units.MM</code>)</td>
+ <td><strong>Graphic BBox:</strong> <code>60.0 × 110.7 mm</code> (<code>60.0000 × 110.7638 mm</code>)<br /><strong>Scale Square:</strong> <code>50.000 × 50.000 mm</code> (<code>50.0 × 50.0 mm</code>; <code>X: 70.0..120.0</code>, <code>Y: 0.0..50.0</code>)</td>
+ <td><code>174 / 174</code> closed <code>LWPOLYLINE</code> loops (<code>flag 70 &amp; 1 == 1</code>, <code>0</code> open, <code>0</code> duplicates, <code>lineweight=9</code> / <code>0.09 mm</code>) • Layers: <code>LASER_OR_CUT_PATHS</code> (<code>173</code>), <code>SCALE_REF_50MM</code> (<code>1</code>), <code>0</code>, <code>Defpoints</code></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="preflight-grid" style="margin-bottom:0;">
  <article class="preflight-card">
  <div class="preflight-card-head">
  <span class="preflight-num">01</span>
@@ -1471,173 +2099,9 @@
  <p>Conditions geometry backwards from real toolheads: <code>≥ 0.45 mm</code> FDM walls (<code>0.42 mm</code> stepped clay blades, <code>0.70 mm</code> 2-part clearance), <code>0.10 mm</code> laser kerf with <code>0.0882 mm</code> CAD hairline output, <code>≥ 0.75 mm</code> vinyl strokes, <code>2 pt</code> clicker bend radii, and un-shrunk M5/M8 tap-bore <code>1.5 mm</code> wall clearance.</p>
  </article>
  </div>
-
- <div class="preflight-proof-bar">
- <div class="preflight-proof-top">
- <span><strong>✅ Reproducible Plain-Text &amp; Raw CAD Proofs (22 / 22 Invariants Verified)</strong> — Served as <code>text/plain; charset=utf-8</code> so engineers &amp; AI crawlers can audit every coordinate directly:</span>
  </div>
- <div class="preflight-link-row">
- <a href="/samples/CAD_AUDIT_REPORT.md" class="preflight-chip">📄 Audit Report <code>CAD_AUDIT_REPORT.md</code></a>
- <a href="/samples/audit_benchmarks.py" class="preflight-chip">🐍 Verification Script <code>audit_benchmarks.py</code></a>
- <a href="/samples/luna-laser-patch.svg.txt" class="preflight-chip">📝 Plain-Text SVG XML <code>luna-laser-patch.svg.txt</code></a>
- <a href="/samples/luna-3d-stamp.stl" download class="preflight-chip">🧊 <code>luna-3d-stamp.stl</code></a>
- <a href="/samples/luna-laser-patch.svg" download class="preflight-chip">⚡ <code>luna-laser-patch.svg</code></a>
- <a href="/samples/luna-cad-vectors.dxf" download class="preflight-chip">📐 <code>luna-cad-vectors.dxf</code></a>
- </div>
- </div>
- </div>
- </section>
-
- <!-- 03 · SIMPLE, TRANSPARENT MAKER PRICING -->
- <section id="pricing">
- <div class="section-header">
- <h2>Simple, Transparent <span>Maker Pricing</span></h2>
- <p>Test any of the 23 machine modes free with a 25mm 75% Cutaway Proof first. All deterministic 100% uncut .STL, .DXF, and .SVG exports use 0 credits and are unlimited on paid passes.</p>
- </div>
-
- <div class="pricing-grid">
- <div class="price-card">
- <div>
- <div class="card-kicker">FREE SLICER &amp; CAD PROOF</div>
- <h3>25mm 75% Cutaway Proof</h3>
- <div class="price-amount">$0 <span>/ forever</span></div>
- <ul class="price-list">
- <li>✓ Upload PNG, JPG, WEBP, SVG, HEIC or load <strong>Oriole / Christmas Tree Demo</strong></li>
- <li>✓ Preview &amp; test <strong>all 5 machines, 23 tools &amp; 17 silhouettes</strong></li>
- <li>✓ Up to <strong>3 free Advanced Vision trial passes</strong> per session</li>
- <li>✓ Up to <strong>3 free 25mm 75% Cutaway Proofs</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>)</li>
- <li>✓ Inspect <code>0.42mm</code> Arachne blades, <code>0.70mm</code> clearance, tap bores &amp; 1:1 mm scale</li>
- </ul>
- </div>
- <a href="https://app.ivolgaco.com/" class="btn-secondary" style="width:100%;">Try Free 25mm Proof →</a>
- </div>
-
- <div class="price-card card-featured">
- <div>
- <div class="card-kicker">SINGLE PROJECT / WEEKEND RUN</div>
- <h3>24-Hr Craftsman Pass</h3>
- <div class="price-amount">$8 <span>/ 24 hours (one-time)</span></div>
- <ul class="price-list">
- <li>✓ <strong>Unlimited 100% uncut 1:1 full-scale exports</strong> (up to 350mm in <code>.STL</code>, <code>.DXF</code> &amp; <code>.SVG</code>)</li>
- <li>✓ Full uncut production for all <strong>23 Tool Modes</strong> (<em>Wax Seals, Clay Cutters, 2-Part Sets &amp; M5/M8 Dies</em>)</li>
- <li>✓ Includes <strong>3 <a href="vault.html" style="color:var(--amber);text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP Packs</strong></li>
- <li>✓ Includes <strong>25 Advanced Vision Credits</strong> (shadow delighting, cleanup &amp; banknote intaglio)</li>
- <li>✓ Includes <strong>20 <a href="troubleshooter.html" style="color:var(--amber);text-decoration:underline;">AI Workshop Troubleshooter</a> Turns</strong> (live photo diagnosis)</li>
- <li>✓ Instant cross-device key (<code>TPS-XXXX-XXXX</code>, 1 active device; 24-hr clock starts at checkout)</li>
- </ul>
- </div>
- <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="nofollow noopener noreferrer" class="btn-primary" style="width:100%;">Get 24-Hr Pass ($8) ⚡</a>
- </div>
-
- <div class="price-card card-featured">
- <div>
- <div class="card-kicker">REPEAT MAKERS &amp; WORKSHOPS</div>
- <h3>Studio Monthly</h3>
- <div class="price-amount">$25 <span>/ month</span></div>
- <ul class="price-list">
- <li>✓ <strong>Always-on studio access</strong> for repeat client &amp; shop orders</li>
- <li>✓ <strong>Unlimited 1:1 .STL, .DXF &amp; .SVG exports</strong> + all <strong>Step 2B Pro Tool Presets</strong></li>
- <li>✓ <strong>Unlimited <a href="vault.html" style="color:var(--amber);text-decoration:underline;">Ready-to-Cut CAD Vault</a> .ZIP Downloads</strong></li>
- <li>✓ Includes <strong>150 Advanced Vision Credits / mo</strong> (resets to 150 every 30 days; no rollover)</li>
- <li>✓ Includes <strong>100 <a href="troubleshooter.html" style="color:var(--amber);text-decoration:underline;">AI Workshop Troubleshooter</a> Turns / mo</strong> (0 Studio credits used)</li>
- <li>✓ Cancel anytime (1-click Stripe Billing Portal in Studio, receipt link, or email)</li>
- </ul>
- </div>
- <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer" class="btn-primary" style="width:100%;">Start Studio Monthly ($25/mo) 🏆</a>
- </div>
- </div>
-
- <!-- Concise 5-Question FAQ (1:1 Synced with JSON-LD FAQPage) -->
- <div class="faq-list" id="faq" style="margin-top: 28px;">
- <details class="faq-item">
- <summary>How do I convert text, a logo, or arched text + logo to .SVG, .DXF, or a custom-shaped 3D stamp?</summary>
- <div class="faq-body">
- In <strong>Pixel2Path Studio</strong>, choose <em>🖼️ Logo / Photo</em> (PNG, JPG, WEBP, SVG, TIFF, BMP, GIF, or HEIC — or load the built-in <strong>🐦 Golden Oriole</strong> or <strong>🎄 Christmas Tree</strong> 0-credit demo), <em>✍️ Custom Text</em>, or <em>🔀 Logo + Text Combo</em> (straight or concentrically arched). Select your machine in Step 2, pick your <strong>Tool Function</strong> and any of the <strong>17 Boutique Stamp / Cut Silhouettes</strong> (such as <em>Circle, Shield, Postage Stamp, Scalloped, Contour Offset, Stitch-Hole Hat Patch, Keychain Tab, or Polymer Clay Micro-Cutter</em>) in Step 2B, set your millimeter width, and export a 1:1 mm <code>.STL</code>, Cubic Bezier Compound Path <code>.SVG</code> (<code>0.0882mm / 0.25pt</code> hairline), or R2010 <code>.DXF</code> (<code>0.09mm</code> hairline).
  </div>
  </details>
-
- <details class="faq-item">
- <summary>Should I choose .SVG or .DXF for Laser Engravers, Clicker Dies, CNC, and Vinyl Plotters?</summary>
- <div class="faq-body">
- Both formats are included. <strong><code>.SVG</code></strong> is the default for <strong>Laser Engravers</strong> and <strong>Vinyl Plotters</strong> (Cricut Design Space, Adobe Illustrator, LightBurn, Glowforge)—it exports tangent-continuous Cubic Bezier curves as a unified <code>&lt;Compound Path&gt;</code> with inner holes pre-grouped (<code>fill-rule="evenodd"</code>) in a 1:1 millimeter <code>viewBox</code> with an exact <code>0.0882mm (0.25pt)</code> hairline stroke, plus dedicated paths for outer borders and stitch holes. <strong><code>.DXF</code></strong> is the default for <strong>Clicker Dies</strong> and <strong>CNC / Brass Dies</strong> (AutoCAD, SolidWorks, Fusion 360, Vectric VCarve, die-board lasers) and for free <strong>Silhouette Studio Basic Edition</strong>, exporting closed R2010 <code>LWPOLYLINE</code> loops (<code>lineweight=9</code> / <code>0.09 mm</code> hairline) across dedicated layers (<code>LASER_OR_CUT_PATHS</code>, <code>OUTER_BORDER_CUT</code>, <code>STITCH_HOLES</code>, <code>STEEL_RULE_CUT</code>, <code>RAISED_RELIEF</code>, <code>BASEPLATE_CUT</code>).
- </div>
- </details>
-
- <details class="faq-item">
- <summary>What uses Advanced Vision Credits vs. Unlimited CAD Exports (and what is included in the Free 25mm 75% Cutaway Proof)?</summary>
- <div class="faq-body">
- Uploading artwork (or testing the 1-click <strong>Golden Oriole</strong> or <strong>Christmas Tree</strong> 0-credit demos), live previewing all 23 Step 2B tool functions and 17 silhouettes, up to <strong>3 free guest Advanced Vision trial passes per session</strong>, and up to <strong>3 free 25mm 75% Cutaway Proof downloads</strong> (<code>.STL</code>, <code>.DXF</code>, or <code>.SVG</code>) are <strong>100% free across all 23 modes</strong>—including <em>Polymer Clay Micro-Cutters, 2-Part Cutter + Stamp pairs, Recessed Cavity Seals, and M5/M8 Threaded Brass Dies</em> (<em>each free proof exports an intentional 1-quadrant cross-section cutaway so you can verify <code>0.42mm</code> Arachne blades, <code>0.70mm</code> stamp clearance, tap-bore depth, and closed 2D kerf paths before unlocking a pass, while ultra-dense graphics verified at larger widths are protected from 25mm shrink fusion</em>). On paid passes (<strong>$8 24-Hr Craftsman Pass</strong> with 25 credits, or <strong>$25/mo Studio Monthly</strong> with 150 credits/month resetting every 30 days with no rollover), all deterministic tracing, <strong>0-credit Intaglio-to-3D-Relief conversion</strong>, Banknote hatching, custom arched text, all Step 2B tool presets &amp; silhouettes, and <strong>100% uncut 1:1 mm <code>.STL</code>, <code>.DXF</code>, and <code>.SVG</code> downloads</strong> use <strong>0 credits</strong> and are <strong>100% unlimited</strong>. Only using the <strong>Advanced Vision Pipeline</strong> for shadow delighting / background cleanup or Banknote Intaglio transformation uses <strong>1 credit at most once per uploaded image</strong>.
- </div>
- </details>
-
- <details class="faq-item">
- <summary>How do I switch from my phone to my desktop computer after purchasing a pass?</summary>
- <div class="faq-body">
- Immediately after Stripe checkout, your screen displays your personal <strong>Cross-Device Access Key</strong> (<code>TPS-XXXX-XXXX</code>). Paste that key into the app on your Windows PC or Mac to transfer your unlocked session and remaining credit balance instantly. Passes include <strong>Single-Device Active Session Lock</strong> protection (1 active device at a time—entering your key on a second device seamlessly transfers your session and signs out the previous device, while verifying on the <a href="vault.html" style="color:var(--amber);font-weight:700;">CAD Vault</a> or <a href="troubleshooter.html" style="color:var(--amber);font-weight:700;">AI Troubleshooter</a> never logs out your studio session).
- </div>
- </details>
-
- <details class="faq-item">
- <summary>Are my uploaded client logos and artwork kept private?</summary>
- <div class="faq-body">
- Yes. Uploaded images (capped at <code>25 MB</code> raster / <code>2 MB</code> SVG with magic-header &amp; XML sanitization) and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. Payments run via <strong>Stripe</strong>, pass counters via <strong>Supabase</strong>, and <strong>Advanced Vision</strong> via an encrypted enterprise vision endpoint that strictly never trains public models. See <a href="guide.html#privacy-terms" style="color:var(--amber);font-weight:700;">Privacy, Data Processors &amp; Billing Terms</a> for full details.
- </div>
- </details>
- </div>
-
- <!-- Trust, Advanced Vision Privacy & Precise Outer BBox Tolerance Disclosure -->
- <div class="trust-bar">
- <div>
- <strong>🔒 Advanced Vision &amp; Artwork Privacy Disclosure</strong>
- Uploaded images (<code>≤25 MB</code> raster / <code>≤2 MB</code> SVG) and generated CAD files are processed in volatile memory (RAM) during your active session and automatically purged—never permanently stored, shared, or published. Advanced Vision uses an encrypted enterprise vision endpoint and never trains public models. <a href="guide.html#privacy-terms" style="color:var(--amber);font-weight:700;">Privacy &amp; Processor Details →</a>
- </div>
- <div>
- <strong>📐 Outer Bounding-Box Tolerance &amp; Machine Guards</strong>
- External bounding-box width and height are calibrated after morphological filtering to within <strong>±0.05mm</strong> of your requested target width. To prevent physical toolhead failure, sub-spec internal strokes and grooves are automatically conditioned for your machine profile (<strong>≥0.45mm</strong> walls &amp; <strong>≥0.52mm</strong> grooves for 0.4mm FDM nozzles, <strong>≥0.75mm</strong> for vinyl weeding, and <strong>≥0.38mm</strong> for CNC 3D meshes). Always verify material settings, press tonnage, and laser kerf using a free 25mm 75% cutaway proof.
- </div>
- <div>
- <strong>🛡️ Support &amp; Subscription Cancellation</strong>
- Studio Monthly subscribers can cancel anytime in 1 click via the <strong>💳 Manage or Cancel Studio Monthly Subscription</strong> expander inside an unlocked Studio session, via their Stripe receipt email, or by emailing <a href="mailto:contact@ivolgaco.com" style="color:var(--amber);font-weight:700;">contact@ivolgaco.com</a>. Need live setup help? Open the <a href="troubleshooter.html" style="color:var(--amber);font-weight:700;">AI Workshop Troubleshooter →</a>
- </div>
- </div>
-
- <!-- Prominent Bottom Launch App & Manual CTA Panel -->
- <div class="cta-panel">
- <h2 style="font-size: 1.75rem; margin-bottom: 8px;">Ready to Generate Your Custom Stamp or Cut File?</h2>
- <p style="color: var(--text-muted); max-width: 660px; margin: 0 auto;">
- Upload your graphic in <strong>Pixel2Path Studio</strong> (or load the 1-click Golden Oriole or Christmas Tree demo) to preview all 23 tool functions &amp; 17 silhouettes and download a <strong>Free 25mm 75% Cutaway Proof</strong>. Unlock 100% uncut full-scale 1:1 production anytime.
- </p>
- <div class="cta-buttons">
- <a href="https://app.ivolgaco.com/" class="btn-primary">📤 Try Your Artwork Free →</a>
- <a href="vault.html" class="btn-secondary">🗄️ Ready-to-Cut CAD Vault</a>
- <a href="troubleshooter.html" class="btn-secondary">🛠️ Workshop Troubleshooter</a>
- <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="nofollow noopener noreferrer" class="btn-secondary">⚡ 24-Hr Craftsman Pass ($8)</a>
- <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer" class="btn-secondary">🏆 Studio Monthly ($25/mo)</a>
- <a href="guide.html" class="btn-secondary">📖 Official User Guide</a>
- </div>
- </div>
- </section>
- </main>
-
- <footer>
- <p><strong>© 2026 Ivolga Co. • Digital Fabrication Studio • California, USA.</strong></p>
- <p style="margin: 6px auto; max-width: 800px; color: #9E9E9E; font-size: 0.8rem;">
- Compatible Slicer, Laser &amp; CAD Software: Exports standard 1:1 millimeter <code>.STL</code>, R2010 <code>.DXF</code>, and Cubic Bezier Compound Path <code>.SVG</code> files compatible with Bambu Studio, OrcaSlicer, PrusaSlicer, UltiMaker Cura, LightBurn, Adobe Illustrator, AutoCAD, Fusion 360, Vectric VCarve / Aspire, Cricut Design Space, and Silhouette Studio.
- </p>
- <p style="margin-top: 8px;">
- <a href="https://app.ivolgaco.com/">Launch Pixel2Path Studio</a> •
- <a href="#preflight">CAD Preflight &amp; Validation</a> •
- <a href="/samples/CAD_AUDIT_REPORT.md">LUNA CAD Audit (.MD)</a> •
- <a href="clay-cutter-stl-generator.html">Clay Cutter .STL Generator</a> •
- <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
- <a href="vault.html">Ready-to-Cut CAD Vault</a> •
- <a href="troubleshooter.html">AI Troubleshooter</a> •
- <a href="guide.html">Official User Guide</a> •
- <a href="guide.html#privacy-terms">Privacy &amp; Terms</a> •
- <a href="https://buy.stripe.com/00w00lcsOdWu36XcHvfjG00" target="_blank" rel="nofollow noopener noreferrer">24-Hr Pass ($8)</a> •
- <a href="https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01" target="_blank" rel="nofollow noopener noreferrer">Studio Monthly ($25/mo)</a> •
- <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
- </p>
  </footer>
 
  <!-- Full-Screen Stage Zoom Lightbox Modal -->
@@ -1663,12 +2127,159 @@
  </div>
  </div>
 
+ <!-- Manage Studio Monthly Subscription Modal (#manageSubModal) -->
+ <div id="manageSubModal" class="p2p-lightbox" role="dialog" aria-modal="true" aria-labelledby="manageSubTitle" aria-hidden="true">
+ <div class="p2p-sub-dialog">
+ <div class="p2p-lb-header">
+ <div>
+ <div id="manageSubTitle" class="p2p-lb-title">💳 Manage or Cancel Studio Monthly ($25/mo)</div>
+ <div class="p2p-lb-sub">Cancel anytime before your next 30-day cycle — three easy ways:</div>
+ </div>
+ <button type="button" id="manageSubClose" class="p2p-lb-btn p2p-lb-close" aria-label="Close subscription dialog">✕ Close</button>
+ </div>
+ <div class="p2p-sub-body">
+ <div class="p2p-sub-step">
+ <strong>1. Via Your Stripe Receipt Email (Instant, 0 Key Needed)</strong>
+ Open any monthly receipt email from Stripe for Ivolga Co. and click the <em>Manage Subscription</em> link to open your Stripe Customer Billing Portal directly.
+ </div>
+ <div class="p2p-sub-step">
+ <strong>2. Inside Pixel2Path Studio (Step 3 Billing Portal)</strong>
+ Enter your <code>TPS-XXXX-XXXX</code> Access Key in Studio and open the <em>💳 Manage or Cancel Studio Monthly Subscription</em> expander in Step 3 for 1-click Stripe Billing Portal access.
+ </div>
+ <div class="p2p-sub-step">
+ <strong>3. Direct Email Support</strong>
+ Email <a href="mailto:contact@ivolgaco.com?subject=Manage%20or%20Cancel%20Studio%20Monthly%20Subscription" style="color:var(--amber);font-weight:700;text-decoration:underline;">contact@ivolgaco.com</a> from your checkout email address (or include your <code>TPS-XXXX-XXXX</code> key) and we will cancel it promptly.
+ </div>
+ </div>
+ <div class="p2p-sub-actions">
+ <a href="mailto:contact@ivolgaco.com?subject=Manage%20or%20Cancel%20Studio%20Monthly%20Subscription" class="btn-secondary" style="padding:9px 15px;font-size:0.84rem;">✉️ Email Support</a>
+ <a href="https://app.ivolgaco.com/" rel="nofollow" class="btn-primary" style="padding:9px 18px;font-size:0.86rem;">Open Studio Step 3 →</a>
+ </div>
+ </div>
+ </div>
+
  <script>
  (function () {
- var stageBoxes = Array.prototype.slice.call(document.querySelectorAll('#real-work .stage-img-box'));
- var lb = document.getElementById('p2pLightbox');
- if (!lb || !stageBoxes.length) return;
+ var subModal = document.getElementById('manageSubModal');
+ var subClose = document.getElementById('manageSubClose');
+ var subTriggers = Array.prototype.slice.call(document.querySelectorAll('[data-open-sub-modal]'));
+ var subReturnFocus = null;
 
+ function openSubModal(triggerEl) {
+ if (!subModal) return;
+ subReturnFocus = triggerEl || null;
+ subModal.classList.add('is-open');
+ subModal.setAttribute('aria-hidden', 'false');
+ document.body.style.overflow = 'hidden';
+ if (subClose) subClose.focus();
+ }
+
+ function closeSubModal() {
+ if (!subModal || !subModal.classList.contains('is-open')) return;
+ subModal.classList.remove('is-open');
+ subModal.setAttribute('aria-hidden', 'true');
+ document.body.style.overflow = '';
+ if (subReturnFocus && typeof subReturnFocus.focus === 'function') {
+ subReturnFocus.focus();
+ }
+ }
+
+ subTriggers.forEach(function (el) {
+ el.addEventListener('click', function (e) {
+ e.preventDefault();
+ openSubModal(el);
+ });
+ });
+
+ if (subClose) subClose.addEventListener('click', closeSubModal);
+ if (subModal) {
+ subModal.addEventListener('click', function (e) {
+ if (e.target === subModal) closeSubModal();
+ });
+ }
+ document.addEventListener('keydown', function (e) {
+ if (subModal && subModal.classList.contains('is-open') && e.key === 'Escape') {
+ e.preventDefault();
+ closeSubModal();
+ }
+ });
+ })();
+
+ (function () {
+ var showcaseRoot = document.getElementById('real-work');
+ var stageCards = Array.prototype.slice.call(document.querySelectorAll('#real-work .stage-card'));
+ var stageBoxes = Array.prototype.slice.call(document.querySelectorAll('#real-work .stage-img-box'));
+ var arrow1 = document.getElementById('showcaseArrow1');
+ var arrow2 = document.getElementById('showcaseArrow2');
+ var lb = document.getElementById('p2pLightbox');
+ if (!stageBoxes.length) return;
+
+ var spotIdx = 0;
+ var cycleTimer = null;
+ var isPaused = false;
+ var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+ function setSpotlight(idx, hovered) {
+ spotIdx = ((idx % stageCards.length) + stageCards.length) % stageCards.length;
+ stageCards.forEach(function (card, i) {
+ var active = (i === spotIdx);
+ card.classList.toggle('active-stage', active);
+ card.classList.toggle('is-hovered', Boolean(active && hovered));
+ });
+ if (arrow1) arrow1.classList.toggle('is-lit', spotIdx === 1);
+ if (arrow2) arrow2.classList.toggle('is-lit', spotIdx === 2);
+ }
+
+ function stopCycle() {
+ if (cycleTimer) {
+ clearInterval(cycleTimer);
+ cycleTimer = null;
+ }
+ }
+
+ function startCycle() {
+ stopCycle();
+ if (reduceMotion || isPaused || stageCards.length < 2) return;
+ cycleTimer = setInterval(function () {
+ if (isPaused || (lb && lb.classList.contains('is-open'))) return;
+ setSpotlight(spotIdx + 1, false);
+ }, 2800);
+ }
+
+ // Initialize Stage 1 spotlight and start calm 2.8s 1 -> 2 -> 3 wave
+ setSpotlight(0, false);
+ startCycle();
+
+ stageCards.forEach(function (card, idx) {
+ card.addEventListener('mouseenter', function () {
+ isPaused = true;
+ stopCycle();
+ setSpotlight(idx, true);
+ });
+ card.addEventListener('focusin', function () {
+ isPaused = true;
+ stopCycle();
+ setSpotlight(idx, true);
+ });
+ });
+
+ if (showcaseRoot) {
+ showcaseRoot.addEventListener('mouseleave', function () {
+ isPaused = false;
+ stageCards.forEach(function (c) { c.classList.remove('is-hovered'); });
+ startCycle();
+ });
+ showcaseRoot.addEventListener('focusout', function (e) {
+ if (!showcaseRoot.contains(e.relatedTarget)) {
+ isPaused = false;
+ stageCards.forEach(function (c) { c.classList.remove('is-hovered'); });
+ startCycle();
+ }
+ });
+ }
+
+ // Full-Screen Lightbox Modal (.p2p-lightbox)
+ if (!lb) return;
  var lbImg = document.getElementById('p2pLbImg');
  var lbTitle = document.getElementById('p2pLbTitle');
  var lbSub = document.getElementById('p2pLbSub');
@@ -1676,40 +2287,42 @@
  var btnClose = document.getElementById('p2pLbClose');
  var btnPrev = document.getElementById('p2pLbPrev');
  var btnNext = document.getElementById('p2pLbNext');
- var activeIndex = 0;
+ var lbActiveIndex = 0;
  var returnFocusEl = null;
 
- var stages = stageBoxes.map(function (box) {
+ var stages = stageBoxes.map(function (box, idx) {
  var card = box.closest('.stage-card');
  var img = box.querySelector('img');
  var titleEl = card ? card.querySelector('.stage-title') : null;
  var subEl = card ? card.querySelector('.stage-sub') : null;
  var capEl = card ? card.querySelector('.stage-caption') : null;
+ var stepLabel = (idx + 1) + '. ' + (titleEl ? titleEl.textContent.trim() : '');
  return {
  box: box,
  src: img ? img.getAttribute('src') : '',
  alt: img ? img.getAttribute('alt') : '',
- title: titleEl ? titleEl.textContent.trim() : '',
+ title: stepLabel,
  sub: subEl ? subEl.textContent.trim() : '',
  caption: capEl ? capEl.textContent.trim() : '',
  accentColor: (capEl && capEl.style.borderLeftColor) ? capEl.style.borderLeftColor : 'var(--amber)'
  };
  });
 
- function renderStage(idx) {
- activeIndex = (idx + stages.length) % stages.length;
- var item = stages[activeIndex];
+ function renderLightboxStage(idx) {
+ lbActiveIndex = (idx + stages.length) % stages.length;
+ var item = stages[lbActiveIndex];
  lbImg.src = item.src;
  lbImg.alt = item.alt;
  lbTitle.textContent = item.title;
  lbSub.textContent = item.sub;
  lbCaption.textContent = item.caption;
  lbCaption.style.borderLeftColor = item.accentColor;
+ setSpotlight(lbActiveIndex, false);
  }
 
  function openLightbox(idx, triggerEl) {
  returnFocusEl = triggerEl || stages[idx].box;
- renderStage(idx);
+ renderLightboxStage(idx);
  lb.classList.add('is-open');
  lb.setAttribute('aria-hidden', 'false');
  document.body.style.overflow = 'hidden';
@@ -1739,8 +2352,8 @@
  });
 
  btnClose.addEventListener('click', closeLightbox);
- btnPrev.addEventListener('click', function () { renderStage(activeIndex - 1); });
- btnNext.addEventListener('click', function () { renderStage(activeIndex + 1); });
+ btnPrev.addEventListener('click', function () { renderLightboxStage(lbActiveIndex - 1); });
+ btnNext.addEventListener('click', function () { renderLightboxStage(lbActiveIndex + 1); });
 
  lb.addEventListener('click', function (e) {
  if (e.target === lb) {
@@ -1755,10 +2368,10 @@
  closeLightbox();
  } else if (e.key === 'ArrowLeft') {
  e.preventDefault();
- renderStage(activeIndex - 1);
+ renderLightboxStage(lbActiveIndex - 1);
  } else if (e.key === 'ArrowRight') {
  e.preventDefault();
- renderStage(activeIndex + 1);
+ renderLightboxStage(lbActiveIndex + 1);
  }
  });
  })();
