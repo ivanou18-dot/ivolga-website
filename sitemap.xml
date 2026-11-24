@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ivolgaco.com/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -19,60 +19,60 @@
     <image:image>
       <image:loc>https://ivolgaco.com/proof-raw.jpg</image:loc>
       <image:title>Source Artwork Uploaded to Pixel2Path Studio by Ivolga Co.</image:title>
-      <image:caption>Multi-color logo, photo, or custom arched text input prior to 1:1 millimeter STL, SVG, and DXF fabrication conversion.</image:caption>
+      <image:caption>Multi-color logo, photo, or custom arched text input prior to 1:1 millimeter STL, 3MF, SVG, and DXF fabrication conversion.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ivolgaco.com/clay-cutter-stl-generator.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.96</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/laser-leather-patch-svg.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.96</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/vault.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/troubleshooter.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/guide.html</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/llms.txt</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.88</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/samples/CAD_AUDIT_REPORT.md</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.86</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/samples/audit_benchmarks.py</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://ivolgaco.com/samples/luna-laser-patch.svg.txt</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
