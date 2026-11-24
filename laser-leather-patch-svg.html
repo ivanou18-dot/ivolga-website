@@ -31,7 +31,7 @@
  <meta name="twitter:description" content="Instant 1:1mm .SVG &amp; R2010 .DXF exports with #FF0000 evenodd Bezier engraving paths, 1.1mm STITCH_HOLES, 17 patch silhouettes, and #00A859 50x50mm calibration boxes." />
  <meta name="twitter:image" content="https://ivolgaco.com/proof-processed.jpg" />
 
- <!-- Structured Data: Organization + BreadcrumbList + SoftwareApplication + FAQPage -->
+ <!-- Structured Data: Organization + BreadcrumbList + SoftwareApplication + VideoObject + FAQPage -->
  <script type="application/ld+json">
  {
  "@context": "https://schema.org",
@@ -82,13 +82,13 @@
  "operatingSystem": "Web Browser (Windows, macOS, iOS, Android)",
  "url": "https://app.ivolgaco.com/?preset=laser",
  "publisher": { "@id": "https://ivolgaco.com/#organization" },
- "description": "100% browser-based digital CAD software that converts PNG, JPG, WEBP, SVG, HEIC logos, photos, and concentrically arched text into 1:1 millimeter (±0.05mm) LightBurn/Glowforge Cubic Bezier .SVG compound paths and AutoCAD R2010 .DXF closed polylines with 1.1mm perimeter stitch holes, 17 boutique patch silhouettes, mirrored rubber stamp cutlines, steel-rule clicker die layers, and a 50x50mm calibration reference box. Digital CAD downloads only; no physical goods shipped.",
+ "description": "100% browser-based digital CAD software that converts PNG, JPG, WEBP, SVG, HEIC logos, photos, and concentrically arched text into 1:1 millimeter (±0.05mm) LightBurn/Glowforge Cubic Bezier .SVG compound paths and AutoCAD R2010 .DXF closed polylines across 24 Step 2B tool modes, including 1.1mm perimeter stitch holes, 17 boutique patch silhouettes, mirrored rubber stamp cutlines, steel-rule clicker die layers, and a 50x50mm calibration reference box. Digital CAD downloads only; no physical goods shipped.",
  "featureList": [
  "Stitch-Hole Leather Hat Patch preset: #FF0000 0.0882mm Cubic Bezier fill-rule=\"evenodd\" artwork path + #0055FF 1.1mm stitch holes at 3.8mm pitch + #000000 outer cut border",
  "17 parametric patch & tag silhouettes (Circle, Oval, Rounded Rect, Shield, Hexagon, Octagon, Ticket Stub, Apothecary Plaque, Banner, Contour Offset & more)",
  "Steel-Rule Clicker Die mode (.DXF / .SVG) on STEEL_RULE_CUT & 1.2mm STITCH_HOLES layers plus Mirrored Fold-Over Key Fob Dies",
  "Optional #00A859 (SCALE_REF_50MM) 50.0 x 50.0 mm calibration square to confirm exact 1:1 mm LightBurn, Illustrator, and CAD import scale",
- "Up to 3 free daily 25mm 75% Cutaway Vector Proofs (.SVG / .DXF) with no account required"
+ "Up to 3 free daily 25mm 75% Cutaway Vector Proofs (.SVG / .DXF) across all 24 Step 2B tool modes with no account required"
  ],
  "offers": [
  {
@@ -116,6 +116,21 @@
  "url": "https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01"
  }
  ]
+ },
+ {
+ "@type": "VideoObject",
+ "@id": "https://ivolgaco.com/laser-leather-patch-svg.html#video",
+ "name": "Convert Any PNG to 1:1mm LightBurn Laser Cut & Engrave SVG (Auto Ring Tab & Stitch Holes)",
+ "description": "Live walkthrough in Pixel2Path Studio converting a raster PNG into a 1:1 millimeter LightBurn-ready Cubic Bezier .SVG and R2010 .DXF with #FF0000 evenodd engraving compound paths, automatic 1.1mm perimeter stitch holes (#0055FF / STITCH_HOLES), crown-welded Ø 4.5mm keychain ring tabs (#000000 / OUTER_BORDER_CUT), and a 50x50mm calibration box.",
+ "thumbnailUrl": [
+ "https://i.ytimg.com/vi/uY-da6IkDlE/maxresdefault.jpg",
+ "https://i.ytimg.com/vi/uY-da6IkDlE/hqdefault.jpg"
+ ],
+ "uploadDate": "2026-11-19T12:00:00-07:00",
+ "duration": "PT1M38S",
+ "contentUrl": "https://www.youtube.com/watch?v=uY-da6IkDlE",
+ "embedUrl": "https://www.youtube-nocookie.com/embed/uY-da6IkDlE",
+ "publisher": { "@id": "https://ivolgaco.com/#organization" }
  },
  {
  "@type": "FAQPage",
@@ -173,7 +188,7 @@
  }
 
  * { box-sizing: border-box; margin: 0; padding: 0; }
- html { scroll-behavior: smooth; background-color: var(--bg-dark); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+ html { scroll-behavior: smooth; overflow-x: clip; background-color: var(--bg-dark); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
  body {
  background-color: var(--bg-dark);
  background-image:
@@ -302,6 +317,121 @@
  details.faq-item[open] summary::after { content: "−"; }
  .faq-body { margin-top: 10px; padding-top: 10px; border-top: 1px solid #262C3A; color: #CBD5E1; font-size: 0.86rem; line-height: 1.55; }
 
+ /* Privacy-Enhanced Click-to-Play YouTube Facade (100% Static at Rest) */
+ .video-showcase-card {
+ background: var(--bg-card);
+ border: 1.5px solid var(--border-subtle);
+ border-top: 3px solid var(--amber);
+ border-radius: 12px;
+ padding: 20px;
+ box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+ display: grid;
+ grid-template-columns: 1.22fr 0.78fr;
+ gap: 22px;
+ align-items: center;
+ }
+ .yt-facade {
+ position: relative;
+ width: 100%;
+ aspect-ratio: 16 / 9;
+ border-radius: 10px;
+ overflow: hidden;
+ background: #07090E;
+ border: 1px solid #2D364A;
+ }
+ .yt-facade-btn {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ padding: 0;
+ border: 0;
+ background-color: #090C14;
+ background-image:
+ radial-gradient(circle at 50% 45%, rgba(255, 179, 0, 0.14) 0%, rgba(9, 12, 20, 0) 68%),
+ linear-gradient(rgba(255, 179, 0, 0.05) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(255, 179, 0, 0.05) 1px, transparent 1px);
+ background-size: 100% 100%, 24px 24px, 24px 24px;
+ cursor: pointer;
+ display: block;
+ text-align: left;
+ color: inherit;
+ font: inherit;
+ }
+ .yt-facade-thumb {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+ }
+ .yt-facade-scrim {
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(180deg, rgba(11, 13, 19, 0.16) 0%, rgba(11, 13, 19, 0.62) 100%);
+ pointer-events: none;
+ }
+ .yt-play-badge {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 68px;
+ height: 48px;
+ border-radius: 12px;
+ background: var(--amber);
+ border: 2px solid #FFFFFF;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+ transition: background-color 0.15s ease, transform 0.15s ease;
+ pointer-events: none;
+ }
+ .yt-facade-btn:hover .yt-play-badge,
+ .yt-facade-btn:focus-visible .yt-play-badge {
+ background: var(--amber-hover);
+ transform: translate(-50%, -50%) scale(1.05);
+ }
+ .yt-facade-btn:focus-visible {
+ outline: 2px solid var(--amber);
+ outline-offset: 2px;
+ }
+ .yt-facade-meta {
+ position: absolute;
+ left: 12px;
+ bottom: 10px;
+ right: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 6px;
+ pointer-events: none;
+ }
+ .yt-facade-pill {
+ background: rgba(11, 13, 19, 0.88);
+ color: #F8FAFC;
+ border: 1px solid rgba(255, 179, 0, 0.5);
+ border-radius: 6px;
+ padding: 4px 9px;
+ font-size: 0.74rem;
+ font-weight: 800;
+ letter-spacing: 0.2px;
+ }
+ .yt-facade-iframe {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ border: 0;
+ display: block;
+ }
+ .video-notes h3 { font-size: 1.08rem; font-weight: 900; color: #FFFFFF; margin-bottom: 8px; line-height: 1.3; }
+ .video-notes ul { list-style: none; margin: 0 0 14px; display: flex; flex-direction: column; gap: 7px; }
+ .video-notes li { font-size: 0.84rem; color: #CBD5E1; line-height: 1.48; }
+ .video-notes li strong { color: var(--amber); }
+
  footer {
  border-top: 1px solid var(--border-subtle);
  padding: 28px 20px;
@@ -314,8 +444,15 @@
  footer a { color: var(--amber); text-decoration: none; margin: 0 6px; font-weight: 600; }
 
  @media (max-width: 900px) {
- .hero-grid, .spec-grid { grid-template-columns: 1fr; }
+ .hero-grid, .spec-grid, .video-showcase-card { grid-template-columns: 1fr; }
  .nav-links a.nav-item { display: none; }
+ }
+ @media (max-width: 600px) {
+ .video-showcase-card { padding: 14px; gap: 14px; }
+ .yt-play-badge { width: 54px; height: 38px; top: 43%; border-radius: 10px; }
+ .yt-facade-meta { left: 8px; right: 8px; bottom: 7px; }
+ .yt-facade-pill { font-size: 0.68rem; padding: 3px 8px; }
+ .yt-pill-privacy { display: none; }
  }
  </style>
 </head>
@@ -375,7 +512,7 @@
  <!-- Pure Technical 2D CAD Layer Schematic (Zero Physical Product Photos) -->
  <div class="cad-diagram-card">
  <div class="cad-diagram-title">📐 LightBurn &amp; R2010 .DXF Color-Coded CAD Layer Architecture</div>
- <svg viewBox="0 0 460 220" width="100%" height="auto" role="img" aria-label="Technical CAD schematic showing #000000 outer cut border, #0055FF 1.1mm stitch holes, #FF0000 evenodd Bezier engraving path, and #00A859 50mm REF square">
+ <svg viewBox="0 0 460 220" style="width:100%;height:auto;display:block;" role="img" aria-label="Technical CAD schematic showing #000000 outer cut border, #0055FF 1.1mm stitch holes, #FF0000 evenodd Bezier engraving path, and #00A859 50mm REF square">
  <rect x="0" y="0" width="460" height="220" rx="8" fill="#0B0D13" stroke="#262C3A" />
  <!-- Patch Outer Cut (#000000 / rendered bright white-gray on dark schematic with label) -->
  <rect x="26" y="28" width="234" height="156" rx="22" fill="#131824" stroke="#F8FAFC" stroke-width="2" />
@@ -413,6 +550,40 @@
  <div class="spec-card">
  <h3>🪞 Rubber Stamps &amp; Keychain Tabs</h3>
  <p>Also generates pre-mirrored laser rubber stamp plates with contour cutlines, auto-welded <code>Ø 4.5 mm</code> keychain ring tabs, <code>1.6 mm</code> bridged spray stencils, and 19th-century 45° Banknote cross-hatch / intaglio linework.</p>
+ </div>
+ </div>
+ </section>
+
+ <section id="video-walkthrough">
+ <h2>98-Second LightBurn Laser Patch &amp; Keychain <span>Video Walkthrough</span></h2>
+ <p class="sec-sub">Watch a live PNG-to-LightBurn workflow generating color-coded <code>1:1 mm</code> Cubic Bezier engraving vectors, automatic <code>1.1 mm</code> stitch holes, and crown-welded <code>Ø 4.5 mm</code> keychain ring tabs.</p>
+
+ <div class="video-showcase-card">
+ <div class="yt-facade">
+ <button type="button" class="yt-facade-btn" data-yt-id="uY-da6IkDlE" data-yt-title="Convert Any PNG to 1:1mm LightBurn Laser Cut &amp; Engrave SVG (Auto Ring Tab &amp; Stitch Holes)" aria-label="Play video: Convert Any PNG to 1:1mm LightBurn Laser Cut &amp; Engrave SVG (Auto Ring Tab &amp; Stitch Holes)">
+ <img class="yt-facade-thumb" src="https://i.ytimg.com/vi/uY-da6IkDlE/maxresdefault.jpg" alt="YouTube tutorial thumbnail: Convert Any PNG to 1:1mm LightBurn Laser Cut &amp; Engrave SVG (Auto Ring Tab &amp; Stitch Holes)" width="1280" height="720" loading="lazy" decoding="async" onload="if(this.naturalWidth<=120&&this.src.indexOf('maxresdefault.jpg')!==-1){this.src='https://i.ytimg.com/vi/uY-da6IkDlE/hqdefault.jpg';}else if(this.naturalWidth<=120){this.style.opacity='0';}" onerror="if(this.src.indexOf('hqdefault.jpg')===-1){this.src='https://i.ytimg.com/vi/uY-da6IkDlE/hqdefault.jpg';}else{this.style.opacity='0';}" />
+ <span class="yt-facade-scrim" aria-hidden="true"></span>
+ <span class="yt-play-badge" aria-hidden="true">
+ <svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0D13"><polygon points="6,4 20,12 6,20"/></svg>
+ </span>
+ <span class="yt-facade-meta">
+ <span class="yt-facade-pill">▶ Click to Play Walkthrough (1:38)</span>
+ <span class="yt-facade-pill yt-pill-privacy">🔒 Privacy-Enhanced Embed</span>
+ </span>
+ </button>
+ </div>
+
+ <div class="video-notes">
+ <h3>Convert Any PNG to 1:1mm LightBurn Laser Cut &amp; Engrave SVG (Auto Ring Tab &amp; Stitch Holes)</h3>
+ <ul>
+ <li>✓ <strong>Color-Coded LightBurn Layers:</strong> Separate <code>#FF0000</code> <code>evenodd</code> engrave, <code>#0055FF</code> <code>1.1 mm</code> stitch holes, and <code>#000000</code> cut border.</li>
+ <li>✓ <strong>Ear-Safe Ring Tab Weld:</strong> Automatic <code>Ø 4.5 mm</code> keychain tab fused into solid top crown geometry.</li>
+ <li>✓ <strong>Zero 72/96 DPI Drift:</strong> Verified <code>1:1 mm</code> import scale with optional <code>#00A859</code> <code>50×50 mm</code> calibration square across <code>24</code> Step 2B modes.</li>
+ </ul>
+ <div class="cta-row" style="margin-bottom:0;">
+ <a href="https://app.ivolgaco.com/?preset=laser" class="btn-primary" style="padding:10px 18px;font-size:0.9rem;">📤 Try Your Image Free →</a>
+ <a href="https://www.youtube.com/watch?v=uY-da6IkDlE" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:10px 14px;font-size:0.84rem;">Watch on YouTube ↗</a>
+ </div>
  </div>
  </div>
  </section>
@@ -469,6 +640,7 @@
  <a href="/samples/luna-laser-patch.svg" download class="btn-secondary">⚡ Download LUNA Laser <code>.SVG</code> (242,655 B · <code>50mm REF</code>)</a>
  <a href="/samples/luna-cad-vectors.dxf" download class="btn-secondary">📐 Download LUNA R2010 <code>.DXF</code> (185,919 B · <code>SCALE_REF_50MM</code>)</a>
  <a href="/samples/luna-3d-stamp.stl" download class="btn-secondary">🧊 Download LUNA 3D Stamp <code>.STL</code> (2.27 MB)</a>
+ <a href="index.html#preflight" class="btn-secondary">🛡️ 6-Gate CAD Preflight Specs</a>
  <a href="https://github.com/ivanou18-dot/pixel2path-benchmarks" target="_blank" rel="noopener noreferrer" class="btn-secondary">🔬 GitHub Benchmark Repo →</a>
  </div>
  <p style="font-size:0.83rem;color:var(--text-muted);">
@@ -516,14 +688,44 @@
  <p style="margin-top: 8px;">
  <a href="index.html">Pixel2Path Home</a> •
  <a href="https://app.ivolgaco.com/?preset=laser">Launch Laser Patch Studio</a> •
- <a href="clay-cutter-stl-generator.html">Clay Cutter .STL Generator</a> •
  <a href="vault.html">Ready-to-Cut CAD Vault</a> •
  <a href="troubleshooter.html">AI Troubleshooter</a> •
  <a href="guide.html">Official User Guide</a> •
  <a href="llms.txt">LLMs Technical Spec</a> •
  <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
  </p>
+ <p style="margin-top: 8px; font-size: 0.79rem; color: #CBD5E1;">
+ <strong style="color: #E2E8F0;">Specialized Maker Workflows:</strong>
+ <a href="clay-cutter-stl-generator.html">Clay Cutter &amp; 2-Part Stamp .STL</a> •
+ <a href="wax-seal-pottery-stamp-stl.html">Wax Seal &amp; Pottery Stamp .STL</a> •
+ <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
+ <a href="cricut-sticker-halo-stencil-svg.html">Sticker Halo &amp; Stencil .SVG</a> •
+ <a href="brass-branding-iron-die-stl-dxf.html">M5/M8 Brass Die .DXF / .STL</a>
+ </p>
  </footer>
+
+ <script>
+ (function () {
+ document.querySelectorAll('.yt-facade-btn').forEach(function (btn) {
+ btn.addEventListener('click', function () {
+ var id = btn.getAttribute('data-yt-id');
+ var title = btn.getAttribute('data-yt-title') || 'Pixel2Path Studio Video Walkthrough';
+ if (!id) return;
+ var wrap = btn.closest('.yt-facade');
+ if (!wrap) return;
+ var iframe = document.createElement('iframe');
+ iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+ iframe.title = title;
+ iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+ iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+ iframe.setAttribute('allowfullscreen', '');
+ iframe.className = 'yt-facade-iframe';
+ wrap.innerHTML = '';
+ wrap.appendChild(iframe);
+ });
+ });
+ })();
+ </script>
 
 </body>
 </html>

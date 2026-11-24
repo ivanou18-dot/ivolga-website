@@ -31,7 +31,7 @@
  <meta name="twitter:description" content="Instant 1:1mm watertight .STL files with 0.42mm Arachne cutting lips, 3.2mm grip flanges, and 0.70mm 2-part stamp clearances for Bambu Studio, OrcaSlicer &amp; PrusaSlicer." />
  <meta name="twitter:image" content="https://ivolgaco.com/proof-bambu.jpg" />
 
- <!-- Structured Data: Organization + BreadcrumbList + SoftwareApplication + FAQPage -->
+ <!-- Structured Data: Organization + BreadcrumbList + SoftwareApplication + VideoObject + FAQPage -->
  <script type="application/ld+json">
  {
  "@context": "https://schema.org",
@@ -82,13 +82,13 @@
  "operatingSystem": "Web Browser (Windows, macOS, iOS, Android)",
  "url": "https://app.ivolgaco.com/?preset=stamp",
  "publisher": { "@id": "https://ivolgaco.com/#organization" },
- "description": "100% browser-based digital CAD software that converts PNG, JPG, WEBP, SVG, HEIC artwork or custom typography into 1:1 millimeter (±0.05mm) watertight 2-manifold .STL meshes for polymer clay micro-cutters (stepped 0.42mm razor lip + 1.2mm wall + 3.2mm grip flange), 2-part cutter + embossing stamp sets (0.70mm radial clearance), raised ceramic stamps, and support-free handled pottery chops. Digital CAD downloads only; no physical goods shipped.",
+ "description": "100% browser-based digital CAD software that converts PNG, JPG, WEBP, SVG, HEIC artwork or custom typography into 1:1 millimeter (±0.05mm) watertight 2-manifold .STL meshes across 24 Step 2B tool modes, including polymer clay micro-cutters (stepped 0.42mm razor lip + 1.2mm wall + 3.2mm grip flange), 2-part cutter + embossing stamp sets (0.70mm radial clearance), raised ceramic stamps, and support-free handled pottery chops. Digital CAD downloads only; no physical goods shipped.",
  "featureList": [
  "Stepped 0.42mm Polymer Clay Micro-Cutter profile (0.42mm Arachne cutting lip + 1.2mm structural wall + 3.2mm top grip flange, 10.5mm Z height)",
  "Matched 2-Part Cutter + Stamp Pair in a single .STL with calibrated 0.70mm radial clay-release clearance",
  "Watertight 2-manifold (3F = 2E) triangulation with >=0.45mm wall and >=0.52mm groove guards for 0.4mm FDM nozzles",
  "Post-filter 1:1 millimeter bounding-box calibration within ±0.05mm plus 256mm / 220mm 2D Build Plate Auto-Fit",
- "Up to 3 free daily 25mm 75% Cutaway Slicer Proofs (.STL) with no login required"
+ "Up to 3 free daily 25mm 75% Cutaway Slicer Proofs (.STL) across all 24 Step 2B tool modes with no login required"
  ],
  "offers": [
  {
@@ -116,6 +116,21 @@
  "url": "https://buy.stripe.com/bJe4gBakGaKi5f5cHvfjG01"
  }
  ]
+ },
+ {
+ "@type": "VideoObject",
+ "@id": "https://ivolgaco.com/clay-cutter-stl-generator.html#video",
+ "name": "Convert Any Image into a 3D Printable Clay Cutter, Stamp & Wax Seal STL (No CAD)",
+ "description": "Step-by-step walkthrough in Pixel2Path Studio showing how to convert any uploaded PNG/JPG image into 1:1 millimeter watertight .STL files for stepped 0.42mm polymer clay micro-cutters, 0.70mm-clearance 2-part cutter + embossing stamp sets, raised ceramic stamps, and recessed wax-seal cavities ready for Bambu Studio, OrcaSlicer, and PrusaSlicer.",
+ "thumbnailUrl": [
+ "https://i.ytimg.com/vi/RHDxY-ARYvA/maxresdefault.jpg",
+ "https://i.ytimg.com/vi/RHDxY-ARYvA/hqdefault.jpg"
+ ],
+ "uploadDate": "2026-11-19T12:00:00-07:00",
+ "duration": "PT2M5S",
+ "contentUrl": "https://www.youtube.com/watch?v=RHDxY-ARYvA",
+ "embedUrl": "https://www.youtube-nocookie.com/embed/RHDxY-ARYvA",
+ "publisher": { "@id": "https://ivolgaco.com/#organization" }
  },
  {
  "@type": "FAQPage",
@@ -173,7 +188,7 @@
  }
 
  * { box-sizing: border-box; margin: 0; padding: 0; }
- html { scroll-behavior: smooth; background-color: var(--bg-dark); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+ html { scroll-behavior: smooth; overflow-x: clip; background-color: var(--bg-dark); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
  body {
  background-color: var(--bg-dark);
  background-image:
@@ -302,6 +317,121 @@
  details.faq-item[open] summary::after { content: "−"; }
  .faq-body { margin-top: 10px; padding-top: 10px; border-top: 1px solid #262C3A; color: #CBD5E1; font-size: 0.86rem; line-height: 1.55; }
 
+ /* Privacy-Enhanced Click-to-Play YouTube Facade (100% Static at Rest) */
+ .video-showcase-card {
+ background: var(--bg-card);
+ border: 1.5px solid var(--border-subtle);
+ border-top: 3px solid var(--amber);
+ border-radius: 12px;
+ padding: 20px;
+ box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+ display: grid;
+ grid-template-columns: 1.22fr 0.78fr;
+ gap: 22px;
+ align-items: center;
+ }
+ .yt-facade {
+ position: relative;
+ width: 100%;
+ aspect-ratio: 16 / 9;
+ border-radius: 10px;
+ overflow: hidden;
+ background: #07090E;
+ border: 1px solid #2D364A;
+ }
+ .yt-facade-btn {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ padding: 0;
+ border: 0;
+ background-color: #090C14;
+ background-image:
+ radial-gradient(circle at 50% 45%, rgba(255, 179, 0, 0.14) 0%, rgba(9, 12, 20, 0) 68%),
+ linear-gradient(rgba(255, 179, 0, 0.05) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(255, 179, 0, 0.05) 1px, transparent 1px);
+ background-size: 100% 100%, 24px 24px, 24px 24px;
+ cursor: pointer;
+ display: block;
+ text-align: left;
+ color: inherit;
+ font: inherit;
+ }
+ .yt-facade-thumb {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+ }
+ .yt-facade-scrim {
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(180deg, rgba(11, 13, 19, 0.16) 0%, rgba(11, 13, 19, 0.62) 100%);
+ pointer-events: none;
+ }
+ .yt-play-badge {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 68px;
+ height: 48px;
+ border-radius: 12px;
+ background: var(--amber);
+ border: 2px solid #FFFFFF;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+ transition: background-color 0.15s ease, transform 0.15s ease;
+ pointer-events: none;
+ }
+ .yt-facade-btn:hover .yt-play-badge,
+ .yt-facade-btn:focus-visible .yt-play-badge {
+ background: var(--amber-hover);
+ transform: translate(-50%, -50%) scale(1.05);
+ }
+ .yt-facade-btn:focus-visible {
+ outline: 2px solid var(--amber);
+ outline-offset: 2px;
+ }
+ .yt-facade-meta {
+ position: absolute;
+ left: 12px;
+ bottom: 10px;
+ right: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 6px;
+ pointer-events: none;
+ }
+ .yt-facade-pill {
+ background: rgba(11, 13, 19, 0.88);
+ color: #F8FAFC;
+ border: 1px solid rgba(255, 179, 0, 0.5);
+ border-radius: 6px;
+ padding: 4px 9px;
+ font-size: 0.74rem;
+ font-weight: 800;
+ letter-spacing: 0.2px;
+ }
+ .yt-facade-iframe {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ border: 0;
+ display: block;
+ }
+ .video-notes h3 { font-size: 1.08rem; font-weight: 900; color: #FFFFFF; margin-bottom: 8px; line-height: 1.3; }
+ .video-notes ul { list-style: none; margin: 0 0 14px; display: flex; flex-direction: column; gap: 7px; }
+ .video-notes li { font-size: 0.84rem; color: #CBD5E1; line-height: 1.48; }
+ .video-notes li strong { color: var(--amber); }
+
  footer {
  border-top: 1px solid var(--border-subtle);
  padding: 28px 20px;
@@ -314,8 +444,15 @@
  footer a { color: var(--amber); text-decoration: none; margin: 0 6px; font-weight: 600; }
 
  @media (max-width: 900px) {
- .hero-grid, .spec-grid { grid-template-columns: 1fr; }
+ .hero-grid, .spec-grid, .video-showcase-card { grid-template-columns: 1fr; }
  .nav-links a.nav-item { display: none; }
+ }
+ @media (max-width: 600px) {
+ .video-showcase-card { padding: 14px; gap: 14px; }
+ .yt-play-badge { width: 54px; height: 38px; top: 43%; border-radius: 10px; }
+ .yt-facade-meta { left: 8px; right: 8px; bottom: 7px; }
+ .yt-facade-pill { font-size: 0.68rem; padding: 3px 8px; }
+ .yt-pill-privacy { display: none; }
  }
  </style>
 </head>
@@ -375,7 +512,7 @@
  <!-- Pure Technical CAD Cross-Section Schematic (Zero Physical Product Photos) -->
  <div class="cad-diagram-card">
  <div class="cad-diagram-title">📐 Stepped 3-Tier Clay Cutter + 0.70mm Stamp CAD Cross-Section (mm)</div>
- <svg viewBox="0 0 460 220" width="100%" height="auto" role="img" aria-label="Technical CAD cross-section of Pixel2Path Studio stepped 0.42mm polymer clay micro-cutter blade and 0.70mm clearance embossing stamp">
+ <svg viewBox="0 0 460 220" style="width:100%;height:auto;display:block;" role="img" aria-label="Technical CAD cross-section of Pixel2Path Studio stepped 0.42mm polymer clay micro-cutter blade and 0.70mm clearance embossing stamp">
  <rect x="0" y="0" width="460" height="220" rx="8" fill="#0B0D13" stroke="#262C3A" />
  <!-- Build plate baseline -->
  <line x1="20" y1="186" x2="440" y2="186" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,4" />
@@ -416,6 +553,40 @@
  <div class="spec-card">
  <h3>🕹️ Pottery Chops &amp; Cavity Seals</h3>
  <p>Also includes <strong>Handled Stamps / Pottery Chops</strong> with an integrated <code>20–26 mm</code> support-free ergonomic handle, <strong>Recessed Cavity Wax/Clay Molds</strong> (<code>≥ 1.5 mm</code> floor guard), and variable-Z <strong>Sculpted 3D Bas-Relief Plaques</strong> across 17 silhouettes.</p>
+ </div>
+ </div>
+ </section>
+
+ <section id="video-walkthrough">
+ <h2>2-Minute 3D Clay Cutter &amp; Stamp <span>Video Walkthrough</span></h2>
+ <p class="sec-sub">Watch a live browser-to-slicer workflow converting a raw image into a stepped <code>0.42 mm</code> polymer clay micro-cutter, matched <code>0.70 mm</code> 2-part stamp set, and recessed wax-seal <code>.STL</code> — zero CAD modeling required.</p>
+
+ <div class="video-showcase-card">
+ <div class="yt-facade">
+ <button type="button" class="yt-facade-btn" data-yt-id="RHDxY-ARYvA" data-yt-title="Convert Any Image into a 3D Printable Clay Cutter, Stamp &amp; Wax Seal STL (No CAD)" aria-label="Play video: Convert Any Image into a 3D Printable Clay Cutter, Stamp &amp; Wax Seal STL (No CAD)">
+ <img class="yt-facade-thumb" src="https://i.ytimg.com/vi/RHDxY-ARYvA/maxresdefault.jpg" alt="YouTube tutorial thumbnail: Convert Any Image into a 3D Printable Clay Cutter, Stamp &amp; Wax Seal STL (No CAD)" width="1280" height="720" loading="lazy" decoding="async" onload="if(this.naturalWidth<=120&&this.src.indexOf('maxresdefault.jpg')!==-1){this.src='https://i.ytimg.com/vi/RHDxY-ARYvA/hqdefault.jpg';}else if(this.naturalWidth<=120){this.style.opacity='0';}" onerror="if(this.src.indexOf('hqdefault.jpg')===-1){this.src='https://i.ytimg.com/vi/RHDxY-ARYvA/hqdefault.jpg';}else{this.style.opacity='0';}" />
+ <span class="yt-facade-scrim" aria-hidden="true"></span>
+ <span class="yt-play-badge" aria-hidden="true">
+ <svg width="22" height="22" viewBox="0 0 24 24" fill="#0B0D13"><polygon points="6,4 20,12 6,20"/></svg>
+ </span>
+ <span class="yt-facade-meta">
+ <span class="yt-facade-pill">▶ Click to Play Walkthrough (2:05)</span>
+ <span class="yt-facade-pill yt-pill-privacy">🔒 Privacy-Enhanced Embed</span>
+ </span>
+ </button>
+ </div>
+
+ <div class="video-notes">
+ <h3>Convert Any Image into a 3D Printable Clay Cutter, Stamp &amp; Wax Seal STL (No CAD)</h3>
+ <ul>
+ <li>✓ <strong>Stepped 0.42 mm Blade:</strong> Live preview of <code>Contour Offset</code> silhouette + 3-tier Arachne cutting edge.</li>
+ <li>✓ <strong>2-Part Cutter + Stamp Pair:</strong> Exporting matched side-by-side cutter and <code>0.70 mm</code>-inset stamp bodies in one <code>.STL</code>.</li>
+ <li>✓ <strong>1:1 mm Slicer Import:</strong> Verifying flat <code>Z = 0</code> bed orientation and support-free geometry across all <code>24</code> Step 2B modes.</li>
+ </ul>
+ <div class="cta-row" style="margin-bottom:0;">
+ <a href="https://app.ivolgaco.com/?preset=stamp" class="btn-primary" style="padding:10px 18px;font-size:0.9rem;">📤 Try Your Image Free →</a>
+ <a href="https://www.youtube.com/watch?v=RHDxY-ARYvA" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:10px 14px;font-size:0.84rem;">Watch on YouTube ↗</a>
+ </div>
  </div>
  </div>
  </section>
@@ -472,6 +643,7 @@
  <a href="/samples/luna-3d-stamp.stl" download class="btn-secondary">🧊 Download LUNA 3D Stamp <code>.STL</code> (47,704 Tris · <code>3F = 2E</code>)</a>
  <a href="/samples/luna-laser-patch.svg" download class="btn-secondary">⚡ Download LUNA Bezier <code>.SVG</code> (237 KB)</a>
  <a href="/samples/luna-cad-vectors.dxf" download class="btn-secondary">📐 Download LUNA R2010 <code>.DXF</code> (182 KB)</a>
+ <a href="index.html#preflight" class="btn-secondary">🛡️ 6-Gate CAD Preflight Specs</a>
  <a href="https://github.com/ivanou18-dot/pixel2path-benchmarks" target="_blank" rel="noopener noreferrer" class="btn-secondary">🔬 GitHub Benchmark Repo →</a>
  </div>
  <p style="font-size:0.83rem;color:var(--text-muted);">
@@ -519,14 +691,44 @@
  <p style="margin-top: 8px;">
  <a href="index.html">Pixel2Path Home</a> •
  <a href="https://app.ivolgaco.com/?preset=stamp">Launch 3D Cutter Studio</a> •
- <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
  <a href="vault.html">Ready-to-Cut CAD Vault</a> •
  <a href="troubleshooter.html">AI Troubleshooter</a> •
  <a href="guide.html">Official User Guide</a> •
  <a href="llms.txt">LLMs Technical Spec</a> •
  <a href="mailto:contact@ivolgaco.com">contact@ivolgaco.com</a>
  </p>
+ <p style="margin-top: 8px; font-size: 0.79rem; color: #CBD5E1;">
+ <strong style="color: #E2E8F0;">Specialized Maker Workflows:</strong>
+ <a href="clay-cutter-stl-generator.html">Clay Cutter &amp; 2-Part Stamp .STL</a> •
+ <a href="wax-seal-pottery-stamp-stl.html">Wax Seal &amp; Pottery Stamp .STL</a> •
+ <a href="laser-leather-patch-svg.html">Laser Leather Patch .SVG</a> •
+ <a href="cricut-sticker-halo-stencil-svg.html">Sticker Halo &amp; Stencil .SVG</a> •
+ <a href="brass-branding-iron-die-stl-dxf.html">M5/M8 Brass Die .DXF / .STL</a>
+ </p>
  </footer>
+
+ <script>
+ (function () {
+ document.querySelectorAll('.yt-facade-btn').forEach(function (btn) {
+ btn.addEventListener('click', function () {
+ var id = btn.getAttribute('data-yt-id');
+ var title = btn.getAttribute('data-yt-title') || 'Pixel2Path Studio Video Walkthrough';
+ if (!id) return;
+ var wrap = btn.closest('.yt-facade');
+ if (!wrap) return;
+ var iframe = document.createElement('iframe');
+ iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+ iframe.title = title;
+ iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+ iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+ iframe.setAttribute('allowfullscreen', '');
+ iframe.className = 'yt-facade-iframe';
+ wrap.innerHTML = '';
+ wrap.appendChild(iframe);
+ });
+ });
+ })();
+ </script>
 
 </body>
 </html>
