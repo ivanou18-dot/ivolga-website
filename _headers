@@ -12,3 +12,9 @@
   Content-Type: text/plain; charset=utf-8
   X-Content-Type-Options: nosniff
   Access-Control-Allow-Origin: *
+
+/sitemap.xml
+  X-Robots-Tag: noindex
+
+/api/*
+  X-Robots-Tag: noindex

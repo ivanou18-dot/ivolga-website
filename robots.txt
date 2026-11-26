@@ -6,45 +6,56 @@ User-agent: *
 Allow: /
 Allow: /samples/
 Allow: /llms.txt
+Disallow: /api/
 
 User-agent: Googlebot
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: Perplexity-User
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: Claude-SearchBot
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: Claude-Web
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 User-agent: Applebot
 Allow: /
 Allow: /samples/
+Disallow: /api/
 
 Sitemap: https://ivolgaco.com/sitemap.xml
